@@ -1,12 +1,6 @@
-# Casper
+# Bus Rides Ghost Theme
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper. If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
-
-&nbsp;
-
-![screenshot-desktop](https://user-images.githubusercontent.com/120485/27221326-1e31d326-5280-11e7-866d-82d550a7683b.jpg)
-
-&nbsp;
+A custom theme for Bus Rides built off of the [Casper](https://github.com/TryGhost/Casper/releases) theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of the Bus Rides theme.
 
 # First time using a Ghost theme?
 
