@@ -2,8 +2,7 @@
     <ul class="nav">
         <!-- Loop through the navigation items -->
         {{#foreach navigation}}
-        {{!-- {{createNavItem slug current url label}} --}}
-        {{!-- <h1>TEST</h1> --}}
+        {{createNavItem slug current url label}}
         {{!-- <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li> --}}
         {{/foreach}}
         <!-- End the loop -->
