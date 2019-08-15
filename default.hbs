@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     {{!-- Base Meta --}}
-    <title>{{meta_title}}</title>
+    <title>{{pageTitle (meta_title)}}</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -54,6 +54,26 @@
         </div>
     </div>
     {{/if}}
+
+    {{!-- Rather than injecting the code to have nav items hide based on localization --}}
+    <script>
+        let navItems = document.querySelector(".nav").children;
+        let langIsEnglish = !window.location.href.includes("/fr/") && !window.location.href.includes("-fr/") ? true : false;
+
+        [].forEach.call(navItems, function(navItem) {
+            let url = navItem.firstChild.href;
+            if (langIsEnglish) {
+                if (url.includes("/fr/") && navItem.classList[0] != "nav-francais" || url.includes("-fr/") || navItem.classList[0] == "nav-english") {
+                    navItem.firstChild.style = "display:none"; 
+                }
+            }
+            else if (!langIsEnglish) {
+                if (!url.includes("/fr/") && navItem.classList[0] != "nav-english" && !url.includes("-fr/") || url.includes("-en/") || navItem.classList[0] == "nav-francais") {
+                    navItem.firstChild.style = "display:none";
+                }
+            }
+        });
+    </script>
 
     <script>
         var images = document.querySelectorAll('.kg-gallery-image img');

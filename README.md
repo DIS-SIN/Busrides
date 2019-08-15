@@ -1,14 +1,12 @@
-# Bus Rides Ghost Theme
+# Casper
 
-A custom theme for Bus Rides built off of the [Casper](https://github.com/TryGhost/Casper/releases) theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of the Bus Rides theme.
+The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper. If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
 
-## What is Bus Rides?
+&nbsp;
 
-Busrides is a micro learning platform that focuses on specific Learning Objectives that span 3-6 minutes in length. The platform is an external facing tool that is open to the Canadian Public Service at all levels. Episodes are designed to appeal to multiple learning styles by following a read, watch, listen, apply format;
+![screenshot-desktop](https://user-images.githubusercontent.com/120485/27221326-1e31d326-5280-11e7-866d-82d550a7683b.jpg)
 
-It will be designed to raise awareness and demystify digital transformation in the GC context. Busrides promotes a collaborative learning culture and encourages learners to share their experiences with peers in an informal manner. Information can be tagged by topic to improve usability.
-
-Bus Rides will also feature easy integration with other interactive applications (Twitter, Medium, Quiz’s)
+&nbsp;
 
 # First time using a Ghost theme?
 

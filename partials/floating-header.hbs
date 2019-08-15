@@ -4,10 +4,10 @@
             {{#if @site.icon}}
                 <img src="{{img_url @site.icon size="xxs"}}" alt="{{@site.title}} icon" />
             {{/if}}
-            <span>{{@site.title}}</span>
+            {{!-- <span>{{@site.title}}</span> --}}
         </a>
     </div>
-    <span class="floating-header-divider">&mdash;</span>
+    {{!-- <span class="floating-header-divider">&mdash;</span> --}}
     <div class="floating-header-title">{{title}}</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this {{> "icons/point"}}</div>
