@@ -25,7 +25,7 @@
     bluebird "^3.5.3"
     emoji-regex "^8.0.0"
     execa "^1.0.0"
-    lodash "^4.17.11"
+    lodash "^4.17.13"
     request "^2.88.0"
     request-promise "^4.2.4"
 
@@ -1688,7 +1688,7 @@ gscan@2.6.2:
     fs-extra "^8.0.0"
     ghost-ignition "3.1.0"
     glob "^7.0.5"
-    lodash "^4.17.11"
+    lodash "^4.17.13"
     multer "^1.1.0"
     pluralize "^8.0.0"
     require-dir "^1.0.0"
@@ -3533,7 +3533,7 @@ request-promise-core@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.2.tgz#339f6aababcafdb31c799ff158700336301d3346"
   dependencies:
-    lodash "^4.17.11"
+    lodash "^4.17.13"
 
 request-promise@^4.2.4:
   version "4.2.4"
