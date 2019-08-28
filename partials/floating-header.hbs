@@ -19,6 +19,14 @@
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             {{> "icons/facebook"}}
         </a>
+        <a class="floating-header-share-in" href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}"
+            onclick="window.open(this.href, 'share-linkedin','width=580,height=296');return false;">
+            {{> "icons/linkedin"}}
+        </a>
+        <a class="floating-header-share-em" href="mailto:?body={{url absolute="true"}}"
+            onclick="location.replace(this.href, 'share-email','width=580,height=296');return false;">
+            {{> "icons/email"}}
+        </a>
     </div>
     <progress id="reading-progress" class="progress" value="0">
         <div class="progress-container">

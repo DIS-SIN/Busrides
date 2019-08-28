@@ -1,3 +1,4 @@
+<html lang="fr"></html>
 {{!< default}}
 
 {{!-- The tag above means: insert everything in this file
@@ -81,8 +82,8 @@ into the {body} of the default.hbs template --}}
                 <script>
                 var disqus_config = function () {
                     this.page.url = "{{url absolute="true"}}";  
-                    this.page.identifier = "ghost-{{comment_id}}"
-                    // If post is in French then set the Disqus language to French
+                    this.page.identifier = "ghost-{{comment_id}}";
+                    
                     if (window.location.pathname.substr(0,4) == "/fr/"){
                         this.language = "fr";
                     }

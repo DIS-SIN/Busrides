@@ -1,3 +1,12 @@
+<script>
+    // Used to update the language in localstorage, called from createNavItem helper
+    function updateLang(lang){
+        if (localStorage){
+            localStorage.langIsEnglish = lang;
+        }
+    }
+</script>
+
 <nav class="site-nav">
     <div class="site-nav-left">
         {{^is "home"}}
@@ -13,12 +22,16 @@
     </div>
     <div class="site-nav-right">
         <div class="social-links">
-            {{#if @site.facebook}}
+            {{!-- {{#if @site.facebook}}
                 <a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
             {{/if}}
             {{#if @site.twitter}}
                 <a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-            {{/if}}
+            {{/if}} --}}
+            {{!-- English --}}
+            <a class="social-link social-link-tw english-tw" href="https://twitter.com/DigiAcademyCAN" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+            {{!-- French --}}
+            <a class="social-link social-link-tw french-tw" href="https://twitter.com/AcademieNumCAN" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
         </div>
         {{#if @labs.subscribers}}
             <a class="subscribe-button" href="#subscribe">Subscribe</a>
@@ -27,3 +40,17 @@
         {{/if}}
     </div>
 </nav>
+
+<script>
+    if (localStorage){
+        if (JSON.parse(localStorage.langIsEnglish)){
+            document.querySelector(".french-tw").style = "display:none";
+        }
+        else {
+            document.querySelector(".english-tw").style = "display:none";
+        }
+    }
+    else{
+        document.querySelector(".french-tw").style = "display:none";
+    }
+</script>

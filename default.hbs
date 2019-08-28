@@ -30,10 +30,12 @@
             <div class="site-footer-content inner">
                 <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
                 <nav class="site-footer-nav">
-                    <a href="{{@site.url}}">Latest Posts</a>
-                    {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
-                    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
-                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                    {{!-- <a href="{{@site.url}}">Latest Posts</a> --}}
+                    {{!-- {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
+                    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}} --}}
+                    <a href="https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx" target="_blank" rel="noopener">What is the Digital Academy?</a>
+                    <a href="http://eepurl.com/gdiUTH" target="_blank" rel="noopener">Subscribe to our newsletter</a>
+                    <a href="http://eepurl.com/gdiUTz" target="_blank" rel="noopener">Abonnez-vous à notre infolettre</a>
                 </nav>
             </div>
         </footer>
@@ -59,6 +61,10 @@
     <script>
         let navItems = document.querySelector(".nav").children;
         let langIsEnglish = !window.location.href.includes("/fr/") && !window.location.href.includes("-fr/") ? true : false;
+
+        if (localStorage){
+            localStorage.langIsEnglish = langIsEnglish;
+        }
 
         [].forEach.call(navItems, function(navItem) {
             let url = navItem.firstChild.href;
