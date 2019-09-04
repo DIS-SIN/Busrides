@@ -158,6 +158,18 @@ body {
     text-align: center;
 }
 
+.site-header-fip-bar {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.site-header-fip {
+    width: 300px;
+    max-width: 40%;
+    padding: 6px;
+}
+
 .site-title {
     z-index: 10;
     margin: 0;
@@ -2251,7 +2263,14 @@ Usage (In Ghost editor):
     padding-top: 20px;
     padding-bottom: 60px;
     color: #fff;
-    background: #3F2A55;
+    background: black;
+}
+
+.site-footer-fip {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
 }
 
 .site-footer-content {

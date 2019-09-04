@@ -20,6 +20,10 @@
 </head>
 <body class="{{body_class}}">
 
+    <div class="site-header-fip-bar">
+        <img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/>
+    </div>
+
     <div class="site-wrapper">
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
@@ -28,15 +32,31 @@
         {{!-- The footer at the very bottom of the screen --}}
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
+                <div class="site-footer-fip">
+                    <img src="/content/images/FIPS/Canada_White_FIP.png" alt="Government of Canada - Gouvernement du Canada"/> 
+                </div>
                 <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-                <nav class="site-footer-nav">
+                <nav class="site-footer-nav site-footer-nav-en">
                     {{!-- <a href="{{@site.url}}">Latest Posts</a> --}}
                     {{!-- {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
                     {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}} --}}
-                    <a href="https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx" target="_blank" rel="noopener">What is the Digital Academy?</a>
-                    <a href="http://eepurl.com/gdiUTH" target="_blank" rel="noopener">Subscribe to our newsletter</a>
-                    <a href="http://eepurl.com/gdiUTz" target="_blank" rel="noopener">Abonnez-vous à notre infolettre</a>
+                    <a href="https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx" class="footer-en" target="_blank" rel="noopener">What is the Digital Academy?</a>
+                    <a href="http://eepurl.com/gdiUTH" class="footer-en" target="_blank" rel="noopener">Subscribe to our newsletter</a>
                 </nav>
+                <nav class="site-footer-nav site-footer-nav-fr">
+                    <a href="https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx" class="footer-fr" target="_blank" rel="noopener">Qu'est-ce que l'Académie numérique?</a>
+                    <a href="http://eepurl.com/gdiUTz" class="footer-fr" target="_blank" rel="noopener">Abonnez-vous à notre infolettre</a>
+                </nav>
+                <script>
+                    if (localStorage){
+                        if (localStorage.langIsEnglish && JSON.parse(localStorage.langIsEnglish)){
+                            document.querySelector(".site-footer-nav-fr").style = "display:none";
+                        }
+                        else{
+                            document.querySelector(".site-footer-nav-en").style = "display:none";
+                        }
+                    }
+                </script>
             </div>
         </footer>
 
@@ -70,12 +90,18 @@
             let url = navItem.firstChild.href;
             if (langIsEnglish) {
                 if (url.includes("/fr/") && navItem.classList[0] != "nav-francais" || url.includes("-fr/") || navItem.classList[0] == "nav-english") {
-                    navItem.firstChild.style = "display:none"; 
+                    // Episode pages get their href modified to go to the episode in the opposite language, this prevents episode page language links from being hidden
+                    if (!url.includes("/fr/ep")){
+                        navItem.firstChild.style = "display:none"; 
+                    }
                 }
             }
             else if (!langIsEnglish) {
                 if (!url.includes("/fr/") && navItem.classList[0] != "nav-english" && !url.includes("-fr/") || url.includes("-en/") || navItem.classList[0] == "nav-francais") {
-                    navItem.firstChild.style = "display:none";
+                    // Episode pages get their href modified to go to the episode in the opposite language, this prevents episode page language links from being hidden
+                    if (!url.includes("/en/ep")){
+                        navItem.firstChild.style = "display:none";
+                    }
                 }
             }
         });

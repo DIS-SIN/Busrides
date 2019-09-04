@@ -10,6 +10,12 @@ into the {body} of the default.hbs template --}}
     </div>
 </header>
 
+<script>
+    let episodePath = window.location.pathname;
+    document.querySelector(".nav-francais").firstChild.href = episodePath.split("en").join("fr");
+    document.querySelector(".nav-english").firstChild.href = episodePath.split("fr").join("en");
+</script>
+
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
