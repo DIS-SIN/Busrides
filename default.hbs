@@ -20,6 +20,18 @@
 </head>
 <body class="{{body_class}}">
 
+    {{!-- If this is the user's first visit (or localStorage is cleared) then display the splashscreen --}}
+    <script>
+        try {
+            if (!localStorage.langIsEnglish && !window.location.pathname.includes("/splash")){
+            window.location.assign("/splash");
+        }
+        }
+        catch(error) {
+            console.error("Please enable localstorage to fully use this site");
+        }
+    </script>
+
     <div class="site-header-fip-bar">
         <img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/>
     </div>

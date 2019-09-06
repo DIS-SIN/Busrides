@@ -391,6 +391,33 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     }
 }
 
+/* 6. Splash Screen
+/* ---------------------------------------------------------- */
+
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(https://dbnw2m47oosuz.cloudfront.net/2019/09/scott-webb-Ms6bSWTcVkg-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.splash-screen-window {
+    background-color: white;
+    padding: 50px;
+    font-weight: bold;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.splash-screen-window button {
+    border: solid;
+    border-radius: 5px;
+    margin: 10px;
+}
+
 
 /* 6. Post Feed
 /* ---------------------------------------------------------- */

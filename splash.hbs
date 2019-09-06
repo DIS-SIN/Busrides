@@ -1,0 +1,17 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The main content area --}}
+<main class="splash-screen site-main outer">
+    <div class="splash-screen-window">
+        <a onclick="setLang(true)" href="/"><button>English</button></a>
+        <a onclick="setLang(false)" href="/fr"><button>Français</button></a>
+    </div>
+</main>
+
+<script>
+    function setLang(langIsEnglish){
+        localStorage.langIsEnglish = JSON.stringify(langIsEnglish);
+    }
+</script>
