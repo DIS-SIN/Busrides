@@ -103,7 +103,7 @@
             if (langIsEnglish) {
                 if (url.includes("/fr/") && navItem.classList[0] != "nav-francais" || url.includes("-fr/") || navItem.classList[0] == "nav-english") {
                     // Episode pages get their href modified to go to the episode in the opposite language, this prevents episode page language links from being hidden
-                    if (!url.includes("/fr/ep")){
+                    if (!url.includes("fr/ep")){
                         navItem.firstChild.style = "display:none"; 
                     }
                 }
@@ -111,7 +111,7 @@
             else if (!langIsEnglish) {
                 if (!url.includes("/fr/") && navItem.classList[0] != "nav-english" && !url.includes("-fr/") || url.includes("-en/") || navItem.classList[0] == "nav-francais") {
                     // Episode pages get their href modified to go to the episode in the opposite language, this prevents episode page language links from being hidden
-                    if (!url.includes("/en/ep")){
+                    if (!url.includes("en/ep")){
                         navItem.firstChild.style = "display:none";
                     }
                 }
