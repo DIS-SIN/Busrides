@@ -9,13 +9,11 @@
 
 <nav class="site-nav">
     <div class="site-nav-left">
-        {{^is "home"}}
-            {{#if @site.logo}}
-                <a class="site-nav-logo"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>
-            {{else}}
-                <a class="site-nav-logo">{{@site.title}}</a>
-            {{/if}}
-        {{/is}}
+        {{#if @site.logo}}
+            <a class="site-nav-logo"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>
+        {{else}}
+            <a class="site-nav-logo">{{@site.title}}</a>
+        {{/if}}
         {{#if @site.navigation}}
             {{navigation}}
         {{/if}}
