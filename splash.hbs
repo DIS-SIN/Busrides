@@ -5,8 +5,24 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 <main class="splash-screen site-main outer">
     <div class="splash-screen-window">
-        <a onclick="setLang(true)" href="/"><button>English</button></a>
-        <a onclick="setLang(false)" href="/fr"><button>Français</button></a>
+        <a onclick="setLang(true)" href="/">
+            <button>
+                <p>Welcome to</p>
+                <p><b>Busrides</b></p>
+                <div class="splash-divider"></div>
+                <p><i>Start in</i></p>
+                <p class="splash-lang">English</p>
+            </button>
+        </a>
+        <a onclick="setLang(false)" href="/fr">
+            <button>
+                <p>Bienvenue à</p>
+                <p><b>Trajet en bus</b></p>
+                <div class="splash-divider"></div>
+                <p><i>Commencez en</i></p>
+                <p class="splash-lang">Français</p>
+            </button>
+        </a>
     </div>
 </main>
 
@@ -14,4 +30,11 @@ into the {body} of the default.hbs template --}}
     function setLang(langIsEnglish){
         localStorage.langIsEnglish = JSON.stringify(langIsEnglish);
     }
+</script>
+
+{{!-- Hide the footer on the splash screen --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.querySelector(".site-footer").style = "display:none";
+    });
 </script>
