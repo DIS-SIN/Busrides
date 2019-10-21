@@ -422,6 +422,10 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     background-color: black;
 }
 
+.splash-screen-window button:hover {
+    box-shadow: 0 0 6px 0px rgba(255, 255, 255, 0.75);
+}
+
 .splash-screen-window p {
     font-weight: normal;
     margin: 0;
