@@ -1,0 +1,41 @@
+<div class="beta-feedback">
+    <div class="container" style="text-align:center;">
+        <div class="row">
+            <div class="col-12">
+                <span>Busrides is currently an open proof of concept.<span>
+				<div class="text-center">
+					<img alt="logo" src="{{asset "feedback-button-png-5.png"}}" class="beta-btn cta-open" />
+				</div>
+     
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+
+	<section class="toggle-form">
+	<div class="formwrap px-4">
+		<div class="icon-close pos-a"><img src="https://www.solodev.com/_/images/cross.png" alt="Close Button"></div>
+
+		<form action="/ghost/api/v2/content/beta/feedback" method="post" role="form" data-toggle="validator">
+			<div class="form-group margin-top-m">
+			<label for="comment" class="control-label">Feedback</label>
+			<textarea name="comment" id="comment" class="form-control required" data-error="Comment is required to submit" required></textarea>
+			<div class="help-block with-errors"></div>
+			</div>
+			<div class="form-group">
+			<label for="email" class="control-label">Email(optional)</label>
+			<input type="email" id="email" name="email" class="form-control">
+			<div class="help-block with-errors"></div>
+			</div>
+			<p class="text-center margin-top-s">
+				<small>By clicking "Submit" you agree to selling your soul in our <a href="/terms/">Terms of Service</a>.</small>
+			</p>
+			<p class="margin-0"><button type="submit" class="btn btn-lg orange w-100 margin-top-s">Submit</button></p>
+		</form>    
+	</div>
+	<div class="toggle-bg"></div>
+	</section>
+</div>
+
