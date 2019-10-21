@@ -161,7 +161,14 @@ body {
 .site-header-fip-bar {
     width: 100%;
     height: auto;
+    padding: 10px;
     background-color: #fff;
+}
+
+.site-header-fip-bar .beta-notice {
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
 }
 
 .site-header-fip {

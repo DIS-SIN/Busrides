@@ -35,9 +35,13 @@
         }
     </script>
 
-    {{!-- <div class="site-header-fip-bar">
-        <a href="https://www.canada.ca/" title="Go to the Canada.ca website"><img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/></a>
-    </div> --}}
+    <div class="site-header-fip-bar">
+        {{!-- <a href="https://www.canada.ca/" title="Go to the Canada.ca website"><img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/></a> --}}
+        <p class="beta-notice beta-notice-fr">Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!</p>
+        <p class="beta-notice beta-notice-fr"><a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction" target="_top">Fournir de la rétroaction</a></p>
+        <p class="beta-notice beta-notice-en">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
+        <p class="beta-notice beta-notice-en"><a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback" target="_top">Provide feedback</a></p>
+    </div>
 
     <div class="site-wrapper">
 
@@ -151,6 +155,27 @@
         }
         else{
             document.querySelector(".french-tw").style = "display:none";
+        }
+    </script>
+
+    {{!-- Displaying the correct beta notice --}}
+    <script>
+        if (localStorage){
+            if (JSON.parse(localStorage.langIsEnglish)){
+                [].forEach.call(document.querySelectorAll(".beta-notice-fr"), el => {
+                    el.style = "display: none";
+                });
+            }
+            else {
+                [].forEach.call(document.querySelectorAll(".beta-notice-en"), el => {
+                    el.style = "display: none";
+                });
+            }
+        }
+        else{
+            [].forEach.call(document.querySelectorAll(".beta-notice-fr"), el => {
+                el.style = "display: none";
+            });
         }
     </script>
 
