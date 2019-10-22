@@ -1,41 +1,36 @@
-<div class="beta-feedback">
-    <div class="container" style="text-align:center;">
-        <div class="row">
-            <div class="col-12">
-                <span>Busrides is currently an open proof of concept.<span>
-				<div class="text-center">
-					<img alt="logo" src="{{asset "feedback-button-png-5.png"}}" class="beta-btn cta-open" />
-				</div>
-     
-            </div>
-        </div>
-    </div>
+
+<div class="site-header-fip-bar">
+	{{!-- <a href="https://www.canada.ca/" title="Go to the Canada.ca website"><img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/></a> --}}
+	<p class="beta-notice beta-notice-fr">Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!</p>
+	<p class="beta-notice beta-notice-fr"><a class="cta-open">Fournir de la rétroaction</a></p>
+	<p class="beta-notice beta-notice-en">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
+	<p class="beta-notice beta-notice-en"><a class="cta-open">Provide feedback</a></p>
 </div>
 
 <div>
 
 	<section class="toggle-form">
-	<div class="formwrap px-4">
-		<div class="icon-close pos-a"><img src="{{asset "close-window.png"}}" alt="Close Button"></div>
+		<div class="formwrap px-4">
+			<div class="icon-close pos-a">X</div>
 
-		<form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
-			<div class="form-group margin-top-m">
-			<label for="comment" class="control-label">Feedback</label>
-			<textarea name="comment" id="comment" class="form-control required" data-error="Comment is required to submit" required></textarea>
-			<div class="help-block with-errors"></div>
-			</div>
-			<div class="form-group">
-			<label for="email" class="control-label">Email(optional)</label>
-			<input type="email" id="email" name="email" class="form-control">
-			<div class="help-block with-errors"></div>
-			</div>
-			<p class="text-center margin-top-s">
-				<small>By clicking "Submit" you agree to selling your soul in our <a href="/terms/">Terms of Service</a>.</small>
-			</p>
-			<p class="margin-0"><button type="submit" class="btn btn-lg orange w-100 margin-top-s">Submit</button></p>
-		</form>    
-	</div>
-	<div class="toggle-bg"></div>
+			<form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
+				<div class="form-group margin-top-m">
+				<label for="comment" class="control-label">Feedback</label>
+				<textarea name="comment" id="comment" class="form-control required" data-error="Comment is required to submit" required></textarea>
+				<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+				<label for="email" class="control-label">Email(optional)</label>
+				<input type="email" id="email" name="email" class="form-control">
+				<div class="help-block with-errors"></div>
+				</div>
+				<p class="text-center margin-top-s">
+					<small>By clicking "Submit" you agree to selling your soul in our <a href="/terms/">Terms of Service</a>.</small>
+				</p>
+				<p class="margin-0"><button type="submit" class="btn btn-lg orange w-100 margin-top-s">Submit</button></p>
+			</form>    
+		</div>
+		<div class="toggle-bg"></div>
 	</section>
 </div>
 

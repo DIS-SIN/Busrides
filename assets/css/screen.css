@@ -2422,14 +2422,7 @@ top: 1.8rem;
 transition: right .6s ease-in-out;
 cursor: pointer;
 }
-a,
-label,
-p {
-color: #fff;;
-}
-label {
-font-weight: 600;
-}
+
 .has-error .help-block {
 color: #fff; 
 text-align: center;
@@ -2449,23 +2442,6 @@ display: none;
     position: static;
     display: inline;
 }
-.toggle-form .formwrap img {
-    width: 20px;
-}
-.orange {
-    background-color: #ff910e;
-    border-color: #ff910e;
-    color: #fff;
-    padding: .5rem 2rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 2rem;
-}
-.btn.orange:hover {
-    background-color: #da7600;
-    border-color: #da7600;
-    color: #fff;
-}
 .form-control {
     display: block;
     width: 100%;
@@ -2475,12 +2451,12 @@ display: none;
     background-color: #fff;
     background-image: none;
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
+    border-style: solid;
+    border-color: #000000;
     border-radius: 1.5rem;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .formwrap {
-background-color: #1aafff; 
 max-width: 620px;
 margin: auto;
 box-shadow: -1px 0px 12px rgba(0, 0, 0, 0.1);

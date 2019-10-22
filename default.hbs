@@ -36,17 +36,9 @@
             console.error("Please enable localstorage to fully use this site");
         }
     </script>
-
-    <div class="site-header-fip-bar">
-        {{!-- <a href="https://www.canada.ca/" title="Go to the Canada.ca website"><img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/></a> --}}
-        <p class="beta-notice beta-notice-fr">Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!</p>
-        <p class="beta-notice beta-notice-fr"><a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction" target="_top">Fournir de la rétroaction</a></p>
-        <p class="beta-notice beta-notice-en">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
-        <p class="beta-notice beta-notice-en"><a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback" target="_top">Provide feedback</a></p>
-    </div>
+    {{> beta-feedback }}
 
     <div class="site-wrapper">
-        {{> "beta-feedback"}}
 
         {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
         {{{body}}}
