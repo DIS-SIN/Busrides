@@ -1,0 +1,10 @@
+{
+    "/js/manifest.js": "/js/manifest.js",
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/app.js": "/js/app.js",
+    "/js/home.js": "/js/home.js",
+    "/js/page.js": "/js/page.js",
+    "/js/polyfill.js": "/js/polyfill.js",
+    "/css/app.css": "/css/app.css",
+    "/js/post.js": "/js/post.js"
+}

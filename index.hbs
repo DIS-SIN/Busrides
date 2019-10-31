@@ -1,46 +1,41 @@
-{{!< default}}
-{{!-- The tag above means: insert everything in this file
+{{!--
+This template is used for the index page.
+It can be used also as the home page or the default page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
+{{!< default}}
 
-{{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
-    <div class="inner">
-        <div class="site-header-content">
-            <h1 class="site-title">
-                {{!-- {{#if @site.logo}}
-                    <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}} --}}
-                {{setLogo (navigation)}}
-            </h1>
-            <h2 id="homepageSiteDescription" class="site-description">{{@site.description}}</h2>
+<div class="main-wrap">
+  {{!--Special header.hbs partial to generate the <header> tag--}}
+  {{> header background=@site.cover_image}}
+  {{!-- Inject styles of the hero image to make it responsive --}}
+  {{> hero background=@site.cover_image}}
+  <div class="m-hero__content" data-aos="fade-down">
+    <img class="translateMe_logo" src="/content/images/logos/BusRidesPublicationLogo-en.png"/>
+    <p class="m-hero-description bigger translateMe">Bite sized learning about digital technology and government</p>
+    {{#if @labs.subscribers}}
+    <a href="{{@site.url}}/subscribe" class="m-button filled translateMe">Subscribe</a>
+    {{/if}}
+  </div>
+  </section>
+  
+  <main>
+    <div class="l-content">
+      <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
+        <div class="l-grid centered">
+          {{!-- The tag below iterates over all the posts --}}
+          {{> "loop"}}
         </div>
-        {{> "site-nav"}}
+      </div>
+      {{!-- Links to Previous/Next posts --}}
+      {{pagination}}
     </div>
-</header>
+  </main>
+</div>
 
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
-        <div class="post-feed">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
-        </div>
-
-    </div>
-</main>
-
-{{!-- This code dynamically updates the site's description under the logo on the homepage --}}
-<script>
-    if (localStorage.langIsEnglish && JSON.parse(localStorage.langIsEnglish)){
-        document.getElementById("homepageSiteDescription").innerText = "Bite sized learning about digital technology and government";
-    }
-    else {
-        document.getElementById("homepageSiteDescription").innerText = "Micro apprentissage sur la technologie et le gouvernement numérique";
-    }
-</script>
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/home.js"}}"></script>
+{{/contentFor}}

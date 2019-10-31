@@ -1,214 +1,72 @@
 <!DOCTYPE html>
 <html lang="{{@site.lang}}">
-<head>
-
+  <head>
     {{!-- Document Settings --}}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     {{!-- Base Meta --}}
-    <title>{{pageTitle (meta_title)}}</title>
+    <title>Busrides</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{asset "translateMe/translateMe.css"}}" media="screen" />
+    <script type="text/javascript" src="{{asset "translateMe/moment-with-locales.js"}}"></script>
+    <script type="text/javascript" src="{{asset "translateMe/translateMe.js"}}"></script>
 
-    {{!-- Google verification --}}
-    <meta name="google-site-verification" content="v1WmCUl8VKk7tXa0y9S6g0FehYFQAhq5H8E81PO_aNE" />
+    {{!-- This #block helper will pull data from the hero partial 
+    to inject styles of the hero image to make it responsive --}}
+    {{{block "herobackground"}}}
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
 
-</head>
-<body class="{{body_class}}">
-
-    {{!-- If this is the user's first visit (or localStorage is cleared) then display the splashscreen --}}
+    {{!-- This variable is used to make the search form work --}}
     <script>
-        try {
-            if (!localStorage.langIsEnglish && !window.location.pathname.includes("/splash")){
-            window.location.assign("/splash");
-        }
-        }
-        catch(error) {
-            console.error("Please enable localstorage to fully use this site");
-        }
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      const ghostHost = "{{@site.url}}"
+      // @license-end
     </script>
 
-    <div class="site-header-fip-bar">
-        {{!-- <a href="https://www.canada.ca/" title="Go to the Canada.ca website"><img class="site-header-fip" src="/content/images/FIPS/Canada_Red_FIP.png" alt="Government of Canada - Gouvernement du Canada"/></a> --}}
-        <p class="beta-notice beta-notice-fr">Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!</p>
-        <p class="beta-notice beta-notice-fr"><a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction" target="_top">Fournir de la rétroaction</a></p>
-        <p class="beta-notice beta-notice-en">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
-        <p class="beta-notice beta-notice-en"><a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback" target="_top">Provide feedback</a></p>
-    </div>
-
-    <div class="site-wrapper">
-
-        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-        {{{body}}}
-
-        {{!-- The footer at the very bottom of the screen --}}
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                {{!-- <div class="site-footer-fip">
-                    <a href="https://www.canada.ca/" title="Go to the Canada.ca website"><img src="/content/images/FIPS/Canada_White_FIP.png" alt="Government of Canada - Gouvernement du Canada"/> </a>
-                </div> --}}
-                <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-                <nav class="site-footer-nav site-footer-nav-en">
-                    {{!-- <a href="{{@site.url}}">Latest Posts</a> --}}
-                    {{!-- {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
-                    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}} --}}
-                    <a href="https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx" class="footer-en" target="_blank" rel="noopener">What is the Digital Academy?</a>
-                    <a href="http://eepurl.com/gdiUTH" class="footer-en" target="_blank" rel="noopener">Subscribe to our newsletter</a>
-                </nav>
-                <nav class="site-footer-nav site-footer-nav-fr">
-                    <a href="https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx" class="footer-fr" target="_blank" rel="noopener">Qu'est-ce que l'Académie numérique?</a>
-                    <a href="http://eepurl.com/gdiUTz" class="footer-fr" target="_blank" rel="noopener">Abonnez-vous à notre infolettre</a>
-                </nav>
-                <div class="social-links">
-                    {{!-- {{#if @site.facebook}}
-                        <a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                    {{/if}}
-                    {{#if @site.twitter}}
-                        <a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                    {{/if}} --}}
-                    {{!-- English --}}
-                    <a class="social-link social-link-tw english-tw" href="https://twitter.com/DigiAcademyCAN" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                    {{!-- French --}}
-                    <a class="social-link social-link-tw french-tw" href="https://twitter.com/AcademieNumCAN" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                    {{#if @labs.subscribers}}
-                        <a class="subscribe-button" href="#subscribe">Subscribe</a>
-                    {{else}}
-                        <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-                    {{/if}}
-                </div>
-                <script>
-                    if (localStorage){
-                        if (localStorage.langIsEnglish && JSON.parse(localStorage.langIsEnglish)){
-                            document.querySelector(".site-footer-nav-fr").style = "display:none";
-                        }
-                        else{
-                            document.querySelector(".site-footer-nav-en").style = "display:none";
-                        }
-                    }
-                </script>
-            </div>
-        </footer>
-
-    </div>
-
-    {{!-- The big email subscribe modal content --}}
-    {{#if @labs.subscribers}}
-    <div id="subscribe" class="subscribe-overlay">
-        <a class="subscribe-overlay-close" href="#"></a>
-        <div class="subscribe-overlay-content">
-            {{#if @site.logo}}
-                <img class="subscribe-overlay-logo" src="{{@site.logo}}" alt="{{@site.title}}" />
-            {{/if}}
-            <h1 class="subscribe-overlay-title">Subscribe to {{@site.title}}</h1>
-            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-            {{subscribe_form placeholder="youremail@example.com"}}
-        </div>
-    </div>
-    {{/if}}
-
-    {{!-- Rather than injecting the code to have nav items hide based on localization --}}
+    {{!-- This script loads the Google fornt asynchronously --}}
     <script>
-        let navItems = document.querySelector(".nav").children;
-        let langIsEnglish = !window.location.href.includes("/fr/") && !window.location.href.includes("-fr/") ? true : false;
+      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+      WebFontConfig = {
+        google: { families: ['Source+Sans+Pro:400,600,700'] }
+      };
 
-        if (localStorage){
-            localStorage.langIsEnglish = langIsEnglish;
-        }
-
-        [].forEach.call(navItems, function(navItem) {
-            let url = navItem.firstChild.href;
-            if (langIsEnglish) {
-                if (url.includes("/fr/") && navItem.classList[0] != "nav-francais" || url.includes("-fr/") || navItem.classList[0] == "nav-english") {
-                    // Episode pages get their href modified to go to the episode in the opposite language, this prevents episode page language links from being hidden
-                    if (!url.includes("fr/ep")){
-                        navItem.firstChild.style = "display:none"; 
-                    }
-                }
-            }
-            else if (!langIsEnglish) {
-                if (!url.includes("/fr/") && navItem.classList[0] != "nav-english" && !url.includes("-fr/") || url.includes("-en/") || navItem.classList[0] == "nav-francais") {
-                    // Episode pages get their href modified to go to the episode in the opposite language, this prevents episode page language links from being hidden
-                    if (!url.includes("en/ep")){
-                        navItem.firstChild.style = "display:none";
-                    }
-                }
-            }
-        });
+      (function (d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+      // @license-end
     </script>
+  </head>
+  <body class="{{body_class}}">
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
 
-    {{!-- Code for the footer social icons --}}
-    <script>
-        if (localStorage){
-            if (JSON.parse(localStorage.langIsEnglish)){
-                document.querySelector(".french-tw").style = "display:none";
-            }
-            else {
-                document.querySelector(".english-tw").style = "display:none";
-            }
-        }
-        else{
-            document.querySelector(".french-tw").style = "display:none";
-        }
-    </script>
+    {{!-- Search form --}}
+    {{> search}}
 
-    {{!-- Displaying the correct beta notice --}}
-    <script>
-        if (localStorage){
-            if (JSON.parse(localStorage.langIsEnglish)){
-                [].forEach.call(document.querySelectorAll(".beta-notice-fr"), el => {
-                    el.style = "display: none";
-                });
-            }
-            else {
-                [].forEach.call(document.querySelectorAll(".beta-notice-en"), el => {
-                    el.style = "display: none";
-                });
-            }
-        }
-        else{
-            [].forEach.call(document.querySelectorAll(".beta-notice-fr"), el => {
-                el.style = "display: none";
-            });
-        }
-    </script>
+    {{!-- The footer --}}
+    {{> footer}}
 
-    <script>
-        var images = document.querySelectorAll('.kg-gallery-image img');
-        images.forEach(function (image) {
-            var container = image.closest('.kg-gallery-image');
-            var width = image.attributes.width.value;
-            var height = image.attributes.height.value;
-            var ratio = width / height;
-            container.style.flex = ratio + ' 1 0%';
-        })
-    </script>
+    {{!-- Common scripts shared between pages --}}
+    <script defer src="https://unpkg.com/@tryghost/content-api@1.2.7/umd/content-api.min.js"></script>
+    <script defer src="{{asset "js/manifest.js"}}"></script>
+    <script defer src="{{asset "js/polyfill.js"}}"></script>
+    <script defer src="{{asset "js/vendor.js"}}"></script>
+    <script defer src="{{asset "js/app.js"}}"></script>
 
-    {{!-- Allow Ghost to read the comment count from Disqus --}}
-    {{!-- <script id="dsq-count-scr" src="//busrides.disqus.com/count.js" async></script> --}}
-    {{!-- jQuery + Fitvids, which makes all video embeds responsive --}}
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="{{asset "built/jquery.fitvids.js"}}"></script>
-
-    {{#if pagination.pages}}
-    <script src="{{asset "built/infinitescroll.js"}}"></script>
-    {{/if}}
-
-    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{!-- The #block helper will pull in data from the #contentFor other template files --}}
     {{{block "scripts"}}}
 
-    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{!-- Ghost outputs important scripts and data with this tag --}}
     {{ghost_foot}}
-
-</body>
+  </body>
 </html>
