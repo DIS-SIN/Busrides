@@ -488,6 +488,67 @@ fieldset {
     position: relative
 }
 
+/* 6. Splash Screen
+/* ---------------------------------------------------------- */
+
+.splash-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(https://dbnw2m47oosuz.cloudfront.net/2019/09/scott-webb-Ms6bSWTcVkg-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.splash-screen-window {
+    background-color: #000000b3;
+    padding: 10px;
+    font-weight: 700;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 6px;
+    display: flex;
+}
+
+.splash-screen-window button {
+    width: 175px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 30px;
+    color: white;
+    background-color: black;
+}
+
+.splash-screen-window button:hover {
+    box-shadow: 0 0 6px 0px rgba(255, 255, 255, 0.75);
+}
+
+.splash-screen-window p {
+    font-weight: normal;
+    margin: 0;
+}
+
+.splash-lang {
+    font-size: 1.7em;
+    font-weight: 500;
+}
+
+.splash-divider {
+    height: 1px;
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 450px) {
+    .splash-screen-window {
+        flex-direction: column;
+    }
+  }
+
 .tippy-popper * {
     text-align: left !important
 }
