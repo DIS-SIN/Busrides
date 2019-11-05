@@ -100,12 +100,12 @@ const translateMe = {
             let link = navItem.children[0];
 
             if (lang == "fr"){
-                if (link.innerText.toLowerCase() == "français" || !link.href.includes("/fr/") && !link.href.includes("/fr-") && link.innerText.toLowerCase() != "english"){
+                if (link.textContent.toLowerCase() == "français" || !link.href.includes("/fr/") && !link.href.includes("/fr-") && link.textContent.toLowerCase() != "english"){
                     navItem.classList.add("translateMe_hideNavItem");
                 }
             }
             else {
-                if (link.innerText.toLowerCase() == "english" || link.href.includes("/fr-") || link.innerText.toLowerCase() != "français" && link.href.includes("/fr/")){
+                if (link.textContent.toLowerCase() == "english" || link.href.includes("/fr-") || link.textContent.toLowerCase() != "français" && link.href.includes("/fr/")){
                     navItem.classList.add("translateMe_hideNavItem");
                 }
             }
@@ -175,6 +175,7 @@ const translateMe = {
         "1 post": "One post",
         "% posts": "% posts",
         "Tags": "Tags",
+        "Topics": "Topics",
         "with this tag": "with this tag",
         "No tags found :(": "No tags found :(",
         "Posted by": "Posted by",
@@ -188,7 +189,10 @@ const translateMe = {
         "What is the Digital Academy?": "What is the Digital Academy?",
         "Subscribe to our newsletter": "Subscribe to our newsletter",
         "http://eepurl.com/gdiUTH": "http://eepurl.com/gdiUTH",
-        "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx"
+        "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
+        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
+        "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback",
+        "Provide feedback": "Provide feedback"
     },
 
     fr: {
@@ -221,6 +225,7 @@ const translateMe = {
         "1 post": "Un article",
         "% posts": "% articles",
         "Tags": "Mots clés",
+        "Topics": "Sujets",
         "with this tag": "avec ce mot clé",
         "No tags found :(": "Aucun mot clé trouvé :(",
         "Posted by": "Publié par",
@@ -234,7 +239,10 @@ const translateMe = {
         "What is the Digital Academy?": "Qu'est-ce que l'Académie numérique?",
         "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
         "http://eepurl.com/gdiUTH": "http://eepurl.com/gdiUTz",
-        "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx"
+        "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx",
+        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
+        "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction",
+        "Provide feedback": "Fournir de la rétroaction"
     }  
 
 };
