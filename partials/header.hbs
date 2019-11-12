@@ -2,13 +2,8 @@
 This header template is shared across all the pages.
 --}}
 
-{{#if background}}
-  <header class="m-header with-picture js-header">
-{{else}}
-  <header class="m-header js-header">
-{{/if}}
-  <!-- Beta Header -->
-  <div style="width: 100%; text-align: center; margin: 3px 0px 3px 0px; font-size:1.16em;">
+<!-- Beta Header -->
+  <div style="width: 100%; text-align: center; padding: 0px 0px 15px 0px; font-size:1.16em; background-color: var(--footer-background-color); color: #fff;">
       <p class="translateMe">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
       <p>
         <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback" 
@@ -17,6 +12,11 @@ This header template is shared across all the pages.
       </p>
   </div>
   <!-- Beta Header -->
+{{#if background}}
+  <header class="m-header with-picture js-header">
+{{else}}
+  <header class="m-header js-header">
+{{/if}}
   <div class="m-mobile-topbar" data-aos="fade-down">
           <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
             <span class="icon-menu"></span>

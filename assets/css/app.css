@@ -370,7 +370,7 @@ textarea {
 .provideFeedbackLink{
     display: inline-block;
     position: relative;
-    color: var(--link-color);
+    color: #fff;
     text-decoration: underline;
 }
 
