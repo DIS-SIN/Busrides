@@ -139,6 +139,7 @@ const translateMe = {
     },
 
     hideTags: function(lang) {
+        //comment
         [].forEach.call(document.querySelectorAll(".translateMe_tag"), el => {
             if (!el.children[0].href.includes(`/${lang}-`)){
                 el.remove();
