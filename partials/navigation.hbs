@@ -1,10 +1,51 @@
-<div>
-    <ul class="nav">
-        <!-- Loop through the navigation items -->
-        {{#foreach navigation}}
-        {{createNavItem slug current url label}}
-        {{!-- <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li> --}}
-        {{/foreach}}
-        <!-- End the loop -->
-    </ul>
-</div>
+{{!--
+This navigation template is shared across all the pages.
+Also it includes the big submenu.
+--}}
+
+<ul role="menu">
+    {{#if @site.logo}}
+    <li class="only-desktop" role="menuitem">
+        <a href="{{@site.url}}" class="m-logo translateMe_navLogo">
+            <img src="{{@site.logo}}" alt="{{@site.title}}">
+        </a>
+    </li>
+    {{else}}
+    <li class="only-desktop" role="menuitem">
+        <a href="{{@site.url}}" class="m-site-name in-desktop-menu translateMe_navLogo">
+            {{@site.title}}
+        </a>
+    </li>
+    {{/if}}
+    {{#foreach navigation}}
+    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}} translateMe_navItem">
+        <a href="{{url absolute="true"}}">{{label}}</a>
+    </li>
+    {{/foreach}}
+    <li role="menuitem" class="js-submenu-option">
+        <button class="m-icon-button js-toggle-submenu translateMe" aria-label="Toggle submenu">Topics</button>
+        <div class="m-submenu js-submenu">
+            <div class="l-wrapper in-submenu">
+                <section class="m-tags">
+                    {{#get "tags" limit="10"}}
+                    <ul>
+                        {{#foreach tags}}
+                        <li class="translateMe_tag">
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                        {{else}}
+                        <li class="m-no-found translateMe">No tags found :(</li>
+                        {{/foreach}}
+                    </ul>
+                    {{/get}}
+                </section>
+            </div>
+        </div>
+    </li>
+    <li id="nav-english" class="nav-english translateMe_navItem">
+        <a href="/">English</a>
+    </li>
+    <li id="nav-francais" class="nav-francais translateMe_navItem">
+        <a href="/fr/">Français</a>
+    </li>
+</ul>
