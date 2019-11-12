@@ -367,6 +367,17 @@ textarea {
     justify-content: center
 }
 
+.provideFeedbackLink{
+    display: inline-block;
+    position: relative;
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+.provideFeedbackLink:hover{
+    transform: translateY(-5px);
+}
+
 .l-post-content button:not(.m-icon-button),
 .l-post-content input,
 .l-post-content select,
@@ -1939,14 +1950,14 @@ fieldset {
 }
 
 .m-header {
-    position: fixed;
+    /*position: fixed; */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 4;
     background-color: var(--background-color);
-    will-change: transform;
-    transition: transform .4s cubic-bezier(.165, .84, .44, 1)
+    /* will-change: transform;
+    transition: transform .4s cubic-bezier(.165, .84, .44, 1) */
 }
 
 @media only screen and (min-width:48rem) {

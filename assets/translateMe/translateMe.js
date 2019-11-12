@@ -75,12 +75,37 @@ const translateMe = {
     switchLangLink: function(path){
         // French Episode Page
         if (path.match(/\/fr\/.+/g)){
-            let episode = path.split("fr/").join("en/");
+            let episode = path.split("fr/");
+            if (episode.length >= 2){
+                let second_path = episode[1];
+                //check if the route is a paginated route
+                if (second_path.match(/page(\/[0-9]+(\/)?)?/)){
+                    episode = "/";
+                }
+                else{
+                    episode = episode.join("en/");
+                }
+            }
+            else {
+                episode = episode.join("en/");
+            }
             document.getElementById("nav-english").children[0].href = episode;
         }
         // English Episode Page
         else if (path.match(/\/en\/.+/g)){
-            let episode = path.split("en/").join("fr/");
+            let episode = path.split("en/")
+            if (episode.length >= 2){
+                let second_path = episode[1];
+                if (second_path.match(/page(\/[0-9]+(\/)?)?/)){
+                    episode = "/fr";
+                }
+                else{
+                    episode = episode.join("fr/");
+                }
+            }
+            else{
+                episode = episode.join("fr/");
+            }
             document.getElementById("nav-francais").children[0].href = episode;
         }
     },
@@ -114,6 +139,7 @@ const translateMe = {
     },
 
     hideTags: function(lang) {
+        //comment
         [].forEach.call(document.querySelectorAll(".translateMe_tag"), el => {
             if (!el.children[0].href.includes(`/${lang}-`)){
                 el.remove();
