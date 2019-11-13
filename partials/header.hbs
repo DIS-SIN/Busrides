@@ -7,16 +7,7 @@ This header template is shared across all the pages.
 {{else}}
   <header class="m-header js-header">
 {{/if}}
-  <!-- Beta Header -->
-  <div style="width: 100%; text-align: center; margin: 3px 0px 3px 0px; font-size:1.16em;">
-      <p class="translateMe">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
-      <p>
-        <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback" 
-         class="translateMe translateMeProp provideFeedbackLink" 
-         data-translateMeProp="href" >Provide feedback</a>
-      </p>
-  </div>
-  <!-- Beta Header -->
+
   <div class="m-mobile-topbar" data-aos="fade-down">
           <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
             <span class="icon-menu"></span>
@@ -53,4 +44,7 @@ This header template is shared across all the pages.
       </div>
     </div>
   </div>
+<!-- Beta Header -->
+{{> beta-feedback }}
+<!-- Beta Header -->
 </header>

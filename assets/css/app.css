@@ -368,7 +368,7 @@ textarea {
 }
 
 .provideFeedbackLink{
-    display: inline-block;
+    float: right;
     position: relative;
     color: var(--link-color);
     text-decoration: underline;
@@ -5200,20 +5200,33 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 /* 12. Beta Feedback
 /* ---------------------------------------------------------- */
 
-.beta-feedback {
+.beta-banner {
     position: relative;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: .35rem;
-    color: #000;
-    box-shadow: 0 0 5px rgba(0,0,0,.15);
-    background-color: #f6fbfc;
-    border-color: #c2e3ec;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 20px
 }
+
+@media only screen and (min-width:48rem) {
+    .beta-banner {
+        max-width: 1200px 
+    }
+}
+
+@media only screen and (min-width:80rem) {
+    .beta-banner {
+        padding: 15px 0
+    }
+}
+
+.beta-message {
+    font-size: 1.16em;
+    display: inline-block;
+}
+
 .beta-btn {
     width: 100%;
-    max-width: 100px;
+    max-width: 30px;
     height: auto;
 }
 .btn{
@@ -5232,69 +5245,69 @@ text-align: center;
 }
 
 .toggle-form {
-    top: -9999px;
-    position: fixed;
+top: -9999px;
+position: fixed;
+width: 100%;
+height: 100%;
+z-index: 9999;
+transition: right .6s ease-in-out;
+display: none;
+}
+.toggle-form.active {
+    top:0;
+    position: static;
+    display: inline;
+}
+.form-control {
+    display: block;
     width: 100%;
-    height: 100%;
-    z-index: 9999;
-    transition: right .6s ease-in-out;
-    display: none;
-    }
-    .toggle-form.active {
-        top:0;
-        position: static;
-        display: inline;
-    }
-    .form-control {
-        display: block;
-        width: 100%;
-        padding: .5rem .75rem;
-        font-size: .9rem;
-        line-height: 1.25;
-        background-color: #fff;
-        background-image: none;
-        background-clip: padding-box;
-        border-style: solid;
-        border-color: #000000;
-        border-radius: 1.5rem;
-        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    }
-    .formwrap {
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    line-height: 1.25;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 1.5rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.formwrap {
     max-width: 620px;
     margin: auto;
     box-shadow: -1px 0px 12px rgba(0, 0, 0, 0.1);
-    }
+}
 
-    .formwrap form input, .formwrap form input:focus {
-        background-color: transparent;
-        border-color: #fff;
-        color: #fff;
-        margin-right: 10px;
-    }
-    
-    .mid-col {
-    max-width: 100%;
-    flex: 0 0 100%;
-    -ms-flex: 0 0 100%;
-    }
-    .form-control {
-            background-color: transparent;
-            border-color: #fff;
-            color: #fff;
-            margin-right: 10px;
-    }
-    select.form-control:not([size]):not([multiple]) {
+.formwrap form input, .formwrap form input:focus {
     background-color: transparent;
     border-color: #fff;
     color: #fff;
-    }
-    option {
+    margin-right: 10px;
+}
+
+.mid-col {
+    max-width: 100%;
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+}
+.form-control {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+    margin-right: 10px;
+}
+select.form-control:not([size]):not([multiple]) {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+option {
     background-color: #fff;
     color: #1f2124;
-    }
+}
 
-    @media (max-width: 575px) {
-        .formwrap{
-            width: 100%
-        }
+@media (max-width: 575px) {
+    .formwrap{
+        width: 100%
     }
+}

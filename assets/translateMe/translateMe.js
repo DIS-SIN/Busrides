@@ -216,7 +216,8 @@ const translateMe = {
         "Subscribe to our newsletter": "Subscribe to our newsletter",
         "http://eepurl.com/gdiUTH": "http://eepurl.com/gdiUTH",
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
-        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
+        "Busrides is in the beta phase of development.": "Busrides is in the beta phase of development.",
+        "Regular site updates are made to enhance your experience!": "Regular site updates are made to enhance your experience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback",
         "Provide feedback": "Provide feedback"
     },
@@ -266,7 +267,8 @@ const translateMe = {
         "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
         "http://eepurl.com/gdiUTH": "http://eepurl.com/gdiUTz",
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx",
-        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
+        "Busrides is in the beta phase of development." : "Trajet en bus est en phase de développement bêta.",
+        "Regular site updates are made to enhance your experience!": "Des mises à jour régulières sont faites pour améliorer votre expérience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction",
         "Provide feedback": "Fournir de la rétroaction"
     }  
