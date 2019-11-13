@@ -2378,7 +2378,17 @@ fieldset {
 
 .m-tags ul {
     display: flex;
-    flex-wrap: wrap
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+@media only screen and (min-width:48rem){
+    .m-tags ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        flex-direction: row;
+    }
 }
 
 .m-tags ul li {
