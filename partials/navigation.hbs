@@ -25,12 +25,12 @@ Also it includes the big submenu.
     <li role="menuitem" class="js-submenu-option">
         <button class="m-icon-button js-toggle-submenu translateMe" aria-label="Toggle submenu">Topics</button>
         <div class="m-submenu js-submenu">
-            <div class="l-wrapper in-submenu">
+            <div class="l-wrapper in-submenu"  style="margin:auto 60px;">
                 <section class="m-tags">
                     {{#get "tags" limit="all"}}
                     <ul>
                         {{#foreach tags}}
-                        <li class="translateMe_tag">
+                        <li class="translateMe_tag" style="font-size:1rem;">
                             <a href="{{url}}">{{name}}</a>
                         </li>
                         {{else}}
