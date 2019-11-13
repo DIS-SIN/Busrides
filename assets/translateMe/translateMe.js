@@ -139,9 +139,16 @@ const translateMe = {
     },
 
     hideTags: function(lang) {
-        //comment
+        let count = 0;
         [].forEach.call(document.querySelectorAll(".translateMe_tag"), el => {
+            // add 1 and if the item is removed remove the count
+            // this way we only need one loop
+            count += 1;
             if (!el.children[0].href.includes(`/${lang}-`)){
+                el.remove();
+                count -= 1;
+            }
+            if ( count > 10 ){
                 el.remove();
             }
         });
