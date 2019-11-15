@@ -1,36 +1,43 @@
-  <div class="beta-banner">
-	  <div class="beta-message">
-		  <p class="translateMe">Busrides is in the beta phase of development.  Regular site updates are made to enhance your experience!</p>
+<div class="beta-banner-container">
+	<div class="beta-banner">
+		<div class="beta-message">
+			<p class="translateMe">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
+		</div>
+		<div class="beta-feedback-link cta-open">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+				<path d="M0 0h24v24H0z" fill="none" />
+				<path class="beta-feedback-icon"
+					d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z" />
+			</svg>
+			<span class="translateMe">Provide feedback</span>
+		</div>
 	</div>
-	<div class="beta-feedback-link cta-open">
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-		<path d="M0 0h24v24H0z" fill="none"/>
-		<path class="beta-feedback-icon" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/>
-	</svg>
-	<span class="translateMe">Provide feedback</span>
 </div>
-  </div>
 
-  <div>
+
+<div>
 	<section class="toggle-form">
 		<div class="formwrap px-4">
 			<div class="icon-close pos-a"></div>
 			<form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
 				<div class="form-group margin-top-m">
-				<label for="comment" class="control-label">Feedback</label>
-				<textarea name="comment" id="comment" class="form-control required" data-error="Comment is required to submit" required></textarea>
-				<div class="help-block with-errors"></div>
+					<label for="comment" class="control-label">Feedback</label>
+					<textarea name="comment" id="comment" class="form-control required"
+						data-error="Comment is required to submit" required></textarea>
+					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
-				<label for="email" class="control-label">Email(optional)</label>
-				<input type="email" id="email" name="email" class="form-control">
-				<div class="help-block with-errors"></div>
+					<label for="email" class="control-label">Email(optional)</label>
+					<input type="email" id="email" name="email" class="form-control">
+					<div class="help-block with-errors"></div>
 				</div>
 				<p class="text-center margin-top-s">
-					<small>By clicking "Submit" you agree to selling your soul in our <a href="/terms/">Terms of Service</a>.</small>
+					<small>By clicking "Submit" you agree to selling your soul in our <a href="/terms/">Terms of
+							Service</a>.</small>
 				</p>
-				<p class="margin-0"><button type="submit" class="btn btn-lg orange w-100 margin-top-s">Submit</button></p>
-			</form>    
+				<p class="margin-0"><button type="submit" class="btn btn-lg orange w-100 margin-top-s">Submit</button>
+				</p>
+			</form>
 		</div>
 		<div class="toggle-bg"></div>
 	</section>
