@@ -1,11 +1,15 @@
 $( document ).ready(function() {
     $('.cta-open').on('click', function() {
       $('.toggle-form, .formwrap, .toggle-bg').addClass('active');
-      $('.icon-close').addClass('open');
+      $('.feedback-close').addClass('open');
+      $('.beta-feedback-link').addClass('beta-feedback-link-disabled');
+      $('.beta-feedback-icon').addClass('beta-feedback-icon-disabled');
   });
-   $('.icon-close').on('click', function() {
+   $('.feedback-close').on('click', function() {
       $('.toggle-form, .formwrap, .toggle-bg').removeClass('active');
-      $('.icon-close').removeClass('open');
+      $('.feedback-close').removeClass('open');
+      $('.beta-feedback-link').removeClass('beta-feedback-link-disabled');
+      $('.beta-feedback-icon').removeClass('beta-feedback-icon-disabled');
   });
   $('#feedback').on('submit',(function(e) {
     var formData = $("#feedback").serializeArray();
@@ -21,7 +25,7 @@ $( document ).ready(function() {
       contentType : "application/json"
     });
     $('.toggle-form, .formwrap, .toggle-bg').removeClass('active');
-    $('.icon-close').removeClass('open');
+    $('.feedback-close').removeClass('open');
 
 
   }))

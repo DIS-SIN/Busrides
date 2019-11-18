@@ -225,7 +225,9 @@ const translateMe = {
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
         "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Busrides is in the beta phase of development.  Regular site updates are made to enhance your experience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback",
-        "Provide feedback": "Provide feedback"
+        "Provide feedback": "Provide feedback",
+        "Feedback": "Feedback",
+        "Your Answer": "Your Answer"
     },
 
     fr: {
@@ -275,7 +277,9 @@ const translateMe = {
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx",
         "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!" : "Trajet en bus est en phase de développement bêta.  Des mises à jour régulières sont faites pour améliorer votre expérience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction",
-        "Provide feedback": "Fournir de la rétroaction"
+        "Provide feedback": "Fournir de la rétroaction",
+        "Feedback": "Rétroaction",
+        "Your Answer": "Votre réponse"
     }  
 
 };

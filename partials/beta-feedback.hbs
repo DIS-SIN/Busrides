@@ -12,33 +12,31 @@
 			<span class="translateMe">Provide feedback</span>
 		</div>
 	</div>
-</div>
-
-
-<div>
-	<section class="toggle-form">
-		<div class="formwrap px-4">
-			<div class="icon-close pos-a"></div>
-			<form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
-				<div class="form-group margin-top-m">
-					<label for="comment" class="control-label">Feedback</label>
-					<textarea name="comment" id="comment" class="form-control required"
-						data-error="Comment is required to submit" required></textarea>
-					<div class="help-block with-errors"></div>
-				</div>
-				<div class="form-group">
-					<label for="email" class="control-label">Email(optional)</label>
-					<input type="email" id="email" name="email" class="form-control">
-					<div class="help-block with-errors"></div>
-				</div>
-				<p class="text-center margin-top-s">
-					<small>By clicking "Submit" you agree to selling your soul in our <a href="/terms/">Terms of
-							Service</a>.</small>
-				</p>
-				<p class="margin-0"><button type="submit" class="btn btn-lg orange w-100 margin-top-s">Submit</button>
-				</p>
-			</form>
-		</div>
-		<div class="toggle-bg"></div>
-	</section>
+	<div class="feedback-banner">
+		<section class="toggle-form">
+			<div class="feedback-border"></div>
+			<div class="formwrap">
+				<div class="feedback-close">Close</div>
+				<form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
+					<div class="feedback-form-group">
+						<label for="comment" class="feedback-label translateMe">Feedback</label>
+						<textarea name="comment" id="comment" autofocus="true"
+							class="feedback-form-control required translateMeProp" data-translateMeProp="placeholder"
+							placeholder="Your Answer" aria-label="Your Answer"
+							data-error="Comment is required to submit" required></textarea>
+						<div class="help-block with-errors"></div>
+					</div>
+					<div class="feedback-form-group" style="width:40%; display:inline-block;">
+						<label for="email" class="feedback-label">Email (Optional)</label>
+						<input type="email" id="email" name="email" class="feedback-form-control">
+						<div class="help-block with-errors"></div>
+					</div>
+					<span style="float:right;"><button type="submit"
+							class="btn btn-lg feedback-btn">Submit</button>
+					</span>
+				</form>
+			</div>
+			<div class="toggle-bg"></div>
+		</section>
+	</div>
 </div>
