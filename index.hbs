@@ -13,7 +13,10 @@ into the {body} of the default.hbs template --}}
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero background=@site.cover_image}}
   <div class="m-hero__content" data-aos="fade-down">
-    <img class="translateMe_logo" src="/content/images/logos/BusRidesPublicationLogo-en.png"/>
+    <img class="translateMe_logo translateMeProp" src="/content/images/logos/BusRidesPublicationLogo-en.png" 
+         data-translateMeProp = "alt" 
+         alt="Busrides logo consisting of a red bus with the word 'Busrides' written to the right."
+    />
     <p class="m-hero-description bigger translateMe">Bite sized learning about digital technology and government</p>
     {{#if @labs.subscribers}}
     <a href="{{@site.url}}/subscribe" class="m-button filled translateMe">Subscribe</a>
