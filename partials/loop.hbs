@@ -1,0 +1,60 @@
+{{!-- The template below includes the markup for each post --}}
+
+{{#foreach posts}}
+  {{#is "post"}}
+    <div class="m-recommended-slider__item">
+  {{/is}}
+  {{#if feature_image}}
+    <article class="m-article-card {{post_class}}">
+      <div class="m-article-card__picture" style="background-image: url({{feature_image}});">
+  {{else}}
+    <article class="m-article-card no-picture {{post_class}}">
+      <div class="m-article-card__picture">
+  {{/if}}
+  
+
+      <a href="{{url}}" class="m-article-card__picture-link" aria-label="Article"></a>
+      <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip translateMeProp" data-translateMeProp="aria-label" aria-label="Authors" data-tippy-content="{{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
+
+        {{#if primary_author.profile_image}}
+          <div style="background-image: url({{primary_author.profile_image}});"></div>
+        {{else}}
+          <div style="background-image: url({{asset "images/default-avatar-square-small.jpg"}});"></div>
+        {{/if}}
+      </a>
+      {{#if featured}}
+        <a href="{{url}}" class="m-article-card__featured js-tooltip translateMeProp" data-translateMeProp="data-tippy-content" data-tippy-content="Featured" aria-label="Article">
+          <span class="icon-star"></span>
+        </a>
+      {{/if}}
+    </div>
+    {{#if primary_tag}}
+      <div class="m-article-card__info">
+        <a href="{{primary_tag.url}}" class="m-article-card__tag">{{primary_tag.name}}</a>
+    {{else}}
+      <div class="m-article-card__info no-tag">
+    {{/if}}
+      <a href="{{url}}" class="m-article-card__info-link">
+        <div>
+          <h2 class="m-article-card__title">{{title}}</h2>
+        </div>
+        <section class="post-card-excerpt">
+                <p data-translateMe_limitText="30">{{excerpt}}</p>
+            </section>
+        <div class="m-article-card__timestamp">
+          <span class="translateMe_date">{{date format="YYYY-MM-DDTHH:mm:ss.sssZ"}}</span>
+          <span>&bull;</span>
+          <span class="translateMe_readTime">{{reading_time}}</span>
+        </div>
+      </a>
+    </div>
+  </article>
+  {{#is "post"}}
+    </div>
+  {{/is}}
+  {{else}}
+    <header class="m-heading no-margin">
+      <h3 class="translateMe">No posts found</h3>
+      <p class="translateMe">Apparently there are no posts at the moment, check again later.</p>
+    </header>
+{{/foreach}}

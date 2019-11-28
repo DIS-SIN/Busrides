@@ -1,56 +1,78 @@
+{{!--
+This template is used for the author page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
 {{!< default}}
-{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
-{{#author}}
-{{!-- Everything inside the #author tags pulls data from the author --}}
-
-
-{{> header background=cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
-    <div class="inner">
-        {{> "site-nav"}}
-        <div class="site-header-content">
-            {{#if profile_image}}
-                <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
-            {{/if}}
-            <h1 class="site-title">{{name}}</h1>
-            {{#if bio}}
-                <h2 class="author-bio">{{bio}}</h2>
-            {{/if}}
-            <div class="author-meta">
-                {{#if location}}
-                    <div class="author-location">{{location}} <span class="bull">&bull;</span></div>
-                {{/if}}
-                <div class="author-stats">
-                    {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}} <span class="bull">&bull;</span>
-                </div>
-                {{#if website}}
-                    <a class="social-link social-link-wb" href="{{website}}" target="_blank" rel="noopener">{{> "icons/website"}}</a>
-                {{/if}}
-                {{#if twitter}}
-                    <a class="social-link social-link-tw" href="{{twitter_url}}" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                {{/if}}
-                {{#if facebook}}
-                    <a class="social-link social-link-fb" href="{{facebook_url}}" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                {{/if}}
-                <a class="social-link social-link-rss" href="https://feedly.com/i/subscription/feed/{{url absolute="true"}}rss/" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-            </div>
-        </div>
+<div class="main-wrap">
+  {{!-- Everything inside the #author tags pulls data from the author --}}
+  {{#author}}
+  {{!--Special header.hbs partial to generate the <header> tag--}}
+  {{> header background=cover_image}}
+  {{!-- Inject styles of the hero image to make it responsive --}}
+  {{> hero background=cover_image}}
+  <div class="m-hero__content" data-aos="fade-down">
+    {{#if profile_image}}
+    <div class="m-hero-avatar" style="background-image: url({{profile_image}});"></div>
+    {{else}}
+    <div class="m-hero-avatar" style="background-image: url({{asset "images/default-avatar-square-normal.jpg"}});"></div>
+    {{/if}}
+    <h1 class="m-hero-title">{{name}}</h1>
+    {{#if bio}}
+    <p class="m-hero-description">{{bio}}</p>
+    {{/if}}
+    <div class="m-hero__meta">
+      {{#has any="twitter, facebook, website"}}
+      <ul class="m-hero-social">
+        {{#if website}}
+        <li>
+          <a href="{{website}}" target="_blank" rel="noopener" aria-label="Website">
+            <span class="icon-globe"></span>
+          </a>
+        </li>
+        {{/if}}
+        {{#if facebook}}
+        <li>
+          <a href="https://facebook.com/{{facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
+            <span class="icon-facebook"></span>
+          </a>
+        </li>
+        {{/if}}
+        {{#if twitter}}
+        <li>
+          <a href="https://twitter.com/{{twitter}}" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="icon-twitter"></span>
+          </a>
+        </li>
+        {{/if}}
+      </ul>
+      {{/has}}
+      <ul class="m-hero-stats">
+        <li>
+          {{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+        </li>
+        {{#if location}}
+        <li>&bull;</li>
+        <li>{{location}}</li>
+        {{/if}}
+      </ul>
     </div>
-</header>
-{{/author}}
-
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
-        <div class="post-feed">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
+  </div>
+  </section>
+  {{/author}}
+  
+  <main>
+    <div class="l-content">
+      <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
+        <div class="l-grid centered">
+          {{!-- The tag below iterates over all the posts --}}
+          {{> "loop"}}
         </div>
-
+      </div>
+      {{!-- Links to Previous/Next posts --}}
+      {{pagination}}
     </div>
-</main>
+  </main>
+</div>

@@ -1,53 +1,56 @@
 {{!--
-Wow what the hell is going on in here even?
-
-Ok so, several templates use this big header with a giant BG image. Nice idea, but big images
-have a heavy impact on performance, so it's a good idea to make them responsive. Because we
-can only get the image dynamically using Handlebars, and we can only set the image to properly
-be a background image using CSS, we end up with a handful of inline styles.
-
-If the template in question has a background image, then we render responsive image styles
-for it, and apply those styles to the <header> tag. Else, we just output a <header> tag
-with a `no-image` class so we can style it accordingly.
+This header template is shared across all the pages.
 --}}
 
+<!-- Beta Header -->
+  <div style="width: 100%; text-align: center; padding: 0px 0px 15px 0px; font-size:1.16em; background-color: var(--footer-background-color); color: #fff;">
+      <p class="translateMe">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
+      <p>
+        <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback" 
+         class="translateMe translateMeProp provideFeedbackLink" 
+         data-translateMeProp="href" >Provide feedback</a>
+      </p>
+  </div>
+  <!-- Beta Header -->
 {{#if background}}
-
-<style type="text/css">
-.responsive-header-img {
-    background-image: url({{img_url background size='xl'}});
-}
-@media(max-width: 1000px) {
-    .responsive-header-img {
-        background-image: url({{img_url background size='l'}});
-        background-image: -webkit-image-set(
-                url({{img_url background size='l'}}) 1x,
-                url({{img_url background size='xl'}}) 2x
-        );
-        background-image: image-set(
-                url({{img_url background size='l'}}) 1x,
-                url({{img_url background size='xl'}}) 2x
-        );
-    }
-}
-@media(max-width: 600px) {
-    .responsive-header-img {
-        background-image: url({{img_url background size='m'}});
-        background-image: -webkit-image-set(
-                url({{img_url background size='m'}}) 1x,
-                url({{img_url background size='l'}}) 2x
-        );
-        background-image: image-set(
-                url({{img_url background size='m'}}) 1x,
-                url({{img_url background size='l'}}) 2x
-        );
-    }
-}
-</style>
-<header class="site-header outer responsive-header-img">
-
+  <header class="m-header with-picture js-header">
 {{else}}
-
-<header class="site-header outer no-image">
-
+  <header class="m-header js-header">
 {{/if}}
+  <div class="m-mobile-topbar" data-aos="fade-down">
+          <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+            <span class="icon-menu"></span>
+        </button>
+    {{#if @site.logo}}
+      <a href="{{@site.url}}" class="m-logo in-mobile-topbar translateMe_navLogo">
+        <img src="{{@site.logo}}" alt="{{@site.title}}">
+      </a>
+    {{else}}
+      <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
+        {{@site.title}}
+      </a>
+    {{/if}}
+        <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search"></span>
+    </button>
+  </div>
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav">
+          <nav class="m-nav__left" aria-label="busrides-navigation">
+            {{#if @site.navigation}}
+              {{navigation}}
+            {{/if}}
+          </nav>
+          <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+            <span class="icon-search"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
