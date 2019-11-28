@@ -13,7 +13,7 @@
   {{/if}}
   
 
-      <a href="{{url}}" class="m-article-card__picture-link" aria-label="Article"></a>
+      <a href="{{url}}" class="m-article-card__picture-link" aria-label="Article" title="{{title}}"></a>
       <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip translateMeProp" data-translateMeProp="aria-label" aria-label="Authors" data-tippy-content="{{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
 
         {{#if primary_author.profile_image}}
