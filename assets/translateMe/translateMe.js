@@ -227,7 +227,9 @@ const translateMe = {
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback",
         "Provide feedback": "Provide feedback",
         "Feedback": "Feedback",
-        "Your Answer": "Your Answer"
+        "Email (Optional)": "Email (Optional)",
+        "SUBMIT": "SUBMIT",
+        "Must be a valid email address": "Must be a valid email address"
     },
 
     fr: {
@@ -279,7 +281,9 @@ const translateMe = {
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction",
         "Provide feedback": "Fournir de la rétroaction",
         "Feedback": "Rétroaction",
-        "Your Answer": "Votre réponse"
+        "Email (Optional)": "Courriel (Optionnel)",
+        "SUBMIT": "Soumettre",
+        "Must be a valid email address": "Doit être une adresse de courriel valide"
     }  
 
 };
