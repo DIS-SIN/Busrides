@@ -302,18 +302,18 @@ textarea {
   --secondary-foreground-color: #000;
   --primary-subtle-color: #04aeee;
   --secondary-subtle-color: #f4f8fd;
-  --titles-color: #333;
+  --titles-color: #ffffff;
   --link-color: #293951;
   --primary-border-color: #9b9b9b;
   --secondary-border-color: #f0f8ff;
   --article-shadow-normal: 0 10px 10px rgba(0, 0, 0, 0.08);
   --article-shadow-hover: 0 4px 60px 0 rgba(0, 0, 0, 0.2);
-  --transparent-background-color: hsla(0, 0%, 100%, 0.99);
+  --transparent-background-color: #122f48;
   --footer-background-color: #293951;
   --submenu-shadow-color-opacity: 0.25;
   --button-shadow-color-normal: hsla(0, 0%, 42.4%, 0.2);
   --button-shadow-color-hover: hsla(0, 0%, 42.4%, 0.3);
-  --mdc-theme-primary:#e3e3e3;
+  --mdc-theme-primary:#4a4a4a;
 
 
 }
@@ -323,7 +323,7 @@ textarea {
         --background-color: #111;
         --primary-foreground-color: #ccc;
         --secondary-foreground-color: #fff;
-        --primary-subtle-color: #2c2fe6;
+        --primary-subtle-color: #10d0ea;
         --secondary-subtle-color: #141920;
         --titles-color: #b4b4b4;
         --link-color: #10D0EA;
@@ -5296,7 +5296,10 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
 
 .beta-banner-container {
   background-color: #ffffff;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.20);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  z-index: 1;
+
 }
 .feedback-banner-container {
   background-color:#fff
@@ -5335,7 +5338,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
 .feedback-btn {
   background-color: #122f48;
   border: none;
-  color: #000000;
+  color: #fff;
   padding: 8px 25px;
   text-align: center;
   text-decoration: none;
@@ -5385,7 +5388,21 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+.mdc-text-field__input {
+  color: #000000 !important;
+  background-color: #e7e7e7;
+}
+.mdc-notched-outline {
+  background-color: #e7e7e7;
+}
+
+.mdc-floating-label {
+  color: #4a4a4a !important;
+}
+
+
+
+@media (prefers-color-scheme:dark) {
 
   .mdc-text-field__input {
     color: #ffffff !important;
@@ -5393,6 +5410,9 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   }
   .mdc-floating-label {
     color: #e3e3e3 !important;
+  }
+  .mdc-notched-outline {
+    background-color: #474747;
   }
 
   .beta-feedback-icon {
@@ -5412,6 +5432,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
     background-color: #10d0ea;
   }
 }
+
 @media only screen and (min-width: 48rem) {
   .beta-banner {
     max-width: 1200px;
