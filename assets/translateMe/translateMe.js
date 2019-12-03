@@ -239,7 +239,7 @@ const translateMe = {
         "Older posts": "Older posts",
         "Close": "Close",
         "Scroll to top": "Scroll to top",
-        "Author picture": "Author picture"
+        "Author picture": "Author picture",
         "Feedback": "Feedback",
         "Email (Optional)": "Email (Optional)",
         "SUBMIT": "SUBMIT",
@@ -301,7 +301,7 @@ const translateMe = {
         "Older posts": "Anciens articles",
         "Close": "Fermer",
         "Scroll to top": "Défilement vers le haut",
-        "Author picture": "Photo de l'auteur"
+        "Author picture": "Photo de l'auteur",
         "Feedback": "Rétroaction",
         "Email (Optional)": "Courriel (Optionnel)",
         "SUBMIT": "Soumettre",

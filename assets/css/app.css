@@ -335,7 +335,8 @@ textarea {
         --footer-background-color: #080808;
         --submenu-shadow-color-opacity: 0.55;
         --button-shadow-color-normal: rgba(10, 10, 10, 0.5);
-        --button-shadow-color-hover: rgba(10, 10, 10, 0.5)
+        --button-shadow-color-hover: rgba(10, 10, 10, 0.5);
+        --mdc-theme-primary:#e3e3e3;
     }
 }
 
