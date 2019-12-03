@@ -40,7 +40,13 @@ const translateMe = {
 
             if (propToChange[0] == "["){
                 propToChange = JSON.parse(propToChange);
-                console.log(propToChange);
+                propToChange.forEach(
+                    (propToChange) => {
+                        let text = el.getAttribute(propToChange);
+                        el.setAttribute(propToChange, lang[text]);
+                    }
+                )
+                el.classList.add("translateMe_done");
             }
             else {
                 let text = el.getAttribute(propToChange);
@@ -221,11 +227,19 @@ const translateMe = {
         "Bite sized learning about digital technology and government": "Bite sized learning about digital technology and government",
         "What is the Digital Academy?": "What is the Digital Academy?",
         "Subscribe to our newsletter": "Subscribe to our newsletter",
-        "http://eepurl.com/gdiUTH": "http://eepurl.com/gdiUTH",
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
         "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Busrides is in the beta phase of development.  Regular site updates are made to enhance your experience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback",
         "Provide feedback": "Provide feedback",
+        "Busrides logo consisting of a red bus with the word 'Busrides' written to the right.": "Busrides logo consisting of a red bus with the word 'Busrides' written to the right.",
+        "Toggle submenu": "Toggle submenu",
+        "Authors": "Authors",
+        "Author": "Author",
+        "Newer posts": "Newer posts",
+        "Older posts": "Older posts",
+        "Close": "Close",
+        "Scroll to top": "Scroll to top",
+        "Author picture": "Author picture"
         "Feedback": "Feedback",
         "Email (Optional)": "Email (Optional)",
         "SUBMIT": "SUBMIT",
@@ -275,11 +289,19 @@ const translateMe = {
         "Bite sized learning about digital technology and government": "Micro apprentissage sur la technologie et le gouvernement numérique",
         "What is the Digital Academy?": "Qu'est-ce que l'Académie numérique?",
         "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
-        "http://eepurl.com/gdiUTH": "http://eepurl.com/gdiUTz",
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx",
         "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!" : "Trajet en bus est en phase de développement bêta.  Des mises à jour régulières sont faites pour améliorer votre expérience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction",
         "Provide feedback": "Fournir de la rétroaction",
+        "Busrides logo consisting of a red bus with the word 'Busrides' written to the right.": "Logo Trajets En Bus composé d'un bus rouge avec le mot 'Trajets En Bus' écrit à droite.",
+        "Toggle submenu": "Sous-menu Basculer",
+        "Authors": "Auteurs",
+        "Author": "Auteur",
+        "Newer posts": "Nouveaux articles",
+        "Older posts": "Anciens articles",
+        "Close": "Fermer",
+        "Scroll to top": "Défilement vers le haut",
+        "Author picture": "Photo de l'auteur"
         "Feedback": "Rétroaction",
         "Email (Optional)": "Courriel (Optionnel)",
         "SUBMIT": "Soumettre",

@@ -46,7 +46,7 @@ into the {body} of the default.hbs template --}}
                   <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute='true'}}" class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Twitter">
                     <span class="icon-twitter"></span>
                   </a>
-                  <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="Scroll to top">
+                  <button class="m-icon-button filled in-share progress js-scrolltop translateMeProp" data-translateMeProp="aria-label" aria-label="Scroll to top">
                     <span class="icon-arrow-top"></span>
                     <svg>
                       <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
@@ -89,7 +89,7 @@ into the {body} of the default.hbs template --}}
         {{/if}}
           <div class="m-author__content">
             <div class="m-author__picture">
-              <a href="{{primary_author.url}}" class="m-author-picture" aria-label="Author picture">
+              <a href="{{primary_author.url}}" class="m-author-picture translateMeProp" data-translateMeProp="aria-label" aria-label="Author picture">
                 {{#if primary_author.profile_image}}
                 <div style="background-image: url({{primary_author.profile_image}});"></div>
                 {{else}}
@@ -98,9 +98,9 @@ into the {body} of the default.hbs template --}}
               </a>
             </div>
             <div class="m-author__info">
-              <h4 class="m-author__name">
+              <h2 class="m-author__name">
                 <a href="{{primary_author.url}}">{{primary_author.name}}</a>
-              </h4>
+              </h2>
               {{#has author="count:>1"}}
               <p class="m-small-text in-author-along-with">
                 {{authors separator=", " prefix=(t "Among with no break line") from="2"}}
@@ -136,7 +136,7 @@ into the {body} of the default.hbs template --}}
           </div>
         </section>
         {{!-- If you want to embed comments, this is a good place to do it! --}}
-        {{!--
+        
           <section class="m-comments">
             <div class="m-load-comments">
               <div class="m-load-comments__line"></div>
@@ -153,14 +153,14 @@ into the {body} of the default.hbs template --}}
                 };
                 (function () {
                   var d = document, s = d.createElement('script');
-                  s.src = 'https://CHANGETHIS.disqus.com/embed.js';
+                  s.src = 'https://busrides.disqus.com/embed.js';
                   s.setAttribute('data-timestamp', +new Date());
                   (d.head || d.body).appendChild(s);
                 })();
               </script>
             </div>
           </section>
-          --}}
+         
         {{/post}}
         {{!-- Related posts --}}
         {{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags,authors" as |related|}}

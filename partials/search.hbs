@@ -5,14 +5,14 @@ follow the instructions to enable the search feature.
 --}}
 
 <div class="m-search js-search">
-  <button class="m-icon-button outlined as-close-search js-close-search" aria-label="Close search">
+  <button class="m-icon-button outlined as-close-search js-close-search translateMeProp" data-translateMeProp="aria-label" aria-label="Close">
     <span class="icon-close"></span>
   </button>
   <div class="m-search__content">
     <form class="m-search__form">
       <fieldset>
         <span class="icon-search m-search-icon"></span>
-        <input type="text" class="m-input in-search js-input-search translateMeProp" data-translateMeProp="placeholder" placeholder="Type to search" aria-label="Type to search">
+        <input type="text" class="m-input in-search js-input-search translateMeProp" data-translateMeProp='["placeholder","aria-label"]' placeholder="Type to search" aria-label="Type to search">
       </fieldset>
     </form>
     <div class="js-search-results hide"></div>

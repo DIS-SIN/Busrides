@@ -19,20 +19,20 @@ This header template is shared across all the pages.
       <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
         {{@site.title}}
       </a>
-      {{/if}}
-      <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
-        <span class="icon-search"></span>
-      </button>
-    </div>
-    <div class="m-menu js-menu">
-      <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
-        <span class="icon-close"></span>
-      </button>
-      <div class="m-menu__main" data-aos="fade-down">
-        <div class="l-wrapper">
-          <div class="m-nav">
-            <nav class="m-nav__left">
-              {{#if @site.navigation}}
+    {{/if}}
+        <button class="m-icon-button in-mobile-topbar js-open-search" aria-label="Open search">
+      <span class="icon-search"></span>
+    </button>
+  </div>
+  <div class="m-menu js-menu">
+    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+      <span class="icon-close"></span>
+    </button>
+    <div class="m-menu__main" data-aos="fade-down">
+      <div class="l-wrapper">
+        <div class="m-nav">
+          <nav class="m-nav__left" aria-label="busrides-navigation">
+            {{#if @site.navigation}}
               {{navigation}}
               {{/if}}
             </nav>

@@ -3,15 +3,15 @@ This navigation template is shared across all the pages.
 Also it includes the big submenu.
 --}}
 
-<ul role="menu">
+<ul>
     {{#if @site.logo}}
-    <li class="only-desktop" role="menuitem">
+    <li class="only-desktop">
         <a href="{{@site.url}}" class="m-logo translateMe_navLogo">
             <img src="{{@site.logo}}" alt="{{@site.title}}">
         </a>
     </li>
     {{else}}
-    <li class="only-desktop" role="menuitem">
+    <li class="only-desktop">
         <a href="{{@site.url}}" class="m-site-name in-desktop-menu translateMe_navLogo">
             {{@site.title}}
         </a>
@@ -22,8 +22,8 @@ Also it includes the big submenu.
         <a href="{{url absolute="true"}}">{{label}}</a>
     </li>
     {{/foreach}}
-    <li role="menuitem" class="js-submenu-option">
-        <button class="m-icon-button js-toggle-submenu translateMe" aria-label="Toggle submenu">Topics</button>
+    <li class="js-submenu-option">
+        <button class="m-icon-button js-toggle-submenu translateMe translateMeProp" data-translateMeProp="aria-label" aria-label="Toggle submenu">Topics</button>
         <div class="m-submenu js-submenu">
             <div class="l-wrapper in-submenu">
                 <section class="m-tags">
