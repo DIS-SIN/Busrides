@@ -331,7 +331,7 @@ textarea {
         --secondary-border-color: #0f0f0f;
         --article-shadow-normal: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
         --article-shadow-hover: 0 4px 5px 10px rgba(0, 0, 0, 0.1);
-        --transparent-background-color: rgba(0, 0, 0, 0.99);
+        --transparent-background-color: #121212;
         --footer-background-color: #080808;
         --submenu-shadow-color-opacity: 0.55;
         --button-shadow-color-normal: rgba(10, 10, 10, 0.5);
@@ -5298,6 +5298,9 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   background-color: #ffffff;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.20);
 }
+.feedback-banner-container {
+  background-color:#fff
+}
 
 .beta-message {
   display: inline-block;
@@ -5362,20 +5365,6 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   position: static;
   display: inline;
 }
-.feedback-form-control {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  background-color: transparent;
-  color: #fff;
-  margin-right: 10px;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-bottom: 1px;
-  border-bottom-style: solid;
-}
 
 .feedback-label {
   padding-bottom: 10px;
@@ -5412,12 +5401,12 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   .beta-feedback-icon-disabled {
     fill: rgba(190, 190, 190, 0.5);
   }
-  .feedback-banner {
-    background-color: #121212
-  }
 
   .beta-banner-container {
     background-color: #000000;
+  }
+  .feedback-banner-container {
+    background-color: #121212;
   }
   .feedback-btn {
     background-color: #10d0ea;
