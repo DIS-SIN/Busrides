@@ -5393,7 +5393,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   background-color: #e7e7e7;
 }
 .mdc-notched-outline {
-  background-color: #e7e7e7;
+  background-color: transparent;
 }
 
 .mdc-floating-label {
@@ -5410,9 +5410,6 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   }
   .mdc-floating-label {
     color: #e3e3e3 !important;
-  }
-  .mdc-notched-outline {
-    background-color: #474747;
   }
 
   .beta-feedback-icon {
