@@ -19,7 +19,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/ghost/api/v2/content/beta/feedback?key=6d95c73663e7a0cef99607a8a0',
+            url: '/ghost/api/v2/content/beta/feedback?key=' + feedbackAjaxApiKey,
             data: JSON.stringify(feedbackData),
             success: function () {},
             dataType: 'json',
