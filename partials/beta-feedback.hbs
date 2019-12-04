@@ -1,0 +1,73 @@
+<div id="beta-banner">
+  <div class="beta-banner-container">
+    <div class="beta-banner">
+      <div class="beta-message">
+        <p class="translateMe">Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!</p>
+      </div>
+      <div class="beta-feedback-link cta-open">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path class="beta-feedback-icon"
+            d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z" />
+        </svg>
+        <span class="translateMe">Provide feedback</span>
+      </div>
+    </div>
+  </div>
+  <div class="feedback-banner-container">
+    <div class="feedback-banner">
+      <section class="toggle-form">
+        <div class="feedback-border"></div>
+  
+        <div class="formwrap">
+          <div>
+            <i class="material-icons feedback-close">close</i>
+          </div>
+          <form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
+  
+            <div class="feedback-form-group">
+              <div class="text-field-row text-field-row-fullwidth">
+                <div class="text-field-container">
+                  <div
+                    class="mdc-text-field text-field mdc-text-field--fullwidth mdc-text-field--no-label mdc-text-field--textarea"
+                    data-mdc-auto-init="MDCTextField">
+                    <textarea name="comment" id="comment" class="mdc-text-field__input" rows="1" required></textarea>
+                    <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                      <div class="mdc-notched-outline__leading"></div>
+                      <div class="mdc-notched-outline__notch">
+                        <label class="mdc-floating-label" for="comment"><span class="translateMe">Feedback</span></label>
+                      </div>
+                      <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feedback-form-group">
+              <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+                <input type="email" id="email" name="email" class="mdc-text-field__input">
+                <label class="mdc-floating-label" for="email"><span class="translateMe">Email (Optional)</span></label>
+                <div class="mdc-line-ripple"></div>
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="mdc-text-field-helper-line">
+                <div
+                  class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+                  role="alert">
+                  <span class="translateMe">Must be a valid email address</span>
+                </div>
+                <span style="float:right;"><button type="submit" class="btn btn-lg feedback-btn"><span
+                      class="translateMe">SUBMIT</span></button>
+                </span>
+              </div>
+          </form>
+        </div>
+  
+        <div class="toggle-bg"></div>
+      </section>
+    </div>
+  </div>
+
+
+</div>
+<script type="text/javascript">window.mdc.autoInit(document.getElementById('beta-banner'));</script>

@@ -131,12 +131,12 @@ const translateMe = {
             let link = navItem.children[0];
 
             if (lang == "fr"){
-                if (link.textContent.toLowerCase() == "français" || !link.href.includes("/fr/") && !link.href.includes("/fr-") && link.textContent.toLowerCase() != "english"){
+                if (link.textContent.toLowerCase() == "fr" || !link.href.includes("/fr/") && !link.href.includes("/fr-") && link.textContent.toLowerCase() != "en"){
                     navItem.classList.add("translateMe_hideNavItem");
                 }
             }
             else {
-                if (link.textContent.toLowerCase() == "english" || link.href.includes("/fr-") || link.textContent.toLowerCase() != "français" && link.href.includes("/fr/")){
+                if (link.textContent.toLowerCase() == "en" || link.href.includes("/fr-") || link.textContent.toLowerCase() != "fr" && link.href.includes("/fr/")){
                     navItem.classList.add("translateMe_hideNavItem");
                 }
             }
@@ -228,7 +228,7 @@ const translateMe = {
         "What is the Digital Academy?": "What is the Digital Academy?",
         "Subscribe to our newsletter": "Subscribe to our newsletter",
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
-        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
+        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Busrides is in the beta phase of development.  Regular site updates are made to enhance your experience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback",
         "Provide feedback": "Provide feedback",
         "Busrides logo consisting of a red bus with the word 'Busrides' written to the right.": "Busrides logo consisting of a red bus with the word 'Busrides' written to the right.",
@@ -239,8 +239,11 @@ const translateMe = {
         "Older posts": "Older posts",
         "Close": "Close",
         "Scroll to top": "Scroll to top",
-        "Author picture": "Author picture"
-        
+        "Author picture": "Author picture",
+        "Feedback": "Feedback",
+        "Email (Optional)": "Email (Optional)",
+        "SUBMIT": "SUBMIT",
+        "Must be a valid email address": "Must be a valid email address"
     },
 
     fr: {
@@ -287,7 +290,7 @@ const translateMe = {
         "What is the Digital Academy?": "Qu'est-ce que l'Académie numérique?",
         "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
         "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-fra.aspx",
-        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!": "Trajet en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
+        "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!" : "Trajet en bus est en phase de développement bêta.  Des mises à jour régulières sont faites pour améliorer votre expérience!",
         "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Feedback": "mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?Subject=Busrides%20Rétroaction",
         "Provide feedback": "Fournir de la rétroaction",
         "Busrides logo consisting of a red bus with the word 'Busrides' written to the right.": "Logo Trajets En Bus composé d'un bus rouge avec le mot 'Trajets En Bus' écrit à droite.",
@@ -298,7 +301,11 @@ const translateMe = {
         "Older posts": "Anciens articles",
         "Close": "Fermer",
         "Scroll to top": "Défilement vers le haut",
-        "Author picture": "Photo de l'auteur"
+        "Author picture": "Photo de l'auteur",
+        "Feedback": "Rétroaction",
+        "Email (Optional)": "Courriel (Optionnel)",
+        "SUBMIT": "Soumettre",
+        "Must be a valid email address": "Doit être une adresse de courriel valide"
     }  
 
 };

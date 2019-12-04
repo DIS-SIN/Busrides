@@ -11,10 +11,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{asset "translateMe/translateMe.css"}}" media="screen" />
     <script type="text/javascript" src="{{asset "translateMe/moment-with-locales.js"}}"></script>
     <script type="text/javascript" src="{{asset "translateMe/translateMe.js"}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{asset "built/formSlider.js"}}"></script>
+
 
     {{!-- This #block helper will pull data from the hero partial 
     to inject styles of the hero image to make it responsive --}}
@@ -24,6 +30,9 @@
     {{ghost_head}}
 
     {{!-- This variable is used to make the search form work --}}
+    <script>
+        const ghostSearchApiKey = '52e46d633d718f90237fa5217b';
+    </script>
     <script>
       // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
       const ghostHost = "{{@site.url}}"
