@@ -1,0 +1,27 @@
+{{!--
+This template is used for the index page.
+It can be used also as the home page or the default page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+<div class="main-wrap">
+  Special header.hbs partial to generate the <header> tag
+  {{> header background="https://tr4.cbsistatic.com/hub/i/r/2019/09/18/a3ba9aa8-e8d6-4faa-a60b-472db067edaf/resize/1200x/66df4c27eb051d6c56fd8cc868de3a40/istock-1132660268.jpg"}}
+  {{!-- Inject styles of the hero image to make it responsive --}}
+  {{!-- {{> hero background="https://tr4.cbsistatic.com/hub/i/r/2019/09/18/a3ba9aa8-e8d6-4faa-a60b-472db067edaf/resize/1200x/66df4c27eb051d6c56fd8cc868de3a40/istock-1132660268.jpg"}} --}}
+  </section>
+  
+  <main>
+    <iframe src="https://dis-sin.github.io/12-Days-of-Data/" style="width: 100vw;border: none;height: 100vh;">
+        <p>Your browser does not support iframes.</p>
+    </iframe>
+  </main>
+</div>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+    
+{{/contentFor}}
