@@ -14,12 +14,12 @@ $(document).ready(function () {
     $('#feedback').on('submit', function (e) {
         var formData = $('#feedback').serializeArray();
         var feedbackData = {
-            feedback: [{ comment: formData[0].value, email: formData[1].value }]
+            query: 'mutation{createFeedback(appID:"' + feedbackAppId +'",email:"' + formData[1].value + '", comment:"' + formData[0].value + '"){id}}'
         };
 
         $.ajax({
             type: 'POST',
-            url: '/ghost/api/v2/content/beta/feedback?key=' + feedbackAjaxApiKey,
+            url: feedbackMsUrl,
             data: JSON.stringify(feedbackData),
             success: function () {},
             dataType: 'json',
