@@ -303,7 +303,7 @@ textarea {
   --primary-subtle-color: #04aeee;
   --secondary-subtle-color: #f4f8fd;
   --titles-color: #ffffff;
-  --link-color: #293951;
+  --link-color: #122f48;
   --primary-border-color: #9b9b9b;
   --secondary-border-color: #f0f8ff;
   --article-shadow-normal: 0 10px 10px rgba(0, 0, 0, 0.08);
@@ -2476,7 +2476,13 @@ fieldset {
 }
 
 .m-tags ul li a {
-  color: var(--link-color);
+  color: var(--titles-color);
+}
+
+@media only screen and (min-width: 48rem) {
+  .m-tags ul li a {
+    color: var(--link-color);
+  }
 }
 
 .m-hero {
