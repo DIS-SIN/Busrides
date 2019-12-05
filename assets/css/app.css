@@ -302,7 +302,7 @@ textarea {
   --secondary-foreground-color: #000;
   --primary-subtle-color: #04aeee;
   --secondary-subtle-color: #f4f8fd;
-  --titles-color: #ffffff;
+  --titles-color: #333;
   --link-color: #122f48;
   --primary-border-color: #9b9b9b;
   --secondary-border-color: #f0f8ff;
@@ -314,6 +314,7 @@ textarea {
   --button-shadow-color-normal: hsla(0, 0%, 42.4%, 0.2);
   --button-shadow-color-hover: hsla(0, 0%, 42.4%, 0.3);
   --mdc-theme-primary:#4a4a4a;
+  --menu-titles-color: #ffffff;
 
 
 }
@@ -337,6 +338,7 @@ textarea {
         --button-shadow-color-normal: rgba(10, 10, 10, 0.5);
         --button-shadow-color-hover: rgba(10, 10, 10, 0.5);
         --mdc-theme-primary:#e3e3e3;
+        --menu-titles-color:;
     }
 }
 
@@ -2060,7 +2062,7 @@ fieldset {
 }
 
 .m-nav__left ul li {
-  color: var(--titles-color);
+  color: var(--menu-titles-color);
   letter-spacing: 0.3px;
   font-size: 1.16rem;
   margin-bottom: 15px;
@@ -2133,7 +2135,7 @@ fieldset {
 }
 
 .m-nav__right ul li {
-  color: var(--titles-color);
+  color: var(--menu-titles-color);
   letter-spacing: 0.3px;
   font-size: 1.16rem;
   margin-bottom: 15px;
@@ -2476,7 +2478,7 @@ fieldset {
 }
 
 .m-tags ul li a {
-  color: var(--titles-color);
+  color: #ffffff;
 }
 
 @media only screen and (min-width: 48rem) {
@@ -5404,7 +5406,14 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   color: #4a4a4a !important;
 }
 
+.in-top-menu {
+  color: var(--menu-titles-color);
+}
 @media (prefers-color-scheme:dark) {
+
+  .in-top-menu {
+    color: var(--menu-titles-color);
+  }
 
   .mdc-text-field__input {
     color: #ffffff !important;
@@ -5456,3 +5465,4 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
     padding: 0;
   }
 }
+

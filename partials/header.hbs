@@ -8,7 +8,7 @@ This header template is shared across all the pages.
   <header class="m-header js-header">
     {{/if}}
     <div class="m-mobile-topbar" data-aos="fade-down">
-      <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="Open menu">
+      <button class="m-icon-button in-top-menu in-mobile-topbar js-open-menu" aria-label="Open menu">
         <span class="icon-menu"></span>
       </button>
       {{#if @site.logo}}
@@ -25,7 +25,7 @@ This header template is shared across all the pages.
     </button>
   </div>
   <div class="m-menu js-menu">
-    <button class="m-icon-button outlined as-close-menu js-close-menu" aria-label="Close menu">
+    <button class="m-icon-button in-top-menu outlined as-close-menu js-close-menu" aria-label="Close menu">
       <span class="icon-close"></span>
     </button>
     <div class="m-menu__main" data-aos="fade-down">
@@ -39,7 +39,7 @@ This header template is shared across all the pages.
             <nav class="m-nav__right">
               <ul role="menu">
                 <li>
-                  <button class="m-icon-button in-menu-main js-open-search" aria-label="Open search">
+                  <button class="m-icon-button in-menu-main in-top-menu js-open-search" aria-label="Open search">
                     <span class="icon-search"></span>
                   </button>
                 </li>
