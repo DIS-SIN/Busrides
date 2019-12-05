@@ -5283,6 +5283,8 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
 /* ---------------------------------------------------------- */
 
 .beta-banner {
+  display:flex;
+  flex-flow: wrap row;
   position: relative;
   margin: 0 auto;
   padding: 20px;
@@ -5308,12 +5310,8 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
 .beta-message {
   display: inline-block;
 }
-
 .beta-feedback-link {
-  float: right;
-  position: relative;
-  width: 250px;
-  text-align: right;
+  padding-top: 10px;
 }
 
 .beta-feedback-icon {
@@ -5436,6 +5434,10 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
     max-width: 1200px;
   }
   .feedback-submit {
+    margin-left: auto;
+  }
+  .beta-feedback-link {
+    padding-top: 0px;
     margin-left: auto;
   }
 }
