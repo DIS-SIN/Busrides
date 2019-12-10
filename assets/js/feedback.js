@@ -29,5 +29,7 @@ $(document).ready(function () {
         $('.feedback-close').removeClass('open');
         $('.beta-feedback-link').removeClass('beta-feedback-link-disabled');
         $('.beta-feedback-icon').removeClass('beta-feedback-icon-disabled');
+        $('#feedback')[0].reset();
+        $('.success-alert').fadeIn(300).delay(4000).fadeOut(400);
     });
 });
