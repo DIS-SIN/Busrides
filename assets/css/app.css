@@ -5336,6 +5336,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
 }
 .beta-feedback-link-disabled:hover {
   cursor: none;
+  text-decoration: none;
 }
 .beta-feedback-icon-disabled {
   fill: rgba(190, 190, 190, 0.5);
