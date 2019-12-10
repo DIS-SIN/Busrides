@@ -243,7 +243,10 @@ const translateMe = {
         "Feedback": "Feedback",
         "Email (Optional)": "Email (Optional)",
         "SUBMIT": "SUBMIT",
-        "Must be a valid email address": "Must be a valid email address"
+        "Must be a valid email address": "Must be a valid email address",
+        "Success!": "Success!",
+        "Thank you for your feedback.": "Thank you for your feedback."
+
     },
 
     fr: {
@@ -305,7 +308,9 @@ const translateMe = {
         "Feedback": "Rétroaction",
         "Email (Optional)": "Courriel (Optionnel)",
         "SUBMIT": "Soumettre",
-        "Must be a valid email address": "Doit être une adresse de courriel valide"
+        "Must be a valid email address": "Doit être une adresse de courriel valide",
+        "Success!": "Succès!",
+        "Thank you for your feedback.": "Merci pour votre rétroaction."
     }  
 
 };
