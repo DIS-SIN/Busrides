@@ -5335,7 +5335,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   color: rgba(190, 190, 190, 0.5);
 }
 .beta-feedback-link-disabled:hover {
-  cursor: none;
+  cursor: default;
   text-decoration: none;
 }
 .beta-feedback-icon-disabled {
@@ -5460,6 +5460,7 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   }
   .feedback-btn {
     background-color: #10d0ea;
+    color: #000000;
   }
 }
 
