@@ -5420,6 +5420,14 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   display: none
 }
 
+.error-alert {
+  padding: 20px;
+  background-color: red;
+  color: white;
+  margin-bottom: 15px;
+  display: none
+}
+
 .alert-closebtn {
   margin-left: 15px;
   color: white;
@@ -5429,6 +5437,13 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos] {
   line-height: 20px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.grecaptcha-badge {
+  opacity:0 !important;
+  }
+.grecaptcha-badge-enable {
+  opacity: 1 !important;
 }
 
 @media (prefers-color-scheme:dark) {

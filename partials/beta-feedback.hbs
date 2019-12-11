@@ -14,10 +14,14 @@
       </div>
     </div>
   </div>
-  <div class="success-alert" role="status">
-  <span class="alert-closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong class="translateMe">Success!</strong> <span class="translateMe">Thank you for your feedback.</span>
-</div>
+  <div id="success-notification" class="success-alert" role="status">
+    <span class="alert-closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong class="translateMe">Success!</strong> <span class="translateMe">Thank you for your feedback.</span>
+  </div>
+  <div id="error-alert" class="error-alert" role="alert">
+    <span class="alert-closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error!</strong> <span>Something went wrong and we couldn't submit your feedback</span>
+  </div>
   <div class="feedback-banner-container toggle-form">
     <div class="feedback-banner">
       <section>
@@ -25,6 +29,7 @@
   
         <div class="formwrap">
           <div>
+            <span class="translateMe">Help improve the site's usability by submitting feedback about bugs or feature enhancements.</span>
             <i class="material-icons feedback-close">close</i>
           </div>
           <form id="feedback" method="post" role="form" data-toggle="validator" onsubmit="return false">
@@ -61,8 +66,10 @@
                 </div>
               </div>
               <div class="feedback-submit">
-                <span><button type="submit" class="btn btn-lg feedback-btn"><span
-                      class="translateMe">SUBMIT</span></button>
+                <span>
+                  <button type="submit" class="btn btn-lg feedback-btn">
+                    <span class="translateMe">SUBMIT</span>
+                  </button>
                 </span>
               </div>
             </div>
