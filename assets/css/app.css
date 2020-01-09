@@ -1934,7 +1934,7 @@ fieldset {
 }
 
 .m-no-found {
-  color: #000;
+  color: var(--titles-color);
   line-height: 1.3;
   font-size: 0.875rem;
   font-weight: 600;
