@@ -16,3 +16,11 @@ export async function getPosts() {
         console.error(err);
     });
 }
+
+export async function getPages() {
+    return await api.pages
+    .browse()
+    .catch(err => {
+        console.error(err);
+    });
+}
