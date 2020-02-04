@@ -24,3 +24,19 @@ export async function getPages() {
         console.error(err);
     });
 }
+
+export async function getTags() {
+    return await api.tags
+    .browse({order: 'slug ASC'})
+    .catch(err => {
+        console.error(err);
+    });
+}
+
+export async function getSettings() {
+    return await api.settings
+    .browse()
+    .catch(err => {
+        console.error(err);
+    });
+}

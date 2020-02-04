@@ -1,13 +1,14 @@
 import {GCSplashScreen} from 'gc-tortilla';
+import { getSettings } from '../Ghost-API/contentAPI';
 
-export default function Splash() {
+export default function Splash(props) {
     return (
         <GCSplashScreen
             logo={{
-                image: "https://d1em53b5kumigl.cloudfront.net/2019/09/Bus-Rides-Publication-Icon-1.png",
+                image: props.settings.logo,
                 altText: "Busrides Icon"
             }}
-            backgroundImage={"https://d1em53b5kumigl.cloudfront.net/2019/11/Busrides-Home-Page-Image-Dark.jpg"}
+            backgroundImage={props.settings.cover_image}
             routes={{
                 english: "/",
                 french: "/fr"
@@ -15,3 +16,11 @@ export default function Splash() {
         />
     );
 }
+
+Splash.getInitialProps = async function() {
+    const settings = await getSettings();
+
+	return {
+        settings
+	};
+};
