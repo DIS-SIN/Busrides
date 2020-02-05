@@ -1,9 +1,40 @@
 .header {
+    display: flex;
+    flex-direction: row;
     background-color: var(--transparent-background-color);
-    height: 200px;
     width: 100%;
+    padding: 20px 0 10px 0;
 }
 
 .navItems {
+    margin: 0;
     display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navItems li:not(:last-child) {
+    margin-right: 35px;
+}
+
+.logo {
+    width: auto;
+    max-width: 150px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.navItem {
+    color: var(--menu-titles-color);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.16rem;
+    font-weight: 400;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+.navItem:hover {
+    text-decoration: underline;
 }

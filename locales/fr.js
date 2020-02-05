@@ -1,6 +1,7 @@
 const fr = {
+    "getLocale": "fr",
     "Busrides": "Trajet en bus",
-    "Home": "Accueil" 
+    "Topics": "Sujets"
 }
 
 export default fr;

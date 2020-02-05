@@ -7,7 +7,7 @@ export default function Home(props) {
 
     return (
         <div>
-            <Header settings={props.settings} t={props.t}/>
+            <Header t={props.t} settings={props.settings}/>
             <EpisodeList pages={props.pages} posts={props.posts} tags={props.tags}/>
         </div>
     );
