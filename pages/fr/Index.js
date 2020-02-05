@@ -1,6 +1,6 @@
-import Home from '../components/templates/Home';
-import { getPosts, getPages, getTags, getSettings } from '../Ghost-API/contentAPI';
-import dictionary from '../locales/en';
+import Home from '../../components/templates/Home';
+import { getPosts, getPages, getTags, getSettings } from '../../Ghost-API/contentAPI';
+import dictionary from '../../locales/fr';
 
 export default function Index(props) {
     return (

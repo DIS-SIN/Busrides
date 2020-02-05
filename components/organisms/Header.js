@@ -10,7 +10,7 @@ export default function Header(props) {
                     </a>
                 </li>
                 <li>
-                    <a href="/">Home</a>
+                    <a href="/">{props.t["Home"]}</a>
                 </li>
 
                 <li></li>

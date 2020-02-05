@@ -1,5 +1,6 @@
 const en = {
-    "Busrides": "Busrides"
+    "Busrides": "Busrides",
+    "Home": "Home"
 }
 
 export default en;
