@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--footer-background-color);
+}
+
+.footerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 0;
+}
+
+.row, .row a {
+    color: white;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
+    text-decoration: none;
+    margin: 0;
+}
+
+.row svg path {
+    fill: white;
+}
+
+.row:not(:last-child) {
+    margin-bottom: 20px;
+}
