@@ -7,14 +7,15 @@ const api = new GhostContentAPI({
     version: "v2"
 });
 
-export async function getPosts() {
-    return await api.posts
+export async function getPosts(locale) {
+    const posts = await api.posts
     .browse({
         limit: "all"
     })
     .catch(err => {
         console.error(err);
     });
+    return posts.filter(post => post.slug.substr(post.slug.length - 3) === `-${locale}`);
 }
 
 export async function getPages() {

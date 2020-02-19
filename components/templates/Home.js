@@ -3,7 +3,7 @@ import EpisodeList from '../organisms/EpisodeList';
 
 export default function Home(props) {
 
-    console.log(props.settings)
+    console.log(props.posts);
 
     return (
         <div>
