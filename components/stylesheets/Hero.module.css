@@ -1,0 +1,43 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 365px;
+    background-image: url(https://d1em53b5kumigl.cloudfront.net/2019/11/Busrides-Home-Page-Image-Dark.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+    max-width: 50vw;
+    max-height: 120px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.description {
+    color: white;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 1.125rem;
+    margin: 0 0 25px 0;
+}
+
+@media only screen and (min-width: 48rem) {
+    .hero {
+        min-height: 450px;
+    }
+
+    .description {
+        font-size: 1.375rem;
+    }
+}
+
+@media only screen and (min-width: 80rem){
+    .hero {
+        min-height: 565px;
+    }
+}
