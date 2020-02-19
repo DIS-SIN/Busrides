@@ -8,7 +8,8 @@ const fr = {
     "What is the Digital Academy?": "Qu'est-ce que l'Académie numérique?",
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
     "getDATwitter": "https://twitter.com/AcademieNumCAN",
-    "Subscribe to our newsletter": "Abonnez-vous à notre infolettre"
+    "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
+    "read": "Lecture de"
 }
 
 export default fr;

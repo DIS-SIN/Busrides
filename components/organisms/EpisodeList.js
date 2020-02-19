@@ -1,10 +1,15 @@
+import Card from '../molecules/Card';
+import styles from '../stylesheets/EpisodeList.module.css';
+
 export default function EpisodeList(props) {
     return (
         <div>
-            <h1>Episodes:</h1>
-            {props.posts.map(post => (
-                <p key={post.id}>{post.title}</p>
-            ))}
+            <div className={styles.episodeList}>
+                {props.posts.map(post => (
+                    // <p key={post.id}>{post.title}</p>
+                    <Card key={post.id} t={props.t} post={post}/>
+                ))}
+            </div>
             <h1>Tags:</h1>
             {props.tags.map(tag => (
                 <p key={tag.id}>{tag.name}</p>
