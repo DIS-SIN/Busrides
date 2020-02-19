@@ -1,13 +1,23 @@
 .header {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     background-color: var(--transparent-background-color);
     width: 100%;
-    padding: 20px 0 10px 0;
+    padding: 20px 50px 10px 50px;
+    box-sizing: border-box;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .navItems {
     margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     list-style: none;
@@ -37,4 +47,8 @@
 }
 .navItem:hover {
     text-decoration: underline;
+}
+
+.navItem svg path {
+    fill: var(--menu-titles-color);
 }
