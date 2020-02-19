@@ -4,7 +4,19 @@
     height: 400px;
     margin-bottom: 20px;
     border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--secondary-border-color);
     box-shadow: var(--article-shadow-normal), 0 0 0 transparent;
+    transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card:hover {
+    -o-box-shadow: var(--article-shadow-hover), 0 0 0 transparent;
+    box-shadow: var(--article-shadow-hover), 0 0 0 transparent;
 }
 
 .image {
