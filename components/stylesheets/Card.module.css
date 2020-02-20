@@ -10,16 +10,36 @@
     transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.card:first-of-type {
+    width: 100%;
 }
 
 .card:hover {
+    transform: translateY(-5px);
     -o-box-shadow: var(--article-shadow-hover), 0 0 0 transparent;
     box-shadow: var(--article-shadow-hover), 0 0 0 transparent;
 }
 
+.author {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 35px; 
+    height: 35px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: white;
+}
+
+.card:hover .author {
+    -o-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 transparent;
+}
+
 .image {
+    position: relative;
     height: 200px;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
@@ -91,6 +111,11 @@
 
     .image {
         height: 220px;
+    }
+
+    .author {
+        top: 25px;
+        left: 25px;
     }
 
     .title {

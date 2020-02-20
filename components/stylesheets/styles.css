@@ -19,11 +19,11 @@
     --submenu-shadow-color-opacity: 0.25;
     --button-shadow-color-normal: hsla(0, 0%, 42.4%, 0.2);
     --button-shadow-color-hover: hsla(0, 0%, 42.4%, 0.3);
-    --mdc-theme-primary:#4a4a4a;
+    --mdc-theme-primary: #4a4a4a;
     --menu-titles-color: #ffffff;
 
-    --csps-purple: rgb(63,42,86);
-    --csps-grey: rgb(78,91,115);
+    --csps-purple: rgb(63, 42, 86);
+    --csps-grey: rgb(78, 91, 115);
     --csps-light-grey: #EDEFF1;
     --csps-medium-grey: #E5E7EA;
     --csps-coral: #DA797A;
@@ -47,7 +47,7 @@
         --submenu-shadow-color-opacity: 0.55;
         --button-shadow-color-normal: rgba(10, 10, 10, 0.5);
         --button-shadow-color-hover: rgba(10, 10, 10, 0.5);
-        --mdc-theme-primary:#e3e3e3;
+        --mdc-theme-primary: #e3e3e3;
     }
 }
 
@@ -60,4 +60,81 @@ body {
     font-display: swap;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.tippy-tooltip[data-animation=fade][data-state=hidden] {
+    opacity: 0
+}
+
+.tippy-iOS {
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent
+}
+
+.tippy-popper {
+    pointer-events: none;
+    max-width: calc(100vw - 10px);
+    transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+    transition-property: transform
+}
+
+.tippy-tooltip {
+    position: relative;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: #333;
+    transition-property: visibility, opacity, transform;
+    outline: 0
+}
+
+.tippy-tooltip[data-placement^=top]>.tippy-arrow {
+    border-width: 8px 8px 0;
+    border-top-color: #333;
+    margin: 0 3px;
+    transform-origin: 50% 0;
+    bottom: -7px
+}
+
+.tippy-tooltip[data-placement^=bottom]>.tippy-arrow {
+    border-width: 0 8px 8px;
+    border-bottom-color: #333;
+    margin: 0 3px;
+    transform-origin: 50% 7px;
+    top: -7px
+}
+
+.tippy-tooltip[data-placement^=left]>.tippy-arrow {
+    border-width: 8px 0 8px 8px;
+    border-left-color: #333;
+    margin: 3px 0;
+    transform-origin: 0 50%;
+    right: -7px
+}
+
+.tippy-tooltip[data-placement^=right]>.tippy-arrow {
+    border-width: 8px 8px 8px 0;
+    border-right-color: #333;
+    margin: 3px 0;
+    transform-origin: 7px 50%;
+    left: -7px
+}
+
+.tippy-tooltip[data-interactive][data-state=visible] {
+    pointer-events: auto
+}
+
+.tippy-tooltip[data-inertia][data-state=visible] {
+    transition-timing-function: cubic-bezier(.54, 1.5, .38, 1.11)
+}
+
+.tippy-arrow {
+    position: absolute;
+    border-color: transparent;
+    border-style: solid
+}
+
+.tippy-content {
+    padding: 5px 9px
 }

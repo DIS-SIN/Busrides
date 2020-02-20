@@ -9,7 +9,8 @@ const en = {
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
     "getDATwitter": "https://twitter.com/DigiAcademyCAN",
     "Subscribe to our newsletter": "Subscribe to our newsletter",
-    "read": "read"
+    "read": "read",
+    "along with": "along with"
 }
 
 export default en;

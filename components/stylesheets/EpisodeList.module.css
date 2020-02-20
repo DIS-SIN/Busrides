@@ -6,10 +6,6 @@
     margin: 0 auto;
 }
 
-.episodeList div:first-child {
-    width: 100%;
-}
-
 @media only screen and (min-width: 48rem) {
     .episodeList {
         max-width: 1200px;

@@ -1,7 +1,19 @@
 import moment from 'moment';
+import Tippy from '@tippy.js/react'
 import styles from '../stylesheets/Card.module.css';
 
 export default function Card(props) {
+
+    function getAuthors() {
+        if (props.post.authors.length > 1){
+            let authors = `${props.post.authors[0].name} ${props.t["along with"]} `;
+            for (let i = 1; i < props.post.authors.length; i++) {
+                authors += props.post.authors[i].name + ",";
+            }
+            return authors.substr(0, authors.length - 1);
+        }
+        return props.post.primary_author.name;
+    }
 
     function getTimeSincePublished() {
         moment.locale(props.t.getLocale);
@@ -21,7 +33,11 @@ export default function Card(props) {
 
     return (
         <div className={styles.card}>
-            <div className={styles.image} style={{backgroundImage: `url(${props.post.feature_image})`}}></div>
+            <div className={styles.image} style={{backgroundImage: `url(${props.post.feature_image})`}}>
+                <Tippy content={getAuthors()} arrow={false}>
+                    <div className={styles.author} style={{backgroundImage: `url(${props.post.primary_author.profile_image})`}}/>
+                </Tippy>
+            </div>
             <div className={styles.content}>
                 <a className={styles.tag}>{props.post.primary_tag.name}</a>
                 <h2 className={styles.title}>{props.post.title}</h2>
