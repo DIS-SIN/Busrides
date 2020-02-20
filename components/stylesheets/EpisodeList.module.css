@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 50px;
 }
 
 .episodeList {
@@ -16,6 +15,7 @@
     font-size: 0.8rem;
     font-weight: 600;
     padding: 15px 30px;
+    margin-bottom: 50px;
     border-radius: 40px;
     user-select: none;
     color: var(--titles-color);
