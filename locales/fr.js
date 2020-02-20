@@ -1,6 +1,7 @@
 const fr = {
     "getLocale": "fr",
     "getOppositeLocale": "en",
+    "getGhostLocaleTag": "Français",
     "getLogo": "https://busrides-trajetsenbus.ca/content/images/logos/BusRidesPublicationLogo-fr.png",
     "getDescription": "Micro apprentissage sur la technologie et le gouvernement numérique",
     "Busrides": "Trajets en bus",
@@ -10,7 +11,8 @@ const fr = {
     "getDATwitter": "https://twitter.com/AcademieNumCAN",
     "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
     "read": "Lecture de",
-    "along with": "en compagnie de"
+    "along with": "en compagnie de",
+    "Load More": "Charger plus"
 }
 
 export default fr;

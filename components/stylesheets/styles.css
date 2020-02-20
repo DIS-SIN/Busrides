@@ -62,6 +62,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    cursor: pointer;
+}
+
 .tippy-tooltip[data-animation=fade][data-state=hidden] {
     opacity: 0
 }

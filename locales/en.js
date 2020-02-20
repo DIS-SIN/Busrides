@@ -1,6 +1,7 @@
 const en = {
     "getLocale": "en",
     "getOppositeLocale": "fr",
+    "getGhostLocaleTag": "English",
     "getLogo": "https://busrides-trajetsenbus.ca/content/images/logos/BusRidesPublicationLogo-en.png",
     "getDescription": "Bite sized learning about digital technology and government",
     "Busrides": "Busrides",
@@ -10,7 +11,8 @@ const en = {
     "getDATwitter": "https://twitter.com/DigiAcademyCAN",
     "Subscribe to our newsletter": "Subscribe to our newsletter",
     "read": "read",
-    "along with": "along with"
+    "along with": "along with",
+    "Load More": "Load More"
 }
 
 export default en;
