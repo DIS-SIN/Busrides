@@ -1,0 +1,55 @@
+.contentArea {
+    padding: 40px 20px 20px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    color: var(--titles-color);
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.metaDetails {
+    letter-spacing: 0.2px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* primary tag */
+.metaDetails a {
+    color: var(--link-color);
+}
+
+/* Dot divider between primary tag and date published */
+.metaDetails span:first-of-type{
+    color: var(--primary-border-color);
+    margin: 0 10px;
+}
+
+@media only screen and (min-width: 48rem){
+    .contentArea {
+        padding: 60px 20px 40px;
+    }
+
+    .heading {
+        margin-bottom: 60px;
+    }
+
+    .title {
+        letter-spacing: 0.7px;
+        font-size: 2.625rem;
+        margin-bottom: 20px;
+    }
+
+    .metaDetails {
+        font-size: 1rem;
+    }
+}

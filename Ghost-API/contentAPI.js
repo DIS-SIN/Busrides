@@ -24,7 +24,8 @@ export async function getPosts(locale, page = 1) {
 export async function getPost(slug) {
     return await api.posts
     .read({
-        slug: slug
+        slug: slug,
+        include: "tags,authors"
     })
     .catch(err => {
         console.error(err);
