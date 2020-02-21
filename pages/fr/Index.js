@@ -10,7 +10,7 @@ export default function Index(props) {
 
 Index.getInitialProps = async function() {
     const posts = await getPosts(dictionary.getGhostLocaleTag);
-    const tags = await getTags();
+    const tags = await getTags(dictionary.getTopicSlugs);
     const settings = await getSettings();
 
 	return {

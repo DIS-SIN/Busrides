@@ -29,10 +29,10 @@ export default function EpisodeList(props) {
                 ))}
             </div>
             <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={loadMore}>{props.t["Load More"]}</a>
-            {/* <h1>Tags:</h1>
+            <h1>Topics:</h1>
             {props.tags.map(tag => (
                 <p key={tag.id}>{tag.name}</p>
-            ))} */}
+            ))}
         </div>
     );
 }

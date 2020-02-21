@@ -6,6 +6,7 @@ const en = {
     "getDescription": "Bite sized learning about digital technology and government",
     "Busrides": "Busrides",
     "Topics": "Topics",
+    "getTopicSlugs": "[en-artificial-intelligence, en-data, en-design, en-digital-transformation, en-open-government, en-technology]",
     "What is the Digital Academy?": "What is the Digital Academy?",
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
     "getDATwitter": "https://twitter.com/DigiAcademyCAN",

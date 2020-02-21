@@ -29,9 +29,12 @@ export async function getPages() {
     });
 }
 
-export async function getTags() {
+export async function getTags(tags) {
     return await api.tags
-    .browse({order: 'slug ASC'})
+    .browse({
+        order: 'slug ASC',
+        filter: `slug:${tags}`
+    })
     .catch(err => {
         console.error(err);
     });
