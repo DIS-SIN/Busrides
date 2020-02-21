@@ -1,0 +1,21 @@
+.logo {
+    width: auto;
+    height: auto;
+    max-width: 50vw;
+    max-height: 120px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.description {
+    color: white;
+    text-align: center;
+    font-size: 1.125rem;
+    margin: 0 0 25px 0;
+}
+
+@media only screen and (min-width: 48rem) {
+    .description {
+        font-size: 1.375rem;
+    }
+}
