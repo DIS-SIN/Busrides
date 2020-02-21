@@ -21,6 +21,16 @@ export async function getPosts(locale, page = 1) {
     return posts;
 }
 
+export async function getPost(slug) {
+    return await api.posts
+    .read({
+        slug: slug
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 export async function getPages() {
     return await api.pages
     .browse()

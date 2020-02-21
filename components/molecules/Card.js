@@ -1,5 +1,6 @@
 import moment from 'moment';
 import Tippy from '@tippy.js/react'
+import Link from 'next/link';
 import styles from '../stylesheets/Card.module.css';
 
 export default function Card(props) {
@@ -40,7 +41,9 @@ export default function Card(props) {
             </div>
             <div className={styles.content}>
                 <a className={styles.tag}>{props.post.primary_tag.name}</a>
-                <h2 className={styles.title}>{props.post.title}</h2>
+                <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
+                    <h2 className={styles.title}>{props.post.title}</h2>
+                </Link>
                 <p className={styles.description}>{props.post.excerpt.substr(0, 80)}...</p>
                 <p className={styles.timeStamps}>{getTimeSincePublished()}<span>•</span>{getReadingTime()}</p>
             </div>
