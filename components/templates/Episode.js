@@ -2,6 +2,7 @@ import moment from 'moment';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import PostContent from '../organisms/PostContent';
+import ShareButtons from '../molecules/ShareButtons';
 import Comments from '../organisms/Comments';
 import Footer from '../organisms/Footer';
 import styles from '../stylesheets/Episode.module.css';
@@ -15,6 +16,7 @@ export default function Episode(props) {
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.post.feature_image}/>
             <div className={styles.contentArea}>
+                <ShareButtons post={props.post}/>
                 <div className={styles.heading}>
                     <h1 className={styles.title}>{props.post.title}</h1>
                     <div className={styles.metaDetails}>

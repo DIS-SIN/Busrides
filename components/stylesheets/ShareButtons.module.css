@@ -1,0 +1,57 @@
+.shareButtons {
+    position: absolute;
+    height: 100%;
+}
+
+.sticky {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    margin: 0 25px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+    box-shadow: 0 2px 4px var(--button-shadow-color-normal), 0 0 0 transparent;
+}
+
+.button:hover {
+    box-shadow: 0 4px 8px var(--button-shadow-color-hover), 0 0 0 transparent;
+}
+
+.button svg {
+    fill: var(--titles-color);
+}
+
+@media only screen and (min-width: 64rem){
+    .shareButtons {
+        right: 55px;
+    }
+
+    .button {
+        width: 40px;
+        height: 40px;
+        margin: 0 0 20px;
+    }
+}
+
+@media only screen and (min-width: 80rem){
+    .shareButtons {
+        right: 175px;
+    }
+}
+
+@media only screen and (min-width: 90rem){
+    .shareButtons {
+        right: 200px;
+    }
+}
