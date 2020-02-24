@@ -10,6 +10,14 @@
     flex-direction: column;
 }
 
+.progress {
+    position: absolute;
+}
+
+.progress path:nth-of-type(2) {
+    stroke: var(--primary-subtle-color);
+}
+
 .button {
     display: flex;
     justify-content: center;

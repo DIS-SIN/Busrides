@@ -1,3 +1,4 @@
+import {CircularProgressbar} from 'react-circular-progressbar';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import styles from '../stylesheets/ShareButtons.module.css';
@@ -28,8 +29,9 @@ export default function ShareButtons(props) {
     return (
         <div className={styles.shareButtons}>
             <div className={styles.sticky}>
-                <div className={styles.button} onClick={scrollToTop}>
+                <div onClick={scrollToTop} className={styles.button}>
                     <IcomoonReact iconSet={iconSet} size={15} icon="arrow-top"/>
+                    <CircularProgressbar className={styles.progress} value={props.scrollPercentage * 100}/>
                 </div>
                 <a className={styles.button} href={getShareLink("twitter")} target="_blank">
                     <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import {useScrollPercentage} from 'react-scroll-percentage';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import PostContent from '../organisms/PostContent';
@@ -9,14 +10,14 @@ import styles from '../stylesheets/Episode.module.css';
 
 export default function Episode(props) {
 
-    console.log(props.post)
+    const [contentArea, scrollPercentage] = useScrollPercentage();
 
     return (
         <div>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.post.feature_image}/>
-            <div className={styles.contentArea}>
-                <ShareButtons post={props.post}/>
+            <div className={styles.contentArea} ref={contentArea}>
+                <ShareButtons post={props.post} scrollPercentage={scrollPercentage}/>
                 <div className={styles.heading}>
                     <h1 className={styles.title}>{props.post.title}</h1>
                     <div className={styles.metaDetails}>
@@ -26,8 +27,8 @@ export default function Episode(props) {
                     </div>
                 </div>
                 <PostContent html={props.post.html}/>
-                <Comments fullUrl={props.post.url} id={props.post.comment_id}/>
             </div>
+            <Comments fullUrl={props.post.url} id={props.post.comment_id}/>
             <Footer t={props.t}/>
         </div>
     );
