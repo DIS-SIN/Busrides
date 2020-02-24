@@ -2,6 +2,7 @@ import moment from 'moment';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import PostContent from '../organisms/PostContent';
+import Comments from '../organisms/Comments';
 import Footer from '../organisms/Footer';
 import styles from '../stylesheets/Episode.module.css';
 
@@ -23,6 +24,7 @@ export default function Episode(props) {
                     </div>
                 </div>
                 <PostContent html={props.post.html}/>
+                <Comments fullUrl={props.post.url} id={props.post.comment_id}/>
             </div>
             <Footer t={props.t}/>
         </div>
