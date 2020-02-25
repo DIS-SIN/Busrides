@@ -4,11 +4,14 @@ import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import PostContent from '../organisms/PostContent';
 import ShareButtons from '../molecules/ShareButtons';
+import AuthorDetails from '../molecules/AuthorDetails';
 import Comments from '../organisms/Comments';
 import Footer from '../organisms/Footer';
 import styles from '../stylesheets/Episode.module.css';
 
 export default function Episode(props) {
+
+    console.log(props.post);
 
     const [contentArea, scrollPercentage] = useScrollPercentage();
 
@@ -28,6 +31,7 @@ export default function Episode(props) {
                 </div>
                 <PostContent html={props.post.html}/>
             </div>
+            <AuthorDetails t={props.t} episodePage authors={props.post.authors}/>
             <Comments fullUrl={props.post.url} id={props.post.comment_id}/>
             <Footer t={props.t}/>
         </div>
