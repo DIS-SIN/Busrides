@@ -114,6 +114,12 @@
         margin-bottom: 20px;
     }
 
+    /* If there are only 3 cards (recommended episodes) then we override the first card being 100% width */
+    .card:first-child:nth-last-child(3),
+    .card:first-child:nth-last-child(3) ~ .card {
+        width: calc(50% - 20px);
+    }
+
     .image {
         height: 220px;
     }
@@ -134,5 +140,10 @@
         margin-left: 20px;
         margin-right: 20px;
         margin-bottom: 40px;
+    }
+
+    .card:first-child:nth-last-child(3),
+    .card:first-child:nth-last-child(3) ~ .card {
+        width: calc(33.33333% - 40px);
     }
 }

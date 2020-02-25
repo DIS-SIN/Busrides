@@ -13,7 +13,8 @@ const fr = {
     "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
     "read": "Lecture de",
     "along with": "en compagnie de",
-    "Load More": "Charger plus"
+    "Load More": "Charger plus",
+    "Recommended for you": "Recommandé pour vous"
 }
 
 export default fr;

@@ -32,6 +32,19 @@ export async function getPost(slug) {
     });
 }
 
+export async function getRecommendedPosts(locale, post){
+    let tags = Array.from(post.tags, tag => tag.slug);
+    return await api.posts
+    .browse({
+        limit: 3,
+        filter: `tag:${locale}+tags:[${tags}]+id:-${post.id}`,
+        include: "tags,authors",
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 export async function getPages() {
     return await api.pages
     .browse()

@@ -28,11 +28,9 @@ export default function EpisodeList(props) {
                     <Card key={post.id} t={props.t} post={post}/>
                 ))}
             </div>
-            <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={loadMore}>{props.t["Load More"]}</a>
-            <h1>Topics:</h1>
-            {props.tags.map(tag => (
-                <p key={tag.id}>{tag.name}</p>
-            ))}
+            {!props.preventLoadingMore ?
+                <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={loadMore}>{props.t["Load More"]}</a>
+            : undefined}
         </div>
     );
 }

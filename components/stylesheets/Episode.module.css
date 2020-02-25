@@ -29,6 +29,20 @@
     color: var(--link-color);
 }
 
+.recommendedPosts {
+    padding-top: 40px;
+}
+
+.recommendedPosts h3{
+    margin: 0;
+    color: var(--primary-foreground-color);
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
 /* Dot divider between primary tag and date published */
 .metaDetails span:first-of-type{
     color: var(--primary-border-color);
@@ -52,5 +66,13 @@
 
     .metaDetails {
         font-size: 1rem;
+    }
+
+    .recommendedPosts {
+        padding-top: 60px;
+    }
+
+    .recommendedPosts h3{
+        font-size: 1.5rem;
     }
 }

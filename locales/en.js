@@ -13,7 +13,8 @@ const en = {
     "Subscribe to our newsletter": "Subscribe to our newsletter",
     "read": "read",
     "along with": "along with",
-    "Load More": "Load More"
+    "Load More": "Load More",
+    "Recommended for you": "Recommended for you"
 }
 
 export default en;
