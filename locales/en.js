@@ -14,7 +14,8 @@ const en = {
     "read": "read",
     "along with": "along with",
     "Load More": "Load More",
-    "Recommended for you": "Recommended for you"
+    "Recommended for you": "Recommended for you",
+    "posts": "posts"
 }
 
 export default en;

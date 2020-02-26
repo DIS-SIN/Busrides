@@ -1,24 +1,22 @@
-.episodePageDetails {
+.episodePage {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
     background-color: var(--secondary-subtle-color);
 }
 
-.episodePageDetails h2, .episodePageDetails p {
-    margin: 0;
-}
-
-.episodePageDetails span {
-    margin: 0 10px;
-}
-
-.socialDetails a:nth-of-type(2) {
-    margin-left: 20px;
-}
-
-.episodePageDetails svg path {
-    fill: var(--primary-foreground-color);
+.authorPage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
 }
 
 .avatar {
@@ -29,36 +27,77 @@
     object-fit: cover;
 }
 
-.episodePageDetails .contentArea {
+.authorPage .avatar {
+    margin-right: unset;
+    border: solid 3px;
+}
+
+.episodePage .contentArea {
     max-width: 690px;
 }
 
-.episodePageDetails .name {
-    color: var(--link-color);
-    letter-spacing: 0.2px;
+.authorPage .contentArea {
+    padding: 5px 20px 0;
+}
+
+.name {
     line-height: 1.3;
-    font-size: 1.125rem;
-    font-weight: 400;
     margin: 0 0 15px;
 }
 
-.episodePageDetails .secondaryAuthors {
+.episodePage .name {
+    color: var(--link-color);
+    letter-spacing: 0.2px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.authorPage .name {
+    color: white;
+    letter-spacing: 0.4px;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.episodePage .secondaryAuthors {
     color: var(--primary-border-color);
     font-size: 0.875rem;
     margin-bottom: 20px;
 }
 
-.episodePageDetails .bio {
+.bio {
     letter-spacing: 0.2px;
     line-height: 1.5;
     margin-bottom: 20px;
 }
 
+.authorPage .bio {
+    font-size: 0.938rem;
+}
 
+.socialDetails span {
+    margin: 0 10px;
+}
+
+.socialDetails a:nth-of-type(2) {
+    margin-left: 20px;
+}
+
+.episodePage svg path {
+    fill: var(--primary-foreground-color);
+}
+
+.authorPage svg path {
+    fill: white;
+}
 
 @media only screen and (min-width: 48rem){
-    .episodePageDetails {
+    .episodePage {
         padding: 60px 40px;
+    }
+
+    .authorPage .contentArea {
+        max-width: 700px;
     }
 
     .avatar {
@@ -67,12 +106,21 @@
         margin-right: 30px;
     }
 
-    .episodePageDetails .name {
+    .episodePage .name {
         letter-spacing: 0.3px;
         font-size: 1.25rem;
     }
 
-    .episodePageDetails .bio {
+    .authorPage .name {
+        letter-spacing: 0.5px;
+        font-size: 2.25rem;
+    }
+
+    .episodePage .bio {
         margin-bottom: 15px;
+    }
+
+    .authorPage .bio {
+        font-size: 1.125rem;
     }
 }

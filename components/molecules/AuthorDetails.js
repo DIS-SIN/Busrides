@@ -6,6 +6,16 @@ export default function AuthorDetails(props) {
 
     const primaryAuthor = props.authors[0];
 
+    function getMainClass() {
+        if (props.episodePage){
+            return styles.episodePage;
+        }
+        if (props.authorPage){
+            return styles.authorPage;
+        }
+        return undefined;
+    }
+
     function getSecondaryAuthors() {
         if (props.authors.length > 1){
             let secondaryAuthors = props.t["along with"] + " ";
@@ -31,7 +41,7 @@ export default function AuthorDetails(props) {
     }
 
     return (
-        <div className={styles.episodePageDetails}>
+        <div className={getMainClass()}>
             <img className={styles.avatar} src={primaryAuthor.profile_image} alt={primaryAuthor.name}/>
             <div className={styles.contentArea}>
                 <h2 className={styles.name}>{primaryAuthor.name}</h2>
@@ -44,15 +54,15 @@ export default function AuthorDetails(props) {
                         </a>
                     : undefined}
                     { primaryAuthor.twitter ? 
-                    <a href={getTwitterProfile()} target="_blank">
-                        <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>
-                    </a>
+                        <a href={getTwitterProfile()} target="_blank">
+                            <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>
+                        </a>
                     : undefined}
                     {props.numberOfPosts ?
-                    <React.Fragment>
-                        <span>•</span>
-                        {props.numberOfPosts}
-                    </React.Fragment>
+                        <React.Fragment>
+                            <span>•</span>
+                            {`${props.numberOfPosts} ${props.t["posts"]}`}
+                        </React.Fragment>
                     : undefined}
                     <span>•</span>
                     {primaryAuthor.location}

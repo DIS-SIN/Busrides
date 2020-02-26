@@ -1,15 +1,16 @@
-import { getPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
+import { getAuthor, getPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
 import Author from '../../components/templates/Author';
 import dictionary from '../../locales/en';
 
-export default function Post(props) {
+export default function AuthorPage(props) {
 
     return (
-        <Author t={dictionary} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} tags={props.tags} settings={props.settings}/>
+        <Author t={dictionary} author={props.author} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} tags={props.tags} settings={props.settings}/>
     );
 }
 
-Post.getInitialProps = async function({query}) {
+AuthorPage.getInitialProps = async function({query}) {
+    const author = await getAuthor(query.slug);
     const apiOptions = {
         page: 1,
         limit: 10,
@@ -21,6 +22,7 @@ Post.getInitialProps = async function({query}) {
     const settings = await getSettings();
 
 	return {
+        author,
         posts,
         apiOptions,
         postsMeta: posts.meta,

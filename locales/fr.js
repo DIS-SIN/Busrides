@@ -14,7 +14,8 @@ const fr = {
     "read": "Lecture de",
     "along with": "en compagnie de",
     "Load More": "Charger plus",
-    "Recommended for you": "Recommandé pour vous"
+    "Recommended for you": "Recommandé pour vous",
+    "posts": "postes"
 }
 
 export default fr;

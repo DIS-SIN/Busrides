@@ -26,6 +26,16 @@ export async function getPost(slug) {
     });
 }
 
+export async function getAuthor(slug) {
+    return await api.authors
+    .read({
+        slug: slug
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 export async function getPages() {
     return await api.pages
     .browse()
