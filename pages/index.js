@@ -4,17 +4,24 @@ import dictionary from '../locales/en';
 
 export default function Index(props) {
     return (
-        <Home t={dictionary} posts={props.posts} pages={props.pages} tags={props.tags} settings={props.settings}/>
+        <Home t={dictionary} posts={props.posts} apiOptions={props.apiOptions} pages={props.pages} tags={props.tags} settings={props.settings}/>
     );
 }
 
 Index.getInitialProps = async function() {
-    const posts = await getPosts(dictionary.getGhostLocaleTag);
+    const apiOptions = {
+        page: 1,
+        limit: 10,
+        include: "tags,authors",
+        filter: `tag:${dictionary.getGhostLocaleTag}`
+    };
+    const posts = await getPosts(apiOptions);
     const tags = await getTags(dictionary.getTopicSlugs);
     const settings = await getSettings();
 
 	return {
         posts,
+        apiOptions,
         tags,
         settings
 	};

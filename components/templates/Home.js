@@ -15,7 +15,7 @@ export default function Home(props) {
                 <img className={styles.logo} src={props.t.getLogo}/>
                 <p className={styles.description}>{props.t.getDescription}</p>
             </Hero>
-            <EpisodeList t={props.t} posts={props.posts}/>
+            <EpisodeList t={props.t} posts={props.posts} apiOptions={props.apiOptions}/>
             <h1>Topics:</h1>
             {props.tags.map(tag => (
                 <p key={tag.id}>{tag.name}</p>

@@ -7,18 +7,12 @@ const api = new GhostContentAPI({
     version: "v2"
 });
 
-export async function getPosts(locale, page = 1) {
-    const posts = await api.posts
-    .browse({
-        page: page,
-        limit: 10,
-        include: "tags,authors",
-        filter: `tag:${locale}`
-    })
+export async function getPosts(options) {
+    return await api.posts
+    .browse(options)
     .catch(err => {
         console.error(err);
     });
-    return posts;
 }
 
 export async function getPost(slug) {
@@ -26,19 +20,6 @@ export async function getPost(slug) {
     .read({
         slug: slug,
         include: "tags,authors"
-    })
-    .catch(err => {
-        console.error(err);
-    });
-}
-
-export async function getRecommendedPosts(locale, post){
-    let tags = Array.from(post.tags, tag => tag.slug);
-    return await api.posts
-    .browse({
-        limit: 3,
-        filter: `tag:${locale}+tags:[${tags}]+id:-${post.id}`,
-        include: "tags,authors",
     })
     .catch(err => {
         console.error(err);

@@ -12,6 +12,7 @@ import styles from '../stylesheets/Episode.module.css';
 
 export default function Episode(props) {
 
+    console.log(props.post)
 
     const [contentArea, scrollPercentage] = useScrollPercentage();
 
@@ -35,7 +36,7 @@ export default function Episode(props) {
             <Comments fullUrl={props.post.url} id={props.post.comment_id}/>
             <div className={styles.recommendedPosts}>
                 <h3>{props.t["Recommended for you"]}</h3>
-                <EpisodeList t={props.t} posts={props.recommendedPosts} preventLoadingMore/>
+                <EpisodeList t={props.t} posts={props.recommendedPosts}/>
             </div>
             <Footer t={props.t}/>
         </div>

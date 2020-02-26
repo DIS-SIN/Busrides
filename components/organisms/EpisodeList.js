@@ -12,7 +12,8 @@ export default function EpisodeList(props) {
 
 
     async function loadMore() {
-        let newEpisodes = await getPosts(props.t.getGhostLocaleTag, pageNumber + 1);
+        props.apiOptions.page = pageNumber + 1;
+        let newEpisodes = await getPosts(props.apiOptions);
         setPagination(pageNumber + 1);
         // If this is the last page
         if (!newEpisodes.meta.pagination.next){
@@ -28,7 +29,7 @@ export default function EpisodeList(props) {
                     <Card key={post.id} t={props.t} post={post}/>
                 ))}
             </div>
-            {!props.preventLoadingMore ?
+            {props.apiOptions ?
                 <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={loadMore}>{props.t["Load More"]}</a>
             : undefined}
         </div>

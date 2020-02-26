@@ -1,4 +1,4 @@
-import { getPost, getRecommendedPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
+import { getPost, getPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
 import Episode from '../../components/templates/Episode';
 import dictionary from '../../locales/fr';
 import ErrorPage from '../_error';
@@ -25,7 +25,11 @@ Post.getInitialProps = async function({query, res}) {
 
     const tags = await getTags(dictionary.getTopicSlugs);
     const settings = await getSettings();
-    const recommendedPosts = await getRecommendedPosts(dictionary.getGhostLocaleTag, post);
+    const recommendedPosts = await getPosts({
+        limit: 3,
+        filter: `tag:${dictionary.getGhostLocaleTag}+tags:[${Array.from(post.tags, tag => tag.slug)}]+id:-${post.id}`,
+        include: "tags,authors",
+    });
 
 	return {
         post,
