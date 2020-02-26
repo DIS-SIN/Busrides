@@ -30,6 +30,7 @@
 .authorPage .avatar {
     margin-right: unset;
     border: solid 3px;
+    background-color: white;
 }
 
 .episodePage .contentArea {
