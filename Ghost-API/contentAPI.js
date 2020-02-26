@@ -55,6 +55,16 @@ export async function getTags(tags) {
     });
 }
 
+export async function getTag(slug) {
+    return await api.tags
+    .read({
+        slug: slug
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 export async function getSettings() {
     return await api.settings
     .browse()
