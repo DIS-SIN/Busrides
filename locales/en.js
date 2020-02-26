@@ -2,6 +2,7 @@ const en = {
     "getLocale": "en",
     "getOppositeLocale": "fr",
     "getGhostLocaleTag": "English",
+    "getLocalePath": "",
     "getLogo": "https://busrides-trajetsenbus.ca/content/images/logos/BusRidesPublicationLogo-en.png",
     "getDescription": "Bite sized learning about digital technology and government",
     "Busrides": "Busrides",
