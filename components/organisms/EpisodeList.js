@@ -29,7 +29,8 @@ export default function EpisodeList(props) {
                     <Card key={post.id} t={props.t} post={post}/>
                 ))}
             </div>
-            {props.apiOptions ?
+            {/* Only show the button if apiOptions are passed and if meta details are passed and there are more episodes to load */}
+            {props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true) ?
                 <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={loadMore}>{props.t["Load More"]}</a>
             : undefined}
         </div>
