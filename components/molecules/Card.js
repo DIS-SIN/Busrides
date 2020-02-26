@@ -22,23 +22,23 @@ export default function Card(props) {
     }
 
     return (
-        <div className={styles.card}>
-            <div className={styles.image} style={{backgroundImage: `url(${props.post.feature_image})`}}>
-                <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${props.post.primary_author.slug}`} passHref>
-                    <AuthorTippy t={props.t} post={props.post}/>
-                </Link>
-            </div>
-            <div className={styles.content}>
-                <Link href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${props.post.primary_tag.slug}`}>
-                    <a className={styles.tag}>{props.post.primary_tag.name}</a>
-                </Link>
-                <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
+        <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
+            <div className={styles.card}>
+                <div className={styles.image} style={{backgroundImage: `url(${props.post.feature_image})`}}>
+                    <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${props.post.primary_author.slug}`} passHref>
+                        <AuthorTippy t={props.t} post={props.post}/>
+                    </Link>
+                </div>
+                <div className={styles.content}>
+                    <Link href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${props.post.primary_tag.slug}`}>
+                        <a className={styles.tag}>{props.post.primary_tag.name}</a>
+                    </Link>
                     <h2 className={styles.title}>{props.post.title}</h2>
-                </Link>
-                <p className={styles.description}>{props.post.excerpt.substr(0, 80)}...</p>
-                <p className={styles.timeStamps}>{getTimeSincePublished()}<span>•</span>{getReadingTime()}</p>
+                    <p className={styles.description}>{props.post.excerpt.substr(0, 80)}...</p>
+                    <p className={styles.timeStamps}>{getTimeSincePublished()}<span>•</span>{getReadingTime()}</p>
+                </div>
             </div>
-        </div>
+        </Link>
     );
 }
 
