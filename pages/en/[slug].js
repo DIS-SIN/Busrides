@@ -15,7 +15,6 @@ export default function Post(props) {
 }
 
 Post.getInitialProps = async function({query, res}) {
-
     const post = await getPost(query.slug);
 
     if (!post){
