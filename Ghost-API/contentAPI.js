@@ -44,6 +44,16 @@ export async function getPages() {
     });
 }
 
+export async function getPage(slug) {
+    return await api.pages
+    .read({
+        slug: slug
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 export async function getTags(tags) {
     return await api.tags
     .browse({
