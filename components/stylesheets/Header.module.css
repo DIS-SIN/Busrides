@@ -11,8 +11,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
     max-width: 1200px;
+}
+
+.menuIcon {
+    display: none;
+    fill: white;
 }
 
 .navItems {
@@ -23,7 +29,11 @@
     list-style: none;
 }
 
-.navItems li:not(:last-child) {
+.navItems:first-of-type {
+    flex: 1;
+}
+
+.navItems li:not(:last-child), .logo {
     margin-right: 35px;
 }
 
@@ -32,6 +42,7 @@
     max-width: 150px;
     height: 25px;
     object-fit: contain;
+    cursor: pointer;
 }
 
 .navItem {
@@ -49,4 +60,60 @@
 
 .navItem svg path {
     fill: var(--menu-titles-color);
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 50px 20px;
+    background-color: var(--transparent-background-color);
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.mobileMenu .navItems li {
+    margin-bottom: 15px;
+}
+
+.closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-foreground-color);
+    fill: white;
+}
+
+@media only screen and (max-width: 35rem) {
+    .header {
+        padding: 20px 25px 10px 25px;
+        align-items: flex-start;
+    }
+
+    .menuIcon {
+        display: inline;
+    }
+
+    .navItems li:not(:last-child), .logo {
+        margin-right: 0;
+    }
+
+    .navItems:first-of-type {
+        display: none;
+    }
+
+    .mobileMenu .navItems {
+        display: inline;
+    }
+
+    .navItems:nth-of-type(2) li:last-of-type {
+        display: none;
+    }
 }
