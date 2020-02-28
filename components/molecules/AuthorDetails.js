@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import styles from '../stylesheets/AuthorDetails.module.css';
@@ -42,9 +43,13 @@ export default function AuthorDetails(props) {
 
     return (
         <div className={getMainClass()}>
-            <img className={styles.avatar} src={primaryAuthor.profile_image} alt={primaryAuthor.name}/>
+            <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${primaryAuthor.slug}`}>
+                <img className={styles.avatar} src={primaryAuthor.profile_image} alt={primaryAuthor.name}/>
+            </Link>
             <div className={styles.contentArea}>
-                <h2 className={styles.name}>{primaryAuthor.name}</h2>
+                <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${primaryAuthor.slug}`}>
+                    <h2 className={styles.name}>{primaryAuthor.name}</h2>
+                </Link>
                 {getSecondaryAuthors() ? <p className={styles.secondaryAuthors}>{getSecondaryAuthors()}</p> : undefined}
                 <p className={styles.bio}>{primaryAuthor.bio}</p>
                 <div className={styles.socialDetails}>

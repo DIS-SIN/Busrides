@@ -92,6 +92,18 @@
     fill: white;
 }
 
+@media only screen and (max-width: 47rem){
+    .episodePage {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .avatar {
+        margin-bottom: 10px;
+    }
+}
+
 @media only screen and (min-width: 48rem){
     .episodePage {
         padding: 60px 40px;
