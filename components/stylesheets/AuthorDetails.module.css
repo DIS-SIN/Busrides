@@ -27,6 +27,10 @@
     object-fit: cover;
 }
 
+.episodePage .avatar {
+    cursor: pointer;
+}
+
 .authorPage .avatar {
     margin-right: unset;
     border: solid 3px;
@@ -51,6 +55,7 @@
     letter-spacing: 0.2px;
     font-size: 1.125rem;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .authorPage .name {
@@ -64,6 +69,10 @@
     color: var(--primary-border-color);
     font-size: 0.875rem;
     margin-bottom: 20px;
+}
+
+.episodePage .secondaryAuthors a {
+    color: inherit;
 }
 
 .bio {

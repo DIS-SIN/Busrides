@@ -19,15 +19,21 @@ export default function AuthorDetails(props) {
 
     function getSecondaryAuthors() {
         if (props.authors.length > 1){
-            let secondaryAuthors = props.t["along with"] + " ";
-            for (let i = 1; i < props.authors.length; i++) {
-                secondaryAuthors += props.authors[i].name + ",";
-            }
-            // Remove the trailing comma and then uppercase the first letter
-            secondaryAuthors = secondaryAuthors.substr(0, secondaryAuthors.length - 1);
-            return secondaryAuthors.charAt(0).toUpperCase() + secondaryAuthors.slice(1);
+            let secondaryAuthors = (
+                <p className={styles.secondaryAuthors}>
+                    {/* Capitalize the first letter of "along with" */}
+                    {props.t["along with"].charAt(0).toUpperCase() + props.t["along with"].slice(1) + " "}
+                    {props.authors.slice(1, props.authors.length).map(author => (
+                        <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${author.slug}`}>
+                            {/* Remove the trailing comma if this is the last author in the list */}
+                            {author.name + (props.authors[props.authors.length - 1] != author ? "," : "")}
+                        </Link>
+                    ))}
+                </p>
+            );
+            return secondaryAuthors;
         }
-        return null;
+        return undefined;
     }
 
     function getTwitterProfile() {
@@ -50,7 +56,7 @@ export default function AuthorDetails(props) {
                 <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${primaryAuthor.slug}`}>
                     <h2 className={styles.name}>{primaryAuthor.name}</h2>
                 </Link>
-                {getSecondaryAuthors() ? <p className={styles.secondaryAuthors}>{getSecondaryAuthors()}</p> : undefined}
+                {getSecondaryAuthors()}
                 <p className={styles.bio}>{primaryAuthor.bio}</p>
                 <div className={styles.socialDetails}>
                     { primaryAuthor.website ? 
