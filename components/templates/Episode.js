@@ -1,4 +1,5 @@
 import moment from 'moment';
+import Link from 'next/link';
 import {useScrollPercentage} from 'react-scroll-percentage';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -25,7 +26,9 @@ export default function Episode(props) {
                 <div className={styles.heading}>
                     <h1 className={styles.title}>{props.post.title}</h1>
                     <div className={styles.metaDetails}>
-                        <a>{props.post.primary_tag.name}</a>
+                        <Link href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${props.post.primary_tag.slug}`}>
+                            <a>{props.post.primary_tag.name}</a>
+                        </Link>
                         <span>•</span>
                         <span>{moment(props.post.published_at).format("MM-DD-YYYY")}</span>
                     </div>

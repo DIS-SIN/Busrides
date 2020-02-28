@@ -24,6 +24,10 @@
     font-weight: 600;
 }
 
+.metaDetails a {
+    text-decoration: none;
+}
+
 /* primary tag */
 .metaDetails a {
     color: var(--link-color);
