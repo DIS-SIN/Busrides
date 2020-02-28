@@ -27,7 +27,7 @@ const Comments = ({ fullUrl, id }) => {
       })
     }
   }, [])
-  return <div id="disqus_thread" style={{maxWidth: 900, margin: "0 auto", paddingTop: 50}}></div>
+  return <div id="disqus_thread" style={{width: 900, maxWidth: "90%", margin: "0 auto", paddingTop: 50}}></div>
 }
 
 export default Comments
