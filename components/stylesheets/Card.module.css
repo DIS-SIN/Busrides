@@ -6,6 +6,7 @@
     border-radius: 10px;
     box-sizing: border-box;
     border: 1px solid var(--secondary-border-color);
+    background-color: var(--secondary-background-color);
     box-shadow: var(--article-shadow-normal), 0 0 0 transparent;
     transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
     z-index: 1;

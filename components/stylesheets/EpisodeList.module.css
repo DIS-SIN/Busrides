@@ -19,7 +19,7 @@
     border-radius: 40px;
     user-select: none;
     color: var(--titles-color);
-    background-color: var(--background-color);
+    background-color: var(--secondary-background-color);
     box-shadow: 0 2px 4px var(--button-shadow-color-normal), 0 0 0 transparent;
     transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
 }

@@ -26,7 +26,7 @@
     width: 31px;
     height: 31px;
     margin: 0 25px;
-    background-color: var(--background-color);
+    background-color: var(--secondary-background-color);
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);

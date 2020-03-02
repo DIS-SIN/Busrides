@@ -4,6 +4,7 @@
 
 :root {
     --background-color: #fff;
+    --secondary-background-color: #fff;
     --primary-foreground-color: #4a4a4a;
     --secondary-foreground-color: #000;
     --primary-subtle-color: #04aeee;
@@ -31,19 +32,20 @@
 
 @media (prefers-color-scheme:dark) {
     :root {
-        --background-color: #111;
-        --primary-foreground-color: #ccc;
+        --background-color: #050e15;
+        --secondary-background-color: #1f272e;
+        --primary-foreground-color: #BCC5CE;
         --secondary-foreground-color: #fff;
         --primary-subtle-color: #10d0ea;
         --secondary-subtle-color: #141920;
-        --titles-color: #b4b4b4;
-        --link-color: #10D0EA;
+        --titles-color: #BCC5CE;
+        --link-color: #5DAFD6;
         --primary-border-color: #1d1d1d;
         --secondary-border-color: #0f0f0f;
         --article-shadow-normal: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
         --article-shadow-hover: 0 4px 5px 10px rgba(0, 0, 0, 0.1);
-        --transparent-background-color: #121212;
-        --footer-background-color: #080808;
+        --transparent-background-color: #0a1b29;
+        --footer-background-color: #131a25;
         --submenu-shadow-color-opacity: 0.55;
         --button-shadow-color-normal: rgba(10, 10, 10, 0.5);
         --button-shadow-color-hover: rgba(10, 10, 10, 0.5);
