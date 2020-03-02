@@ -1,6 +1,7 @@
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from '../stylesheets/Header.module.css';
 import { useState } from "react";
 
@@ -14,6 +15,20 @@ export default function Header(props) {
 
     function getOppositeLangHomeUrl() {
         return props.t.getOppositeLocale === "en" ? "/" : "/fr";
+    }
+
+    function getOppositeLangUrl() {
+        let current = useRouter().asPath;
+        if (current === "/" || current === "/fr"){
+            return getOppositeLangHomeUrl();
+        }
+        if (current.includes("/author/")){
+            return current.includes("/fr/") ? "/" + current.substr(4) : "/fr" + current;
+        }
+        current = current.replace(`/${props.t.getLocale}/`, `/${props.t.getOppositeLocale}/`);
+        current = current.replace(`-${props.t.getLocale}`, `-${props.t.getOppositeLocale}`);
+        current = current.replace(`/${props.t.getLocale}-`, `/${props.t.getOppositeLocale}-`);
+        return current;
     }
 
     function getNavItems() {
@@ -55,7 +70,7 @@ export default function Header(props) {
                         </a>
                     </li>
                     <li>
-                        <Link href={getOppositeLangHomeUrl()}>
+                        <Link href={getOppositeLangUrl()}>
                             <a className={styles.navItem}>{props.t.getOppositeLocale.toUpperCase()}</a>
                         </Link>
                     </li>

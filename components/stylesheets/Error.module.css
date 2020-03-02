@@ -1,0 +1,11 @@
+.errorPage {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    object-fit: contain;
+    max-width: 50px;
+    margin-right: 20px;
+    transform: rotate(180deg);
+}
