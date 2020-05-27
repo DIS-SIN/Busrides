@@ -1,3 +1,4 @@
+import SearchResults from '../../components/templates/SearchResults';
 import { getTags, getSettings } from '../../Ghost-API/contentAPI';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import dictionary from '../../locales/en';
@@ -9,7 +10,9 @@ export default function Search(props) {
         return <ErrorPage errorCode={404} />
     }
 
-    return <h1>Searched: {props.searchTerm}, got {props.searchResults.hits.total.value} results</h1>
+    return (
+        <SearchResults t={dictionary} settings={props.settings} searchTerm={props.searchTerm} searchResults={props.searchResults}/>
+    );
 }
 
 Search.getInitialProps = async function({query, res}) {
