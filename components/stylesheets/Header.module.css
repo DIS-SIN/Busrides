@@ -62,6 +62,32 @@
     fill: var(--menu-titles-color);
 }
 
+.searchBar {
+    display: flex;
+}
+
+.searchBar input {
+    border: none;
+    padding: 5px;
+    padding-left: 8px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: .75rem;
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+}
+
+.searchBar a {
+    background-color: white;
+    padding: 3px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    border-radius: 0 5px 5px 0;
+}
+
+.searchBar svg path {
+    fill: black;
+}
+
 .mobileMenu {
     position: fixed;
     top: 0;

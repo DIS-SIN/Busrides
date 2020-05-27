@@ -1,13 +1,15 @@
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import styles from '../stylesheets/Header.module.css';
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Header(props) {
 
     const [isMenuOpen, openMenu] = useState(false);
+
+    const searchInput = useRef(null);
 
     function getHomeUrl() {
         return props.t.getLocale === "en" ? "/" : "/fr";
@@ -29,6 +31,10 @@ export default function Header(props) {
         current = current.replace(`-${props.t.getLocale}`, `-${props.t.getOppositeLocale}`);
         current = current.replace(`/${props.t.getLocale}-`, `/${props.t.getOppositeLocale}-`);
         return current;
+    }
+
+    function search() {
+        Router.push(`${props.t.getLocalePath}/search/${searchInput.current.value}`);
     }
 
     function getNavItems() {
@@ -64,8 +70,9 @@ export default function Header(props) {
                     </li>
                 </ul>
                 <ul className={styles.navItems}>
-                    <li>
-                        <a className={styles.navItem}>
+                    <li className={styles.searchBar}>
+                        <input className={styles.searchBar} ref={searchInput}></input>
+                        <a className={styles.navItem} onClick={search}>
                             <IcomoonReact iconSet={iconSet} size={18} icon="search"/>
                         </a>
                     </li>
