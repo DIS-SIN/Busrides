@@ -11,7 +11,7 @@ function formatData(searchResults) {
     let posts = searchResults.hits.hits.map(result => {
         return {
             id: result._id,
-            published_at: result._source.updated_at,
+            published_at: result._source.published_at,
             html: result._source.html,
             slug: result._source.slug,
             feature_image: result._source.feature_image,
@@ -25,7 +25,7 @@ function formatData(searchResults) {
                 name: result._source.tags[0].name
             },
             title: result._source.title,
-            excerpt: result._source.custom_excerpt,
+            excerpt: result._source.excerpt,
             authors: result._source.author
         }
     });
