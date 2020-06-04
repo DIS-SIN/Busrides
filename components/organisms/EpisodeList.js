@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { getPosts } from '../../Ghost-API/contentAPI';
+import { getSearchResults } from '../../Ghost-API/searchAPI';
 import Card from '../molecules/Card';
 import styles from '../stylesheets/EpisodeList.module.css';
 
@@ -9,7 +10,6 @@ export default function EpisodeList(props) {
     const [pageNumber, setPagination] = useState(1);
 
     const loadMoreButton = useRef(null);
-
 
     async function loadMore() {
         props.apiOptions.page = pageNumber + 1;
@@ -22,6 +22,14 @@ export default function EpisodeList(props) {
         setEpisodes(episodes.concat(newEpisodes));
     }
 
+    async function loadMoreSearchResults() {
+        let newResults = await getSearchResults(props.searchMeta.searchTerm, props.t.getGhostLocaleTag, episodes.length);
+        if (episodes.length + newResults.posts.length >= newResults.total){
+            loadMoreButton.current.remove();
+        }
+        setEpisodes(episodes.concat(newResults.posts));
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.episodeList}>
@@ -30,8 +38,8 @@ export default function EpisodeList(props) {
                 ))}
             </div>
             {/* Only show the button if apiOptions are passed and if meta details are passed and there are more episodes to load */}
-            {props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true) ?
-                <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={loadMore}>{props.t["Load More"]}</a>
+            {props.searchMeta && props.searchMeta.total > 10 || props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true) ?
+                <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults}>{props.t["Load More"]}</a>
             : undefined}
         </div>
     );

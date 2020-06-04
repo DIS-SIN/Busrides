@@ -10,7 +10,10 @@ export default function SearchResults(props) {
         <div>
             <Header t={props.t} settings={props.settings}/>
             <h1>Searched: {props.searchTerm}, got {props.searchResults.total} results</h1>
-            <EpisodeList t={props.t} posts={props.searchResults.posts}/>
+            <EpisodeList t={props.t} posts={props.searchResults.posts} searchMeta={{
+                total: props.searchResults.total,
+                searchTerm: props.searchResults.searchTerm
+            }}/>
             <Footer t={props.t}/>
         </div>
     );
