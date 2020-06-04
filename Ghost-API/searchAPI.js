@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 
 export async function getSearchResults(searchTerm, localeTag, from = 0){
-    let data = await fetch(`https://busrides-trajetsenbus.ca/search?q=${encodeURI(searchTerm)}+AND+tags.tag=${localeTag}&from=${from}`);
+    let data = await fetch(`https://busrides-trajetsenbus.ca/search?q=${encodeURI(searchTerm)}+AND+tags.tag=${encodeURI(localeTag)}&from=${from}`);
     data = await data.json();
     data.searchTerm = searchTerm;
     return formatData(data);

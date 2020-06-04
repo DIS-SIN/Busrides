@@ -24,7 +24,7 @@ export default function Header(props) {
         if (current === "/" || current === "/fr"){
             return getOppositeLangHomeUrl();
         }
-        if (current.includes("/author/")){
+        if (current.includes("/author/") || current.includes("/search/")){
             return current.includes("/fr/") ? "/" + current.substr(4) : "/fr" + current;
         }
         current = current.replace(`/${props.t.getLocale}/`, `/${props.t.getOppositeLocale}/`);
