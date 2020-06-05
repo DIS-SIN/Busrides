@@ -1,0 +1,21 @@
+.container {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.title {
+    border-bottom: solid var(--primary-foreground-color) 2px;
+}
+
+.tagList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 5px 10px;
+    margin: 2px;
+    color: var(--menu-titles-color);
+    background-color: var(--transparent-background-color);
+    border-radius: 5px;
+}

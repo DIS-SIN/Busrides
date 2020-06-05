@@ -25,6 +25,7 @@ function formatData(searchResults) {
                 slug: result._source.tags[0].slug,
                 name: result._source.tags[0].name
             },
+            tags: result._source.tags,
             title: result._source.title,
             excerpt: result._source.excerpt,
             authors: result._source.author
