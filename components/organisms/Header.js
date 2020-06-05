@@ -21,7 +21,7 @@ export default function Header(props) {
 
     function getOppositeLangUrl() {
         let current = useRouter().asPath;
-        if (current === "/" || current === "/fr"){
+        if (current === "/" || current === "/fr" || current.includes("/tag/")){
             return getOppositeLangHomeUrl();
         }
         if (current.includes("/author/") || current.includes("/search/")){
@@ -34,7 +34,9 @@ export default function Header(props) {
     }
 
     function search() {
-        Router.push(`${props.t.getLocalePath}/search/${searchInput.current.value}`);
+        if (searchInput.current.value.match(/([A-Za-z0-9])/)){
+            Router.push(`${props.t.getLocalePath}/search/${searchInput.current.value}`);
+        }
     }
 
     function getNavItems() {

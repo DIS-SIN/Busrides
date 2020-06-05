@@ -18,4 +18,5 @@
     color: var(--menu-titles-color);
     background-color: var(--transparent-background-color);
     border-radius: 5px;
+    cursor: pointer;
 }

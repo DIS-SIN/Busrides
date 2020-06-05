@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from '../stylesheets/TagsList.module.css';
 
 export default function TagsList(props) {
@@ -37,7 +38,9 @@ export default function TagsList(props) {
             <h2 className={styles.title}>{props.t["Topics"]}</h2>
             <div className={styles.tagList}>
                 {tags.map(tag => (
-                    <div className={styles.tag} key={tag.id}>{tag.name}</div>
+                    <Link key={tag.id} href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${tag.slug}`}>
+                        <div className={styles.tag}>{tag.name}</div>
+                    </Link>
                 ))}
             </div>
         </div>
