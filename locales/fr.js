@@ -16,7 +16,8 @@ const fr = {
     "along with": "en compagnie de",
     "Load More": "Charger plus",
     "Recommended for you": "Recommandé pour vous",
-    "posts": "postes"
+    "posts": "postes",
+    "Sort By": "Trier par"
 }
 
 export default fr;

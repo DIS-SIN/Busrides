@@ -16,7 +16,8 @@ const en = {
     "along with": "along with",
     "Load More": "Load More",
     "Recommended for you": "Recommended for you",
-    "posts": "posts"
+    "posts": "posts",
+    "Sort By": "Sort By"
 }
 
 export default en;

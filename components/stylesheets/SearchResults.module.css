@@ -1,3 +1,12 @@
 .resultsContainer {
     display: flex;
 }
+
+.mainColumn {
+    flex: 4;
+}
+
+.sidePanel {
+    flex: 1;
+    margin: 0 20px;
+}
