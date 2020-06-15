@@ -17,6 +17,7 @@ const en = {
     "Load More": "Load More",
     "Recommended for you": "Recommended for you",
     "posts": "posts",
+    "Episodes": "Episodes",
     "Sort By": "Sort By"
 }
 

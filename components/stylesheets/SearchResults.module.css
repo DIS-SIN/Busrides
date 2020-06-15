@@ -6,6 +6,11 @@
     flex: 4;
 }
 
+.title {
+    border-bottom: solid var(--primary-foreground-color) 2px;
+    margin: 20px;
+}
+
 .sidePanel {
     flex: 1;
     margin: 0 20px;

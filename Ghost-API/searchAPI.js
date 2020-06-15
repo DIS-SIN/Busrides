@@ -1,9 +1,10 @@
 import fetch from 'isomorphic-unfetch';
 
-export async function getSearchResults(searchTerm, localeTag, from = 0){
-    let data = await fetch(`https://busrides-trajetsenbus.ca/search?q=${encodeURI(searchTerm)}+AND+tags.tag=${encodeURI(localeTag)}&from=${from}`);
+export async function getSearchResults(searchTerm, localeTag, from = 0, sortBy = "popularity:desc"){
+    let data = await fetch(`https://busrides-trajetsenbus.ca/search?q=${encodeURI(searchTerm)}+AND+tags.tag=${encodeURI(localeTag)}&from=${from}&sort=${sortBy}`);
     data = await data.json();
     data.searchTerm = searchTerm;
+    data.sortBy = sortBy;
     return formatData(data);
 }
 
@@ -12,7 +13,7 @@ function formatData(searchResults) {
     let posts = searchResults.hits.hits.map(result => {
         return {
             id: result._id,
-            published_at: result._source.published_at,
+            published_at: new Date(result._source.published_at * 1000),
             html: result._source.html,
             slug: result._source.slug,
             feature_image: result._source.feature_image,
@@ -34,6 +35,7 @@ function formatData(searchResults) {
     return {
         posts,
         total: searchResults.hits.total.value,
-        searchTerm: searchResults.searchTerm
+        searchTerm: searchResults.searchTerm,
+        sortBy: searchResults.sortBy
     }
 }

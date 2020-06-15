@@ -17,6 +17,7 @@ const fr = {
     "Load More": "Charger plus",
     "Recommended for you": "Recommandé pour vous",
     "posts": "postes",
+    "Episodes": "Episodes",
     "Sort By": "Trier par"
 }
 
