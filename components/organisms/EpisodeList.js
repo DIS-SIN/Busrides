@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { getPosts } from '../../Ghost-API/contentAPI';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import Card from '../molecules/Card';
+import CompactCard from '../molecules/CompactCard';
 import styles from '../stylesheets/EpisodeList.module.css';
 
 export default function EpisodeList(props) {
@@ -40,6 +41,9 @@ export default function EpisodeList(props) {
         <div className={styles.container}>
             <div className={styles.episodeList}>
                 {episodes.map(post => (
+                    props.useCompactView ? 
+                    <CompactCard key={post.id} t={props.t} post={post}/>
+                    :
                     <Card key={post.id} t={props.t} post={post}/>
                 ))}
             </div>

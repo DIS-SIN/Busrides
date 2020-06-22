@@ -6,12 +6,36 @@
     flex: 4;
 }
 
+.sidePanel {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.titleContainer {
+    position: relative;
+}
+
 .title {
     border-bottom: solid var(--primary-foreground-color) 2px;
     margin: 20px;
 }
 
-.sidePanel {
-    flex: 1;
-    margin: 0 20px;
+.viewPrefContainer {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.spacer {
+    padding: 0 5px;
+}
+
+.viewPrefContainer svg path {
+    fill: var(--primary-foreground-color);
+}
+
+.viewPrefContainer .active svg path {
+    fill: red
 }
