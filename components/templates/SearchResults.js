@@ -16,13 +16,13 @@ export default function SearchResults(props) {
     return (
         <div>
             <Header t={props.t} settings={props.settings}/>
-            <h1>Searched: {props.searchTerm}, got {searchResults.total} results</h1>
             <div className={styles.resultsContainer}>
                 <div className={styles.mainColumn}>
                     <div className={styles.titleContainer}>
                         <h2 className={styles.title}>{props.t["Episodes"]}</h2>
+                        <p className={styles.searchResultsInfo}>{props.t["Searched"]}: {props.searchTerm}, {props.t["got"]} {searchResults.total} {props.t["results"]}</p>
                         <div className={styles.viewPrefContainer}>
-                            View
+                            {props.t["View"]}
                             <a onClick={() => setUseCompactView(false)}>
                                 <IcomoonReact className={styles.spacer} iconSet={iconSet} size={20} color={!useCompactView ? "#CE3F3F" : undefined} icon="grid-view"/>
                             </a>

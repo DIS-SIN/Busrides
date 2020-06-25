@@ -18,7 +18,13 @@ const en = {
     "Recommended for you": "Recommended for you",
     "posts": "posts",
     "Episodes": "Episodes",
-    "Sort By": "Sort By"
+    "View": "View",
+    "Searched": "Searched",
+    "got": "got",
+    "results": "results",
+    "Sort By": "Sort By",
+    "Most Popular": "Most Popular",
+    "Recently Posted": "Recently Posted"
 }
 
 export default en;

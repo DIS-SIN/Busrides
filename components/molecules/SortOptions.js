@@ -26,11 +26,11 @@ export default function SortOptions(props) {
         <div>
             <h2 className={styles.title}>{props.t["Sort By"]}</h2>
             <div className={styles.radioButtons} onChange={changeSortMethod}>
-                <label className={styles.radioButton}>Most Popular
+                <label className={styles.radioButton}>{props.t["Most Popular"]}
                     <input type="radio" value="popularity:desc" name="sorting" defaultChecked/>
                     <span className={styles.checkmark}></span>
                 </label>
-                <label className={styles.radioButton}>Recently Posted
+                <label className={styles.radioButton}>{props.t["Recently Posted"]}
                     <input type="radio" value="published_at:desc" name="sorting"/>
                     <span className={styles.checkmark}></span>
                 </label>

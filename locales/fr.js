@@ -18,7 +18,13 @@ const fr = {
     "Recommended for you": "Recommandé pour vous",
     "posts": "postes",
     "Episodes": "Episodes",
-    "Sort By": "Trier par"
+    "View": "Voir",
+    "Searched": "Recherché",
+    "got": "a obtenu",
+    "results": "résultats",
+    "Sort By": "Trier par",
+    "Most Popular": "Les plus populaires",
+    "Recently Posted": "Publié récemment"
 }
 
 export default fr;

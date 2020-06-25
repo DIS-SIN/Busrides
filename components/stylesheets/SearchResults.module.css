@@ -22,6 +22,12 @@
     margin: 20px;
 }
 
+.searchResultsInfo {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+}
+
 .viewPrefContainer {
     position: absolute;
     right: 20px;
