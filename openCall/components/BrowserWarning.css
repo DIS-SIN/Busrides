@@ -1,0 +1,39 @@
+.browserWarning {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.warningContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: white;
+    background-color: #26374a;
+    padding: 3rem 130px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.uhOh {
+    font-size: 100px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+}
+
+.browserList {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.browser{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 20px;
+}

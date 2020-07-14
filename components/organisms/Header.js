@@ -24,7 +24,7 @@ export default function Header(props) {
         if (current === "/" || current === "/fr" || current.includes("/tag/")){
             return getOppositeLangHomeUrl();
         }
-        if (current.includes("/author/") || current.includes("/search/")){
+        if (current.includes("/author/") || current.includes("/search/") || current.includes("/opencall")){
             return current.includes("/fr/") ? "/" + current.substr(4) : "/fr" + current;
         }
         current = current.replace(`/${props.t.getLocale}/`, `/${props.t.getOppositeLocale}/`);

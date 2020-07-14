@@ -1,0 +1,3 @@
+# Appel ouvert est une communauté.
+
+Le catalogue Appel ouvert est issu d’une collaboration entre le [Service numérique canadien](https://numerique.canada.ca/), [Code for Canada](https://codefor.ca/) and the [l’Académie du numérique de l’École de la fonction publique du Canada](https://www.csps-efpc.gc.ca/digital-academy/index-fra.aspx). Ensemble, ils représentent une communauté de citoyens technologues et de fonctionnaires engagés à soutenir le gouvernement pendant la COVID-19. Connecte-toi avec nous appelouvert-opencall@cds-snc.ca.
