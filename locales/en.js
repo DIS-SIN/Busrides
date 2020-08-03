@@ -41,7 +41,8 @@ const en = {
     "getPrivacyLink": "https://digital.canada.ca/legal/privacy/",
     "browserWarningTitle": "is not compatible with this website",
     "browserWarningMessage": "To get the most out of your Open Call experience, please use one of the following supported browsers.",
-    "Icons": "Icons"
+    "Icons": "Icons",
+    "Clear search": "Clear search"
 }
 
 export default en;

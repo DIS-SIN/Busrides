@@ -2,6 +2,7 @@ import { useState } from 'react';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Header from '../organisms/Header';
+import FullSearchBar from '../molecules/FullSearchBar';
 import EpisodeList from '../organisms/EpisodeList';
 import TagsList from '../organisms/TagsList';
 import SortOptions from '../molecules/SortOptions';
@@ -16,6 +17,7 @@ export default function SearchResults(props) {
     return (
         <div>
             <Header t={props.t} settings={props.settings}/>
+            <FullSearchBar t={props.t}/>
             <div className={styles.resultsContainer}>
                 <div className={styles.mainColumn}>
                     <div className={styles.titleContainer}>

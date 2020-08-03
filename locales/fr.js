@@ -41,7 +41,8 @@ const fr = {
     "getPrivacyLink": "https://numerique.canada.ca/transparence/confidentialite/",
     "browserWarningTitle": "n'est pas compatible avec ce site web",
     "browserWarningMessage": "Pour tirer le meilleur parti de votre expérience Open Call, veuillez utiliser l'un des navigateurs pris en charge suivants.",
-    "Icons": "Icônes"
+    "Icons": "Icônes",
+    "Clear search": "Recherche claire"
 }
 
 export default fr;
