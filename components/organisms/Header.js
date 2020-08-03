@@ -73,7 +73,7 @@ export default function Header(props) {
                 </ul>
                 <ul className={styles.navItems}>
                     <li className={styles.searchBar}>
-                        <input className={styles.searchBar} ref={searchInput}></input>
+                        <input className={styles.searchBar} ref={searchInput} onKeyDown={e => e.key === "Enter" ? search() : undefined}></input>
                         <a className={styles.navItem} onClick={search}>
                             <IcomoonReact iconSet={iconSet} size={18} icon="search"/>
                         </a>

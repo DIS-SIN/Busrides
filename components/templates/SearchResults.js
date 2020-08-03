@@ -11,19 +11,20 @@ import styles from '../stylesheets/SearchResults.module.css';
 
 export default function SearchResults(props) {
 
-    const [searchResults, setSearchResults]= useState(props.searchResults);
+    const [searchResults, setSearchResults] = useState(props.searchResults);
+    const [searchTerm, setSearchTerm] = useState(props.searchTerm)
     const [useCompactView, setUseCompactView] = useState(true);
 
     return (
         <div>
             <Header t={props.t} settings={props.settings}/>
             <div className={styles.resultsPage}>
-                <FullSearchBar t={props.t}/>
+                <FullSearchBar t={props.t} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                 <div className={styles.resultsContainer}>
                     <div className={styles.mainColumn}>
                         <div className={styles.titleContainer}>
                             <h2 className={styles.title}>{props.t["Episodes"]}</h2>
-                            <p className={styles.searchResultsInfo}>{props.t["Searched"]}: {props.searchTerm}, {props.t["got"]} {searchResults.total} {props.t["results"]}</p>
+                            <p className={styles.searchResultsInfo}>{props.t["Searched"]}: {searchTerm}, {props.t["got"]} {searchResults.total} {props.t["results"]}</p>
                             <div className={styles.viewPrefContainer}>
                                 {props.t["View"]}
                                 <a onClick={() => setUseCompactView(false)}>

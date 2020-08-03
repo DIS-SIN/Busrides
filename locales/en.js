@@ -42,7 +42,8 @@ const en = {
     "browserWarningTitle": "is not compatible with this website",
     "browserWarningMessage": "To get the most out of your Open Call experience, please use one of the following supported browsers.",
     "Icons": "Icons",
-    "Clear search": "Clear search"
+    "Clear search": "Clear search",
+    "Search Busrides": "Search Busrides"
 }
 
 export default en;
