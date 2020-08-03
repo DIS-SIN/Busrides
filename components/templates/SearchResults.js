@@ -17,7 +17,7 @@ export default function SearchResults(props) {
 
     return (
         <div>
-            <Header t={props.t} settings={props.settings}/>
+            <Header t={props.t} settings={props.settings} hideSearchBar={true}/>
             <div className={styles.resultsPage}>
                 <FullSearchBar t={props.t} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                 <div className={styles.resultsContainer}>
