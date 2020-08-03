@@ -5,12 +5,14 @@
 }
 
 .input {
-    font-size: 2em;
     flex: 1;
     padding-right: 50px;
     margin: 0 20px;
+    font-size: 2em;
+    color: var(--primary-foreground-color);
     border: none;
     border-bottom: solid var(--primary-foreground-color) 2px;
+    background-color: transparent;
 }
 .input:focus {
     outline: none;
@@ -22,6 +24,10 @@
     top: 0;
     height: 100%;
     padding: 0 10px;
+}
+
+.searchIcon path {
+    fill: var(--primary-foreground-color);
 }
 
 .clearSearch {
