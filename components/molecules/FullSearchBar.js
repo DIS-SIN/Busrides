@@ -18,6 +18,7 @@ export default function FullSearchBar(props) {
         let searchResults = await getSearchResults(searchTerm, props.t.getGhostLocaleTag);
         props.setSearchResults(searchResults);
         props.setSearchTerm(searchTerm);
+        history.pushState("", `${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`, searchTerm);
     }
 
     return (

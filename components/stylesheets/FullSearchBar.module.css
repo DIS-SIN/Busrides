@@ -24,6 +24,7 @@
     top: 0;
     height: 100%;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .searchIcon path {
