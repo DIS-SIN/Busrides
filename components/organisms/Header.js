@@ -1,9 +1,10 @@
+import { useState, useRef } from "react";
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router';
+import { getCleanSearchTerm } from '../../helpers';
 import styles from '../stylesheets/Header.module.css';
-import { useState, useRef } from "react";
 
 export default function Header(props) {
 
@@ -34,8 +35,9 @@ export default function Header(props) {
     }
 
     function search() {
-        if (searchInput.current.value.match(/([A-Za-z0-9])/)){
-            Router.push(`${props.t.getLocalePath}/search/${searchInput.current.value}`);
+        let searchTerm = searchInput.current.value;
+        if (searchTerm.match(/([A-Za-z0-9])/)){
+            Router.push(`${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`);
         }
     }
 

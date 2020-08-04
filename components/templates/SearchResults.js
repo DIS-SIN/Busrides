@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ThreeDots } from 'svg-loaders-react'
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Header from '../organisms/Header';
@@ -13,13 +14,17 @@ export default function SearchResults(props) {
 
     const [searchResults, setSearchResults] = useState(props.searchResults);
     const [searchTerm, setSearchTerm] = useState(props.searchTerm)
+    const [loading, setLoading] = useState(false);
     const [useCompactView, setUseCompactView] = useState(true);
 
     return (
-        <div>
+        <div className={styles.mainContainer}>
             <Header t={props.t} settings={props.settings} hideSearchBar={true}/>
             <div className={styles.resultsPage}>
-                <FullSearchBar t={props.t} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+                <FullSearchBar t={props.t} setLoading={setLoading} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+                {loading ?
+                    <ThreeDots fill="#ce3f3f" className={styles.loader}/>
+                :
                 <div className={styles.resultsContainer}>
                     <div className={styles.mainColumn}>
                         <div className={styles.titleContainer}>
@@ -46,6 +51,9 @@ export default function SearchResults(props) {
                         <TagsList t={props.t} posts={searchResults.posts}/>
                     </div>
                 </div>
+                }
+                
+                
             </div>
             <Footer t={props.t}/>
         </div>

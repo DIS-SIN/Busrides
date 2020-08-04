@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
+import { getCleanSearchTerm } from '../../helpers';
 import styles from '../stylesheets/FullSearchBar.module.css';
 
 export default function FullSearchBar(props) {
@@ -15,10 +16,13 @@ export default function FullSearchBar(props) {
     }
 
     async function search() {
-        let searchResults = await getSearchResults(searchTerm, props.t.getGhostLocaleTag);
+        props.setLoading(true);
+        let cleanSearchTerm = getCleanSearchTerm(searchTerm);
+        history.pushState("", `${props.t["Searched"]}: ${cleanSearchTerm}`, cleanSearchTerm);
+        let searchResults = await getSearchResults(cleanSearchTerm, props.t.getGhostLocaleTag);
         props.setSearchResults(searchResults);
-        props.setSearchTerm(searchTerm);
-        history.pushState("", `${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`, searchTerm);
+        props.setSearchTerm(cleanSearchTerm);
+        props.setLoading(false);
     }
 
     return (

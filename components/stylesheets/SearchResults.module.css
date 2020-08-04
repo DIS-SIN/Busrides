@@ -1,7 +1,21 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
+
 .resultsPage {
-    margin: 0 auto;
+    flex: 1;
+    align-self: center;
     padding: 25px 20px;
+    width: 100%;
     max-width: 1500px;
+    box-sizing: border-box;
+}
+
+.loader {
+    width: 100%;
 }
 
 .resultsContainer {
