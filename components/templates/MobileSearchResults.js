@@ -26,12 +26,15 @@ export default function MobileSearchResults(props) {
         <div className={styles.mainContainer}>
             <Header t={props.t} settings={props.settings} hideSearchBar={true}/>
             <div className={styles.resultsPage}>
-                <FullSearchBar t={props.t} setLoading={setLoading} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 
-                <ul className={styles.resultsNav}>
-                    <li className={resultsView === "Episodes" || resultsView === "Sorting" ? styles.active : undefined} data-view={"Episodes"} onClick={changeResultsView}>{props.t["Episodes"]}</li>
-                    <li className={resultsView === "Topics" ? styles.active : undefined} data-view={"Topics"} onClick={changeResultsView}>{props.t["Topics"]}</li>
-                </ul>
+                <div className={styles.searchNavContainer}>
+                    <FullSearchBar t={props.t} setLoading={setLoading} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+
+                    <ul className={styles.resultsNav}>
+                        <li className={resultsView === "Episodes" || resultsView === "Sorting" ? styles.active : undefined} data-view={"Episodes"} onClick={changeResultsView}>{props.t["Episodes"]}</li>
+                        <li className={resultsView === "Topics" ? styles.active : undefined} data-view={"Topics"} onClick={changeResultsView}>{props.t["Topics"]}</li>
+                    </ul>
+                </div>
 
                 {loading ?
                     <ThreeDots fill="#ce3f3f" className={styles.loader}/>
@@ -43,7 +46,7 @@ export default function MobileSearchResults(props) {
                                     <p>{props.t["Searched"]}: {searchTerm}, {props.t["got"]} {searchResults.total} {props.t["results"]}</p>
                                     <button data-view={"Sorting"} onClick={changeResultsView}>{props.t["Sorting"]}</button>
                                 </div>
-                                <EpisodeList t={props.t} posts={searchResults.posts} useCompactView={useCompactView} searchMeta={{
+                                <EpisodeList t={props.t} posts={searchResults.posts} useCompactView={useCompactView} mobile searchMeta={{
                                     total: searchResults.total,
                                     searchTerm: searchResults.searchTerm,
                                     sortBy: searchResults.sortBy
@@ -70,7 +73,7 @@ export default function MobileSearchResults(props) {
                         }
                     </div>
                 }
-                                
+
             </div>
             <Footer t={props.t}/>
         </div>

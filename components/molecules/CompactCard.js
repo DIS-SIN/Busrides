@@ -23,7 +23,9 @@ export default function CompactCard(props) {
     return (
         <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
             <div className={styles.card}>
-                <img className={styles.image} src={props.post.feature_image} alt={props.post.title}/>
+                {!props.mobile &&
+                    <img className={styles.image} src={props.post.feature_image} alt={props.post.title}/>
+                }
                 <div className={styles.content}>
                     <div className={styles.topContent}>
                         <Link href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${props.post.primary_tag.slug}`}>

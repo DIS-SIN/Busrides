@@ -39,17 +39,36 @@
 }
 
 @media only screen and (max-width: 800px) {
+    .searchBar {
+        max-width: 90%;
+        margin: 0 auto 30px auto;
+        border-radius: 22px;
+        background-color: white;
+    }
+
     .input {
+        font-size: 1.25em;
+        color: black;
         max-width: 100%;
-        padding: unset;
-        margin: unset;
+        padding: 7px 15px;
+        margin: 0 35px 0 0;
+        border: none;
+        box-sizing: border-box;
     }
 
     .searchIcon {
         right: 0;
+        background-color: var(--busrides-red);
+        border-radius: 0 22px 22px 0;
+    }
+
+    .searchIcon path {
+        fill: white;
     }
 
     .clearSearch {
-        right: 0;
+        right: 3px;
+        bottom: -25px;
+        color: white;
     }
 }

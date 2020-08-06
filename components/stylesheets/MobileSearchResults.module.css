@@ -5,10 +5,14 @@
     min-height: 100vh;
 }
 
+.searchNavContainer {
+    padding-top: 20px;
+    background-color: var(--transparent-background-color);
+}
+
 .resultsPage {
     flex: 1;
     align-self: center;
-    padding: 25px 12px;
     width: 100%;
     max-width: 1500px;
     box-sizing: border-box;
@@ -17,11 +21,15 @@
 .resultsNav {
     list-style-type: none;
     display: flex;
-    border-bottom: solid var(--primary-foreground-color) 2px;
+    color: white;
     width: 100vw;
-    margin: 0 0 0 -12px;
-    padding: 0 0 5px 20px;
+    margin: 0;
+    padding: 0 0 0 20px;
     box-sizing: border-box;
+}
+
+.resultsNav li {
+    padding: 0 3px 5px 3px;
 }
 
 .resultsNav li:not(:last-child) {
@@ -30,6 +38,7 @@
 
 .resultsNav li.active {
     font-weight: bold;
+    border-bottom: solid var(--busrides-red) 3px;
 }
 
 .loader {
@@ -45,8 +54,7 @@
 .metaBar {
     position: absolute;
     top: 0;
-    left: -12px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 12px;

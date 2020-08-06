@@ -42,7 +42,7 @@ export default function EpisodeList(props) {
             <div className={styles.episodeList}>
                 {episodes.map(post => (
                     props.useCompactView ? 
-                    <CompactCard key={post.id} t={props.t} post={post}/>
+                    <CompactCard key={post.id} t={props.t} post={post} mobile={props.mobile}/>
                     :
                     <Card key={post.id} t={props.t} post={post}/>
                 ))}
