@@ -23,6 +23,7 @@ const en = {
     "got": "got",
     "results": "results",
     "Sort By": "Sort By",
+    "Sorting": "Sorting",
     "Most Popular": "Most Popular",
     "Recently Posted": "Recently Posted",
     "getSheetID": "o9nsepk",
@@ -43,7 +44,8 @@ const en = {
     "browserWarningMessage": "To get the most out of your Open Call experience, please use one of the following supported browsers.",
     "Icons": "Icons",
     "Clear search": "Clear search",
-    "Search Busrides": "Search Busrides"
+    "Search Busrides": "Search Busrides",
+    "Done": "Done"
 }
 
 export default en;

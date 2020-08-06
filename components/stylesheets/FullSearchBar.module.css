@@ -37,3 +37,19 @@
     bottom: -20px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 800px) {
+    .input {
+        max-width: 100%;
+        padding: unset;
+        margin: unset;
+    }
+
+    .searchIcon {
+        right: 0;
+    }
+
+    .clearSearch {
+        right: 0;
+    }
+}

@@ -142,4 +142,18 @@
     .navItems:nth-of-type(2) li:last-of-type {
         display: none;
     }
+
+    .searchBar input {
+        display: none;
+    }
+
+    .searchBar a {
+        background-color: unset;
+        padding: 0;
+        border: none;
+    }
+
+    .searchBar svg path {
+        fill: white;
+    }
 }

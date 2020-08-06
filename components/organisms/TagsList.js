@@ -35,7 +35,9 @@ export default function TagsList(props) {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.title}>{props.t["Topics"]}</h2>
+            {!props.hideTitle &&
+                <h2 className={styles.title}>{props.t["Topics"]}</h2>
+            }
             <div className={styles.tagList}>
                 {tags.map(tag => (
                     <Link key={tag.id} href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${tag.slug}`}>

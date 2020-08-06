@@ -1,0 +1,97 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
+
+.resultsPage {
+    flex: 1;
+    align-self: center;
+    padding: 25px 12px;
+    width: 100%;
+    max-width: 1500px;
+    box-sizing: border-box;
+}
+
+.resultsNav {
+    list-style-type: none;
+    display: flex;
+    border-bottom: solid var(--primary-foreground-color) 2px;
+    width: 100vw;
+    margin: 0 0 0 -12px;
+    padding: 0 0 5px 20px;
+    box-sizing: border-box;
+}
+
+.resultsNav li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.resultsNav li.active {
+    font-weight: bold;
+}
+
+.loader {
+    width: 100%;
+}
+
+.resultsContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.metaBar {
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: hsl(0deg 0% 53% / 28%);
+    box-sizing: border-box;
+}
+
+.metaBar p {
+    margin: 0;
+}
+
+.mainColumn {
+    flex: 4;
+}
+
+.sidePanel {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.titleContainer {
+    position: relative;
+}
+
+.title {
+    border-bottom: solid var(--primary-foreground-color) 2px;
+    margin: 20px;
+}
+
+.viewPrefContainer {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.spacer {
+    padding: 0 5px;
+}
+
+.viewPrefContainer svg path {
+    fill: var(--primary-foreground-color);
+}
+
+.viewPrefContainer .active svg path {
+    fill: red
+}

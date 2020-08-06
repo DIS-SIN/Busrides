@@ -23,6 +23,7 @@ const fr = {
     "got": "a obtenu",
     "results": "résultats",
     "Sort By": "Trier par",
+    "Sorting": "Triage",
     "Most Popular": "Les plus populaires",
     "Recently Posted": "Publié récemment",
     "getSheetID": "o9lw766",
@@ -43,7 +44,8 @@ const fr = {
     "browserWarningMessage": "Pour tirer le meilleur parti de votre expérience Open Call, veuillez utiliser l'un des navigateurs pris en charge suivants.",
     "Icons": "Icônes",
     "Clear search": "Recherche claire",
-    "Search Busrides": "Recherche de Trajets en bus"
+    "Search Busrides": "Recherche de Trajets en bus",
+    "Done": "Fait"
 }
 
 export default fr;
