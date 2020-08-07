@@ -70,3 +70,11 @@
     border-radius: 50%;
     background: var(--secondary-background-color);
 }
+
+@media only screen and (max-width: 800px) {
+    .title {
+        border: none;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+}

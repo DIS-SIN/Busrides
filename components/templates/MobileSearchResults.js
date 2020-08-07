@@ -58,17 +58,24 @@ export default function MobileSearchResults(props) {
                         }
                         {resultsView === "Sorting" &&
                             <React.Fragment>
-                                <div className={styles.viewPrefContainer}>
-                                    {props.t["View"]}
-                                    <a onClick={() => setUseCompactView(false)}>
-                                        <IcomoonReact className={styles.spacer} iconSet={iconSet} size={20} color={!useCompactView ? "#CE3F3F" : undefined} icon="grid-view"/>
-                                    </a>
-                                    <a onClick={() => setUseCompactView(true)}>
-                                        <IcomoonReact iconSet={iconSet} size={20} color={useCompactView ? "#CE3F3F" : undefined} icon="list-view"/>
-                                    </a>
+                                <div className={`${styles.metaBar} ${styles.sorting}`}>
+                                    <p>{props.t["Searched"]}: {searchTerm}, {props.t["got"]} {searchResults.total} {props.t["results"]}</p>
+                                    <button data-view={"Episodes"} onClick={changeResultsView}>{props.t["Done"]}</button>
                                 </div>
-                                <SortOptions t={props.t} searchTerm={searchResults.searchTerm} setSearchResults={setSearchResults}/>
-                                <button data-view={"Episodes"} onClick={changeResultsView}>{props.t["Done"]}</button>
+                                <div className={styles.sortContainer}>
+                                    <SortOptions t={props.t} searchTerm={searchResults.searchTerm} setSearchResults={setSearchResults}/>
+                                    <div className={styles.viewPrefContainer}>
+                                        <h2>{props.t["View"]}</h2>
+                                        <a onClick={() => setUseCompactView(false)}>
+                                            <IcomoonReact className={styles.spacer} iconSet={iconSet} size={25} color={!useCompactView ? "#CE3F3F" : undefined} icon="grid-view"/>
+                                            Card View
+                                        </a>
+                                        <a onClick={() => setUseCompactView(true)}>
+                                            <IcomoonReact className={styles.spacer} iconSet={iconSet} size={25} color={useCompactView ? "#CE3F3F" : undefined} icon="list-view"/>
+                                            List View
+                                        </a>
+                                    </div>
+                                </div>
                             </React.Fragment>
                         }
                     </div>
