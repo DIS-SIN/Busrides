@@ -20,6 +20,21 @@ export default function SortOptions(props) {
 
     function changeSortMethod(ev) {
         setSortBy(ev.target.value);
+        if (props.setMobileSortBy){
+            props.setMobileSortBy(ev.target.value);
+        }
+    }
+
+    function checkDefault(value) {
+        if (props.mobileSortBy){
+            return props.mobileSortBy === value ? true : false;
+        }
+        else if (value === "popularity:desc"){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     return (
@@ -27,11 +42,11 @@ export default function SortOptions(props) {
             <h2 className={styles.title}>{props.t["Sort By"]}</h2>
             <div className={styles.radioButtons} onChange={changeSortMethod}>
                 <label className={styles.radioButton}>{props.t["Most Popular"]}
-                    <input type="radio" value="popularity:desc" name="sorting" defaultChecked/>
+                    <input type="radio" value="popularity:desc" name="sorting" defaultChecked={checkDefault("popularity:desc")}/>
                     <span className={styles.checkmark}></span>
                 </label>
                 <label className={styles.radioButton}>{props.t["Recently Posted"]}
-                    <input type="radio" value="published_at:desc" name="sorting"/>
+                    <input type="radio" value="published_at:desc" name="sorting" defaultChecked={checkDefault("published_at:desc")}/>
                     <span className={styles.checkmark}></span>
                 </label>
             </div>

@@ -16,6 +16,7 @@ export default function MobileSearchResults(props) {
     const [searchTerm, setSearchTerm] = useState(props.searchTerm)
     const [loading, setLoading] = useState(false);
     const [resultsView, setResultsView] = useState("Episodes");
+    const [mobileSortBy, setMobileSortBy] = useState("popularity:desc");
     const [useCompactView, setUseCompactView] = useState(false);
 
     function changeResultsView(ev) {
@@ -63,7 +64,7 @@ export default function MobileSearchResults(props) {
                                     <button data-view={"Episodes"} onClick={changeResultsView}>{props.t["Done"]}</button>
                                 </div>
                                 <div className={styles.sortContainer}>
-                                    <SortOptions t={props.t} searchTerm={searchResults.searchTerm} setSearchResults={setSearchResults}/>
+                                    <SortOptions t={props.t} searchTerm={searchResults.searchTerm} setSearchResults={setSearchResults} mobileSortBy={mobileSortBy} setMobileSortBy={setMobileSortBy}/>
                                     <div className={styles.viewPrefContainer}>
                                         <h2>{props.t["View"]}</h2>
                                         <a onClick={() => setUseCompactView(false)}>
