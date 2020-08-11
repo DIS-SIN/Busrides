@@ -1,3 +1,4 @@
+import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import AuthorDetails from '../molecules/AuthorDetails';
@@ -10,6 +11,7 @@ export default function Author(props) {
 
     return (
         <div>
+            <MetaTags title={props.author.name} description={props.author.bio} image={props.author.profile_image} url={props.author.url}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.author.cover_image}>
                 <AuthorDetails t={props.t} authorPage authors={[props.author]} numberOfPosts={props.postsMeta.pagination.total}/>

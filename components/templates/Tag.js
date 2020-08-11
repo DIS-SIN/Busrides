@@ -1,3 +1,4 @@
+import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import EpisodeList from '../organisms/EpisodeList';
@@ -9,6 +10,7 @@ export default function Tag(props) {
 
     return (
         <div>
+            <MetaTags title={props.tag.name} description={props.tag.description} image={props.tag.feature_image} url={props.tag.url}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.tag.feature_image}>
                 <h1>{props.tag.name}</h1>

@@ -1,6 +1,7 @@
 import moment from 'moment';
 import Link from 'next/link';
 import {useScrollPercentage} from 'react-scroll-percentage';
+import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import PostContent from '../organisms/PostContent';
@@ -19,6 +20,7 @@ export default function Episode(props) {
 
     return (
         <div>
+            <MetaTags title={props.post.title} description={props.post.excerpt} image={props.post.feature_image} url={props.post.url}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.post.feature_image}/>
             <div className={styles.contentArea} ref={contentArea}>
