@@ -21,6 +21,7 @@ Splash.getInitialProps = async function() {
     const settings = await getSettings();
 
 	return {
-        settings
+        settings,
+        locale: dictionary.getLocale
 	};
 };

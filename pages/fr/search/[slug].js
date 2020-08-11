@@ -49,6 +49,7 @@ Search.getInitialProps = async function({query, req}) {
         searchTerm,
         searchResults,
         settings,
-        tags
+        tags,
+        locale: dictionary.getLocale
     };
 };

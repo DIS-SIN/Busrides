@@ -45,6 +45,7 @@ Post.getInitialProps = async function({query, res}) {
     }
 
 	return {
-        ...props
+        ...props,
+        locale: dictionary.getLocale
     };
 };

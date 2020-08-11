@@ -23,6 +23,7 @@ Index.getInitialProps = async function() {
         posts,
         apiOptions,
         tags,
-        settings
+        settings,
+        locale: dictionary.getLocale
 	};
 };

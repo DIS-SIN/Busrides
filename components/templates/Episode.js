@@ -14,8 +14,6 @@ import styles from '../stylesheets/Episode.module.css';
 
 export default function Episode(props) {
 
-    console.log(props.post)
-
     const [contentArea, scrollPercentage] = useScrollPercentage();
 
     return (

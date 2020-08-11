@@ -38,6 +38,7 @@ AuthorPage.getInitialProps = async function({query, res}) {
         apiOptions,
         postsMeta: posts.meta,
         tags,
-        settings
+        settings,
+        locale: dictionary.getLocale
 	};
 };
