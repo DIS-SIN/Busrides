@@ -14,7 +14,7 @@ export default function Home(props) {
             <MetaTags title={props.t["Busrides"]} description={props.t.getDescription} image={props.settings.url + "thumbnail.jpg"} url={props.t.getLocale === "en" ? props.settings.url : props.settings.url + props.t.getLocale}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.settings.cover_image}>
-                <img className={styles.logo} src={props.t.getLogo}/>
+                <img className={styles.logo} src={props.t.getLogo} alt={props.t["Busrides Logo"]}/>
                 <p className={styles.description}>{props.t.getDescription}</p>
             </Hero>
             <EpisodeList t={props.t} posts={props.posts} apiOptions={props.apiOptions}/>

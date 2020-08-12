@@ -11,7 +11,7 @@ export default function Footer(props) {
                     <span>{props.t["Busrides"]} © 2020 • </span>
                     <a href={props.t.getAboutDALink} target="_blank">{props.t["What is the Digital Academy?"]}</a>
                 </p>
-                <a className={styles.row} href={props.t.getDATwitter} target="_blank">
+                <a className={styles.row} href={props.t.getDATwitter} target="_blank" aria-label={props.t["Digital Academy Twitter"]}>
                     <IcomoonReact iconSet={iconSet} size={16} icon="twitter"/>
                 </a>
                 <a className={styles.row} href="https://da-an.us3.list-manage.com/subscribe?u=9e5810d743bf898c302d3c312&id=bbc8bab3e7" target="_blank">{props.t["Subscribe to our newsletter"]}</a>

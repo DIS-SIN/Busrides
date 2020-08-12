@@ -56,7 +56,7 @@ const AuthorTippy = React.forwardRef((props, ref) => {
     }
 
     return (
-        <a href={props.href} onClick={props.onClick} ref={ref}>
+        <a href={props.href} onClick={props.onClick} ref={ref} aria-label={props.post.primary_author.name}>
             <Tippy content={getAuthors()} arrow={false}>
                 <div className={styles.author} style={{backgroundImage: `url(${props.post.primary_author.profile_image})`}}/>
             </Tippy>
