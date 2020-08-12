@@ -65,7 +65,7 @@ export default function AuthorDetails(props) {
                         </a>
                     : undefined}
                     { primaryAuthor.twitter ? 
-                        <a href={getTwitterProfile()} target="_blank" rel="noopener">
+                        <a href={getTwitterProfile()} aria-label={`${primaryAuthor.name} Twitter`} target="_blank" rel="noopener">
                             <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>
                         </a>
                     : undefined}
