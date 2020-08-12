@@ -60,12 +60,12 @@ export default function AuthorDetails(props) {
                 <p className={styles.bio}>{primaryAuthor.bio}</p>
                 <div className={styles.socialDetails}>
                     { primaryAuthor.website ? 
-                        <a href={primaryAuthor.website} target="_blank">
+                        <a href={primaryAuthor.website} aria-label={props.t["Visit website"]} target="_blank" rel="noopener">
                             <IcomoonReact iconSet={iconSet} size={15} icon="globe"/>
                         </a>
                     : undefined}
                     { primaryAuthor.twitter ? 
-                        <a href={getTwitterProfile()} target="_blank">
+                        <a href={getTwitterProfile()} target="_blank" rel="noopener">
                             <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>
                         </a>
                     : undefined}

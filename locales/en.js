@@ -14,6 +14,8 @@ const en = {
     "getDATwitter": "https://twitter.com/DigiAcademyCAN",
     "Digital Academy Twitter": "Digital Academy Twitter",
     "Subscribe to our newsletter": "Subscribe to our newsletter",
+    "Share to": "Share to",
+    "Visit website": "Visit website",
     "read": "read",
     "along with": "along with",
     "Load More": "Load More",

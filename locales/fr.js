@@ -14,6 +14,8 @@ const fr = {
     "getDATwitter": "https://twitter.com/AcademieNumCAN",
     "Digital Academy Twitter": "Académie numérique Twitter",
     "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
+    "Share to": "Partager sur",
+    "Visit website": "Visitez le site web",
     "read": "Lecture de",
     "along with": "en compagnie de",
     "Load More": "Charger plus",

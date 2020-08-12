@@ -33,13 +33,13 @@ export default function ShareButtons(props) {
                     <IcomoonReact iconSet={iconSet} size={15} icon="arrow-top"/>
                     <CircularProgressbar className={styles.progress} value={props.scrollPercentage * 100}/>
                 </div>
-                <a className={styles.button} href={getShareLink("twitter")} target="_blank">
+                <a className={styles.button} href={getShareLink("twitter")} aria-label={`${props.t["Share to"]} Twitter`} target="_blank" rel="noopener">
                     <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>
                 </a>
-                <a className={styles.button} href={getShareLink("facebook")} target="_blank">
+                <a className={styles.button} href={getShareLink("facebook")} aria-label={`${props.t["Share to"]} Facebook`} target="_blank" rel="noopener">
                     <IcomoonReact iconSet={iconSet} size={15} icon="facebook"/>
                 </a>
-                <a className={styles.button} href={getShareLink("linkedin")} target="_blank">
+                <a className={styles.button} href={getShareLink("linkedin")} aria-label={`${props.t["Share to"]} LinkedIn`} target="_blank" rel="noopener">
                     <IcomoonReact iconSet={iconSet} size={15} icon="linkedin"/>
                 </a>
             </div>

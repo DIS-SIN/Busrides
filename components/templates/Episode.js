@@ -22,7 +22,7 @@ export default function Episode(props) {
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.post.feature_image}/>
             <div className={styles.contentArea} ref={contentArea}>
-                <ShareButtons post={props.post} scrollPercentage={scrollPercentage}/>
+                <ShareButtons t={props.t} post={props.post} scrollPercentage={scrollPercentage}/>
                 <div className={styles.heading}>
                     <h1 className={styles.title}>{props.post.title}</h1>
                     <div className={styles.metaDetails}>
