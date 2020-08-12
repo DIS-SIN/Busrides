@@ -22,7 +22,7 @@ export default function Header(props) {
 
     function getOppositeLangUrl() {
         let current = useRouter().asPath;
-        if (current === "/" || current === "/fr" || current.includes("/tag/")){
+        if (current === "/" || current === "/fr" || current === "/fr/" || current.includes("/tag/")){
             return getOppositeLangHomeUrl();
         }
         if (current.includes("/author/") || current.includes("/search/") || current.includes("/opencall")){
