@@ -27,7 +27,7 @@ export default function FullSearchBar(props) {
 
     return (
         <div className={styles.searchBar}>
-            <input className={styles.input} ref={searchInput} defaultValue={searchTerm} placeholder={props.t["Search Busrides"]} onKeyDown={e => e.key === "Enter" ? search() : undefined} onChange={() => setSearchTerm(searchInput.current.value)}></input>
+            <input className={styles.input} ref={searchInput} defaultValue={searchTerm} placeholder={props.t["Search Busrides"]} aria-label={props.t["Search Busrides"]} onKeyDown={e => e.key === "Enter" ? search() : undefined} onChange={() => setSearchTerm(searchInput.current.value)}></input>
             <div onClick={search}>
                 <IcomoonReact className={styles.searchIcon} iconSet={iconSet} size={25} icon="search"/>
             </div>
