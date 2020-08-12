@@ -35,7 +35,13 @@ export default function Search(props) {
 
 Search.getInitialProps = async function({query, req}) {
 
-    let platform = Bowser.parse(req.headers["user-agent"]).platform.type;
+    let platform;
+    if (req){
+        platform = Bowser.parse(req.headers["user-agent"]).platform.type;
+    }
+    else {
+        platform = Bowser.parse(window.navigator.userAgent).platform.type;
+    }
 
     let searchTerm = decodeURI(query.slug);
 

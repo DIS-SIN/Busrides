@@ -37,7 +37,7 @@ export default function Header(props) {
     function search() {
         let searchTerm = searchInput.current.value;
         if (searchTerm.match(/([A-Za-z0-9])/)){
-            Router.push(`${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`);
+            Router.push(`${props.t.getLocalePath}/search/[slug]`, `${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`);
         }
     }
 
