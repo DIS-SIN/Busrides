@@ -1,0 +1,24 @@
+.mobileSearchModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding-top: 75px;
+    background-color: var(--transparent-background-color);
+    z-index: 100;
+}
+
+.closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-foreground-color);
+    fill: white;
+}

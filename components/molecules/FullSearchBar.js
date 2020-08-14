@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import Router from 'next/router';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
@@ -16,6 +17,10 @@ export default function FullSearchBar(props) {
     }
 
     async function search() {
+        if (props.initialSearch){
+            initialSearch();
+            return;
+        }
         props.setLoading(true);
         let cleanSearchTerm = getCleanSearchTerm(searchTerm);
         history.pushState("", `${props.t["Searched"]}: ${cleanSearchTerm}`, cleanSearchTerm);
@@ -23,6 +28,12 @@ export default function FullSearchBar(props) {
         props.setSearchResults(searchResults);
         props.setSearchTerm(cleanSearchTerm);
         props.setLoading(false);
+    }
+
+    function initialSearch() {
+        if (searchTerm.match(/([A-Za-z0-9])/)){
+            Router.push(`${props.t.getLocalePath}/search/[slug]`, `${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`);
+        }
     }
 
     return (

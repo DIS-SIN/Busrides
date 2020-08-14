@@ -3,13 +3,16 @@ import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router';
+import { useWindowWidth } from '@react-hook/window-size';
+import MobileSearchModal from '../molecules/MobileSearchModal';
 import { getCleanSearchTerm } from '../../helpers';
 import styles from '../stylesheets/Header.module.css';
 
 export default function Header(props) {
 
     const [isMenuOpen, openMenu] = useState(false);
-
+    const [isSearchMenuOpen, openSearchMenu] = useState(false);
+    const width = useWindowWidth();
     const searchInput = useRef(null);
 
     function getHomeUrl() {
@@ -35,6 +38,10 @@ export default function Header(props) {
     }
 
     function search() {
+        if (width <= 800){
+            openSearchMenu(true);
+            return;
+        }
         let searchTerm = searchInput.current.value;
         if (searchTerm.match(/([A-Za-z0-9])/)){
             Router.push(`${props.t.getLocalePath}/search/[slug]`, `${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`);
@@ -86,6 +93,9 @@ export default function Header(props) {
                         </Link>
                     </li>
                 </ul>
+                {isSearchMenuOpen &&
+                    <MobileSearchModal t={props.t} openSearchMenu={openSearchMenu}/>
+                }
             </div>
             { isMenuOpen ? 
                 <div className={styles.mobileMenu}>
