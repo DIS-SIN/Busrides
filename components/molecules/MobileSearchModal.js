@@ -10,7 +10,7 @@ export default function MobileSearchModal(props) {
             <div className={styles.closeButton} onClick={() => props.openSearchMenu(false)}>
                 <IcomoonReact iconSet={iconSet} size={10} icon="close"/>
             </div>
-            <FullSearchBar t={props.t} initialSearch/>
+            <FullSearchBar t={props.t} initialSearch autofocus/>
         </div>
     );
 }
