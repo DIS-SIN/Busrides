@@ -12,6 +12,6 @@ export default function Hero(props) {
 }
 
 Hero.propTypes = {
-    backgroundImage: PropTypes.number,
+    backgroundImage: PropTypes.string,
     children: cp_children
 };
