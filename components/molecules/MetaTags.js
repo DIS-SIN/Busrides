@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 export default function MetaTags(props) {
 
@@ -25,3 +26,10 @@ export default function MetaTags(props) {
         </Head>
     );
 }
+
+MetaTags.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+};

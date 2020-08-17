@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { ThreeDots } from 'svg-loaders-react'
+import PropTypes from 'prop-types';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
+import { cp_t, cp_searchResults, cp_settings } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import FullSearchBar from '../molecules/FullSearchBar';
@@ -63,3 +65,10 @@ export default function SearchResults(props) {
         </div>
     );
 }
+
+SearchResults.propTypes = {
+    t: cp_t.isRequired,
+    searchResults: cp_searchResults.isRequired,
+    searchTerm: PropTypes.string.isRequired,
+    settings: cp_settings.isRequired
+};

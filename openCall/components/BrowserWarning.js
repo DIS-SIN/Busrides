@@ -1,6 +1,7 @@
 import React from 'react';
 import Bowser from "bowser";
 import { GCFooter } from 'gc-tortilla';
+import { cp_t } from '../../helpers/commonProps';
 import Header from './Header';
 import gocFooterLogo from '../images/gocFooterLogo.png';
 import edgeIcon from '../images/browsers/edge.png';
@@ -67,3 +68,7 @@ export default function BrowserWarning(props) {
         </div>
     );
 }
+
+BrowserWarning.propTypes = {
+    t: cp_t.isRequired
+};

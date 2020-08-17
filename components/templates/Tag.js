@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { cp_t, cp_apiOptions, cp_post, cp_postsMeta, cp_settings, cp_tag } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -20,3 +22,13 @@ export default function Tag(props) {
         </div>
     );
 }
+
+Tag.propTypes = {
+    t: cp_t.isRequired,
+    apiOptions: cp_apiOptions.isRequired,
+    posts: PropTypes.arrayOf(cp_post).isRequired,
+    postsMeta: cp_postsMeta.isRequired,
+    settings: cp_settings.isRequired,
+    tag: cp_tag.isRequired,
+    tags: PropTypes.arrayOf(cp_tag)
+};

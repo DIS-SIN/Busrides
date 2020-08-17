@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import Link from 'next/link';
+import { cp_t, cp_post } from '../../helpers/commonProps';
 import styles from '../stylesheets/CompactCard.module.css';
 
 export default function CompactCard(props) {
@@ -42,3 +44,9 @@ export default function CompactCard(props) {
         </Link>
     );
 }
+
+CompactCard.propTypes = {
+    t: cp_t.isRequired,
+    post: cp_post.isRequired,
+    mobile: PropTypes.bool
+};

@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { cp_t, cp_post, cp_apiOptions, cp_postsMeta } from '../../helpers/commonProps';
 import { getPosts } from '../../Ghost-API/contentAPI';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import Card from '../molecules/Card';
@@ -54,3 +56,17 @@ export default function EpisodeList(props) {
         </div>
     );
 }
+
+EpisodeList.propTypes = {
+    t: cp_t.isRequired,
+    posts: PropTypes.arrayOf(cp_post).isRequired,
+    searchMeta: PropTypes.shape({
+       searchTerm: PropTypes.string.isRequired,
+       sortBy: PropTypes.string.isRequired,
+       total: PropTypes.number.isRequired 
+    }),
+    postsMeta: cp_postsMeta,
+    apiOptions: cp_apiOptions,
+    useCompactView: PropTypes.bool,
+    mobile: PropTypes.bool
+};

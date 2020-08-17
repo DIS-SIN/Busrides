@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { cp_t, cp_post } from '../../helpers/commonProps';
 import styles from '../stylesheets/TagsList.module.css';
 
 export default function TagsList(props) {
@@ -48,3 +50,8 @@ export default function TagsList(props) {
         </div>
     );
 }
+
+TagsList.propTypes = {
+    t: cp_t.isRequired,
+    posts: PropTypes.arrayOf(cp_post).isRequired
+};

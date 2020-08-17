@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { cp_children } from '../../helpers/commonProps';
 import styles from '../stylesheets/Hero.module.css';
 
 export default function Hero(props) {
@@ -8,3 +10,8 @@ export default function Hero(props) {
         </div>
     );
 }
+
+Hero.propTypes = {
+    backgroundImage: PropTypes.string,
+    children: cp_children
+};

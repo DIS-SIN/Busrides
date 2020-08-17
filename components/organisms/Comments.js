@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 // Using Disqus in React solution found here: https://blog.m4x.io/add-disqus-to-your-react-app-in-a-glance/
 

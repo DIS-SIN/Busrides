@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import {CircularProgressbar} from 'react-circular-progressbar';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
+import { cp_t, cp_post } from '../../helpers/commonProps';
 import styles from '../stylesheets/ShareButtons.module.css';
 
 export default function ShareButtons(props) {
@@ -46,3 +48,9 @@ export default function ShareButtons(props) {
         </div>
     );
 }
+
+ShareButtons.propTypes = {
+    t: cp_t.isRequired,
+    post: cp_post.isRequired,
+    scrollPercentage: PropTypes.number.isRequired
+};

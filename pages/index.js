@@ -4,7 +4,7 @@ import dictionary from '../locales/en';
 
 export default function Index(props) {
     return (
-        <Home t={dictionary} posts={props.posts} apiOptions={props.apiOptions} pages={props.pages} tags={props.tags} settings={props.settings}/>
+        <Home t={dictionary} posts={props.posts} apiOptions={props.apiOptions} tags={props.tags} settings={props.settings}/>
     );
 }
 

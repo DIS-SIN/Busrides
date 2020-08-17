@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { cp_t } from '../../helpers/commonProps';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import styles from '../stylesheets/SortOptions.module.css';
 
@@ -53,3 +55,11 @@ export default function SortOptions(props) {
         </div>
     );
 }
+
+SortOptions.propTypes = {
+    t: cp_t.isRequired,
+    searchTerm: PropTypes.string.isRequired,
+    setSearchResults: PropTypes.func.isRequired,
+    setMobileSortBy: PropTypes.func,
+    mobileSortBy: PropTypes.string
+};

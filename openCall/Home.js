@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { cp_t, cp_settings } from '../helpers/commonProps';
 import Header from '../components/organisms/Header';
 import Footer from '../components/organisms/Footer';
 import Catalog from './components/Catalog';
@@ -21,8 +23,8 @@ export default function Home(props) {
                     color: "white"
                 }}
             >
-                <NavButton t={props.t} tagClass="aboutPageLink" text="Learn more" path="/en/en-about"/>
-                <NavButton t={props.t} tagClass="completedProjectsPageLink" text="Success stories" path="/"/>
+                <NavButton t={props.t} text="Learn more" path="/en/en-about"/>
+                <NavButton t={props.t} text="Success stories" path="/"/>
             </BannerBlock>
             <Catalog t={props.t}/>
             <BannerBlock
@@ -36,7 +38,7 @@ export default function Home(props) {
                     color: "black"
                 }}
             >
-                <NavButton t={props.t} tagClass="faqPageLink" text="FAQs" path="/"/>
+                <NavButton t={props.t} text="FAQs" path="/"/>
             </BannerBlock>
             <BannerBlock
                 markdown={props.markdown.OpenCallCommunity}
@@ -49,3 +51,9 @@ export default function Home(props) {
         </div>
     );
 }
+
+Home.propTypes = {
+    t: cp_t.isRequired,
+    settings: cp_settings.isRequired,
+    markdown: PropTypes.objectOf(PropTypes.string)
+};

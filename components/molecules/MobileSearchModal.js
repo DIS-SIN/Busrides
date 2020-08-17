@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { cp_t } from '../../helpers/commonProps';
 import FullSearchBar from './FullSearchBar';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
@@ -14,3 +16,8 @@ export default function MobileSearchModal(props) {
         </div>
     );
 }
+
+MobileSearchModal.propTypes = {
+    t: cp_t.isRequired,
+    openSearchMenu: PropTypes.func.isRequired
+};

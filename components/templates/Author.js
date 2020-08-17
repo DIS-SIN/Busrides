@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { cp_t, cp_author, cp_post, cp_settings, cp_postsMeta, cp_tag } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -21,3 +23,12 @@ export default function Author(props) {
         </div>
     );
 }
+
+Author.propTypes = {
+    t: cp_t.isRequired,
+    author: cp_author.isRequired,
+    posts: PropTypes.arrayOf(cp_post).isRequired,
+    postsMeta: cp_postsMeta.isRequired,
+    settings: cp_settings,
+    tags: PropTypes.arrayOf(cp_tag)
+};

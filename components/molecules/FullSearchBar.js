@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import Router from 'next/router';
+import PropTypes from 'prop-types';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
-import { getCleanSearchTerm } from '../../helpers';
+import { cp_t } from '../../helpers/commonProps';
+import { getCleanSearchTerm } from '../../helpers/helpers';
 import styles from '../stylesheets/FullSearchBar.module.css';
 
 export default function FullSearchBar(props) {
@@ -48,3 +50,13 @@ export default function FullSearchBar(props) {
         </div>
     );
 }
+
+FullSearchBar.propTypes = {
+    t: cp_t.isRequired,
+    searchTerm: PropTypes.string,
+    setLoading: PropTypes.func,
+    setSearchResults: PropTypes.func,
+    setSearchTerm: PropTypes.func,
+    autofocus: PropTypes.bool,
+    initialSearch: PropTypes.bool
+};

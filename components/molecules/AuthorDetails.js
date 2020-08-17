@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
+import { cp_t, cp_author } from '../../helpers/commonProps';
 import styles from '../stylesheets/AuthorDetails.module.css';
 
 export default function AuthorDetails(props) {
@@ -82,3 +84,10 @@ export default function AuthorDetails(props) {
         </div>
     );
 }
+
+AuthorDetails.propTypes = {
+    t: cp_t.isRequired,
+    authorPage: PropTypes.bool,
+    authors: PropTypes.arrayOf(cp_author).isRequired,
+    numberOfPosts: PropTypes.number
+};

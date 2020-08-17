@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { cp_t, cp_post, cp_apiOptions, cp_tag, cp_settings } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -26,3 +28,11 @@ export default function Home(props) {
         </div>
     );
 }
+
+Home.propTypes = {
+    t: cp_t.isRequired,
+    posts: PropTypes.arrayOf(cp_post).isRequired,
+    apiOptions: cp_apiOptions.isRequired,
+    tags: PropTypes.arrayOf(cp_tag).isRequired,
+    settings: cp_settings.isRequired
+};

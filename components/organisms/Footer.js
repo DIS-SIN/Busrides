@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
+import { cp_t } from '../../helpers/commonProps';
 import styles from '../stylesheets/Footer.module.css';
 
 export default function Footer(props) {
@@ -19,3 +21,7 @@ export default function Footer(props) {
         </div>
     );
 }
+
+Footer.propTypes = {
+    t: cp_t.isRequired
+};

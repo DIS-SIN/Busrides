@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { cp_t } from '../../helpers/commonProps';
 import styles from './Catalog.module.css';
 
 export default function Catalog(props) {
@@ -56,3 +57,7 @@ export default function Catalog(props) {
         </div>
     );
 }
+
+Catalog.propTypes = {
+    t: cp_t.isRequired
+};

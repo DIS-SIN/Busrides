@@ -1,6 +1,7 @@
 import moment from 'moment';
 import Tippy from '@tippy.js/react'
 import Link from 'next/link';
+import { cp_t, cp_post } from '../../helpers/commonProps';
 import styles from '../stylesheets/Card.module.css';
 
 export default function Card(props) {
@@ -63,3 +64,8 @@ const AuthorTippy = React.forwardRef((props, ref) => {
         </a>
     )
 })
+
+Card.propTypes = {
+    t: cp_t.isRequired,
+    post: cp_post.isRequired
+};

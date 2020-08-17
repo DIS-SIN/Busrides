@@ -1,11 +1,13 @@
 import { useState, useRef } from "react";
+import PropTypes from 'prop-types';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router';
 import { useWindowWidth } from '@react-hook/window-size';
 import MobileSearchModal from '../molecules/MobileSearchModal';
-import { getCleanSearchTerm } from '../../helpers';
+import { cp_t, cp_settings } from '../../helpers/commonProps';
+import { getCleanSearchTerm } from '../../helpers/helpers';
 import styles from '../stylesheets/Header.module.css';
 
 export default function Header(props) {
@@ -125,3 +127,9 @@ export default function Header(props) {
         </div>
     );
 }
+
+Header.propTypes = {
+    t: cp_t.isRequired,
+    hideSearchBar: PropTypes.bool,
+    settings: cp_settings.isRequired
+};
