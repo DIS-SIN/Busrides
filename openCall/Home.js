@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cp_t, cp_settings } from '../helpers/commonProps';
+import MetaTags from '../components/molecules/MetaTags';
 import Header from '../components/organisms/Header';
 import Footer from '../components/organisms/Footer';
 import Catalog from './components/Catalog';
@@ -11,6 +12,7 @@ export default function Home(props) {
 
     return (
         <div>
+            <MetaTags title={props.t["Open Call"]} description={props.t["Open Call Catalogue"]} url={`https://busrides-trajetsenbus.ca${props.t.getLocalePath}/opencall`} image={props.t.getLocale === "fr" ? "https://raw.githubusercontent.com/cds-snc/opencall-appelouvert/master/public/thumbnail_fr.png" : "https://raw.githubusercontent.com/cds-snc/opencall-appelouvert/master/public/thumbnail.png"}/>
             <Header t={props.t} settings={props.settings}/>
             <BannerBlock
                 markdown={props.markdown.HelpingGovernmentsRespond}
