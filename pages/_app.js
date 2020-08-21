@@ -21,6 +21,7 @@ export default function MyApp({ Component, pageProps }) {
 
     useEffect(() => {
         let browser = Bowser.getParser(window.navigator.userAgent);
+        console.log(browser.getBrowserName());
         if (browser.getBrowserName() === "Internet Explorer"){
             setGoodBrowser(false);
         }
