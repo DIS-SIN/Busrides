@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Link from 'next/link';
 import {useScrollPercentage} from 'react-scroll-percentage';
-import { cp_t, cp_post, cp_settings, cp_tag } from '../../helpers/commonProps';
+import { cp_t, cp_post, cp_settings } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -52,6 +52,5 @@ Episode.propTypes = {
     t: cp_t.isRequired,
     post: cp_post.isRequired,
     recommendedPosts: PropTypes.arrayOf(cp_post).isRequired,
-    settings: cp_settings.isRequired,
-    tags: PropTypes.arrayOf(cp_tag).isRequired
+    settings: cp_settings.isRequired
 };

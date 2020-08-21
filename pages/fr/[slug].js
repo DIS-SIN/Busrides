@@ -1,4 +1,4 @@
-import { getPost, getPage, getPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
+import { getPost, getPage, getPosts, getSettings } from '../../Ghost-API/contentAPI';
 import Episode from '../../components/templates/Episode';
 import Page from '../../components/templates/Page';
 import dictionary from '../../locales/fr';
@@ -11,11 +11,11 @@ export default function Post(props) {
     }
 
     if (props.post){
-        return <Episode t={dictionary} post={props.post} tags={props.tags} settings={props.settings} recommendedPosts={props.recommendedPosts}/>
+        return <Episode t={dictionary} post={props.post} settings={props.settings} recommendedPosts={props.recommendedPosts}/>
     }
 
     return (
-        <Page t={dictionary} page={props.page} tags={props.tags} settings={props.settings}/>
+        <Page t={dictionary} page={props.page} settings={props.settings}/>
     );
 }
 
@@ -25,7 +25,6 @@ Post.getInitialProps = async function({query, res}) {
 
     props.post = await getPost(query.slug);
     props.settings = await getSettings();
-    props.tags = await getTags(dictionary.getTopicSlugs);
 
     if (!props.post){
 

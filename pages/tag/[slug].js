@@ -1,4 +1,4 @@
-import { getTag, getPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
+import { getTag, getPosts, getSettings } from '../../Ghost-API/contentAPI';
 import Tag from '../../components/templates/Tag';
 import dictionary from '../../locales/en';
 import ErrorPage from '../_error';
@@ -10,7 +10,7 @@ export default function TagPage(props) {
     }
 
     return (
-        <Tag t={dictionary} tag={props.tag} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} tags={props.tags} settings={props.settings}/>
+        <Tag t={dictionary} tag={props.tag} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} settings={props.settings}/>
     );
 }
 
@@ -29,7 +29,6 @@ TagPage.getInitialProps = async function({query, res}) {
         return {error: true};
     }
 
-    const tags = await getTags(dictionary.getTopicSlugs);
     const settings = await getSettings();
 
 	return {
@@ -37,7 +36,6 @@ TagPage.getInitialProps = async function({query, res}) {
         posts,
         apiOptions,
         postsMeta: posts.meta,
-        tags,
         settings,
         locale: dictionary.getLocale
 	};

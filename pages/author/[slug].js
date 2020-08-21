@@ -1,4 +1,4 @@
-import { getAuthor, getPosts, getTags, getSettings } from '../../Ghost-API/contentAPI';
+import { getAuthor, getPosts, getSettings } from '../../Ghost-API/contentAPI';
 import Author from '../../components/templates/Author';
 import dictionary from '../../locales/en';
 import ErrorPage from '../_error';
@@ -10,7 +10,7 @@ export default function AuthorPage(props) {
     }
 
     return (
-        <Author t={dictionary} author={props.author} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} tags={props.tags} settings={props.settings}/>
+        <Author t={dictionary} author={props.author} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} settings={props.settings}/>
     );
 }
 
@@ -29,7 +29,6 @@ AuthorPage.getInitialProps = async function({query, res}) {
         filter: `author:${query.slug}+tag:${dictionary.getGhostLocaleTag}`
     };
     const posts = await getPosts(apiOptions);
-    const tags = await getTags(dictionary.getTopicSlugs);
     const settings = await getSettings();
 
 	return {
@@ -37,7 +36,6 @@ AuthorPage.getInitialProps = async function({query, res}) {
         posts,
         apiOptions,
         postsMeta: posts.meta,
-        tags,
         settings,
         locale: dictionary.getLocale
 	};

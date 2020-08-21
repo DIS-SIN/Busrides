@@ -29,6 +29,5 @@ Tag.propTypes = {
     posts: PropTypes.arrayOf(cp_post).isRequired,
     postsMeta: cp_postsMeta.isRequired,
     settings: cp_settings.isRequired,
-    tag: cp_tag.isRequired,
-    tags: PropTypes.arrayOf(cp_tag)
+    tag: cp_tag.isRequired
 };

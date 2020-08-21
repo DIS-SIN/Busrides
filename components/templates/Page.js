@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { cp_t, cp_page, cp_settings, cp_tag } from '../../helpers/commonProps';
+import { cp_t, cp_page, cp_settings } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -24,6 +24,5 @@ export default function Page(props) {
 Page.propTypes = {
     t: cp_t.isRequired,
     page: cp_page.isRequired,
-    settings: cp_settings.isRequired,
-    tags: PropTypes.arrayOf(cp_tag)
+    settings: cp_settings.isRequired
 };

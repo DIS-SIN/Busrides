@@ -3,7 +3,7 @@ import Bowser from "bowser";
 import { useWindowWidth } from '@react-hook/window-size';
 import SearchResults from '../../components/templates/SearchResults';
 import MobileSearchResults from '../../components/templates/MobileSearchResults';
-import { getTags, getSettings } from '../../Ghost-API/contentAPI';
+import { getSettings } from '../../Ghost-API/contentAPI';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
 import dictionary from '../../locales/en';
 import ErrorPage from '../_error';
@@ -48,14 +48,12 @@ Search.getInitialProps = async function({query, req}) {
     let searchResults = await getSearchResults(searchTerm, dictionary.getGhostLocaleTag);
 
     let settings = await getSettings();
-    let tags = await getTags(dictionary.getTopicSlugs);
 
 	return {
         platform,
         searchTerm,
         searchResults,
         settings,
-        tags,
         locale: dictionary.getLocale
     };
 };

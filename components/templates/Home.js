@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { cp_t, cp_post, cp_apiOptions, cp_tag, cp_settings } from '../../helpers/commonProps';
+import { cp_t, cp_post, cp_apiOptions, cp_settings } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -20,10 +20,6 @@ export default function Home(props) {
                 <p className={styles.description}>{props.t.getDescription}</p>
             </Hero>
             <EpisodeList t={props.t} posts={props.posts} apiOptions={props.apiOptions}/>
-            <h1>Topics:</h1>
-            {props.tags.map(tag => (
-                <p key={tag.id}>{tag.name}</p>
-            ))}
             <Footer t={props.t}/>
         </div>
     );
@@ -33,6 +29,5 @@ Home.propTypes = {
     t: cp_t.isRequired,
     posts: PropTypes.arrayOf(cp_post).isRequired,
     apiOptions: cp_apiOptions.isRequired,
-    tags: PropTypes.arrayOf(cp_tag).isRequired,
     settings: cp_settings.isRequired
 };
