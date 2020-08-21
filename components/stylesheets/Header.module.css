@@ -74,6 +74,12 @@
     outline: none;
     font-size: .75rem;
     font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Extra styles for Safari visual bug */
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 110px;
 }
 
 .searchBar a {
