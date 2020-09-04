@@ -2,7 +2,7 @@ import Router from 'next/router';
 import Bowser from 'bowser';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import BrowserWarning from '../openCall/components/BrowserWarning';
+import BrowserWarning from '../components/organisms/BrowserWarning';
 import "../components/stylesheets/styles.css";
 
 // Hide the default spinner to just use the progress bar

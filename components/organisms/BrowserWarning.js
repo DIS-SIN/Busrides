@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dictionaryEn from '../../locales/en';
 import dictionaryFr from '../../locales/fr';
-import styles from './BrowserWarning.module.css';
+import styles from '../stylesheets/BrowserWarning.module.css';
 
 export default function BrowserWarning(props) {
 
@@ -44,6 +44,7 @@ export default function BrowserWarning(props) {
 }
 
 BrowserWarning.propTypes = {
+    browserName: PropTypes.string.isRequired,
     locale: PropTypes.oneOfType([
         PropTypes.oneOf([
             "en",
