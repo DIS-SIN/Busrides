@@ -1,4 +1,5 @@
 import { getAuthor, getPosts, getSettings } from '../../Ghost-API/contentAPI';
+import { getUserAgent } from '../../helpers/helpers';
 import Author from '../../components/templates/Author';
 import dictionary from '../../locales/en';
 import ErrorPage from '../_error';
@@ -14,7 +15,7 @@ export default function AuthorPage(props) {
     );
 }
 
-AuthorPage.getInitialProps = async function({query, res}) {
+AuthorPage.getInitialProps = async function({query, res, req}) {
     const author = await getAuthor(query.slug);
 
     if (!author){
@@ -37,6 +38,7 @@ AuthorPage.getInitialProps = async function({query, res}) {
         apiOptions,
         postsMeta: posts.meta,
         settings,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
 	};
 };

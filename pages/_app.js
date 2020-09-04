@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Router from 'next/router';
 import Bowser from 'bowser';
 import NProgress from 'nprogress';
@@ -17,15 +16,16 @@ Router.events.on('routeChangeError', () => NProgress.done());
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
 
-    const [goodBrowser, setGoodBrowser] = useState(true);
-
-    useEffect(() => {
-        let browser = Bowser.getParser(window.navigator.userAgent);
-        console.log(browser.getBrowserName());
-        if (browser.getBrowserName() === "Internet Explorer"){
-            setGoodBrowser(false);
+    function validateBrowser() {
+        if (pageProps.userAgent){
+            let browser = Bowser.getParser(pageProps.userAgent);
+            if (browser.getBrowserName() === "Internet Explorer"){
+                pageProps.browserName = browser.getBrowserName();
+                return false;
+            }
         }
-    },[]);
+        return true;
+    }
 
-    return goodBrowser ? <Component {...pageProps} /> : <BrowserWarning {...pageProps}/>;
+    return validateBrowser() ? <Component {...pageProps} /> : <BrowserWarning {...pageProps}/>;
 }

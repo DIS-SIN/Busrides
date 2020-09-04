@@ -1,5 +1,6 @@
 import Home from '../openCall/Home';
 import { getSettings } from '../Ghost-API/contentAPI';
+import { getUserAgent } from '../helpers/helpers';
 import dictionary from '../locales/en';
 
 // Markdown imports
@@ -21,12 +22,13 @@ export default function OpenCall(props) {
     );
 }
 
-OpenCall.getInitialProps = async function() {
+OpenCall.getInitialProps = async function({req}) {
 
     const settings = await getSettings();
 
 	return {
         settings,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
 	};
 };

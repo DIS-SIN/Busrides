@@ -1,4 +1,5 @@
 import { getTag, getPosts, getSettings } from '../../../Ghost-API/contentAPI';
+import { getUserAgent } from '../../../helpers/helpers';
 import Tag from '../../../components/templates/Tag';
 import dictionary from '../../../locales/fr';
 import ErrorPage from '../../_error';
@@ -14,7 +15,7 @@ export default function TagPage(props) {
     );
 }
 
-TagPage.getInitialProps = async function({query, res}) {
+TagPage.getInitialProps = async function({query, res, req}) {
     const tag = await getTag(query.slug);
     const apiOptions = {
         page: 1,
@@ -37,6 +38,7 @@ TagPage.getInitialProps = async function({query, res}) {
         apiOptions,
         postsMeta: posts.meta,
         settings,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
 	};
 };

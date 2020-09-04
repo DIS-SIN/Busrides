@@ -5,6 +5,7 @@ import SearchResults from '../../components/templates/SearchResults';
 import MobileSearchResults from '../../components/templates/MobileSearchResults';
 import { getSettings } from '../../Ghost-API/contentAPI';
 import { getSearchResults } from '../../Ghost-API/searchAPI';
+import { getUserAgent } from '../../helpers/helpers';
 import dictionary from '../../locales/en';
 import ErrorPage from '../_error';
 
@@ -54,6 +55,7 @@ Search.getInitialProps = async function({query, req}) {
         searchTerm,
         searchResults,
         settings,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
     };
 };

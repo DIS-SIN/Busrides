@@ -1,5 +1,6 @@
 import {GCSplashScreen} from 'gc-tortilla';
 import { getSettings } from '../Ghost-API/contentAPI';
+import { getUserAgent } from '../helpers/helpers';
 
 export default function Splash(props) {
     return (
@@ -17,11 +18,12 @@ export default function Splash(props) {
     );
 }
 
-Splash.getInitialProps = async function() {
+Splash.getInitialProps = async function({req}) {
     const settings = await getSettings();
 
 	return {
         settings,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
 	};
 };

@@ -1,5 +1,6 @@
 import Home from '../components/templates/Home';
 import { getPosts, getSettings } from '../Ghost-API/contentAPI';
+import { getUserAgent } from '../helpers/helpers';
 import dictionary from '../locales/en';
 
 export default function Index(props) {
@@ -8,7 +9,7 @@ export default function Index(props) {
     );
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function({req}) {
     const apiOptions = {
         page: 1,
         limit: 10,
@@ -22,6 +23,7 @@ Index.getInitialProps = async function() {
         posts,
         apiOptions,
         settings,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
 	};
 };

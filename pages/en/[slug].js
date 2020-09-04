@@ -1,4 +1,5 @@
 import { getPost, getPage, getPosts, getSettings } from '../../Ghost-API/contentAPI';
+import { getUserAgent } from '../../helpers/helpers';
 import Episode from '../../components/templates/Episode';
 import Page from '../../components/templates/Page';
 import dictionary from '../../locales/en';
@@ -19,7 +20,7 @@ export default function Post(props) {
     );
 }
 
-Post.getInitialProps = async function({query, res}) {
+Post.getInitialProps = async function({query, res, req}) {
 
     const props = new Object();
 
@@ -45,6 +46,7 @@ Post.getInitialProps = async function({query, res}) {
 
 	return {
         ...props,
-        locale: dictionary.getLocale
+        locale: dictionary.getLocale,
+        userAgent: getUserAgent(req)
     };
 };

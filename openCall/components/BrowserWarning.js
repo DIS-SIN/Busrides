@@ -1,25 +1,19 @@
 import React from 'react';
-import Bowser from "bowser";
 import PropTypes from 'prop-types';
-import Header from '../../components/organisms/Header';
-import Footer from '../../components/organisms/Footer';
 import dictionaryEn from '../../locales/en';
 import dictionaryFr from '../../locales/fr';
 import styles from './BrowserWarning.module.css';
 
 export default function BrowserWarning(props) {
 
-    const browser = Bowser.getParser(window.navigator.userAgent);
-
     const t = props.locale === "fr" ? dictionaryFr : dictionaryEn;
 
     return (
         <div className={styles.browserWarning}>
-            <Header t={t} settings={props.settings}/>
             <div className={styles.warningContainer}>
                 <div>
                     <p className={styles.uhOh}>Uh oh!</p>
-                    <h1>{browser.getBrowserName()} {t.browserWarningTitle}</h1>
+                    <h1>{props.browserName} {t.browserWarningTitle}</h1>
                     <p>{t.browserWarningMessage}</p>
                     <div className={styles.browserList}>
                         <div className={styles.browser}>
@@ -45,7 +39,6 @@ export default function BrowserWarning(props) {
                     </div>
                 </div>
             </div>
-            <Footer t={t}/>
         </div>
     );
 }
