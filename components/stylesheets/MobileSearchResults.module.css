@@ -57,6 +57,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 12px;
     background-color: hsl(0deg 0% 53% / 28%);
     box-sizing: border-box;
@@ -68,6 +69,14 @@
 
 .metaBar p {
     margin: 0;
+}
+
+.metaBar button {
+    font-size: .85rem;
+    padding: 5px 10px;
+    border: solid var(--transparent-background-color) 1px;
+    border-radius: 3px;
+    background-color: var(--csps-light-grey);
 }
 
 .mainColumn {
