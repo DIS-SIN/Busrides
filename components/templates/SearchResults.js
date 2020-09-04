@@ -24,7 +24,7 @@ export default function SearchResults(props) {
 
     return (
         <div className={styles.mainContainer}>
-            <MetaTags title={searchTerm} description={`${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`} image={props.settings.url + "thumbnail.jpg"} url={props.settings.url + (props.t.getLocale === "en" ? "" : props.t.getLocale + "/" ) + `search/${encodeURI(searchTerm)}`}/>
+            <MetaTags title={`${props.t["Searched"]}: ${searchTerm}`} description={`${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`} image={props.settings.url + "thumbnail.jpg"} url={props.settings.url + (props.t.getLocale === "en" ? "" : props.t.getLocale + "/" ) + `search/${encodeURI(searchTerm)}`}/>
             <Header t={props.t} settings={props.settings} hideSearchBar={true}/>
             <div className={styles.resultsPage}>
                 <FullSearchBar t={props.t} setLoading={setLoading} setSearchResults={setSearchResults} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
