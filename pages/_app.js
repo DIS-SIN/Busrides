@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import Router from 'next/router';
 import Bowser from 'bowser';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { initGA, logPageView } from '../helpers/analytics';
 import BrowserWarning from '../components/organisms/BrowserWarning';
 import "../components/stylesheets/styles.css";
 
@@ -15,6 +17,14 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
+
+    useEffect(() => {
+        if (!window.GA_INITIALIZED) {
+            initGA();
+            window.GA_INITIALIZED = true;
+        }
+        logPageView();
+    },[Component]);
 
     function validateBrowser() {
         if (pageProps.userAgent){

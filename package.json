@@ -34,6 +34,7 @@
     "react": "^16.12.0",
     "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.12.0",
+    "react-ga": "^3.1.2",
     "react-markdown": "^4.3.1",
     "react-scroll-percentage": "^4.2.0",
     "svg-loaders-react": "^2.2.1"
