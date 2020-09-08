@@ -54,13 +54,13 @@
 
     .sticky {
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-evenly;
         padding: 10px;
         padding-bottom: calc(env(safe-area-inset-bottom) + 8px);
     }
 }
 
-@media only screen and (min-width: 64rem){
+@media only screen and (min-width: 65rem){
     .shareButtons {
         right: 55px;
     }
