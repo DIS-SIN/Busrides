@@ -52,16 +52,16 @@ export async function getLocalSearchResults(searchTerm, localeTag, sortBy) {
     let posts = await getLocalPosts(localeTag);
     
     let results = posts.filter(post => {
-        if (post.title.includes(searchTerm)){
+        if (post.title.toLowerCase().includes(searchTerm.toLowerCase())){
             return true;
         }
-        if (post.html.includes(searchTerm)){
+        if (post.html.toLowerCase().includes(searchTerm.toLowerCase())){
             return true;
         }
-        if (post.tags.filter(tag => tag.name.includes(searchTerm)).length > 0){
+        if (post.tags.filter(tag => tag.name.toLowerCase().includes(searchTerm.toLowerCase())).length > 0){
             return true;
         }
-        if (post.authors.filter(author => author.name.includes(searchTerm)).length > 0){
+        if (post.authors.filter(author => author.name.toLowerCase().includes(searchTerm.toLowerCase())).length > 0){
             return true;
         }
     });
