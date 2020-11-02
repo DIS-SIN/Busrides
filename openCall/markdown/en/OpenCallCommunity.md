@@ -1,3 +1,0 @@
-# Open Call is a community
-
-Open Call is a collaboration between the [Canadian Digital Service](https://digital.canada.ca/), [Code for Canada](https://codefor.ca/) and the [Canada School of Public Service Digital Academy](https://www.csps-efpc.gc.ca/digital-academy/index-eng.aspx). Together, we represent a community of civic technologists and public servants committed to supporting government during COVID-19. Connect with us at [appelouvert-opencall@cds-snc.ca](appelouvert-opencall@cds-snc.ca).

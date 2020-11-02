@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import { cp_children } from '../../helpers/commonProps';
-import styles from './BannerBlock.module.css';
+import styles from '../stylesheets/BannerBlock.module.css';
 
 export default function BannerBlock(props) {
 

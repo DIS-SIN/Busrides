@@ -1,22 +1,18 @@
-import Home from '../../openCall/Home';
+import ParkingLot from '../../components/templates/ParkingLot';
 import { getSettings } from '../../Ghost-API/contentAPI';
 import { getUserAgent } from '../../helpers/helpers';
 import dictionary from '../../locales/fr';
 
 // Markdown imports
-import HelpingGovernmentsRespond from '../../openCall/markdown/fr/HelpingGovernmentsRespond.md';
-import HereToHelp from '../../openCall/markdown/fr/HereToHelp.md';
-import OpenCallCommunity from '../../openCall/markdown/fr/OpenCallCommunity.md';
+import AboutParkingLot from '../../markdown/fr/AboutParkingLot.md';
 
 export default function OpenCall(props) {
     return (
-        <Home 
+        <ParkingLot 
             t={dictionary}
             settings={props.settings}
             markdown={{
-                HelpingGovernmentsRespond,
-                HereToHelp,
-                OpenCallCommunity
+                AboutParkingLot
             }}
         />
     );

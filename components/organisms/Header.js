@@ -30,7 +30,7 @@ export default function Header(props) {
         if (current === "/" || current === "/fr" || current === "/fr/" || current.includes("/tag/")){
             return getOppositeLangHomeUrl();
         }
-        if (current.includes("/author/") || current.includes("/search/") || current.includes("/opencall")){
+        if (current.includes("/author/") || current.includes("/search/") || current.includes("/parking-lot")){
             return current.includes("/fr/") ? "/" + current.substr(4) : "/fr" + current;
         }
         current = current.replace(`/${props.t.getLocale}/`, `/${props.t.getOppositeLocale}/`);
