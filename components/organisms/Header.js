@@ -78,9 +78,6 @@ export default function Header(props) {
                             </Link>
                         </li>
                     ))}
-                    <li>
-                        <a className={styles.navItem}>{props.t["Topics"]}</a>
-                    </li>
                 </ul>
                 <ul className={styles.navItems}>
                     <li className={styles.searchBar} style={props.hideSearchBar ? {zIndex: -1} : undefined}>
@@ -112,9 +109,6 @@ export default function Header(props) {
                                 </Link>
                             </li>
                         ))}
-                        <li>
-                            <a className={styles.navItem}>{props.t["Topics"]}</a>
-                        </li>
                         <li>
                             <Link href={getOppositeLangHomeUrl()}>
                                 <a className={styles.navItem}>{props.t.getOppositeLocale.toUpperCase()}</a>
