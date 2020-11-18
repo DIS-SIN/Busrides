@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "npx next build",
-    "start": "npx next start",
+    "start": "npx next start -p $PORT",
     "postinstall": "npx next build"
   },
   "repository": {
