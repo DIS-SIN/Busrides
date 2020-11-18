@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "npx next build",
-    "start": "npx next start",
+    "start": "node server.js",
+    "next-start": "npx next start",
     "postinstall": "npm run build"
   },
   "repository": {
