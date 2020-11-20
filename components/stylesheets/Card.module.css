@@ -79,6 +79,7 @@
     width: calc(100% - 40px);
     min-height: 20.2px;
     max-height: 20.2px;
+    margin-bottom: 5px;
     white-space: nowrap;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
