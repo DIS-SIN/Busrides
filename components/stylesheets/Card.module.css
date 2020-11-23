@@ -120,6 +120,12 @@
     padding: 0 10px;
 }
 
+@media only screen and (max-width: 48rem) {
+    .card {
+        width: 100%;
+    }
+}
+
 @media only screen and (min-width: 48rem) {
     .card {
         height: 420px;
