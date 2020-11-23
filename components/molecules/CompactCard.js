@@ -37,7 +37,7 @@ export default function CompactCard(props) {
                     </div>
                     <div className={styles.bottomContent}>
                         <h2 className={styles.title}>{props.post.title}</h2>
-                        <p className={styles.description}>{props.post.excerpt.substr(0, 80)}...</p>
+                        <p className={styles.description}>{props.post.excerpt}</p>
                     </div>
                 </div>
             </div>

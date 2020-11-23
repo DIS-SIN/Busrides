@@ -22,6 +22,7 @@
     --button-shadow-color-hover: hsla(0, 0%, 42.4%, 0.3);
     --mdc-theme-primary: #4a4a4a;
     --menu-titles-color: #ffffff;
+    --card-tag-color: #205482;
 
     --busrides-red: #CE3F3F;
     
@@ -52,6 +53,7 @@
         --button-shadow-color-normal: rgba(10, 10, 10, 0.5);
         --button-shadow-color-hover: rgba(10, 10, 10, 0.5);
         --mdc-theme-primary: #e3e3e3;
+        --card-tag-color: #5DAFD6;
     }
 }
 
