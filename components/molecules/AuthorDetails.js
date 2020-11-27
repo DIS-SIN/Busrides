@@ -71,14 +71,18 @@ export default function AuthorDetails(props) {
                             <IcomoonReact iconSet={iconSet} size={15} icon="twitter"/>
                         </a>
                     : undefined}
-                    {props.numberOfPosts ?
+                    {props.numberOfPosts &&
                         <React.Fragment>
                             <span>•</span>
                             {`${props.numberOfPosts} ${props.t["posts"]}`}
                         </React.Fragment>
-                    : undefined}
-                    <span>•</span>
-                    {primaryAuthor.location}
+                    }
+                    {primaryAuthor.location &&
+                        <React.Fragment>
+                            <span>•</span>
+                            {primaryAuthor.location}
+                        </React.Fragment>
+                    }
                 </div>
             </div>
         </div>
