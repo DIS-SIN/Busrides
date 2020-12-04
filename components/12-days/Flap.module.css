@@ -1,0 +1,24 @@
+.flap {
+    width: 25%;
+    flex-grow: 1;
+    border: solid #99B1BF 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #465959;
+    font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    background-color: rgba(224,233,242,0.75);
+    backdrop-filter: blur(6px);
+}
+
+.lock {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    fill: #465959;
+}

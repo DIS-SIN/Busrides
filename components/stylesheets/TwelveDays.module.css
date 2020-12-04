@@ -1,0 +1,32 @@
+.twelveDays {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-color: #293951;
+}
+
+.header {
+    padding: 20px;
+}
+
+.header h1, .header p {
+    text-align: center;
+}
+
+.header p {
+    margin: 0;
+}
+
+.calendar {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    height: 70vh;
+    width: 70vh;
+    border: solid #99B1BF 1px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
