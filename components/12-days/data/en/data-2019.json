@@ -1,0 +1,204 @@
+{
+    "title": "Welcome to Busrides’ 12 days of data!",
+    "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 20th.",
+    "meta": {
+        "title": "12 Days of Data",
+        "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 20th.",
+        "image": "https://busrides-trajetsenbus.ca/images/12-days/2019-bg.jpg",
+        "url": "https://busrides-trajetsenbus.ca/en/12-days/data"
+    },
+    "content": {
+        "day_1": {
+            "unlocks_at": "December 5, 2019",
+            "error_message": {
+                "title": "No Peeking!",
+                "text": "Come back on December 5th to view this content"
+            },
+            "title": "Where does public sector data come from?",
+            "text": "Around the world, 2.5 quintillion bytes (2.5 x 1018 bytes) of data are created every day, with 90 per cent of the data in the world generated in the last two years alone (IBM, 2016). The Government of Canada generates and holds a vast amount and diverse array of data, including spatial data, operational data, transactional service data, and data collected from or about citizens and businesses.\n\nThrough the power of data, public servants can fundamentally transform governments by changing the way they operate, make decisions and deliver services. To learn more about how the Government is using data check out the GC Data Strategy.",
+            "link": {
+                "url": "https://www.canada.ca/en/privy-council/corporate/clerk/publications/data-strategy.html",
+                "image": "https://www.canada.ca/content/canadasite/en/privy-council/corporate/clerk/publications/data-strategy/_jcr_content/par/mwscolumns_1731871601/colpar-2/mwsadaptiveimage/image.img.png/1546960958397.png",
+                "title": "Report to the Clerk of the Privy Council: A Data Strategy Roadmap for the Federal Public Service - Canada.ca",
+                "description": "The Data Strategy provides departments and agencies a roadmap for a more strategic use of their data, and guides the federal government’s efforts to improve how it collects, accesses, manages, uses and governs data.",
+                "domain": "canada.ca"
+            }
+        },
+        "day_2": {
+            "unlocks_at": "December 6, 2019",
+            "error_message": {
+                "title": "Nice try",
+                "text": "A good way of saying “Come back on December 6th to view this content.”"
+            },
+            "title": "Data [as] the new oil",
+            "text": "According to the Information and Communications Technology Council (ICTC) ‘With the increasing use and relevance of technology across all sectors of the economy, Digital+Data has evolved into a thriving, almost self-contained economy of its own. Just a few years ago, a major headline dubbed “data [as] the new oil”, effectively identifying it as a virtual, endlessly renewable natural resource.’ Take a look at the  highlights of ICTC’s perspectives on a data economy strategy.",
+            "link": {
+                "url": "https://www.ictc-ctic.ca/wp-content/uploads/2018/11/ICTC_Whitepaper_Perspective-Data-Econ-Strat.pdf",
+                "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2004&q=80",
+                "title": "ICTC’s Perspectives on a Data Economy Strategy",
+                "description": "This white paper highlights ICTC’s perspectives on a data economy strategy in an era where a data-driven economy is a global stimulus for fledging entrepreneurs, and emerging industries to create and commercialize new Intellectual Property (IP) to achieve national, economic, and social aspirations.",
+                "domain": "ictc-ctic.ca"
+            }
+        },
+        "day_3": {
+            "unlocks_at": "December 9, 2019",
+            "error_message": {
+                "title": "Now just wait a minute…",
+                "text": "You thought you could take a peek? Get back to work and come back on December 9th to see this content!"
+            },
+            "title": "Open Data",
+            "text": "Did you know?\n\nYou can search open data that is relevant to Canadians, learn how to work with datasets, and see what people have done with open data across the country.",
+            "link": {
+                "url": "https://open.canada.ca/en/open-data",
+                "image": "https://images.unsplash.com/photo-1453814279372-783dc5b638ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+                "title": "Open Data | Open Government, Government of Canada",
+                "description": "Search open data that is relevant to Canadians, learn how to work with datasets, and see what people have done with open data across the country.",
+                "domain": "open.canada.ca"
+            }
+        },
+        "day_4": {
+            "unlocks_at": "December 10, 2019",
+            "error_message": {
+                "title": "Patience is a virtue",
+                "text": "“Patience is not the ability to wait, but the ability to keep a good attitude while waiting” - An author with more patience than you\n\nCome back on December 10th to view this content."
+            },
+            "title": "API Store",
+            "text": "“Application Programming Interfaces” APIs — short for — are the interpreters that allow two completely different digital services or programs to talk to each other. APIs also allow government services to talk to one another, to you as the end-user, or to a third-party organization that might want to work with government data or functions.\n\nGood APIs create an ecosystem of services that build on each other and will be the building blocks for digital government. Check out the GC API store to learn more.",
+            "link": {
+                "url": "https://api.canada.ca/en/homepage",
+                "image": "https://api.canada.ca/sites/api-store-drupal-prod.apps.prod.openshift.ised-isde.canada.ca/files/2019-02/api-logo.png",
+                "title": "Homepage | API Store",
+                "description": "Welcome to the Government of Canada new API Store, our one-stop shop for Application Programming Interfaces (APIs).",
+                "domain": "api.canada.ca"
+            }
+        },
+        "day_5": {
+            "unlocks_at": "December 11, 2019",
+            "error_message": {
+                "title": "This is a test",
+                "text": "We tested your patience… Looks like you failed!\n\nCome back on December 11th to view this content."
+            },
+            "title": "Data For Good",
+            "text": "We often talk about how data can be used to drive value for businesses and organizations. Did you know we can also use data for social good?",
+            "link": {
+                "url": "https://dataforgood.ca/",
+                "image": "https://dataforgood.ca/wp-content/uploads/2018/05/dfg-kids-cheering-2.jpg",
+                "title": "Empowering Communities Through Data",
+                "description": "Who Are We? Data For Good is a collective of do gooders, who want to use their powers for good, and not evil, to help make our communities better through data. We are a national not for profit",
+                "domain": "dataforgood.ca"
+            }
+        },
+        "day_6": {
+            "unlocks_at": "December 12, 2019",
+            "error_message": {
+                "title": "Absolutely no peeking!",
+                "text": "Come back on December 12th and you might have more luck!"
+            },
+            "title": "Data Literacy",
+            "text": "At its core, a data-driven organization is one that views data as a tool to predict success, build better programs and serve clients more effectively. In a data-driven organization, staff frequently encounter reports, dashboards, analyses and may have opportunities to analyse data themselves. To do so effectively, our employees need to know how to interpret and manage the data they are using each day. In order to do this, increasing data literacy is a must! How data literate are you?",
+            "link": {
+                "url": "http://www.dataliteracy.info/",
+                "image": "http://www.dataliteracy.info//assets/img.jpg",
+                "title": "Qlik | Data Literacy Campaign",
+                "description": "Data is a right for everyone. But there's not a level playing field. Qlik is campaigning for greater data literacy – and we want you to join us today!",
+                "domain": "dataliteracy.info"
+            }
+        },
+        "day_7": {
+            "unlocks_at": "December 13, 2019",
+            "error_message": {
+                "title": "Admit it…",
+                "text": "You thought you could look at the content before others? Looks like you were wrong! Come back on December 13th to see what we have waiting for you."
+            },
+            "title": "Data Visualization",
+            "text": "dictionary.com describes an infographic as “a visual presentation of information in the form of a chart, graph, or other image accompanied by minimal text, intended to give an easily understood overview, often of a complex subject.”\n\nHow is this different from data visualizations? The following resources can help you answer this question.",
+            "link": {
+                "url": "https://visme.co/blog/what-is-an-infographic/",
+                "image": "http://visme.co/blog/wp-content/uploads/2017/04/What-is-an-Infographic-300x173.png",
+                "title": "What Is an Infographic? And How Is it Different from a Data Visualization?",
+                "description": "A simple and non-technical explanation of an infographic and how it differs from other related terms such as data visualization, charts and information design.",
+                "domain": "visme.co"
+            }
+        },
+        "day_8": {
+            "unlocks_at": "December 16, 2019",
+            "error_message": {
+                "title": "Don’t give up!",
+                "text": "Never give up on something you really want. It’s difficult to wait but come back on December 16th to see the content."
+            },
+            "title": "9 types of infographic templates",
+            "text": "On day 1 of data we learned that around the world, 2.5 quintillion bytes (2.5 x 1018 bytes) of data are created every day, with 90 percent of the data in the world generated in the last two years alone (IBM, 2016). The Government of Canada generates and holds a vast amount and diverse array of data, including spatial data, operational data, transactional service data, and data collected from or about citizens and businesses.\n\nCommunicating about this data requires skills in storytelling and visualization. It’s easier than ever to create these interesting visuals. Check out these templates and give it a try!",
+            "link": {
+                "url": "https://venngage.com/blog/9-types-of-infographic-template",
+                "image": "http://venngage-wordpress.s3.amazonaws.com/uploads/2019/01/9-templates-blog.png",
+                "title": "What Are the 9 Types of Infographics? (+Infographic Templates) - Venngage",
+                "description": "This guide to infographics will explain what the 9 basic types of infographics are, and what the best infographic to use is depending on your information.",
+                "domain": "venngage.com"
+            }
+        },
+        "day_9": {
+            "unlocks_at": "December 17, 2019",
+            "error_message": {
+                "title": "Patience:",
+                "text": "What you don’t have!\n\nCome back on December 17th to see this content."
+            },
+            "title": "Microsoft Products",
+            "text": "Sometimes we just need to know where to go to complete some simple tasks with data to make our lives easier. Here’s a link to basic training and tutorials for Microsoft products, including Excel!",
+            "link": {
+                "url": "https://support.office.com/",
+                "image": "https://support.content.office.net/en-us/media/d6ecb825-20b2-4907-9a46-33471a652d03.png",
+                "title": "Microsoft Office help and training - Office Support",
+                "description": "Help for all Office apps. Set up your Office 365 subscription. Find how-to articles and video tutorials. Contact our Answer Techs for assisted support.",
+                "domain": "support.office.com"
+            }
+        },
+        "day_10": {
+            "unlocks_at": "December 18, 2019",
+            "error_message": {
+                "title": "They say…",
+                "text": "The longer you wait, the better the content. Come back on December 18th to see if it’s true!"
+            },
+            "title": "*Free* course on “Data Science with Open Data”",
+            "text": "The course was funded by the National Energy Board of Canada, now the Canada Regulator, and hosted on IBM's learning platform, CognitiveClass.ai.\n\nLearners who complete the course successfully will earn a certificate of completion from IBM for their professional development hours and LinkedIn profiles.\n\nThe course is 3 hours long and includes some computer programming, however, it is designed for learners with no computer programming or technical experience (yes, really!!)\n\nTry it!",
+            "link": {
+                "url": "https://cognitiveclass.ai/courses/data-science-with-open-data",
+                "image": "https://cognitiveclass.ai/wp-content/uploads/2019/04/Open-Data-Icon_small-01-e1557513785727.png",
+                "title": "Data Science with Open Data - Cognitive Class",
+                "description": "New to Data Science and Computer Programming? Take this open course and learn to visualize data with the R programming language and Open Data from the National Energy Board of Canada.",
+                "domain": "cognitiveclass.ai"
+            }
+        },
+        "day_11": {
+            "unlocks_at": "December 19, 2019",
+            "error_message": {
+                "title": "Looks like you’re having trouble waiting… here’s a data joke to hold you off!",
+                "text": "Question: What’s the difference between an introverted data analyst & an extroverted one?\n\nAnswer: the extrovert stares at YOUR shoes.\n\nCome back on December 19th to see this content."
+            },
+            "title": "Teachable Machine",
+            "text": "People are using AI in Government to explore all kinds of ideas—identifying better ways to serve clients, optimizing workload and optimizing workflows.\n\nGetting started with your own machine learning projects might seem intimidating, but Teachable Machine is a web-based tool that makes it fast, easy, and accessible to everyone.\n\nThe first version of Teachable Machine let anyone teach their computer to recognize images using a webcam. For a lot of people, it was their first time experiencing what it’s like to train their own machine learning model: teaching the computer how to recognize patterns in data (images, in this case) and assign new data to categories.\n\nSince then, we’ve heard from lots of people who want to take their Teachable Machine models  one step further and use them in their own projects. Teachable Machine 2.0 lets you train your own machine learning model with the click of a button, no coding required, and export it to websites, apps, physical machines and more. As we explore the use of AI in government programs and services, we are ensuring it is governed by clear values, ethics, and laws",
+            "link": {
+                "url": "https://teachablemachine.withgoogle.com/v1",
+                "image": "https://teachablemachine.withgoogle.com/v1/assets/teachable-machine-splash-desktop.svg",
+                "title": "Teachable Machine",
+                "description": "Teachable Machine: Explore machine learning, live in your browser.",
+                "domain": "teachablemachine.withgoogle.com"
+            }
+        },
+        "day_12": {
+            "unlocks_at": "December 20, 2019",
+            "error_message": {
+                "title": "It’s worth the wait!",
+                "text": "Stay strong… it’s coming soon!"
+            },
+            "title": "Free coding app for beginners",
+            "text": "With Grasshopper, a free coding app for beginners, you can easily learn and understand coding without any previous experience. In as little as five minutes a day, you can complete lessons, quizzes and visual puzzles to build your coding skills. Move through progressively challenging levels as you develop your abilities, then graduate with fundamental programming skills for your next step as a coder.",
+            "link": {
+                "url": "https://grasshopper.codes/",
+                "image": "https://grasshopper.app/assets/static/images/common/grasshopper.png",
+                "title": "Learn to Code for Free – Grasshopper",
+                "description": "Grasshopper is the coding app for beginners. With fun, quick lessons on your phone, the app teaches adult learners to write real JavaScript.",
+                "domain": "grasshopper.codes"
+            }
+        }
+    }
+}

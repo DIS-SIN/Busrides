@@ -33,8 +33,8 @@ export default function TwelveDays(props) {
             <div className={styles.twelveDays} style={{background: `url("https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg")`}}>
                 {error.exists ? <NoPeeking error={error} setError={setError}/> : null}
                 <div className={styles.calendar}>
-                    {days.map(day => <Flap key={day} day={day} openContent={openContent} setError={setError} setDayToOpen={setDayToOpen}/>)}
-                    <Content contentIsOpen={contentIsOpen} openContent={openContent} day={dayToOpen}/>
+                    {days.map(day => <Flap data={props.data} key={day} day={day} openContent={openContent} setError={setError} setDayToOpen={setDayToOpen}/>)}
+                    <Content data={props.data} contentIsOpen={contentIsOpen} openContent={openContent} day={dayToOpen}/>
                 </div>
             </div>
             <Footer t={props.t}/>

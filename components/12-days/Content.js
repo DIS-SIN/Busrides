@@ -1,18 +1,12 @@
 import React from 'react';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
-import Data_EN from './Data';
-import Data_FR from './Data-fr';
 import Link from './Link';
 import styles from './Content.module.css';
 
 export default function Content(props) {
 
-    // let url = window.location !== window.parent.location ? document.referrer : document.location.href;
-    // let Data = url.includes("/fr/") ? Data_FR : Data_EN;
-    let Data = Data_EN;
-
-    const dayContent = Data[`day_${props.day}`];
+    const dayContent = props.data.content[`day_${props.day}`];
 
     if (dayContent){
         return (
