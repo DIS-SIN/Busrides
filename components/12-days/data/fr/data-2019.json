@@ -1,0 +1,205 @@
+{
+    "title": "Bienvenue aux 12 jours de données de Trajets en bus!",
+    "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 20 décembre.",
+    "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
+    "meta": {
+        "title": "12 jours de données",
+        "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 20 décembre.",
+        "image": "https://busrides-trajetsenbus.ca/images/12-days/2019-bg.jpg",
+        "url": "https://busrides-trajetsenbus.ca/fr/12-days/data"
+    },
+    "content": {
+        "day_1": {
+            "unlocks_at": "December 5, 2019",
+            "error_message": {
+                "title": "On ne jette pas un coup d'oeil!",
+                "text": "Revenez le 5 décembre pour voir ce contenu"
+            },
+            "title": "D'où proviennent les données du secteur public?",
+            "text": "Dans le monde entier, 2,5 trillions d'octets de données (2,5 × 1018) sont créés chaque jour, et 90 pour cent des données dans le monde ont été générées au cours des deux dernières années seulement (IBM, 2016). Le gouvernement du Canada produit et possède une vaste quantité de données diverses, notamment des données spatiales, des données opérationnelles, des données sur les services transactionnels et des données recueillies auprès de la population et des entreprises ou à propos de celles-ci.\n\nGrâce au pouvoir des données, les fonctionnaires peuvent modifier fondamentalement les gouvernements en changeant leur façon de travailler, de prendre des décisions et d'offrir leurs services. Pour en apprendre plus sur façon dont le gouvernement utilise les données, consultez la publication sur les  données stratégiques du GC, ci-dessous.",
+            "link": {
+                "url": "https://www.canada.ca/fr/conseil-prive/organisation/greffier/publications/strategie-donnees.html",
+                "image": "https://www.canada.ca/content/canadasite/fr/conseil-prive/organisation/greffier/publications/strategie-donnees/_jcr_content/par/mwscolumns_173187160/colpar-2/mwsadaptiveimage/image.img.png/1546961037544.png",
+                "title": "Feuille de route de la Stratégie de données pour la fonction publique fédérale - Canada.ca",
+                "description": "La Stratégie de données fournit une feuille de route aux ministères et organismes afin qu’ils puissent utiliser leurs données de façon plus stratégique, et guide les efforts du gouvernement fédéral afin d’améliorer la façon dont il recueille, accède, gère, utilise et régir les données.",
+                "domain": "canada.ca"
+            }
+        },
+        "day_2": {
+            "unlocks_at": "December 6, 2019",
+            "error_message": {
+                "title": "Bien essayé",
+                "text": "Une bonne façon de dire \"Revenez le 6 décembre pour voir le contenu.\""
+            },
+            "title": "« Les données [comme] la nouvelle huile »",
+            "text": "Selon le Conseil des technologies de l'information et des communications (CTIC), avec l'utilisation et la pertinence croissantes de la technologie dans tous les secteurs de l'économie, les données et le numérique ont évolué en une économie florissante, presque autonome en soi. Il y a quelques années à peine, un article en première page titrait « data [as] the new oil » ou « les données [comme] la nouvelle huile », identifiant celles-ci, effectivement, comme une ressource naturelle virtuelle et renouvelable sans fin. Lisez les points saillants du CTIC, sur une stratégie d'économie des données.",
+            "link": {
+                "url": "https://wiki.gccollab.ca/images/7/7b/Whitepaper_CITC.pdf",
+                "image": "https://images.unsplash.com/photo-1479292889369-1a48f234247e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1308&q=80",
+                "title": "Perspectives du CTIC sur une stratégie pour l’économie de données",
+                "description": "Le présent livre blanc expose les perspectives du CTIC sur une stratégie pour l’économie de données à une époque où une économie guidée par les données est un facteur de motivation mondial pour les nouveaux entrepreneurs et les industries émergentes qui désirent créer et commercialiser du nouveau contenu de propriété intellectuelle afin de réaliser leurs aspirations nationales, économiques et sociales.",
+                "domain": "wiki.gccollab.ca"
+            }
+        },
+        "day_3": {
+            "unlocks_at": "December 9, 2019",
+            "error_message": {
+                "title": "Attendez une petite minute…",
+                "text": "Vous pensiez pouvoir jeter un coup d'oeil? Retournez au travail et revenez le 9 décembre pour voir ce contenu!"
+            },
+            "title": "Données ouvertes",
+            "text": "Le saviez-vous?\n\nVous pouvez chercher des données ouvertes qui sont pertinentes aux Canadiens et  Canadiennes, apprendre comment travailler avec les jeux de données, voir ce que les citoyens ont fait avec les données ouvertes dans l’ensemble du pays.",
+            "link": {
+                "url": "https://ouvert.canada.ca/fr/donnees-ouvertes",
+                "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2252&q=80",
+                "title": "Données ouvertes | Gouvernement ouvert, Gouvernement du Canada",
+                "description": "Chercher des données ouvertes qui sont pertinentes aux Canadiens et Canadiennes, apprendre comment travailler avec les jeux de données, voir ce que les citoyens ont fait avec les données ouvertes dans l’ensemble du pays",
+                "domain": "ouvert.canada.ca"
+            }
+        },
+        "day_4": {
+            "unlocks_at": "December 10, 2019",
+            "error_message": {
+                "title": "La patience est une vertue.",
+                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous\n\nRevenez le 10 décembre pour voir ce contenu."
+            },
+            "title": "Magasin des API",
+            "text": "“Les API (interface de protocole applicative)” sont les interfaces qui permettent à deux services ou programmes numériques complètement différents de communiquer entre eux. Les API permettent également aux services gouvernementaux de communiquer entre eux, avec vous en tant qu'utilisateur final ou avec une organisation tierce qui pourrait vouloir travailler avec des données ou fonctions gouvernementales.\n\nLes bonnes API créent un écosystème de services qui s'appuient les uns sur les autres et constitueront les éléments fondateurs du gouvernement numérique. Visitez la boutique de l'API du GC pour en savoir plus.",
+            "link": {
+                "url": "https://api.canada.ca/fr/accueil",
+                "image": "https://api.canada.ca/sites/api-store-drupal-prod.apps.prod.openshift.ised-isde.canada.ca/files/2019-04/api-logo-fra_0.png",
+                "title": "Page d'accueil | Magasin des APIs",
+                "description": "Bienvenue dans le nouveau Magasin des APIs du Gouvernement du Canada, notre guichet unique pour les Interfaces de Programmation d'Applications (APIs).",
+                "domain": "api.canada.ca"
+            }
+        },
+        "day_5": {
+            "unlocks_at": "December 11, 2019",
+            "error_message": {
+                "title": "Ceci est un test",
+                "text": "Nous avons testé votre patience… Vous avez échoué!\n\nRevenez le 11 décembre pour voir ce contenu."
+            },
+            "title": "Des données pour le bien",
+            "text": "Nous parlons souvent de la façon dont les données peuvent être utilisées pour créer de la valeur pour les entreprises et les organisations. Saviez-vous que nous pouvons aussi utiliser les données pour le bien de la société?",
+            "link": {
+                "url": "https://ottawa.dataforgood.ca/",
+                "image": "https://images.unsplash.com/photo-1528947120591-c0bf5c1e63fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=697&q=80",
+                "title": "The Ottawa Data for Good Chapter",
+                "description": "Data For Good is a collective of do gooders, who want to use their powers for good, and not evil, to help make our communities better through data.",
+                "domain": "ottawa.dataforgood.ca"
+            }
+        },
+        "day_6": {
+            "unlocks_at": "December 12, 2019",
+            "error_message": {
+                "title": "Absolument pas de trichage!",
+                "text": "Revenez le 12 décembre et vous aurez peut-être plus de chance!"
+            },
+            "title": "Littératie en matière de données",
+            "text": "Au fond, une organisation axée sur les données est une organisation qui les considère comme un outil permettant de prédire le succès, d'élaborer de meilleurs programmes et de servir les clients plus efficacement. Dans une organisation axée sur les données, le personnel est souvent confronté à des rapports, des tableaux de bord, des analyses et peut avoir l'occasion d'analyser directement ces données. Pour y parvenir efficacement, nos employés doivent savoir interpréter et gérer les données qu'ils utilisent chaque jour. Pour ce faire, il est indispensable d'accroître la maîtrise des données! Connaissez-vous bien les données?",
+            "link": {
+                "url": "http://www.dataliteracy.info/",
+                "image": "http://www.dataliteracy.info//assets/img.jpg",
+                "title": "Qlik | Data Literacy Campaign",
+                "description": "Data is a right for everyone. But there's not a level playing field. Qlik is campaigning for greater data literacy – and we want you to join us today!",
+                "domain": "dataliteracy.info"
+            }
+        },
+        "day_7": {
+            "unlocks_at": "December 13, 2019",
+            "error_message": {
+                "title": "Admet le…",
+                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que tu as eu tort!\n\nRevenez le 13 décembre pour voir ce que vous attendre."
+            },
+            "title": "La visualisation des données",
+            "text": "dictionary.com décrit un infographique comme « “une présentation visuelle de l'information sous la forme d'un tableau, d'un graphique ou d'une autre image accompagnée d'un texte minimal, destinée à donner un aperçu facile à comprendre, souvent sur un sujet complexe » (traduction).\n\nEn quoi est-ce différent des visualisations de données ? Les ressources suivantes peuvent vous aider à répondre à cette question.",
+            "link": {
+                "url": "https://infogram.com/fr/page/infographie",
+                "image": "http://cdn.jifo.co/i/frontpage/infogram_share_v3.jpg",
+                "title": "Qu'est-ce qu'une infographie ?",
+                "description": "Qu'est-ce qu'une infographie ?",
+                "domain": "infogram.com"
+            }
+        },
+        "day_8": {
+            "unlocks_at": "December 16, 2019",
+            "error_message": {
+                "title": "N'abandonnez pas!",
+                "text": "N’abandonnez jamais quelque chose que vous voulez vraiment. Il est difficile d’attendre, mais revenez le 16 décembre pour voir le contenu."
+            },
+            "title": "9 différents modèles infographiques",
+            "text": "Lors du jour 1  des données, nous avons appris que dans le monde entier, 2,5 trillions d'octets de données (2,5 × 1018) sont créés chaque jour, et 90 pour cent des données dans le monde ont été générées au cours des deux dernières années seulement (IBM, 2016). Le gouvernement du Canada produit et possède une vaste quantité de données diverses, notamment des données spatiales, des données opérationnelles, des données sur les services transactionnels et des données recueillies auprès de la population et des entreprises ou à propos de celles-ci.\n\nLa communication de ces données exige des compétences en narration d'histoires et en visualisation. Il est plus facile que jamais de créer des visuels intéressants. Jetez un coup d'œil à ces modèles et faites-en l'essai!",
+            "link": {
+                "url": "https://fr.venngage.com/blog/differents-types-infographies/",
+                "image": "http://venngage-wordpress-fr.s3.amazonaws.com/uploads/2019/07/9-types-d’infographies-et-les-meilleurs-moyens-de-les-utiliser.png",
+                "title": "9 types d’infographies et les meilleurs moyens de les utiliser [+ modèles d’infographies]",
+                "description": "Quel type d’infographie est-il préférable d’utiliser ? Voici une liste des 9 meilleurs types de modèles d’infographies en fonction de vos objectifs et de la nature de vos données.",
+                "domain": "fr.venngage.com"
+            }
+        },
+        "day_9": {
+            "unlocks_at": "December 17, 2019",
+            "error_message": {
+                "title": "La patience:",
+                "text": "Ce que vous n’avez pas!\n\nRevenez le 17 décembre pour voir ce contenu."
+            },
+            "title": "Produits Microsoft",
+            "text": "Parfois, nous avons juste besoin de savoir où aller pour accomplir quelques tâches simples, avec des données, pour nous faciliter la vie. Voici un lien qui vous permettra d'accéder à la formation de base et à des didacticiels sur les produits Microsoft - y compris Excel!",
+            "link": {
+                "url": "https://support.office.com/fr-fr",
+                "image": "https://support.content.office.net/en-us/media/d6ecb825-20b2-4907-9a46-33471a652d03.png",
+                "title": "Aide et formations sur Microsoft Office - Support Office",
+                "description": "Aide sur toutes les applications Office. Configurez votre abonnement Office 365. Recherchez des articles de procédures et des didacticiels vidéo. Contactez nos experts Answer Tech pour obtenir un support assisté.",
+                "domain": "support.office.com"
+            }
+        },
+        "day_10": {
+            "unlocks_at": "December 18, 2019",
+            "error_message": {
+                "title": "Ils disent…",
+                "text": "Le plus vous attendez, le meilleur sera le contenu. Revenez le 18 décembre pour voir si c’est vrai!"
+            },
+            "title": "*Cours gratuit* sur la « Science des données avec données ouvertes »",
+            "text": "Le cours a été financé par l'Office national de l'énergie du Canada, maintenant l'organisme de réglementation du Canada, et hébergé sur la plateforme d'apprentissage d'IBM, («  CognitiveClass.ai »).\n\nLes apprenants qui terminent le cours avec succès obtiendront un certificat d'IBM pour leurs heures de perfectionnement professionnel et leurs profils LinkedIn.\n\nLe cours est d'une durée de 3 heures et inclut un peu de programmation informatique, mais il est conçu pour les apprenants qui n'ont aucune expérience en programmation informatique ou technique (oui, vraiment !!!).",
+            "link": {
+                "url": "https://cognitiveclass.ai/courses/data-science-with-open-data",
+                "image": "https://cognitiveclass.ai/wp-content/uploads/2019/04/Open-Data-Icon_small-01-e1557513785727.png",
+                "title": "Data Science with Open Data - Cognitive Class",
+                "description": "New to Data Science and Computer Programming? Take this open course and learn to visualize data with the R programming language and Open Data from the National Energy Board of Canada.",
+                "domain": "cognitiveclass.ai"
+            }
+        },
+        "day_11": {
+            "unlocks_at": "December 19, 2019",
+            "error_message": {
+                "title": "On dirait que vous avez du mal à attendre… voici une blague sur les données pour vous retenir!",
+                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 19 décembre pour voir ve contenu."
+            },
+            "title": "Ces machines qui apprennent",
+            "text": "Les gens utilisent l’intelligence artificiel, l'IA, au gouvernement pour explorer toutes sortes d'idées - identifier de meilleures façons de servir les clients, optimiser la charge de travail et optimiser les flux de travail.\n\nDémarrer avec vos propres projets d'apprentissage peut sembler intimidant, mais « Teachable Machine » est un outil basé sur le Web, qui le rend rapide, facile et accessible à tous.\n\nLa première version de « Teachable Machine » a permis à n'importe qui d'apprendre à son ordinateur à reconnaître les images à l'aide d'une caméra Web. Pour beaucoup de gens, c'était la première fois qu'ils tentaient l'expérience de former leur propre modèle d'apprentissage machine : apprendre à l'ordinateur comment reconnaître les modèles de données (les images, dans ce cas) et attribuer de nouvelles données aux catégories.\n\nDepuis, nous avons entendu beaucoup de gens qui veulent aller plus loin dans leurs modèles d'apprentissage machine et les utiliser dans leurs propres projets. Teachable Machine 2.0 vous permet de former votre propre modèle d'apprentissage machine d'un simple clic, sans codage requis, et de l'exporter vers des sites Web, applications, machines physiques et plus encore. En explorant l'utilisation de l'IA dans les programmes et pour les services gouvernementaux, nous nous assurons qu'elle est régie par des valeurs éthiques, des lois et des principes clairs.",
+            "link": {
+                "url": "https://teachablemachine.withgoogle.com/v1",
+                "image": "https://teachablemachine.withgoogle.com/v1/assets/teachable-machine-splash-desktop.svg",
+                "title": "Teachable Machine",
+                "description": "Teachable Machine: Explore machine learning, live in your browser.",
+                "domain": "teachablemachine.withgoogle.com"
+            }
+        },
+        "day_12": {
+            "unlocks_at": "December 20, 2019",
+            "error_message": {
+                "title": "Cela en vaudra vraiment la peine!",
+                "text": "Restez forts… ça arrive bientôt! Revenez le 20 décembre pour le dernier jour des 12 jours de données!"
+            },
+            "title": "une application de codage gratuite pour débutants",
+            "text": "Avec Grasshopper, une application de codage gratuite pour débutants, vous pouvez facilement apprendre et comprendre le codage sans aucune expérience préalable. En aussi peu que cinq minutes par jour, vous pouvez compléter des leçons, des quiz et des puzzles visuels pour développer vos compétences en codage. Passez à des niveaux de plus en plus difficiles au fur et à mesure que vous développez vos capacités, puis obtenez votre diplôme avec des compétences fondamentales en programmation pour votre prochaine étape en tant que programmeur.",
+            "link": {
+                "url": "https://www.frandroid.com/android/applications/499475_grasshopper-une-application-de-google-pour-apprendre-a-coder-en-javascript",
+                "image": "http://images.frandroid.com/wp-content/uploads/2018/04/grasshopper.jpg",
+                "title": "Grasshopper, une application de Google pour apprendre à coder en JavaScript - Frandroid",
+                "description": "Google a lancé un incubateur connu sous le nom d'Area 120 et permettant à des petits groupes de Googlers de réaliser leurs idées les plus folles. Il en",
+                "domain": "frandroid.com"
+            }
+        }
+    }
+}
