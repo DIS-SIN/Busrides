@@ -39,6 +39,13 @@ export default function Header(props) {
         return current;
     }
 
+    function cleanUrl(url) {
+        if (url === "https://www.busrides-trajetsenbus.ca" || url === "https://busrides.ghost.io"){
+            return "/";
+        }
+        return url.replace(/https:\/\/www.busrides-trajetsenbus.ca|https:\/\/busrides.ghost.io/, "");
+    }
+
     function search() {
         if (width <= 800){
             openSearchMenu(true);
@@ -73,7 +80,7 @@ export default function Header(props) {
                 <ul className={styles.navItems}>
                     {getNavItems().map(navItem => (
                         <li key={navItem.url}>
-                            <Link href={navItem.url}>
+                            <Link href={cleanUrl(navItem.url)}>
                                 <a className={styles.navItem}>{navItem.label}</a>
                             </Link>
                         </li>
