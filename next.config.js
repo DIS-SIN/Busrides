@@ -5,5 +5,14 @@ module.exports = {
             use: 'raw-loader'
         });
         return config
+    },
+    async redirects() {
+        return [
+            {
+                source: '/admin',
+                destination: 'https://busrides.ghost.io/ghost',
+                permanent: true,
+            }
+        ]
     }
 }
