@@ -12,6 +12,11 @@ module.exports = {
                 source: '/admin',
                 destination: 'https://busrides.ghost.io/ghost',
                 permanent: true,
+            },
+            {
+                source: '/en/about',
+                destination: '/en/en-about',
+                permanent: true,
             }
         ]
     }
