@@ -17,6 +17,11 @@ module.exports = {
                 source: '/en/about',
                 destination: '/en/en-about',
                 permanent: true,
+            },
+            {
+                source: '/fr/about',
+                destination: '/fr/fr-about',
+                permanent: true,
             }
         ]
     }
