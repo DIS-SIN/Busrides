@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 365px;
+    position: relative;
     background-position: center;
     background-size: cover;
     background-color: black;
