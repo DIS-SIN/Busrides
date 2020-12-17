@@ -17,7 +17,9 @@ export default function Home(props) {
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.settings.cover_image}>
                 <div className={styles.promoBar}>
-                    <p>Help share your learning by filling out this questionnaire.</p>
+                    <a href={props.t.tempSurveyURL}>
+                        <p>{props.t.tempSurveyText}</p>
+                    </a>
                 </div>
                 <img className={styles.logo} src={props.t.getLogo} alt={props.t["Busrides Logo"]}/>
                 <p className={styles.description}>{props.t.getDescription}</p>

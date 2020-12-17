@@ -38,7 +38,9 @@ const fr = {
     "Icons": "Icônes",
     "Clear search": "Recherche claire",
     "Search Busrides": "Recherche de Trajets en bus",
-    "Done": "Fait"
+    "Done": "Fait",
+    "tempSurveyText": "Influencez votre apprentissage en remplissant ce questionnaire en ligne",
+    "tempSurveyURL": "https://learnapprendre.qualtrics.com/jfe/form/SV_eEYTLxW6lZSs7fn?Q_Language=FR-CA&source=busrides"
 }
 
 export default fr;

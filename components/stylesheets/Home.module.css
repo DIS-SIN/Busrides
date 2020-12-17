@@ -7,6 +7,11 @@
     background-color: var(--background-color);
 }
 
+.promoBar a {
+    text-align: center;
+    color: var(--link-color);
+}
+
 .logo {
     width: auto;
     height: auto;
