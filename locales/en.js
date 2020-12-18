@@ -38,7 +38,9 @@ const en = {
     "Icons": "Icons",
     "Clear search": "Clear search",
     "Search Busrides": "Search Busrides",
-    "Done": "Done"
+    "Done": "Done",
+    "tempSurveyText": "Help shape your learning by filling out this online questionnaire",
+    "tempSurveyURL": "https://learnapprendre.qualtrics.com/jfe/form/SV_eEYTLxW6lZSs7fn?Q_Language=EN&source=Busrides"
 }
 
 export default en;
