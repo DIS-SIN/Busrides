@@ -1,3 +1,17 @@
+.promoBar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+.promoBar a {
+    text-align: center;
+    color: var(--link-color);
+}
+
 .logo {
     width: auto;
     height: auto;
