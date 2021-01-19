@@ -39,6 +39,7 @@
     "react-infinite-scroll-component": "^5.1.0",
     "react-markdown": "^4.3.1",
     "react-scroll-percentage": "^4.2.0",
+    "react-select": "^3.1.1",
     "svg-loaders-react": "^2.2.1"
   },
   "devDependencies": {

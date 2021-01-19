@@ -1,0 +1,43 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 20px 0 20px;
+}
+
+.selector {
+    width: 250px;
+    margin: 30px 20px 0 20px;
+    z-index: 10;
+}
+
+@media only screen and (min-width: 48rem) {
+    .selector {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (min-width: 64rem) {
+    .selector {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 80rem) {
+    .container {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        padding: 0;
+    }
+
+    .selector {
+        width: 100%;
+        margin: 30px 20px 0 20px;
+    }
+}
