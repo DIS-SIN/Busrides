@@ -19,6 +19,7 @@ export default function EpisodeList(props) {
 
     useEffect(() => {
         setEpisodes(props.posts);
+        setPagination(1);
         setshouldLoadMore(true);
     },[props.posts])
 
@@ -58,7 +59,7 @@ export default function EpisodeList(props) {
                 <ThreeDots fill="#ce3f3f" className={styles.loader}/>
              }
              {/* Only show the button if apiOptions are passed and if meta details are passed and there are more episodes to load */}
-             {shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length || props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true)) ?
+             {shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length ||           props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true)     ) ?
                  <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults}>{props.t["Load More"]}</a>
              : undefined}
         </div>

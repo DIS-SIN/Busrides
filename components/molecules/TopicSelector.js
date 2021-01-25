@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import {getAllTags, getPosts} from '../../Ghost-API/contentAPI'
+import { cp_t, cp_apiOptions } from '../../helpers/commonProps';
 import styles from '../stylesheets/TopicSelector.module.css';
 
 export default function TopicSelector(props) {
@@ -46,6 +48,7 @@ export default function TopicSelector(props) {
         }
         let posts = await getPosts(newApiOptions);
         props.setApiOptions(newApiOptions);
+        props.setPostsMeta(posts.meta);
         props.setPosts(posts);
         setLoading(false);
     }
@@ -64,6 +67,10 @@ export default function TopicSelector(props) {
     );
 }
 
-// TopicSelector.propTypes = {
-    
-// };
+TopicSelector.propTypes = {
+    t: cp_t.isRequired,
+    apiOptions: cp_apiOptions.isRequired,
+    setPostsMeta: PropTypes.func.isRequired,
+    setApiOptions: PropTypes.func.isRequired,
+    setPosts: PropTypes.func.isRequired
+};

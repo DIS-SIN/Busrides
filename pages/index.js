@@ -5,7 +5,7 @@ import dictionary from '../locales/en';
 
 export default function Index(props) {
     return (
-        <Home t={dictionary} posts={props.posts} apiOptions={props.apiOptions} settings={props.settings}/>
+        <Home t={dictionary} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} settings={props.settings}/>
     );
 }
 
@@ -21,6 +21,7 @@ Index.getInitialProps = async function({req}) {
 
 	return {
         posts,
+        postsMeta: posts.meta,
         apiOptions,
         settings,
         locale: dictionary.getLocale,
