@@ -58,6 +58,7 @@ export default function TopicSelector(props) {
             <Select
                 instanceId="topicSelector"
                 className={styles.selector}
+                classNamePrefix="react-select"
                 defaultValue={defaultTopic}
                 onChange={selected => {getNewPosts(selected.value)}}
                 options={topics}
