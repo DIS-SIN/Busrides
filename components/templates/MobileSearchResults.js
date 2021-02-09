@@ -63,7 +63,7 @@ export default function MobileSearchResults(props) {
                         }
                         {resultsView === "Sorting" &&
                             <React.Fragment>
-                                <div className={`${styles.metaBar} ${styles.sorting}`}>
+                                <div className={styles.metaBar}>
                                     <p>{props.t["Searched"]}: {searchTerm}, {props.t["got"]} {searchResults.total} {props.t["results"]}</p>
                                     <button data-view={"Episodes"} onClick={changeResultsView}>{props.t["Done"]}</button>
                                 </div>

@@ -8,7 +8,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 60px 20px 20px 20px;
+    padding: 25px 20px 20px 20px;
+}
+
+.loadMoreButton {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 15px 30px;
+    margin-bottom: 50px;
+    border-radius: 40px;
+    user-select: none;
+    color: var(--titles-color);
+    background-color: var(--secondary-background-color);
+    box-shadow: 0 2px 4px var(--button-shadow-color-normal), 0 0 0 transparent;
+    transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.loadMoreButton:hover {
+    -o-box-shadow: 0 4px 8px var(--button-shadow-color-hover), 0 0 0 transparent;
+    box-shadow: 0 4px 8px var(--button-shadow-color-hover), 0 0 0 transparent;
 }
 
 .loader {
@@ -24,18 +42,18 @@
 
 @media only screen and (min-width: 80rem) {
     .episodeList {
-        padding: 60px 0 40px 0;
+        padding: 25px 0 40px 0;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .episodeList {
-        padding: 70px 20px 20px 20px;
+        padding: 25px 20px 20px 20px;
     }
 }
 
 @media only screen and (max-width: 355px) {
     .episodeList {
-        padding: 70px 0 20px 0;
+        padding: 25px 0 20px 0;
     }
 }
