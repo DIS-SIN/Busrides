@@ -40,8 +40,8 @@ const en = {
     "Clear search": "Clear search",
     "Search Busrides": "Search Busrides",
     "Done": "Done",
-    "tempSurveyText": "Help shape your learning by filling out this online questionnaire",
-    "tempSurveyURL": "https://learnapprendre.qualtrics.com/jfe/form/SV_eEYTLxW6lZSs7fn?Q_Language=EN&source=Busrides"
+    "betaNotice": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
+    "Provide feedback": "💬 Provide feedback."
 }
 
 export default en;

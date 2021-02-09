@@ -4,12 +4,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
     background-color: var(--background-color);
 }
 
 .promoBar a {
     text-align: center;
     color: var(--link-color);
+    text-decoration: none;
 }
 
 .logo {
