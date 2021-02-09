@@ -23,9 +23,10 @@ export default function Home(props) {
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.settings.cover_image}>
                 <div className={styles.promoBar}>
-                    <a href={props.t.tempSurveyURL}>
-                        <p>{props.t.tempSurveyText}</p>
-                    </a>
+                    <p>
+                        {props.t.betaNotice}
+                        <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?subject=Busrides Feedback / Rétroaction sur Trajets en bus"> {props.t["Provide feedback"]}</a>
+                    </p>
                 </div>
                 <img className={styles.logo} src={props.t.getLogo} alt={props.t["Busrides Logo"]}/>
                 <p className={styles.description}>{props.t.getDescription}</p>

@@ -40,8 +40,8 @@ const fr = {
     "Clear search": "Recherche claire",
     "Search Busrides": "Recherche de Trajets en bus",
     "Done": "Fait",
-    "tempSurveyText": "Influencez votre apprentissage en remplissant ce questionnaire en ligne",
-    "tempSurveyURL": "https://learnapprendre.qualtrics.com/jfe/form/SV_eEYTLxW6lZSs7fn?Q_Language=FR-CA&source=busrides"
+    "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
+    "Provide feedback": "💬 Fournir de la rétroaction"
 }
 
 export default fr;
