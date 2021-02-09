@@ -8,6 +8,7 @@ const fr = {
     "Busrides Logo": "Logo des trajets en bus",
     "Busrides": "Trajets en bus",
     "Topics": "Sujets",
+    "All Topics": "Tous les sujets",
     "getTopicSlugs": "[fr-conception, fr-donnees, fr-gouvernement-ouvert, fr-intelligence-artificielle, fr-technologie, fr-transformation-numerique]",
     "What is the Digital Academy?": "Qu'est-ce que l'Académie numérique?",
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",

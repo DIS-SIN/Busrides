@@ -54,6 +54,16 @@ export async function getPage(slug) {
     });
 }
 
+export async function getAllTags() {
+    return await api.tags
+    .browse({
+        limit: "all"
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
 export async function getTags(tags) {
     return await api.tags
     .browse({

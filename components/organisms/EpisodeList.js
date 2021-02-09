@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { ThreeDots } from 'svg-loaders-react'
 import { cp_t, cp_post, cp_apiOptions, cp_postsMeta } from '../../helpers/commonProps';
 import { getPosts } from '../../Ghost-API/contentAPI';
@@ -14,21 +13,28 @@ export default function EpisodeList(props) {
     const [episodes, setEpisodes] = useState(props.posts);
     const [pageNumber, setPagination] = useState(1);
     const [shouldLoadMore, setshouldLoadMore] = useState(true);
+    const [loading, setLoading] = useState(false);
+
+    const loadMoreButton = useRef(null);
 
     useEffect(() => {
         setEpisodes(props.posts);
+        setPagination(1);
         setshouldLoadMore(true);
     },[props.posts])
 
     async function loadMore() {
+        setshouldLoadMore(false);
+        setLoading(true);
         props.apiOptions.page = pageNumber + 1;
         let newEpisodes = await getPosts(props.apiOptions);
         setPagination(pageNumber + 1);
         // If this is the last page
-        if (!newEpisodes.meta.pagination.next){
-            setshouldLoadMore(false);
+        if (newEpisodes.meta.pagination.next){
+            setshouldLoadMore(true);
         }
         setEpisodes(episodes.concat(newEpisodes));
+        setLoading(false);
     }
 
     async function loadMoreSearchResults() {
@@ -41,21 +47,21 @@ export default function EpisodeList(props) {
 
     return (
         <div className={styles.container}>
-            <InfiniteScroll
-                dataLength={episodes.length} //This is important field to render the next data
-                next={props.apiOptions ? loadMore : loadMoreSearchResults}
-                hasMore={shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length || props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true))}
-                loader={<ThreeDots fill="#ce3f3f" className={styles.loader}/>}
-            >
-                <div className={styles.episodeList}>
-                    {episodes.map(post => (
-                        props.useCompactView ? 
-                        <CompactCard key={post.id} t={props.t} post={post} mobile={props.mobile}/>
-                        :
-                        <Card key={post.id} t={props.t} post={post}/>
-                    ))}
-                </div>
-            </InfiniteScroll>
+            <div className={styles.episodeList}>
+                 {episodes.map(post => (
+                     props.useCompactView ? 
+                     <CompactCard key={post.id} t={props.t} post={post} mobile={props.mobile}/>
+                     :
+                     <Card key={post.id} t={props.t} post={post}/>
+                 ))}
+             </div>
+             {loading &&
+                <ThreeDots fill="#ce3f3f" className={styles.loader}/>
+             }
+             {/* Only show the button if apiOptions are passed and if meta details are passed and there are more episodes to load */}
+             {shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length ||           props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true)     ) ?
+                 <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults}>{props.t["Load More"]}</a>
+             : undefined}
         </div>
     );
 }
