@@ -1,0 +1,39 @@
+.description {
+    color: white;
+    text-align: center;
+    font-size: 1.125rem;
+    margin: 0 0 25px 0;
+}
+
+.contentContainer {
+    margin: 0 auto;
+    padding: 25px 20px 20px 20px;
+}
+
+.contentContainer a {
+    color: var(--link-color);
+}
+
+@media only screen and (min-width: 48rem) {
+    .contentContainer {
+        max-width: 1160px;
+    }
+}
+
+@media only screen and (min-width: 80rem) {
+    .contentContainer {
+        padding: 25px 0 40px 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .contentContainer {
+        padding: 25px 20px 20px 20px;
+    }
+}
+
+@media only screen and (max-width: 355px) {
+    .contentContainer {
+        padding: 25px 0 20px 0;
+    }
+}

@@ -10,10 +10,10 @@ const fr = {
     "Topics": "Sujets",
     "All Topics": "Tous les sujets",
     "getTopicSlugs": "[fr-conception, fr-donnees, fr-gouvernement-ouvert, fr-intelligence-artificielle, fr-technologie, fr-transformation-numerique]",
-    "What is the Digital Academy?": "Qu'est-ce que l'Académie numérique?",
+    "What is the Digital Academy?": "Qu'est-ce que l'Académie du numérique?",
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
     "getDATwitter": "https://twitter.com/AcademieNumCAN",
-    "Digital Academy Twitter": "Académie numérique Twitter",
+    "Digital Academy Twitter": "Académie du numérique Twitter",
     "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
     "Share to": "Partager sur",
     "Visit website": "Visitez le site web",
@@ -41,7 +41,9 @@ const fr = {
     "Search Busrides": "Recherche de Trajets en bus",
     "Done": "Fait",
     "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
-    "Provide feedback": "💬 Fournir de la rétroaction"
+    "Provide feedback": "💬 Fournir de la rétroaction",
+    "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
+    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin."
 }
 
 export default fr;
