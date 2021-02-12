@@ -17,7 +17,7 @@ LearningPaths.getInitialProps = async function({req}) {
         page: 1,
         limit: 10,
         include: "tags,authors",
-        filter: `tag:en-data+tag:${dictionary.getGhostLocaleTag}`
+        filter: `tag:hash-learning-path+tag:${dictionary.getGhostLocaleTag}`
     };
     const posts = await getPosts(apiOptions);
     const settings = await getSettings();

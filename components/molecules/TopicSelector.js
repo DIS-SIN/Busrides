@@ -12,6 +12,8 @@ export default function TopicSelector(props) {
         label: props.t["All Topics"]
     }
 
+    const hiddenTopics = ["en-discover-series", "fr-discover-series"];
+
     const [topics, setTopics] = useState(defaultTopic);
     const [loading, setLoading] = useState(false);
 
@@ -24,7 +26,7 @@ export default function TopicSelector(props) {
         let tags = await getAllTags();
 
         tags = tags.reduce(function (res, tag) {
-            if (tag.visibility === "public" && tag.slug.match(/\w*/)[0] === props.t.getLocale){
+            if (tag.visibility === "public" && tag.slug.match(/\w*/)[0] === props.t.getLocale && !hiddenTopics.includes(tag.slug)){
                 res.push({
                     value: tag.slug,
                     label: tag.name
@@ -43,7 +45,7 @@ export default function TopicSelector(props) {
         setLoading(true)
         let newApiOptions = {
             ...props.apiOptions,
-            filter: slug === "all" ? `tag:${props.t.getGhostLocaleTag}` : `tag:${slug}+tag:${props.t.getGhostLocaleTag}`,
+            filter: slug === "all" ? `tag:${props.t.getGhostLocaleTag}+tag:-hash-learning-path` : `tag:${slug}+tag:${props.t.getGhostLocaleTag}+tag:-hash-learning-path`,
             page: 1
         }
         let posts = await getPosts(newApiOptions);

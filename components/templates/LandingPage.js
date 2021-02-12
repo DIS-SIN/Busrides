@@ -5,7 +5,6 @@ import { cp_t, cp_post, cp_apiOptions, cp_settings, cp_postsMeta } from '../../h
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
-import TopicSelector from '../molecules/TopicSelector';
 import EpisodeList from '../organisms/EpisodeList';
 import Footer from '../organisms/Footer';
 import styles from '../stylesheets/LandingPage.module.css';
@@ -20,10 +19,11 @@ export default function LandingPage(props) {
 
     return (
         <div>
-            <MetaTags title={props.t["Busrides"]} description={props.t.getDescription} image={props.settings.url + "thumbnail.jpg"} url={props.t.getLocale === "en" ? props.settings.url : props.settings.url + props.t.getLocale}/>
+            <MetaTags title={props.t["Learning Paths"]} description={props.t.learningPathsSlogan} image="/images/learning-paths/landingPageBg.jpeg" url={`https://busrides-trajetsenbus.ca/${props.t.getLocale}/learning-paths`}/>
             <Header t={props.t} settings={props.settings}/>
-            <Hero backgroundImage={props.settings.cover_image}>
+            <Hero backgroundImage="/images/learning-paths/landingPageBg.jpeg">
                 <h1>{props.t["Learning Paths"]}</h1>
+                <p className={styles.description}>{props.t.learningPathsSlogan}</p>
             </Hero>
             <div className={styles.contentContainer}>
                 <ReactMarkdown source={props.markdown}/>

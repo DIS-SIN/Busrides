@@ -14,7 +14,7 @@ Index.getInitialProps = async function({req}) {
         page: 1,
         limit: 10,
         include: "tags,authors",
-        filter: `tag:${dictionary.getGhostLocaleTag}`
+        filter: `tag:${dictionary.getGhostLocaleTag}+tag:-hash-learning-path`
     };
     const posts = await getPosts(apiOptions);
     const settings = await getSettings();
