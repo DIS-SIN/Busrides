@@ -1,0 +1,44 @@
+[
+    {
+        "id": "about-egg",
+        "hint": {
+            "en": "You might stop here to find out the origin of our name",
+            "fr": "Vous pouvez vous arrêter ici pour découvrir l'origine de notre nom" 
+        }
+    },
+    {
+        "id": "learning-path-egg",
+        "hint": {
+            "en": "This path will lead you to discover digital",
+            "fr": "Ce parcours vous mènera à la découverte du numérique" 
+        }
+    },
+    {
+        "id": "for-employees-egg",
+        "hint": {
+            "en": "An employee who works remotely will find this page helpful",
+            "fr": "Un employé qui travaille à distance trouvera cette page utile" 
+        }
+    },
+    {
+        "id": "egg1",
+        "hint": {
+            "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+            "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" 
+        }
+    },
+    {
+        "id": "search-egg",
+        "hint": {
+            "en": "Can't find any eggs? Maybe try searching for one",
+            "fr": "Vous ne trouvez pas d'œufs ? Essayez d'en chercher un" 
+        }
+    },
+    {
+        "id": "egg3",
+        "hint": {
+            "en": "Eget sit amet tellus cras adipiscing",
+            "fr": "Eget sit amet tellus cras adipiscing" 
+        }
+    }
+]

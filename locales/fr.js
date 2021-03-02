@@ -43,7 +43,10 @@ const fr = {
     "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
-    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin."
+    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
+    "eggHuntTitle": "Chasse aux œufs à Busrides",
+    "eggHuntDescription": "Nous avons caché des œufs à travers le site, utilisez les indices ci-dessous et voyez si vous pouvez tous les trouver !",
+    "eggHuntAlt": "Oeuf de Busrides"
 }
 
 export default fr;

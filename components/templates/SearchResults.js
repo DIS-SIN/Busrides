@@ -55,6 +55,7 @@ export default function SearchResults(props) {
                     <div className={styles.sidePanel}>
                         <SortOptions t={props.t} searchTerm={searchResults.searchTerm} setSearchResults={setSearchResults}/>
                         <TagsList t={props.t} posts={searchResults.posts}/>
+                        <iframe src="http://localhost:3000/egg/search-egg" height="100" width="100" style={{border: "none"}} title="Search egg"></iframe>
                     </div>
                 </div>
                 }
