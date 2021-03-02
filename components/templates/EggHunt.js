@@ -30,7 +30,7 @@ export default function EggHunt(props) {
             </Hero>
             <div className={styles.taskList}>
                 {eggList.map(egg =>
-                    <EggTask hint={egg.hint[props.t.getLocale]} found={eggsFound.includes(egg.id)}/>
+                    <EggTask key={egg.id} hint={egg.hint[props.t.getLocale]} found={eggsFound.includes(egg.id)}/>
                 )}
             </div>
             <Footer t={props.t}/>
