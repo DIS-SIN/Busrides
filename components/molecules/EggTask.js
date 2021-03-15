@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import styles from '../stylesheets/EggTask.module.css';
 
@@ -15,7 +16,7 @@ export default function EggTask(props) {
                     <span className={styles.questionMark}>?</span>
                 }
             </div>
-            <p>{props.hint}</p>
+            <ReactMarkdown source={props.hint}/>
             {props.found &&
                 <span className={styles.checkMark}>&#10004;</span>
             }

@@ -16,7 +16,7 @@
     {
         "id": "for-employees-egg",
         "hint": {
-            "en": "An employee who works remotely will find this page helpful",
+            "en": "An employee who *works remotely* will find this page helpful",
             "fr": "Un employé qui travaille à distance trouvera cette page utile" 
         }
     },
