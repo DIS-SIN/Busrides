@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { cp_t, cp_settings } from '../../helpers/commonProps';
 import {getEggsFound} from '../../helpers/helpers';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import EggTask from '../molecules/EggTask';
+import EggHuntCompleted from '../molecules/EggHuntCompleted';
 import Footer from '../organisms/Footer';
 import eggList from '../egg-hunt/egg-list.json';
 import styles from '../stylesheets/EggHunt.module.css';
 
 export default function EggHunt(props) {
 
-    const [eggsFound, setEggsFound] = useState(getEggsFound);
+    const [eggsFound, setEggsFound] = useState([]);
 
-    console.log(eggsFound);
+    useEffect(() => {
+        setEggsFound(getEggsFound());
+    },[])
+
+    const URL = `https://busrides-trajetsenbus.ca/${props.t.getLocale}/egg-hunt`;
 
     return (
         <div>
-            <MetaTags title={props.t.eggHuntTitle} description={props.t.eggHuntDescription} url={`https://busrides-trajetsenbus.ca${props.t.getLocalePath}/egg-hunt`} image={"/images/thumbnails/eggHunt.png"}/>
+            <MetaTags title={props.t.eggHuntTitle} description={props.t.eggHuntDescription} url={URL} image={"/images/thumbnails/eggHunt.png"}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={"https://images.unsplash.com/photo-1584963237901-8ff959b9b4b0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80"}>
                 <div className={styles.heroContent}>
@@ -28,6 +33,9 @@ export default function EggHunt(props) {
                     <img src="/images/egg-hunt/busridesEgg.png" alt={props.t.eggHuntAlt}/>
                 </div>
             </Hero>
+            {!eggList.map(egg => eggsFound.includes(egg.id)).includes(false) &&
+                <EggHuntCompleted t={props.t}/>
+            }
             <div className={styles.taskList}>
                 {eggList.map(egg =>
                     <EggTask key={egg.id} hint={egg.hint[props.t.getLocale]} found={eggsFound.includes(egg.id)}/>
