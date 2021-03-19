@@ -3,7 +3,7 @@ const fr = {
     "getOppositeLocale": "en",
     "getGhostLocaleTag": "Français",
     "getLocalePath": "/fr",
-    "getLogo": "https://www.busrides-trajetsenbus.ca/images/logos/fr/BusRidesPublicationLogo.png",
+    "getLogo": "/images/logos/fr/BusRidesPublicationLogo.png",
     "getDescription": "Micro apprentissage sur la technologie et le gouvernement numérique",
     "Busrides Logo": "Logo des trajets en bus",
     "Busrides": "Trajets en bus",
