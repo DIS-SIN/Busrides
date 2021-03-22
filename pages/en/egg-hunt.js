@@ -5,17 +5,18 @@ import dictionary from '../../locales/en';
 
 export default function EggHuntPage(props) {
     return (
-        <EggHunt t={dictionary} settings={props.settings}/>
+        <EggHunt t={dictionary} showCompleted={props.showCompleted} settings={props.settings}/>
     );
 }
 
-EggHuntPage.getInitialProps = async function({req}) {
+EggHuntPage.getInitialProps = async function({query, req}) {
 
     const settings = await getSettings();
 
 	return {
         settings,
         locale: dictionary.getLocale,
-        userAgent: getUserAgent(req)
+        userAgent: getUserAgent(req),
+        showCompleted: "complete" in query
 	};
 };

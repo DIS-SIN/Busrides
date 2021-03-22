@@ -6,7 +6,7 @@ import styles from '../stylesheets/EggHuntCompleted.module.css';
 
 export default function EggHuntCompleted(props) {
 
-    const URL = `https://busrides-trajetsenbus.ca/${props.t.getLocale}/egg-hunt`;
+    const URL = `https://busrides-trajetsenbus.ca/${props.t.getLocale}/egg-hunt?complete`;
 
     function createShareButton(platform) {
         return (

@@ -16,13 +16,16 @@ export default function EggHunt(props) {
 
     useEffect(() => {
         setEggsFound(getEggsFound());
+        if (props.showCompleted){
+            history.replaceState(null, props.t.eggHuntTitle, "egg-hunt");
+        }
     },[])
 
     const URL = `https://busrides-trajetsenbus.ca/${props.t.getLocale}/egg-hunt`;
 
     return (
         <div>
-            <MetaTags title={props.t.eggHuntTitle} description={props.t.eggHuntDescription} url={URL} image={"/images/thumbnails/eggHunt.png"}/>
+            <MetaTags title={props.t.eggHuntTitle} description={props.t.eggHuntDescription} url={URL} image={props.showCompleted ? "/images/egg-hunt/bunny.jpg" : "/images/thumbnails/eggHunt.png"}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={"https://images.unsplash.com/photo-1584963237901-8ff959b9b4b0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80"}>
                 <div className={styles.heroContent}>
