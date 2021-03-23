@@ -71,3 +71,23 @@
         font-size: 24px;
     }
 }
+
+/* Safari only */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        .eggContainer {
+            justify-content: center;
+            align-items: center;
+        }
+
+         .egg {
+             height: 60px;
+         }
+    }
+
+    @media only screen and (max-width: 550px) {
+        .egg {
+            height: 40px;
+        }
+    }
+}
