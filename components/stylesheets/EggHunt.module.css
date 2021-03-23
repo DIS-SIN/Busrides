@@ -20,6 +20,7 @@
 .heroContent img {
     width: 200px;
     transform: rotate(12deg);
+    user-select: none;
 }
 
 .taskList {
