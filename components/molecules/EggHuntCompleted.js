@@ -30,7 +30,7 @@ export default function EggHuntCompleted(props) {
 
     return (
         <div className={styles.completed}>
-            <img src={props.t.getLocale === "en" ? "/images/egg-hunt/bunny.jpg" : "/images/egg-hunt/bunnyFR.jpg"} alt={props.t.completedAlt}/>
+            <img src={props.t.getLocale === "en" ? "/images/egg-hunt/congrats.gif" : "/images/egg-hunt/congratsFR.gif"} alt={props.t.completedAlt}/>
             <p>{props.t["Share to"]}</p>
             <div>
                 {["Twitter", "Facebook", "LinkedIn"].map(platform => createShareButton(platform))}
