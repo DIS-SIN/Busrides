@@ -1,12 +1,5 @@
 [
     {
-        "id": "search-egg",
-        "hint": {
-            "en": "Can't find any eggs? Maybe try searching for one",
-            "fr": "Vous ne trouvez pas d'œufs ? Essayez d'en chercher un" 
-        }
-    },
-    {
         "id": "about",
         "hint": {
             "en": "You might stop here to find out the origin of our name",

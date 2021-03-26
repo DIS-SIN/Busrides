@@ -25,7 +25,7 @@ export default function EggHunt(props) {
 
     function getThumbnail() {
         let lang = props.t.getLocale != "en" ? props.t.getLocale.toUpperCase() : "";
-        return props.showCompleted ? `/images/egg-hunt/congrats${lang}.gif` : `/images/egg-hunt/thumbnail${lang}.png`;
+        return props.showCompleted ? `https://www.busrides-trajetsenbus.ca/images/egg-hunt/congrats${lang}.gif` : `https://www.busrides-trajetsenbus.ca/images/egg-hunt/thumbnail${lang}.png`;
     }
 
     return (
