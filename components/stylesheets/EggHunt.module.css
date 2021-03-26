@@ -1,0 +1,58 @@
+.heroContent {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(18px) brightness(0.7);
+}
+
+.heroContent div {
+    max-width: 475px;
+}
+
+.heroContent div h1 {
+    padding: 0;
+    text-align: left;
+}
+
+.heroContent img {
+    width: 200px;
+    transform: rotate(12deg);
+    user-select: none;
+}
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0 30px 0;
+}
+
+@media only screen and (max-width: 850px) {
+    .heroContent img {
+        width: 100px;
+        transform: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .heroContent {
+        flex-direction: column;
+    }
+
+    .heroContent div {
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .heroContent div h1 {
+        text-align: center;
+    }
+
+    .heroContent img {
+        width: 75px;
+        transform: rotate(12deg);
+    }
+}

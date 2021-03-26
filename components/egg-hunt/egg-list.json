@@ -1,0 +1,51 @@
+[
+    {
+        "id": "about",
+        "hint": {
+            "en": "You might stop here to find out the origin of our name",
+            "fr": "Vous pouvez vous rendre ici pour découvrir l'origine de notre nom." 
+        }
+    },
+    {
+        "id": "learning-path",
+        "hint": {
+            "en": "This *path* will lead you to discover digital",
+            "fr": "Ce parcours vous permettra de découvrir le numérique." 
+        }
+    },
+    {
+        "id": "for-employees",
+        "hint": {
+            "en": "An *employee* who *works remotely* will find this page helpful",
+            "fr": "Un *employé* en *télétravail* trouvera cette page utile" 
+        }
+    },
+    {
+        "id": "digital-standards",
+        "hint": {
+            "en": "The Digital Academy lives by these 10 *standards* and so should you",
+            "fr": "L'Académie du numérique adhère à ces 10 normes et vous aussi devriez le faire." 
+        }
+    },
+    {
+        "id": "remote-guide",
+        "hint": {
+            "en": "This page’s title includes the acronym known for working from your residence",
+            "fr": "Le titre anglais de cette page comprend l'acronyme connu pour travailler à partir de sa résidence" 
+        }
+    },
+    {
+        "id": "cloud",
+        "hint": {
+            "en": "Fluffy thing made of droplets in the sky",
+            "fr": "Quelque chose de pelucheux fait de gouttelettes dans le ciel" 
+        }
+    },
+    {
+        "id": "accessability",
+        "hint": {
+            "en": "The word that corresponds with this symbol ♿",
+            "fr": "Le mot qui correspond à ce symbole ♿" 
+        }
+    }
+]
