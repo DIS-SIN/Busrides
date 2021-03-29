@@ -44,9 +44,9 @@ const fr = {
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
     "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
-    "eggHuntTitle": "Chasse aux œufs à Busrides",
-    "eggHuntDescription": "Nous avons caché des œufs à travers le site, utilisez les indices ci-dessous et voyez si vous pouvez tous les trouver !",
-    "eggHuntAlt": "Oeuf de Busrides",
+    "eggHuntTitle": "Chasse aux œufs à Trajets en bus",
+    "eggHuntDescription": "Nous avons caché des œufs à travers le site, utilisez les indices ci-dessous et voyez si vous pouvez tous les trouver ! cliquez sur l’œuf",
+    "eggHuntAlt": "Oeuf de Trajets en bus",
     "completedAlt": "Une photo d'un petit lapin dans un panier",
     "completedTweet": "J'ai trouvé tous les œufs, et toi ?"
 }
