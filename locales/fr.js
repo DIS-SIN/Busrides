@@ -45,7 +45,7 @@ const fr = {
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
     "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
     "eggHuntTitle": "Chasse aux œufs à Trajets en bus",
-    "eggHuntDescription": "Nous avons caché des œufs à travers le site, utilisez les indices ci-dessous et voyez si vous pouvez tous les trouver ! cliquez sur l’œuf",
+    "eggHuntDescription": "Nous avons caché des œufs sur de nombreuses pages du site Trajetsenbus.ca. Utilisez les indices ci-dessous et naviguez sur le site pour les trouver! Au fur et à mesure que vous trouvez les oeufs, cliquez dessus pour noter votre progrès.",
     "eggHuntAlt": "Oeuf de Trajets en bus",
     "completedAlt": "Une photo d'un petit lapin dans un panier",
     "completedTweet": "J'ai trouvé tous les œufs, et toi ?"
