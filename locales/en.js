@@ -45,7 +45,7 @@ const en = {
     "Learning Paths": "Discover Series Learning Path",
     "learningPathsSlogan": "The learning you need, when and how you need it.",
     "eggHuntTitle": "Busrides Egg Hunt",
-    "eggHuntDescription": "We've hidden eggs across the site, use the hints below and see if you can find them all! Click the egg when you find it",
+    "eggHuntDescription": "We've hidden eggs on various pages of the Busrides.ca site. Use the hints below and navigate the site to find them all! As you find the eggs, click on them to keep track of your progress.",
     "eggHuntAlt": "Busrides egg",
     "completedAlt": "A picture of a small bunny in a basket",
     "completedTweet": "I've found all the eggs, can you?"
