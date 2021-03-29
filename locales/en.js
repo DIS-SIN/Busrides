@@ -45,7 +45,7 @@ const en = {
     "Learning Paths": "Discover Series Learning Path",
     "learningPathsSlogan": "The learning you need, when and how you need it.",
     "eggHuntTitle": "Busrides Egg Hunt",
-    "eggHuntDescription": "We've hidden eggs across the site, use the hints below and see if you can find them all!",
+    "eggHuntDescription": "We've hidden eggs across the site, use the hints below and see if you can find them all! Click the egg when you find it",
     "eggHuntAlt": "Busrides egg",
     "completedAlt": "A picture of a small bunny in a basket",
     "completedTweet": "I've found all the eggs, can you?"
