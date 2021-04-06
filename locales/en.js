@@ -3,7 +3,7 @@ const en = {
     "getOppositeLocale": "fr",
     "getGhostLocaleTag": "English",
     "getLocalePath": "",
-    "getLogo": "/images/logos/en/BusRidesPublicationLogo.png",
+    "getLogo": "https://www.busrides-trajetsenbus.ca/images/logos/en/BusRidesPublicationLogo.png",
     "getDescription": "Bite sized learning about digital technology and government",
     "Busrides Logo": "Busrides Logo",
     "Busrides": "Busrides",
@@ -43,12 +43,7 @@ const en = {
     "betaNotice": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
     "Provide feedback": "💬 Provide feedback.",
     "Learning Paths": "Discover Series Learning Path",
-    "learningPathsSlogan": "The learning you need, when and how you need it.",
-    "eggHuntTitle": "Busrides Egg Hunt",
-    "eggHuntDescription": "We've hidden eggs on various pages of the Busrides.ca site. Use the hints below and navigate the site to find them all! As you find the eggs, click on them to keep track of your progress.",
-    "eggHuntAlt": "Busrides egg",
-    "completedAlt": "A picture of a small bunny in a basket",
-    "completedTweet": "I've found all the eggs, can you?"
+    "learningPathsSlogan": "The learning you need, when and how you need it."
 }
 
 export default en;

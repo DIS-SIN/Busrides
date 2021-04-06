@@ -27,7 +27,6 @@ export default function LandingPage(props) {
             </Hero>
             <div className={styles.contentContainer}>
                 <ReactMarkdown source={props.markdown}/>
-                <iframe src="https://www.busrides-trajetsenbus.ca/egg/learning-path" height="100" width="100" style={{border: "none"}} title="Learning Path Egg"></iframe>
             </div>
             <EpisodeList t={props.t} posts={posts} postsMeta={postsMeta} apiOptions={apiOptions}/>
             <Footer t={props.t}/>
