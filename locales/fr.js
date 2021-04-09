@@ -1,9 +1,9 @@
 const fr = {
     "getLocale": "fr",
     "getOppositeLocale": "en",
-    "getGhostLocaleTag": "Français",
+    "getGhostLocaleTag": "français",
     "getLocalePath": "/fr",
-    "getLogo": "/images/logos/fr/BusRidesPublicationLogo.png",
+    "getLogo": "https://www.busrides-trajetsenbus.ca/images/logos/fr/BusRidesPublicationLogo.png",
     "getDescription": "Micro apprentissage sur la technologie et le gouvernement numérique",
     "Busrides Logo": "Logo des trajets en bus",
     "Busrides": "Trajets en bus",
@@ -43,12 +43,7 @@ const fr = {
     "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
-    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
-    "eggHuntTitle": "Chasse aux œufs à Trajets en bus",
-    "eggHuntDescription": "Nous avons caché des œufs sur de nombreuses pages du site Trajetsenbus.ca. Utilisez les indices ci-dessous et naviguez sur le site pour les trouver! Au fur et à mesure que vous trouvez les oeufs, cliquez dessus pour noter votre progrès.",
-    "eggHuntAlt": "Oeuf de Trajets en bus",
-    "completedAlt": "Une photo d'un petit lapin dans un panier",
-    "completedTweet": "J'ai trouvé tous les œufs, et toi ?"
+    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin."
 }
 
 export default fr;
