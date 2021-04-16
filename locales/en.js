@@ -43,7 +43,9 @@ const en = {
     "betaNotice": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
     "Provide feedback": "💬 Provide feedback.",
     "Learning Paths": "Discover Series Learning Path",
-    "learningPathsSlogan": "The learning you need, when and how you need it."
+    "learningPathsSlogan": "The learning you need, when and how you need it.",
+    "Videos": "Videos",
+    "VideosSlogan": "Watch short educational videos."
 }
 
 export default en;

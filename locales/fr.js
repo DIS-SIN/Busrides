@@ -43,7 +43,9 @@ const fr = {
     "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
-    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin."
+    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
+    "Videos": "Vidéos",
+    "VideosSlogan": "Regardez de courtes vidéos éducatives."
 }
 
 export default fr;

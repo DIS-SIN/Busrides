@@ -8,7 +8,19 @@ import AboutLearningPaths from '../../markdown/fr/AboutLearningPaths.md';
 
 export default function LearningPaths(props) {
     return (
-        <LandingPage t={dictionary} markdown={AboutLearningPaths} posts={props.posts} postsMeta={props.postsMeta} apiOptions={props.apiOptions} settings={props.settings}/>
+        <LandingPage 
+            t={dictionary}
+            title={dictionary["Learning Paths"]}
+            subtitle={dictionary.learningPathsSlogan}
+            description={dictionary.learningPathsSlogan}
+            image="/images/learning-paths/landingPageBg.jpeg"
+            url={`https://busrides-trajetsenbus.ca/${dictionary.getLocale}/learning-paths`}
+            markdown={AboutLearningPaths}
+            posts={props.posts}
+            postsMeta={props.postsMeta}
+            apiOptions={props.apiOptions}
+            settings={props.settings}
+        />
     );
 }
 
