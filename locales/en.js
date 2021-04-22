@@ -44,7 +44,7 @@ const en = {
     "Provide feedback": "💬 Provide feedback.",
     "Learning Paths": "Discover Series Learning Path",
     "learningPathsSlogan": "The learning you need, when and how you need it.",
-    "Videos": "Videos",
+    "Videos": "GC Data Community Showcase",
     "VideosSlogan": "Watch short educational videos."
 }
 
