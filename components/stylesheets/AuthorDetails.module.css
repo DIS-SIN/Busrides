@@ -14,9 +14,7 @@
     width: 100%;
     text-align: center;
     color: white;
-    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    backdrop-filter: blur(3px);
 }
 
 .avatar {

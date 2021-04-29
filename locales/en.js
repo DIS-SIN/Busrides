@@ -29,7 +29,7 @@ const en = {
     "results": "results",
     "Sort By": "Sort By",
     "Sorting": "Sorting",
-    "Most Popular": "Most Popular",
+    "Top Results": "Top Results",
     "Recently Posted": "Recently Posted",
     "getSheetID": "1",
     "getCompletedProjectsSheetID": 1,
