@@ -3,19 +3,14 @@ import { getPosts, getSettings } from '../../Ghost-API/contentAPI';
 import { getUserAgent } from '../../helpers/helpers';
 import dictionary from '../../locales/en';
 
-// Markdown imports
-import AboutLearningPaths from '../../markdown/en/AboutLearningPaths.md';
-
-export default function LearningPaths(props) {
+export default function Videos(props) {
     return (
         <LandingPage 
             t={dictionary}
-            title={dictionary["Learning Paths"]}
-            subtitle={dictionary.learningPathsSlogan}
-            description={dictionary.learningPathsSlogan}
-            image="/images/learning-paths/landingPageBg.jpeg"
-            url={`https://busrides-trajetsenbus.ca/${dictionary.getLocale}/learning-paths`}
-            markdown={AboutLearningPaths}
+            title={dictionary["Videos"]}
+            description={dictionary.VideosSlogan}
+            image="/images/videos/videosBg.jpg"
+            url={`https://busrides-trajetsenbus.ca/${dictionary.getLocale}/videos`}
             posts={props.posts}
             postsMeta={props.postsMeta}
             apiOptions={props.apiOptions}
@@ -24,12 +19,12 @@ export default function LearningPaths(props) {
     );
 }
 
-LearningPaths.getInitialProps = async function({req}) {
+Videos.getInitialProps = async function({req}) {
     const apiOptions = {
         page: 1,
         limit: 10,
         include: "tags,authors",
-        filter: `tag:hash-learning-path+tag:${dictionary.getGhostLocaleTag}`
+        filter: `tag:hash-video+tag:${dictionary.getGhostLocaleTag}`
     };
     const posts = await getPosts(apiOptions);
     const settings = await getSettings();
