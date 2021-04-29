@@ -44,7 +44,7 @@ const fr = {
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
     "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
-    "Videos": "Vitrine de la communauté des données du GC",
+    "Videos": "Communauté des données du GC",
     "VideosSlogan": "Regardez de courtes vidéos éducatives."
 }
 
