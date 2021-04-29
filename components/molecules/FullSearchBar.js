@@ -25,7 +25,7 @@ export default function FullSearchBar(props) {
         }
         props.setLoading(true);
         let cleanSearchTerm = getCleanSearchTerm(searchTerm);
-        Router.replace(`${props.t.getLocalePath}/search/[slug]`, `${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`, "shallow");
+        Router.replace(`${props.t.getLocalePath}/search/[slug]`, `${props.t.getLocalePath}/search/${getCleanSearchTerm(searchTerm)}`, {shallow: true});
         let searchResults = await getSearchResults(cleanSearchTerm, props.t.getGhostLocaleTag);
         props.setSearchResults(searchResults);
         props.setSearchTerm(cleanSearchTerm);

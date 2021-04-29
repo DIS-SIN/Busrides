@@ -29,7 +29,7 @@ const fr = {
     "results": "résultats",
     "Sort By": "Trier par",
     "Sorting": "Triage",
-    "Most Popular": "Les plus populaires",
+    "Top Results": "Meilleurs résultats",
     "Recently Posted": "Publié récemment",
     "getSheetID": "2",
     "getCompletedProjectsSheetID": 2,

@@ -43,7 +43,7 @@ export default function SortOptions(props) {
         <div>
             <h2 className={styles.title}>{props.t["Sort By"]}</h2>
             <div className={styles.radioButtons} onChange={changeSortMethod}>
-                <label className={styles.radioButton}>{props.t["Most Popular"]}
+            <label className={styles.radioButton}>{props.t["Top Results"]}
                     <input type="radio" value="popularity:desc" name="sorting" defaultChecked={checkDefault("popularity:desc")}/>
                     <span className={styles.checkmark}></span>
                 </label>
