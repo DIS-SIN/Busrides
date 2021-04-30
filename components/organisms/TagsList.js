@@ -18,7 +18,7 @@ export default function TagsList(props) {
 
         // Remove the hidden tags used for setting the language
         tagArray = tagArray.filter(tag => {
-            if (tag.slug !== "hash-english" && tag.slug !== "hash-francais" && tag.slug !== "english" && tag.slug !== "francais"){
+            if (tag.visibility != "internal" && tag.slug !== "english" && tag.slug !== "francais"){
                 return true;
             }
         });

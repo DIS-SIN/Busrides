@@ -29,7 +29,7 @@ const fr = {
     "results": "résultats",
     "Sort By": "Trier par",
     "Sorting": "Triage",
-    "Most Popular": "Les plus populaires",
+    "Top Results": "Meilleurs résultats",
     "Recently Posted": "Publié récemment",
     "getSheetID": "2",
     "getCompletedProjectsSheetID": 2,
@@ -43,7 +43,9 @@ const fr = {
     "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
-    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin."
+    "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
+    "Videos": "Démos d'outils de données du GC",
+    "VideosSlogan": "La bibliothèque de démos d’outils de données du GC est une collection de vidéos de projets de données mettant en évidence les innovations de la communauté des données du GC qui démontrent le pouvoir des données pour informer de meilleures politiques, programmes et opérations."
 }
 
 export default fr;

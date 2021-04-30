@@ -29,7 +29,7 @@ const en = {
     "results": "results",
     "Sort By": "Sort By",
     "Sorting": "Sorting",
-    "Most Popular": "Most Popular",
+    "Top Results": "Top Results",
     "Recently Posted": "Recently Posted",
     "getSheetID": "1",
     "getCompletedProjectsSheetID": 1,
@@ -43,7 +43,9 @@ const en = {
     "betaNotice": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
     "Provide feedback": "💬 Provide feedback.",
     "Learning Paths": "Discover Series Learning Path",
-    "learningPathsSlogan": "The learning you need, when and how you need it."
+    "learningPathsSlogan": "The learning you need, when and how you need it.",
+    "Videos": "GC Data Demos",
+    "VideosSlogan": "The GC Data Demo Library is a collection of data showcase videos highlighting innovations from across the GC data community that demonstrate the power of data to inform better policies, programs and operations."
 }
 
 export default en;

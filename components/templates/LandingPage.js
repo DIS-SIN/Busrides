@@ -19,15 +19,17 @@ export default function LandingPage(props) {
 
     return (
         <div>
-            <MetaTags title={props.t["Learning Paths"]} description={props.t.learningPathsSlogan} image="/images/learning-paths/landingPageBg.jpeg" url={`https://busrides-trajetsenbus.ca/${props.t.getLocale}/learning-paths`}/>
+            <MetaTags title={props.title} description={props.description} image={props.image} url={props.url}/>
             <Header t={props.t} settings={props.settings}/>
-            <Hero backgroundImage="/images/learning-paths/landingPageBg.jpeg">
-                <h1>{props.t["Learning Paths"]}</h1>
-                <p className={styles.description}>{props.t.learningPathsSlogan}</p>
+            <Hero backgroundImage={props.image}>
+                <h1>{props.title}</h1>
+                <p className={styles.description}>{props.description}</p>
             </Hero>
-            <div className={styles.contentContainer}>
-                <ReactMarkdown source={props.markdown}/>
-            </div>
+            {props.markdown &&
+                <div className={styles.contentContainer}>
+                    <ReactMarkdown source={props.markdown}/>
+                </div>
+            }
             <EpisodeList t={props.t} posts={posts} postsMeta={postsMeta} apiOptions={apiOptions}/>
             <Footer t={props.t}/>
         </div>
@@ -36,6 +38,11 @@ export default function LandingPage(props) {
 
 LandingPage.propTypes = {
     t: cp_t.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
     markdown: PropTypes.string,
     posts: PropTypes.arrayOf(cp_post).isRequired,
     apiOptions: cp_apiOptions.isRequired,

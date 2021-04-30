@@ -1,12 +1,6 @@
 .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     min-height: 365px;
     position: relative;
-    background-position: center;
-    background-size: cover;
     background-color: black;
 }
 
@@ -19,6 +13,33 @@
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: 0.5px;
+}
+
+.contentContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.backgroundContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+}
+
+.backgroundBlur {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
 }
 
 @media only screen and (min-width: 48rem) {

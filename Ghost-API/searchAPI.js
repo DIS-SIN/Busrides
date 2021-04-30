@@ -67,7 +67,7 @@ export async function getLocalSearchResults(searchTerm, localeTag, sortBy) {
     });
 
     if (sortBy == "popularity:desc"){
-        results = sortResults(results);
+        results = sortResults(results, searchTerm);
     }
 
     return {
@@ -115,16 +115,42 @@ async function getLocalPosts(localeTag) {
     }
 }
 
-function sortResults(results) {
+function sortResults(results, searchTerm) {
+
+    // Primary results are shown first, based off title and tag content
+    let primaryResults = results.filter(post => {
+        if (post.title.toLowerCase().includes(searchTerm.toLowerCase())){
+            return true;
+        }
+        if (post.primary_tag.name.toLowerCase().includes(searchTerm.toLowerCase())){
+            return true;
+        }
+    });
+
+    // Creating a new property with the title and tag merged for ease of use in the customSort function
+    primaryResults.forEach(post => {
+        post.titleTag = `${post.title} ${post.primary_tag.name}`;
+    });
+
+    primaryResults = customSort(primaryResults, searchTerm, "titleTag");
+
+    let secondaryResults = results.filter(n => !primaryResults.includes(n));
+
+    secondaryResults = customSort(secondaryResults, searchTerm, "html");
+
+    return primaryResults.concat(secondaryResults);
+}
+
+function customSort(results, searchTerm, property) {
+    let regex = new RegExp(searchTerm.toLowerCase(), "g");
     results = results.sort((a, b) => {
-        if (a.tags.length > b.tags.length){
+        if ((a[property].toLowerCase().match(regex) || []).length > (b[property].toLowerCase().match(regex) || []).length){
             return -1;
         }
-        if (a.tags.length < b.tags.length){
+        if ((a[property].toLowerCase().match(regex) || []).length < (b[property].toLowerCase().match(regex) || []).length){
             return 1;
         }
         return 0;
     });
-
     return results;
 }
