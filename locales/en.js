@@ -44,7 +44,7 @@ const en = {
     "Provide feedback": "💬 Provide feedback.",
     "Learning Paths": "Discover Series Learning Path",
     "learningPathsSlogan": "The learning you need, when and how you need it.",
-    "Videos": "GC Data Community Showcase",
+    "Videos": "GC Data Demos",
     "VideosSlogan": "The GC Data Demo Library is a collection of data showcase videos highlighting innovations from across the GC data community that demonstrate the power of data to inform better policies, programs and operations."
 }
 
