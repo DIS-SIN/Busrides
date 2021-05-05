@@ -19,7 +19,7 @@ export default function Episode(props) {
 
     return (
         <div>
-            <MetaTags title={props.post.title} description={props.post.excerpt} image={props.post.feature_image} url={props.post.url}/>
+            <MetaTags title={props.post.title} description={props.post.excerpt} image={props.post.feature_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "en" : "fr"}/${props.post.slug}`}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.post.feature_image}/>
             <div className={styles.contentArea} ref={contentArea}>
