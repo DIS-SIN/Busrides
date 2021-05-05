@@ -12,7 +12,7 @@ export default function Tag(props) {
 
     return (
         <div>
-            <MetaTags title={props.tag.name} description={props.tag.description} image={props.tag.feature_image} url={props.tag.url}/>
+            <MetaTags title={props.tag.name} description={props.tag.description} image={props.tag.feature_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}tag/${props.tag.slug}`}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.tag.feature_image}>
                 <h1>{props.tag.name}</h1>

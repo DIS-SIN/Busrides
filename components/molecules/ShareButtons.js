@@ -7,6 +7,8 @@ import styles from '../stylesheets/ShareButtons.module.css';
 
 export default function ShareButtons(props) {
 
+    const PostURL = `${props.t.getURL}${props.t.getLocale === "en" ? "en" : "fr"}/${props.post.slug}`;
+
     // Scroll function found here: https://stackoverflow.com/a/48942924/5879734
     function scrollToTop() {
         const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -18,13 +20,13 @@ export default function ShareButtons(props) {
 
     function getShareLink(method) {
         if (method == "facebook"){
-            return `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(props.post.url)}&t=${encodeURI(props.post.title)}`;
+            return `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(PostURL)}&t=${encodeURI(props.post.title)}`;
         }
         if (method == "twitter"){
-            return `https://twitter.com/share?url=${encodeURI(props.post.url)}&text=${encodeURI(props.post.title)}`;
+            return `https://twitter.com/share?url=${encodeURI(PostURL)}&text=${encodeURI(props.post.title)}`;
         }
         if (method == "linkedin"){
-            return `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(props.post.url)}&title=${encodeURI(props.post.title)}`;
+            return `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(PostURL)}&title=${encodeURI(props.post.title)}`;
         }
     }
 

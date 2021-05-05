@@ -1,4 +1,5 @@
 const fr = {
+    "getURL": "https://www.busrides-trajetsenbus.ca/",
     "getLocale": "fr",
     "getOppositeLocale": "en",
     "getGhostLocaleTag": "français",
