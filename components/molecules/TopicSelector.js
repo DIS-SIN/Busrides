@@ -12,7 +12,7 @@ export default function TopicSelector(props) {
         label: props.t["All Topics"]
     }
 
-    const hiddenTopics = ["en-discover-series", "fr-discover-series"];
+    const hiddenTopics = ["en-discover-series", "fr-discover-series", "en-gc-data-demos", "fr-gc-data-demos"];
 
     const [topics, setTopics] = useState(defaultTopic);
     const [loading, setLoading] = useState(false);
