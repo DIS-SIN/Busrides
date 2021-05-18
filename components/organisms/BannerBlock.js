@@ -10,7 +10,7 @@ export default function BannerBlock(props) {
         <div className={styles.bannerBlock} style={props.colors}>
             <div className={styles.content}>
                 <div className={styles.markdown}>
-                    <ReactMarkdown source={props.markdown}></ReactMarkdown>
+                    <ReactMarkdown children={props.markdown}></ReactMarkdown>
                     {props.children}
                 </div>
                 {props.image ?

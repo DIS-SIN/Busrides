@@ -27,7 +27,7 @@ export default function LandingPage(props) {
             </Hero>
             {props.markdown &&
                 <div className={styles.contentContainer}>
-                    <ReactMarkdown source={props.markdown}/>
+                    <ReactMarkdown children={props.markdown}/>
                 </div>
             }
             <EpisodeList t={props.t} posts={posts} postsMeta={postsMeta} apiOptions={apiOptions}/>

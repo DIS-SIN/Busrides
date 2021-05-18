@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { initGA, logPageView } from '../helpers/analytics';
 import BrowserWarning from '../components/organisms/BrowserWarning';
+// import "../components/stylesheets/kg-bookmark.css";
 import "../components/stylesheets/styles.css";
 
 // Hide the default spinner to just use the progress bar
