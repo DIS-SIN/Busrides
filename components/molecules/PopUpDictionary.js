@@ -42,7 +42,7 @@ export default function PopUpDictionary(props) {
     async function getDefinition() {
         console.log(textContent.trim());
         try {
-            let def = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${textContent.trim()}`);
+            let def = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/${props.t.getLocale === "en" ? "en_US" : props.t.getLocale}/${textContent.trim()}`);
             def = await def.json();
             if (def[0]){
                 setDefinition(def[0].meanings[0].definitions[0].definition);
