@@ -13,7 +13,7 @@ export default function LearningPaths(props) {
             title={dictionary["Learning Paths"]}
             subtitle={dictionary.learningPathsSlogan}
             description={dictionary.learningPathsSlogan}
-            image="/images/learning-paths/landingPageBg.jpeg"
+            image="https://busrides-trajetsenbus.ca/images/learning-paths/landingPageBg.jpeg"
             url={`https://busrides-trajetsenbus.ca/${dictionary.getLocale}/learning-paths`}
             markdown={AboutLearningPaths}
             posts={props.posts}
