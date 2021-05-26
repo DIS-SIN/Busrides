@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Router from 'next/router';
 import Bowser from 'bowser';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { initGA, logPageView } from '../helpers/analytics';
 import BrowserWarning from '../components/organisms/BrowserWarning';
+import SnackBar from '../components/molecules/SnackBar';
 import "../components/stylesheets/kg-bookmark.css";
 import "../components/stylesheets/styles.css";
 
@@ -38,5 +39,13 @@ export default function MyApp({ Component, pageProps }) {
         return true;
     }
 
-    return validateBrowser() ? <Component {...pageProps} /> : <BrowserWarning {...pageProps}/>;
+    return (
+        validateBrowser() ?
+        <React.Fragment>
+            <SnackBar {...pageProps}/>
+            <Component {...pageProps} />
+        </React.Fragment>
+        :
+        <BrowserWarning {...pageProps}/>
+    );
 }
