@@ -87,7 +87,7 @@ export default function PopUpDictionary(props) {
                 <h3>{textContent}</h3>
                 <p>{definition}</p>
                 <hr/>
-                <p>{translation}</p>
+                <p><b>{props.t.getOppositeLocaleFull}:</b> {translation}</p>
             </React.Fragment>
         }
         visible={!isCollapsed && timeLeft == 0 && (definition != null || translation != null) && textContent != null && textContent.length <= 500 && textContent.match(/[a-zA-Z]/) != null}>
