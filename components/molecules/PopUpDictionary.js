@@ -90,7 +90,7 @@ export default function PopUpDictionary(props) {
                 <p>{translation}</p>
             </React.Fragment>
         }
-        visible={!isCollapsed && timeLeft == 0 && (definition || translation) && textContent && textContent.length <= 500 && textContent.match(/[a-zA-Z]/)}>
+        visible={!isCollapsed && timeLeft == 0 && (definition != null || translation != null) && textContent != null && textContent.length <= 500 && textContent.match(/[a-zA-Z]/) != null}>
             <div style={clientRect && { left: clientRect.x, top: clientRect.y + pageYOffset, position: "absolute" }}/>
         </Tippy>
     );
