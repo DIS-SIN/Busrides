@@ -1,0 +1,27 @@
+.snackBar {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: var(--background-color);
+    background-color: var(--card-tag-color);
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 35%) 0 3px 15px;
+    margin-bottom: env(safe-area-inset-bottom);
+}
+
+.snackBar p {
+    flex: 1;
+}
+
+.snackBar a {
+    color: inherit;
+}
+
+.closeIcon {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.closeIcon svg {
+    fill: var(--background-color);
+}

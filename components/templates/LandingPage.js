@@ -5,6 +5,7 @@ import { cp_t, cp_post, cp_apiOptions, cp_settings, cp_postsMeta } from '../../h
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
+import PopUpDictionary from '../molecules/PopUpDictionary';
 import EpisodeList from '../organisms/EpisodeList';
 import Footer from '../organisms/Footer';
 import styles from '../stylesheets/LandingPage.module.css';
@@ -25,6 +26,7 @@ export default function LandingPage(props) {
                 <h1>{props.title}</h1>
                 <p className={styles.description}>{props.description}</p>
             </Hero>
+            <PopUpDictionary t={props.t}/>
             {props.markdown &&
                 <div className={styles.contentContainer}>
                     <ReactMarkdown children={props.markdown}/>

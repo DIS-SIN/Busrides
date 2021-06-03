@@ -14,6 +14,16 @@ module.exports = {
                 permanent: true,
             },
             {
+                source: '/rss',
+                destination: 'https://busrides.ghost.io/rss',
+                permanent: true,
+            },
+            {
+                source: '/fr/rss',
+                destination: 'https://busrides.ghost.io/fr/rss',
+                permanent: true,
+            },
+            {
                 source: '/en/about',
                 destination: '/en/en-about',
                 permanent: true,
