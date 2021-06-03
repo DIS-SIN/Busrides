@@ -2,6 +2,7 @@ const en = {
     "getURL": "https://www.busrides-trajetsenbus.ca/",
     "getLocale": "en",
     "getOppositeLocale": "fr",
+    "getOppositeLocaleFull": "Français",
     "getGhostLocaleTag": "english",
     "getLocalePath": "",
     "getLogo": "https://www.busrides-trajetsenbus.ca/images/logos/en/BusRidesPublicationLogo.png",

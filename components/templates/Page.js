@@ -3,6 +3,7 @@ import { cp_t, cp_page, cp_settings } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
+import PopUpDictionary from '../molecules/PopUpDictionary';
 import PostContent from '../organisms/PostContent';
 import Footer from '../organisms/Footer';
 
@@ -15,6 +16,7 @@ export default function Page(props) {
             <Hero backgroundImage={props.page.feature_image}>
                 <h1>{props.page.title}</h1>
             </Hero>
+            <PopUpDictionary t={props.t}/>
             <PostContent html={props.page.html}/>
             <Footer t={props.t}/>
         </div>

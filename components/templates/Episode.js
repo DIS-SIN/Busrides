@@ -7,6 +7,7 @@ import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import PostContent from '../organisms/PostContent';
+import PopUpDictionary from '../molecules/PopUpDictionary';
 import ShareButtons from '../molecules/ShareButtons';
 import AuthorDetails from '../molecules/AuthorDetails';
 import EpisodeList from '../organisms/EpisodeList';
@@ -22,6 +23,7 @@ export default function Episode(props) {
             <MetaTags title={props.post.title} description={props.post.excerpt} image={props.post.feature_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "en" : "fr"}/${props.post.slug}`}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.post.feature_image}/>
+            <PopUpDictionary t={props.t}/>
             <div className={styles.contentArea} ref={contentArea}>
                 <ShareButtons t={props.t} post={props.post} scrollPercentage={scrollPercentage}/>
                 <div className={styles.heading}>

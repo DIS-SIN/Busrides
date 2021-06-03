@@ -9,7 +9,7 @@ export default function Videos(props) {
             t={dictionary}
             title={dictionary["Videos"]}
             description={dictionary.VideosSlogan}
-            image="/images/videos/videosBg.jpg"
+            image="https://busrides-trajetsenbus.ca/images/videos/videosBg.jpg"
             url={`https://busrides-trajetsenbus.ca/${dictionary.getLocale}/videos`}
             posts={props.posts}
             postsMeta={props.postsMeta}
