@@ -3,6 +3,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import {useScrollPercentage} from 'react-scroll-percentage';
 import { cp_t, cp_post, cp_settings } from '../../helpers/commonProps';
+import { htmlToPlainText } from '../../helpers/helpers';
 import MetaTags from '../molecules/MetaTags';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
@@ -17,6 +18,9 @@ import styles from '../stylesheets/Episode.module.css';
 export default function Episode(props) {
 
     const [contentArea, scrollPercentage] = useScrollPercentage();
+
+    // Converting the HTML to PlainText to be used in Polly
+    console.log(htmlToPlainText(props.post.html));
 
     return (
         <div>
