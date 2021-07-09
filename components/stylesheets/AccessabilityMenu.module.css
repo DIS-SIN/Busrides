@@ -1,0 +1,32 @@
+.button {
+    padding: 3px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.button svg {
+    fill: var(--transparent-background-color);
+}
+
+.menu {
+    width: 100px;
+}
+
+.menu div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu svg{
+    fill: white;
+}
+
+.menu button {
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import Tippy from '@tippy.js/react';
+import Switch from '@material-ui/core/Switch';
+import IcomoonReact from "icomoon-react";
+import iconSet from "../icons/selection.json";
 import { cp_t } from '../../helpers/commonProps';
+import styles from '../stylesheets/AccessabilityMenu.module.css';
 
 export default function AccessabilityMenu(props) {
 
@@ -22,9 +26,9 @@ export default function AccessabilityMenu(props) {
         updateFilter(/contrast\(\d*\%\)/g, `contrast(${newContrastLevel}%)`);
     }
 
-    function toggleGrayscale() {
-        updateFilter(/grayscale\(\d*\%\)/g, `grayscale(${!grayscale ? 100 : 0}%)`);
-        setGrayscale(!grayscale);
+    function toggleGrayscale(ev) {
+        setGrayscale(ev.target.checked)
+        updateFilter(/grayscale\(\d*\%\)/g, `grayscale(${ev.target.checked ? 100 : 0}%)`);
     }
 
     function getNewLevel(directionMultiplier, level) {
@@ -51,23 +55,34 @@ export default function AccessabilityMenu(props) {
     return (
         <Tippy
         content={
-            <React.Fragment>
+            <div className={styles.menu}>
                 <div>
-                    <button onClick={() => zoom(1)}>Zoom in</button>
-                    <button onClick={() => zoom(-1)}>Zoom out</button>
-                    <button onClick={() => zoom()}>Reset Zoom</button>
+                    <button onClick={() => zoom(-1)}>-</button>
+                    <IcomoonReact iconSet={iconSet} size={20} icon="zoom-in"/>
+                    <button onClick={() => zoom(1)}>+</button>
+                    {/* <button onClick={() => zoom()}>Reset Zoom</button> */}
                 </div>
                 <div>
-                    <button onClick={() => contrast(1)}>Increase Contrast</button>
-                    <button onClick={() => contrast(-1)}>Decrease Contrast</button>
-                    <button onClick={() => contrast()}>Reset Contrast</button>
+                    <button onClick={() => contrast(-1)}>-</button>
+                    <IcomoonReact iconSet={iconSet} size={20} icon="contrast"/>
+                    <button onClick={() => contrast(1)}>+</button>
+                    {/* <button onClick={() => contrast()}>Reset Contrast</button> */}
                 </div>
-                <button onClick={toggleGrayscale}>Toggle Grayscale</button>
-            </React.Fragment>
+                <div>
+                    <p>Grayscale</p>
+                    <Switch
+                        onChange={toggleGrayscale}
+                        color="default"
+                        inputProps={{ 'aria-label': 'checkbox with default color' }}
+                    />
+                </div>
+            </div>
         }
         visible={isOpen}
         interactive={true}>
-            <button onClick={() => setIsOpen(!isOpen)}>Open</button>
+            <button className={styles.button} onClick={() => setIsOpen(!isOpen)}>
+                <IcomoonReact iconSet={iconSet} size={20} icon="accessible"/>
+            </button>
         </Tippy>
     );
 }

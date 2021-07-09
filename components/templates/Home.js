@@ -2,7 +2,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { cp_t, cp_post, cp_apiOptions, cp_settings, cp_postsMeta } from '../../helpers/commonProps';
 import MetaTags from '../molecules/MetaTags';
-import AccessabilityMenu from '../molecules/AccessabilityMenu';
 import Header from '../organisms/Header';
 import Hero from '../organisms/Hero';
 import TopicSelector from '../molecules/TopicSelector';
@@ -22,7 +21,6 @@ export default function Home(props) {
         <div>
             <MetaTags title={props.t["Busrides"]} description={props.t.getDescription} image={"https://www.busrides-trajetsenbus.ca/thumbnail.jpg"} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}`}/>
             <Header t={props.t} settings={props.settings}/>
-            <AccessabilityMenu t={props.t}/>
             <Hero backgroundImage={props.settings.cover_image}>
                 <div className={styles.promoBar}>
                     <p>
