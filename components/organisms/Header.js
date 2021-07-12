@@ -98,7 +98,7 @@ export default function Header(props) {
                             <IcomoonReact iconSet={iconSet} size={18} icon="search"/>
                         </a>
                     </li>
-                    <li>
+                    <li className={styles.accessabilityButton}>
                         <AccessabilityMenu t={props.t}/>
                     </li>
                     <li>

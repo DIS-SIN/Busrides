@@ -3,6 +3,7 @@
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    background-color: white;
 }
 
 .button svg {
