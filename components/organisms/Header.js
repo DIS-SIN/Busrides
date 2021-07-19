@@ -103,7 +103,7 @@ export default function Header(props) {
                     </li>
                     <li>
                         <Link href={getOppositeLangUrl()}>
-                            <a className={styles.navItem}>{props.t.getOppositeLocale.toUpperCase()}</a>
+                            <a className={styles.navItem} title={props.t.getOppositeLocaleFull}>{props.t.getOppositeLocale.toUpperCase()}</a>
                         </Link>
                     </li>
                 </ul>

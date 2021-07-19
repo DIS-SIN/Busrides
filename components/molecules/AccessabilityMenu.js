@@ -80,7 +80,7 @@ export default function AccessabilityMenu(props) {
         }
         visible={isOpen}
         interactive={true}>
-            <button className={styles.button} onClick={() => setIsOpen(!isOpen)}>
+            <button className={styles.button} onClick={() => setIsOpen(!isOpen)} title={props.t["Accessibility settings"]}>
                 <IcomoonReact iconSet={iconSet} size={20} icon="accessible"/>
             </button>
         </Tippy>

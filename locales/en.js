@@ -12,6 +12,7 @@ const en = {
     "Topics": "Topics",
     "All Topics": "All Topics",
     "getTopicSlugs": "[en-artificial-intelligence, en-data, en-design, en-digital-transformation, en-open-government, en-technology]",
+    "Accessibility settings": "Accessibility settings",
     "What is the Digital Academy?": "What is the Digital Academy?",
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
     "getDATwitter": "https://twitter.com/DigiAcademyCAN",

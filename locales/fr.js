@@ -12,6 +12,7 @@ const fr = {
     "Topics": "Sujets",
     "All Topics": "Tous les sujets",
     "getTopicSlugs": "[fr-conception, fr-donnees, fr-gouvernement-ouvert, fr-intelligence-artificielle, fr-technologie, fr-transformation-numerique]",
+    "Accessibility settings": "Paramètres d'accessibilité",
     "What is the Digital Academy?": "Qu'est-ce que l'Académie du numérique?",
     "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
     "getDATwitter": "https://twitter.com/AcademieNumCAN",
