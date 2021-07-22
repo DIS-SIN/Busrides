@@ -5,6 +5,7 @@ import iconSet from "../icons/selection.json";
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router';
 import { useWindowWidth } from '@react-hook/window-size';
+import AccessabilityMenu from '../molecules/AccessabilityMenu';
 import MobileSearchModal from '../molecules/MobileSearchModal';
 import { cp_t, cp_settings } from '../../helpers/commonProps';
 import { getCleanSearchTerm } from '../../helpers/helpers';
@@ -97,9 +98,12 @@ export default function Header(props) {
                             <IcomoonReact iconSet={iconSet} size={18} icon="search"/>
                         </a>
                     </li>
+                    <li className={styles.accessabilityButton}>
+                        <AccessabilityMenu t={props.t}/>
+                    </li>
                     <li>
                         <Link href={getOppositeLangUrl()}>
-                            <a className={styles.navItem}>{props.t.getOppositeLocale.toUpperCase()}</a>
+                            <a className={styles.navItem} title={props.t.getOppositeLocaleFull}>{props.t.getOppositeLocale.toUpperCase()}</a>
                         </Link>
                     </li>
                 </ul>
