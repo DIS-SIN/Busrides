@@ -6,7 +6,7 @@ const en = {
     "getGhostLocaleTag": "english",
     "getLocalePath": "",
     "getLogo": "https://www.busrides-trajetsenbus.ca/images/logos/en/BusRidesPublicationLogo.png",
-    "getDescription": "Bite sized learning about digital technology and government",
+    "getDescription": "Busrides is a product of the CSPS Digital Academy, and a destination created to deepen your understanding of everything digital and government.",
     "Busrides Logo": "Busrides Logo",
     "Busrides": "Busrides",
     "Topics": "Topics",
