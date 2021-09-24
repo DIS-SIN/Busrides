@@ -10,6 +10,12 @@
     background-color: var(--background-color);
 }
 
+/* GCWeb theme fix */
+.promoBar p {
+    margin: revert;
+    font-size: 14px;
+}
+
 .promoBar a {
     text-align: center;
     color: var(--link-color);
@@ -28,12 +34,15 @@
 .description {
     color: white;
     text-align: center;
-    font-size: 1.125rem;
+    /* GCWeb theme fix */
+    font-size: 16px;
+
     margin: 0 0 25px 0;
 }
 
 @media only screen and (min-width: 48rem) {
     .description {
-        font-size: 1.375rem;
+        /* GCWeb theme fix */
+        font-size: 20px;
     }
 }

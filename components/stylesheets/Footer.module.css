@@ -20,6 +20,8 @@
 
 .footer a:hover {
     text-decoration: underline;
+    /* GCWeb theme fix */
+    color: white;
 }
 
 .row svg path {
