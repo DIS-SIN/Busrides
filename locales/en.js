@@ -43,7 +43,7 @@ const en = {
     "Clear search": "Clear search",
     "Search Busrides": "Search Busrides",
     "Done": "Done",
-    "betaNotice": "Busrides is in the beta phase of development. Regular site updates are made to enhance your experience!",
+    "betaNotice": "Busrides is continually being updated to enhance your experience!",
     "Provide feedback": "💬 Provide feedback.",
     "Learning Paths": "Discover Series Learning Path",
     "learningPathsSlogan": "The learning you need, when and how you need it.",

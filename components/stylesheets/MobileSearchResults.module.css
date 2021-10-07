@@ -22,7 +22,7 @@
     list-style-type: none;
     display: flex;
     color: white;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0 0 0 20px;
     box-sizing: border-box;
@@ -30,6 +30,7 @@
 
 .resultsNav li {
     padding: 0 3px 5px 3px;
+    font-size: 1.45rem;
 }
 
 .resultsNav li:not(:last-child) {
@@ -69,7 +70,7 @@
 }
 
 .metaBar button {
-    font-size: .85rem;
+    font-size: 1.3rem;
     padding: 5px 10px;
     border: solid var(--transparent-background-color) 1px;
     border-radius: 3px;

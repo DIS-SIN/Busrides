@@ -74,6 +74,23 @@ a {
     cursor: pointer;
 }
 
+/* GCWeb theme fix */
+p {
+    font-size: 1.4rem;
+    margin: revert;
+}
+h1 {
+    border-bottom: 0;
+    margin-top: revert;
+    margin-bottom: revert;
+}
+h2 {
+    font-size: 1.5em;
+}
+h2 {
+    margin: revert;
+}
+
 .tippy-tooltip[data-animation=fade][data-state=hidden] {
     opacity: 0
 }

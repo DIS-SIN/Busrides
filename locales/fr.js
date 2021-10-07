@@ -43,7 +43,7 @@ const fr = {
     "Clear search": "Recherche claire",
     "Search Busrides": "Recherche de Trajets en bus",
     "Done": "Fait",
-    "betaNotice": "Trajets en bus est en phase de développement bêta. Des mises à jour régulières sont faites pour améliorer votre expérience!",
+    "betaNotice": "Trajets en bus est continuellement mis à jour pour améliorer votre expérience!",
     "Provide feedback": "💬 Fournir de la rétroaction",
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
     "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",

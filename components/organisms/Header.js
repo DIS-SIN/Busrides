@@ -84,6 +84,19 @@ export default function Header(props) {
         <header>
             <div id="wb-bnr" className="container">
                 <div className="row">
+                    <section id="wb-lng" className="col-xs-3 col-sm-12 pull-right text-right">
+                        <h2 className="wb-inv">Language selection</h2>
+                        <ul className="list-inline mrgn-bttm-0">
+                            <li>
+                                <Link href={getOppositeLangUrl()}>
+                                    <a lang={props.t.getOppositeLocale} hrefLang={props.t.getOppositeLocale} title={props.t.getOppositeLocaleFull}>
+                                        <span className="hidden-xs">{props.t.getOppositeLocaleFull}</span>
+                                        <abbr title={props.t.getOppositeLocaleFull} className="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">{props.t.getOppositeLocale}</abbr>
+                                    </a>
+                                </Link>
+                            </li>
+                        </ul>
+                    </section>
                     <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
                         <a href={`https://www.canada.ca/${props.t.getLocale}.html`} property="url">
                             <img src={`/theme/GCWeb/assets/sig-blk-${props.t.getLocale}.svg`} alt="" property="logo" /><span className="wb-inv" property="name" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></span>
@@ -153,11 +166,6 @@ export default function Header(props) {
                         </li>
                         <li className={styles.accessabilityButton}>
                             <AccessabilityMenu t={props.t}/>
-                        </li>
-                        <li>
-                            <Link href={getOppositeLangUrl()}>
-                                <a className={styles.navItem} title={props.t.getOppositeLocaleFull}>{props.t.getOppositeLocale.toUpperCase()}</a>
-                            </Link>
                         </li>
                     </ul>
                     {isSearchMenuOpen &&

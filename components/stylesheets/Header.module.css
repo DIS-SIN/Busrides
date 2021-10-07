@@ -3,7 +3,7 @@
     justify-content: center;
     background-color: var(--transparent-background-color);
     width: 100%;
-    padding: 20px 30px 10px 30px;
+    padding: 15px 30px 15px 30px;
     box-sizing: border-box;
 }
 
@@ -11,10 +11,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     /* GCWeb theme fix */
     max-width: 1140px;
+    font-size: 1.7rem;
 }
 
 .menuIcon {
@@ -35,7 +36,7 @@
 }
 
 .navItems li:not(:last-child), .logo {
-    margin-right: 35px;
+    margin-right: 25px;
 }
 
 .logo {
@@ -74,14 +75,14 @@
     padding-left: 8px;
     border-radius: 5px 0 0 5px;
     outline: none;
-    font-size: .75rem;
+    font-size: 1.2rem;
     font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
 
     /* Extra styles for Safari visual bug */
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    max-width: 110px;
+    width: 160px;
 }
 
 .searchBar a {

@@ -8,6 +8,7 @@ export default function Footer(props) {
 console.log(props.t);
     return (
         <footer id="wb-info">
+            {props.children}
             <div className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p className={styles.row}>
@@ -36,7 +37,7 @@ console.log(props.t);
                     </ul>
                 </nav>
             </div>
-            <div className="brand">
+            <div className={`brand ${styles.brand}`}>
                 <div className="container">
                     <div className="row">
                         <nav className="col-md-9 col-lg-10 ftr-urlt-lnk">
@@ -49,8 +50,7 @@ console.log(props.t);
                                 <li><a href={props.t["Privacy URL"]}>{props.t["Privacy text"]}</a></li>
                             </ul>
                         </nav>
-                        <div className="col-xs-6 visible-sm visible-xs tofpg"> <a href="#wb-cont">{props.t["top_of_page"]} <span className="glyphicon glyphicon-chevron-up"></span></a> </div>
-                        <div className="col-xs-6 col-md-3 col-lg-2 text-right"> <img src="/theme/GCWeb/assets/wmms-blk.svg" alt={props.t["symbol_of_the_government_of_canada"]} /> </div>
+                        <div className="col-xs-12 col-md-3 col-lg-2 text-right"> <img src="/theme/GCWeb/assets/wmms-blk.svg" alt={props.t["symbol_of_the_government_of_canada"]} /> </div>
                     </div>
                 </div>
             </div>
