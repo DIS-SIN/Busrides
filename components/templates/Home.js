@@ -19,7 +19,7 @@ export default function Home(props) {
 
     return (
         <div>
-            <MetaTags title={props.t["Busrides"]} description={props.t.getDescription} image={"https://www.busrides-trajetsenbus.ca/thumbnail.jpg"} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}`}/>
+            <MetaTags title={props.t["Busrides"]} description={props.t.getDescription} image={"/thumbnail.jpg"} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}`}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.settings.cover_image}>
                 <img className={styles.logo} src={props.t.getLogo} alt={props.t["Busrides Logo"]}/>

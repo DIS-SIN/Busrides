@@ -5,7 +5,7 @@ const fr = {
     "getOppositeLocaleFull": "English",
     "getGhostLocaleTag": "français",
     "getLocalePath": "/fr",
-    "getLogo": "https://www.busrides-trajetsenbus.ca/images/logos/fr/BusRidesPublicationLogo.png",
+    "getLogo": "/images/logos/fr/BusRidesPublicationLogo.png",
     "getDescription": "Trajets en bus est un produit de l’Académie du numérique de l’EFPC et constitue une ressource pour mieux comprendre tout ce qui est numérique et gouvernemental.",
     "Busrides Logo": "Logo des trajets en bus",
     "Busrides": "Trajets en bus",
