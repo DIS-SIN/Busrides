@@ -69,6 +69,7 @@ const en = {
     "Canada School of Public Service": "Canada School of Public Service",
     "Learning catalogue"             : "Learning catalogue",
     "Learning tools"                 : "Learning tools",
+    "Blogs"                          : "Blogs",
 
     // Footer
     "about_government"                  : "About government",
