@@ -13,8 +13,8 @@ export default function LearningPaths(props) {
             title={dictionary["Learning Paths"]}
             subtitle={dictionary.learningPathsSlogan}
             description={dictionary.learningPathsSlogan}
-            image="https://busrides-trajetsenbus.ca/images/learning-paths/landingPageBg.jpeg"
-            url={`https://busrides-trajetsenbus.ca/${dictionary.getLocale}/learning-paths`}
+            image="https://busrides-trajetsenbus.csps-efpc.gc.ca/images/learning-paths/landingPageBg.jpeg"
+            url={`https://busrides-trajetsenbus.csps-efpc.gc.ca/${dictionary.getLocale}/learning-paths`}
             markdown={AboutLearningPaths}
             posts={props.posts}
             postsMeta={props.postsMeta}
