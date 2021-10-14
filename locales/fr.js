@@ -69,6 +69,7 @@ const fr = {
     "Canada School of Public Service": "École de la fonction publique du Canada",
     "Learning catalogue"             : "Catalogue d'apprentissage",
     "Learning tools"                 : "Outils d'apprentissage",
+    "Blogs"                          : "Blogues",
 
     'about_government'                  : 'Au sujet du gouvernement',
     'about_this_site'                   : 'Au sujet de ce site',

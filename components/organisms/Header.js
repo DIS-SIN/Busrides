@@ -137,6 +137,7 @@ export default function Header(props) {
                         <li><a href={`https://csps-efpc.gc.ca/index-${getLocaleThreeChar()}.aspx`}>{props.t["Canada School of Public Service"]}</a></li>
                         <li><a href={`https://csps-efpc.gc.ca/catalogue/topics-${getLocaleThreeChar()}.aspx`}>{props.t["Learning catalogue"]}</a></li>
                         <li><a href={`https://csps-efpc.gc.ca/tools/index-${getLocaleThreeChar()}.aspx`}>{props.t["Learning tools"]}</a></li>
+                        <li><a href={`https://csps-efpc.gc.ca/tools/blogs/index-${getLocaleThreeChar()}.aspx`}>{props.t["Blogs"]}</a></li>
                     </ol>
                 </div>
             </nav>
