@@ -52,10 +52,10 @@ export default function Header(props) {
     }
 
     function cleanUrl(url) {
-        if (url === "https://www.busrides-trajetsenbus.ca" || url === "https://busrides.ghost.io"){
+        if (url === "https://www.busrides-trajetsenbus.ca" || url === "https://busrides.ghost.io" || url === "https://busrides-trajetsenbus.csps-efpc.gc.ca"){
             return "/";
         }
-        return url.replace(/https:\/\/www.busrides-trajetsenbus.ca|https:\/\/busrides.ghost.io/, "");
+        return url.replace(/https:\/\/www.busrides-trajetsenbus.ca|https:\/\/busrides.ghost.io|https:\/\/busrides-trajetsenbus.csps-efpc.gc.ca/, "");
     }
 
     function search() {
