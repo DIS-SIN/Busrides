@@ -1,3 +1,10 @@
+const securityHeaders = [
+    {
+        key: 'Strict-Transport-Security',
+        value: 'max-age=63072000'
+    }
+]
+
 module.exports = {
     webpack: (config) => {
         config.module.rules.push({
@@ -5,6 +12,15 @@ module.exports = {
             use: 'raw-loader'
         });
         return config
+    },
+    async headers() {
+        return [
+            {
+                // Apply these headers to all routes.
+                source: '/(.*)',
+                headers: securityHeaders,
+            },
+        ]
     },
     async redirects() {
         return [
