@@ -3,7 +3,7 @@
     justify-content: center;
     background-color: var(--transparent-background-color);
     width: 100%;
-    padding: 20px 50px 10px 50px;
+    padding: 15px 30px 15px 30px;
     box-sizing: border-box;
 }
 
@@ -11,9 +11,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
-    max-width: 1200px;
+    /* GCWeb theme fix */
+    max-width: 1140px;
+    font-size: 1.7rem;
 }
 
 .menuIcon {
@@ -34,7 +36,7 @@
 }
 
 .navItems li:not(:last-child), .logo {
-    margin-right: 35px;
+    margin-right: 25px;
 }
 
 .logo {
@@ -46,8 +48,9 @@
 }
 
 .navItem {
-    color: var(--menu-titles-color);
-    font-size: 1.16rem;
+    /* GCWeb theme fix */
+    color: var(--menu-titles-color) !important;
+
     font-weight: 400;
     border: 0;
     outline: 0;
@@ -72,14 +75,14 @@
     padding-left: 8px;
     border-radius: 5px 0 0 5px;
     outline: none;
-    font-size: .75rem;
+    font-size: 1.2rem;
     font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
 
     /* Extra styles for Safari visual bug */
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    max-width: 110px;
+    width: 160px;
 }
 
 .searchBar a {
@@ -121,6 +124,22 @@
     border-radius: 50%;
     border: 1px solid var(--primary-foreground-color);
     fill: white;
+}
+
+@media (min-width: 768px) {
+    .headerContent {
+        width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .headerContent {
+        width: 940px;
+    }
+}
+@media (min-width: 1200px) {
+    .headerContent {
+        width: 1140px;
+    }
 }
 
 @media only screen and (max-width: 800px) {

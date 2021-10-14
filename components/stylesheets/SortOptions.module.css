@@ -14,20 +14,21 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: normal;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
-  
+
 /* Hide the browser's default radio button */
 .radioButton input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
-  
+
 /* Create a custom radio button */
 .checkmark {
     position: absolute;
@@ -38,7 +39,7 @@
     background-color: var(--csps-medium-grey);
     border-radius: 50%;
 }
-  
+
 /* On mouse-over, add a grey background color */
 .radioButton:hover input ~ .checkmark {
     background-color: var(--primary-border-color);

@@ -8,7 +8,7 @@
     flex: 1;
     padding-right: 50px;
     margin: 0 20px;
-    font-size: 2em;
+    font-size: 1.65em;
     color: var(--primary-foreground-color);
     border: none;
     border-bottom: solid var(--primary-foreground-color) 2px;
@@ -22,6 +22,7 @@
     position: absolute;
     right: 20px;
     top: 0;
+    width: 45px;
     height: 100%;
     padding: 0 10px;
     cursor: pointer;
@@ -36,6 +37,7 @@
     right: 20px;
     bottom: -20px;
     cursor: pointer;
+    font-size: 0.85em;
 }
 
 @media only screen and (max-width: 800px) {
@@ -47,10 +49,10 @@
     }
 
     .input {
-        font-size: 1.25em;
+        font-size: 1.2em;
         color: black;
         max-width: 100%;
-        padding: 7px 15px;
+        padding: 5px 15px;
         margin: 0 35px 0 0;
         border: none;
         box-sizing: border-box;

@@ -69,7 +69,7 @@ export default function AccessabilityMenu(props) {
                     {/* <button onClick={() => contrast()}>Reset Contrast</button> */}
                 </div>
                 <div>
-                    <p>Grayscale</p>
+                    <p>{props.t["Grayscale"]}</p>
                     <Switch
                         onChange={toggleGrayscale}
                         color="default"

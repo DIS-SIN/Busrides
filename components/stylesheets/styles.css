@@ -25,7 +25,7 @@
     --card-tag-color: #205482;
 
     --busrides-red: #CE3F3F;
-    
+
     --csps-purple: rgb(63, 42, 86);
     --csps-grey: rgb(78, 91, 115);
     --csps-light-grey: #EDEFF1;
@@ -33,7 +33,12 @@
     --csps-coral: #DA797A;
 }
 
-@media (prefers-color-scheme:dark) {
+/*
+    Deactivated the dark theme for now,
+    until client decides on how we should proceed implementing it
+    for the GCWeb theme
+*/
+/* @media (prefers-color-scheme:dark) {
     :root {
         --background-color: #050e15;
         --secondary-background-color: #1f272e;
@@ -55,21 +60,35 @@
         --mdc-theme-primary: #e3e3e3;
         --card-tag-color: #5DAFD6;
     }
-}
+} */
 
 body {
     margin: 0;
     background-color: var(--background-color);
     color: var(--primary-foreground-color);
-    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    font-display: swap;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 a {
     cursor: pointer;
+}
+
+/* GCWeb theme fix */
+p {
+    font-size: 1.4rem;
+    margin: revert;
+}
+h1 {
+    border-bottom: 0;
+    margin-top: revert;
+    margin-bottom: revert;
+}
+h2 {
+    font-size: 1.5em;
+}
+h2 {
+    margin: revert;
 }
 
 .tippy-tooltip[data-animation=fade][data-state=hidden] {
@@ -177,8 +196,13 @@ a {
     color: var(--secondary-subtle-color) !important;
 }
 
-@media (prefers-color-scheme:dark) {
+/*
+    Deactivated the dark theme for now,
+    until client decides on how we should proceed implementing it
+    for the GCWeb theme
+*/
+/* @media (prefers-color-scheme:dark) {
     .react-select__control {
         border: none !important;
     }
-}
+} */

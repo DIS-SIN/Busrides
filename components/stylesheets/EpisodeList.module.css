@@ -12,7 +12,7 @@
 }
 
 .loadMoreButton {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 600;
     padding: 15px 30px;
     margin-bottom: 50px;
@@ -34,9 +34,19 @@
     margin-bottom: 75px;
 }
 
-@media only screen and (min-width: 48rem) {
+@media (min-width: 768px) {
     .episodeList {
-        max-width: 1200px;
+        max-width: 660px;
+    }
+}
+@media (min-width: 992px) {
+    .episodeList {
+        max-width: 900px;
+    }
+}
+@media (min-width: 1200px) {
+    .episodeList {
+        max-width: 1100px;
     }
 }
 

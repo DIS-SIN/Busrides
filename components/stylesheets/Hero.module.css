@@ -9,10 +9,12 @@
     text-align: center;
     margin: 0 0 15px;
     padding: 0 20px;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1.3;
     letter-spacing: 0.5px;
+    /* GCWeb theme fix */
+    border-bottom: 0;
 }
 
 .contentContainer {
@@ -39,7 +41,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6); 
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 @media only screen and (min-width: 48rem) {
@@ -49,7 +51,7 @@
 
     .hero h1 {
         margin-bottom: 10px;
-        font-size: 3.25rem;
+        font-size: 5rem;
         letter-spacing: 0.8px;
     }
 }
