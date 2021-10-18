@@ -1,5 +1,5 @@
 const en = {
-    "getURL": "https://www.busrides-trajetsenbus.ca/",
+    "getURL": "https://busrides-trajetsenbus.csps-efpc.gc.ca/",
     "getLocale": "en",
     "getOppositeLocale": "fr",
     "getOppositeLocaleFull": "Français",
