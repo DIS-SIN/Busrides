@@ -11,7 +11,7 @@ export default function Home(props) {
 
     return (
         <div>
-            <MetaTags title={props.t["Parking Lot"]} description={props.t["Parking Lot"]} url={`https://busrides-trajetsenbus.ca${props.t.getLocalePath}/parking-lot`} image={"/images/thumbnails/parkingLot.png"}/>
+            <MetaTags title={props.t["Parking Lot"]} description={props.t["Parking Lot"]} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr"}/parking-lot`} image={"/images/thumbnails/parkingLot.png"}/>
             <Header t={props.t} settings={props.settings}/>
             <BannerBlock
                 markdown={props.markdown.AboutParkingLot}
