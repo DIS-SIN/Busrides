@@ -8,8 +8,6 @@ import Footer from '../organisms/Footer';
 
 export default function Tag(props) {
 
-    console.log(props);
-
     return (
         <div>
             <MetaTags title={props.tag.name} description={props.tag.description} image={props.tag.feature_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}tag/${props.tag.slug}`}/>

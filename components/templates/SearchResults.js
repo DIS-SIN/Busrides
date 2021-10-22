@@ -20,8 +20,6 @@ export default function SearchResults(props) {
     const [loading, setLoading] = useState(false);
     const [useCompactView, setUseCompactView] = useState(true);
 
-    console.log(props);
-
     return (
         <div className={styles.mainContainer}>
             <MetaTags title={`${props.t["Searched"]}: ${searchTerm}`} description={`${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`} image={"/thumbnail.jpg"} url={props.t.getURL + (props.t.getLocale === "en" ? "" : props.t.getLocale + "/" ) + `search/${encodeURI(searchTerm)}`}/>
