@@ -11,6 +11,7 @@ const fr = {
     "Busrides": "Trajets en bus",
     "Topics": "Sujets",
     "All Topics": "Tous les sujets",
+    "Topic": "Sujet",
     "getTopicSlugs": "[fr-conception, fr-donnees, fr-gouvernement-ouvert, fr-intelligence-artificielle, fr-technologie, fr-transformation-numerique]",
     "Accessibility settings": "Paramètres d'accessibilité",
     "What is the Digital Academy?": "Qu'est-ce que l'Académie du numérique?",

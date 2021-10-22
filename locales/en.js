@@ -10,6 +10,7 @@ const en = {
     "Busrides Logo": "Busrides Logo",
     "Busrides": "Busrides",
     "Topics": "Topics",
+    "Topic": "Topic",
     "All Topics": "All Topics",
     "getTopicSlugs": "[en-artificial-intelligence, en-data, en-design, en-digital-transformation, en-open-government, en-technology]",
     "Accessibility settings": "Accessibility settings",
