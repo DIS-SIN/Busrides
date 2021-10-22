@@ -55,7 +55,7 @@ const fr = {
 
     // Header
     "Language Title"          : "Sélection de la langue",
-    "Logo Title"              : "Gouvernment du Canada / <span lang='en'>Governement of Canada</span>",
+    "Logo Title"              : "Gouvernment du Canada",
     "Search"                  : "Recherche",
     "Search Placeholder"      : "Rechercher dans Canada.ca",
     "Menu"                    : "Menu",
