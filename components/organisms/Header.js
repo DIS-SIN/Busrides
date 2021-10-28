@@ -99,7 +99,7 @@ export default function Header(props) {
                     </section>
                     <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
                         <a href={`https://www.canada.ca/${props.t.getLocale}.html`} property="url">
-                            <img src={`/theme/GCWeb/assets/sig-blk-${props.t.getLocale}.svg`} alt="" property="logo" /><span className="wb-inv" property="name" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></span>
+                            <img src={`/theme/GCWeb/assets/sig-blk-${props.t.getLocale}.svg`} alt={props.t["Logo Title"]} property="logo" /><span className="wb-inv" property="name" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></span>
                         </a>
                         <meta property="areaServed" typeof="Country" content="Canada" />
                         <link property="logo" href="/theme/GCWeb/assets/wmms-blk.svg" />

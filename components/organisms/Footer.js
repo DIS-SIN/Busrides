@@ -5,7 +5,6 @@ import { cp_t } from '../../helpers/commonProps';
 import styles from '../stylesheets/Footer.module.css';
 
 export default function Footer(props) {
-console.log(props.t);
     return (
         <footer id="wb-info">
             {props.children}

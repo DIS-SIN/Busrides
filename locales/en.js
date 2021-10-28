@@ -10,6 +10,7 @@ const en = {
     "Busrides Logo": "Busrides Logo",
     "Busrides": "Busrides",
     "Topics": "Topics",
+    "Topic": "Topic",
     "All Topics": "All Topics",
     "getTopicSlugs": "[en-artificial-intelligence, en-data, en-design, en-digital-transformation, en-open-government, en-technology]",
     "Accessibility settings": "Accessibility settings",
@@ -55,7 +56,7 @@ const en = {
 
     // Header
     "Language Title"          : "Language selection",
-    "Logo Title"              : "Government of Canada / <span lang='fr'>Gouvernement du Canada</span>",
+    "Logo Title"              : "Government of Canada",
     "Search"                  : "Search",
     "Search Placeholder"      : "Search Canada.ca",
     "Menu"                    : "Menu",

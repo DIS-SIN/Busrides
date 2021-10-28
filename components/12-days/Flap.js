@@ -5,8 +5,6 @@ import styles from './Flap.module.css';
 
 function Flap(props) {
 
-    console.log(props);
-
     const dayContent = props.data.content[`day_${props.day}`];
 
     function open(ev) {
