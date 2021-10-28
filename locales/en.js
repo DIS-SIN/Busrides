@@ -51,6 +51,11 @@ const en = {
     "Videos": "GC Data Demos",
     "VideosSlogan": "The GC Data Demo Library is a collection of data showcase videos highlighting innovations from across the GC data community that demonstrate the power of data to inform better policies, programs and operations.",
     "Grayscale": "Grayscale",
+    "ZoomIn": "Zoom in",
+    "ZoomOut": "Zoom out",
+    "IncreaseContrast": "Increase contrast",
+    "DecreaseContrast": "Decrease contrast",
+    "ToggleGrayscale": "Toggle grayscale",
 
     // GCTheme locales
 
