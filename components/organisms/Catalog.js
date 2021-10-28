@@ -24,8 +24,6 @@ export default function Catalog(props) {
         setResources(sortedResources);
     }
 
-    console.log(resources);
-
     return (
         <div className={styles.catalog}>
             <h2 className={styles.title}>{props.t["Parking Lot"]}</h2>

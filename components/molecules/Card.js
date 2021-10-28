@@ -33,7 +33,10 @@ export default function Card(props) {
                 </div>
                 <div className={styles.content}>
                     <Link href={`${props.t.getLocalePath}/tag/[slug]`} as={`${props.t.getLocalePath}/tag/${props.post.primary_tag.slug}`}>
-                        <a className={styles.tag}>{props.post.primary_tag.name}</a>
+                        <a className={styles.tag}>
+                            <span className="wb-inv">{`${props.t["Topic"]}: `}</span>
+                            {props.post.primary_tag.name}
+                        </a>
                     </Link>
                     <h2 className={styles.title}>{props.post.title}</h2>
                     <p className={styles.description}>{props.post.excerpt}</p>

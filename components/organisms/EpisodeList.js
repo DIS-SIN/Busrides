@@ -60,7 +60,7 @@ export default function EpisodeList(props) {
              }
              {/* Only show the button if apiOptions are passed and if meta details are passed and there are more episodes to load */}
              {shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length ||           props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true)     ) ?
-                 <a className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults}>{props.t["Load More"]}</a>
+                 <button className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults} aria-label={props.t["Load More"]}>{props.t["Load More"]}</button>
              : undefined}
         </div>
     );

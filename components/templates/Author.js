@@ -9,8 +9,6 @@ import Footer from '../organisms/Footer';
 
 export default function Author(props) {
 
-    console.log(props);
-
     return (
         <div>
             <MetaTags title={props.author.name} description={props.author.bio} image={props.author.profile_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}author/${props.author.slug}`}/>

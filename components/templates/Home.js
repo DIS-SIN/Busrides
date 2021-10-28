@@ -15,8 +15,6 @@ export default function Home(props) {
     const [postsMeta, setPostsMeta] = useState(props.postsMeta);
     const [apiOptions, setApiOptions] = useState(props.apiOptions);
 
-    console.log(props.settings);
-
     return (
         <div>
             <MetaTags title={props.t["Busrides"]} description={props.t.getDescription} image={"/thumbnail.jpg"} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}`}/>
@@ -31,7 +29,7 @@ export default function Home(props) {
                 <div className={styles.promoBar}>
                     <p>
                         {props.t.betaNotice}
-                        <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?subject=Busrides Feedback / Rétroaction sur Trajets en bus"> {props.t["Provide feedback"]}</a>
+                        <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?subject=Busrides%20Feedback%20%2F%20R%C3%A9troaction%20sur%20Trajets%20en%20bus"> {props.t["Provide feedback"]}</a>
                     </p>
                 </div>
             </Footer>
