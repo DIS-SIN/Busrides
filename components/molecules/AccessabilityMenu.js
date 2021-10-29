@@ -57,15 +57,15 @@ export default function AccessabilityMenu(props) {
         content={
             <div className={styles.menu}>
                 <div>
-                    <button onClick={() => zoom(-1)}>-</button>
+                    <button onClick={() => zoom(-1)} aria-label={props.t["ZoomIn"]}>-</button>
                     <IcomoonReact iconSet={iconSet} size={20} icon="zoom-in"/>
-                    <button onClick={() => zoom(1)}>+</button>
+                    <button onClick={() => zoom(1)} aria-label={props.t["ZoomOut"]}>+</button>
                     {/* <button onClick={() => zoom()}>Reset Zoom</button> */}
                 </div>
                 <div>
-                    <button onClick={() => contrast(-1)}>-</button>
+                    <button onClick={() => contrast(-1)} aria-label={props.t["DecreaseContrast"]}>-</button>
                     <IcomoonReact iconSet={iconSet} size={20} icon="contrast"/>
-                    <button onClick={() => contrast(1)}>+</button>
+                    <button onClick={() => contrast(1)} aria-label={props.t["IncreaseContrast"]}>+</button>
                     {/* <button onClick={() => contrast()}>Reset Contrast</button> */}
                 </div>
                 <div>
@@ -73,7 +73,7 @@ export default function AccessabilityMenu(props) {
                     <Switch
                         onChange={toggleGrayscale}
                         color="default"
-                        inputProps={{ 'aria-label': 'checkbox with default color' }}
+                        inputProps={{ 'aria-label': props.t["ToggleGrayscale"]} }
                     />
                 </div>
             </div>
