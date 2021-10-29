@@ -146,9 +146,9 @@ export default function Header(props) {
                     <div className={styles.menuIcon} onClick={toggleMenu}>
                         <IcomoonReact iconSet={iconSet} size={18} icon="menu"/>
                     </div>
-                    <Link href={getHomeUrl()}>
-                        <img className={styles.logo} src={props.settings.logo} alt={props.settings.title}/>
-                    </Link>
+                    <a href={getHomeUrl()} className={styles.logoAnchor}>
+                        <img className={styles.logo} src={"/images/logos/BusridesLogoWhiteNoText.png"} alt={props.settings.title}/>
+                    </a>
                     <ul className={styles.navItems}>
                         {getNavItems().map(navItem => (
                             <li key={navItem.url}>

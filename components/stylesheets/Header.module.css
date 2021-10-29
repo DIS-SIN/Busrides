@@ -35,7 +35,11 @@
     flex: 1;
 }
 
-.navItems li:not(:last-child), .logo {
+.navItems li:not(:last-child) {
+    margin-right: 25px;
+}
+
+.logoAnchor {
     margin-right: 25px;
 }
 
