@@ -57,16 +57,14 @@ export default function AccessabilityMenu(props) {
         content={
             <div className={styles.menu}>
                 <div>
-                    <button onClick={() => zoom(-1)} aria-label={props.t["ZoomIn"]}>-</button>
+                    <button onClick={() => zoom(-1)} aria-label={props.t["ZoomOut"]}>-</button>
                     <IcomoonReact iconSet={iconSet} size={20} icon="zoom-in"/>
-                    <button onClick={() => zoom(1)} aria-label={props.t["ZoomOut"]}>+</button>
-                    {/* <button onClick={() => zoom()}>Reset Zoom</button> */}
+                    <button onClick={() => zoom(1)} aria-label={props.t["ZoomIn"]}>+</button>
                 </div>
                 <div>
                     <button onClick={() => contrast(-1)} aria-label={props.t["DecreaseContrast"]}>-</button>
                     <IcomoonReact iconSet={iconSet} size={20} icon="contrast"/>
                     <button onClick={() => contrast(1)} aria-label={props.t["IncreaseContrast"]}>+</button>
-                    {/* <button onClick={() => contrast()}>Reset Contrast</button> */}
                 </div>
                 <div>
                     <p>{props.t["Grayscale"]}</p>

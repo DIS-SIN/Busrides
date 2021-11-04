@@ -2,6 +2,7 @@ import { getSettings } from '../../../Ghost-API/contentAPI';
 import { getUserAgent } from '../../../helpers/helpers';
 import TwelveDays from '../../../components/templates/TwelveDays';
 import Data2019 from '../../../components/12-days/data/en/data-2019.json';
+import Data2021 from '../../../components/12-days/data/en/data-2021.json';
 import dictionary from '../../../locales/en';
 import ErrorPage from '../../_error';
 
@@ -20,7 +21,17 @@ twelveDays.getInitialProps = async function({query, req}) {
 
     let settings = await getSettings();
 
-    let data = query.slug.toLowerCase() == "data" ? Data2019 : null;
+    let data;
+    switch(query.slug.toLowerCase()) {
+        case "data-2019":
+          data = Data2019
+          break;
+        case "data-2021":
+          data = Data2021
+          break;
+        default:
+          data = null;
+      }
 
 	return {
         data: data,
