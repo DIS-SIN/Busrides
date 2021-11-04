@@ -47,7 +47,7 @@ export default function EpisodeList(props) {
 
     return (
         <div className={styles.container}>
-            <div className={styles.episodeList}>
+            <div className={styles.episodeList} aria-live="polite">
                  {episodes.map(post => (
                      props.useCompactView ? 
                      <CompactCard key={post.id} t={props.t} post={post} mobile={props.mobile}/>
@@ -59,8 +59,10 @@ export default function EpisodeList(props) {
                 <ThreeDots fill="#ce3f3f" className={styles.loader}/>
              }
              {/* Only show the button if apiOptions are passed and if meta details are passed and there are more episodes to load */}
-             {shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length ||           props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true)     ) ?
-                 <button className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults} aria-label={props.t["Load More"]}>{props.t["Load More"]}</button>
+             {shouldLoadMore && (props.searchMeta && props.searchMeta.total > 10 && props.searchMeta.total != props.posts.length || props.apiOptions && (props.postsMeta ? props.postsMeta.pagination.total > props.posts.length : true)) ?
+                 <button className={styles.loadMoreButton} ref={loadMoreButton} onClick={props.apiOptions ? loadMore : loadMoreSearchResults} aria-label={props.t["Load More"]}>
+                     {props.t["Load More"]}
+                 </button>
              : undefined}
         </div>
     );
