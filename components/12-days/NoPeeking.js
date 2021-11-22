@@ -1,30 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import styles from './NoPeeking.module.css';
+import React, {useEffect} from 'react';
 
 export default function NoPeeking(props) {
-
-    const [classes, setClasses] = useState("noPeekingWindow hide");
-
     useEffect(() => {
-        setClasses("noPeekingWindow");
+        $( "#centred-popup-modal" ).trigger( "open.wb-lbx", [
+            [
+                {
+                    src: "#centred-popup-modal",
+                    type: "inline"
+                }
+            ]
+        ]);
     },[]);
 
-    function close() {
-        setClasses("noPeekingWindow hide");
+    $( document ).on( "mfpClose", function( event ) {
+        closeError();
+    });
+
+    function closeError() {
         setTimeout(() => {
             props.setError({exists:false});
-        }, 500);
+        }, 100);
     }
 
     return (
-        <div className={styles.noPeeking} onClick={close}>
-            <div className={classes}>
-                <div>
-                    <h4>{props.error.message.title}</h4>
-                    <i className={styles.close} tabIndex="0" onClick={close}>close</i>
-                </div>
+        <section id="centred-popup-modal" className="mfp-hide modal-dialog modal-content overlay-def">
+            <header className="modal-header">
+                <h2 className="modal-title">{props.error.message.title}</h2>
+            </header>
+            <div className="modal-body">
                 <p>{props.error.message.text}</p>
             </div>
-        </div>
+        </section>
     );
 }
