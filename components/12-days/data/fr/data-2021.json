@@ -10,106 +10,106 @@
     },
     "content": {
         "day_1": {
-            "unlocks_at": "December 5, 2019",
+            "unlocks_at": "December 2, 2021",
             "error_message": {
                 "title": "On ne jette pas un coup d'oeil!",
-                "text": "Revenez le 5 décembre pour voir ce contenu"
+                "text": "Revenez le 2 décembre pour voir ce contenu"
             },
-            "title": "D'où proviennent les données du secteur public?",
-            "text": "Dans le monde entier, 2,5 trillions d'octets de données (2,5 × 1018) sont créés chaque jour, et 90 pour cent des données dans le monde ont été générées au cours des deux dernières années seulement (IBM, 2016). Le gouvernement du Canada produit et possède une vaste quantité de données diverses, notamment des données spatiales, des données opérationnelles, des données sur les services transactionnels et des données recueillies auprès de la population et des entreprises ou à propos de celles-ci.\n\nGrâce au pouvoir des données, les fonctionnaires peuvent modifier fondamentalement les gouvernements en changeant leur façon de travailler, de prendre des décisions et d'offrir leurs services. Pour en apprendre plus sur façon dont le gouvernement utilise les données, consultez la publication sur les  données stratégiques du GC, ci-dessous.",
+            "title": "Utiliser les données pour travailler ensemble",
+            "text": "Il y a une vision et un objectif à la base des données. La Data 360° Déclaration des Nations numériques constitue le document où les membres des Nations numériques reconnaissent et affirment la vision commune des données et les principes relatifs aux données énoncés dans la Déclaration. Ils acceptent de travailler de concert pour favoriser la collaboration, mettre en commun les défis et cibler les domaines de coopération active (lorsque cela est pratique et faisable). Cette vision met l’accent sur le besoin d’avoir une vue globale de la gestion des données.",
             "link": {
-                "url": "https://www.canada.ca/fr/conseil-prive/organisation/greffier/publications/strategie-donnees.html",
+                "url": "https://www.canada.ca/fr/gouvernement/systeme/gouvernement-numerique/nations-numeriques/data-360-declaration-nations-numeriques.html",
                 "image": "https://www.canada.ca/content/canadasite/fr/conseil-prive/organisation/greffier/publications/strategie-donnees/_jcr_content/par/mwscolumns_173187160/colpar-2/mwsadaptiveimage/image.img.png/1546961037544.png",
-                "title": "Feuille de route de la Stratégie de données pour la fonction publique fédérale - Canada.ca",
-                "description": "La Stratégie de données fournit une feuille de route aux ministères et organismes afin qu’ils puissent utiliser leurs données de façon plus stratégique, et guide les efforts du gouvernement fédéral afin d’améliorer la façon dont il recueille, accède, gère, utilise et régir les données.",
+                "title": "Vision commune des données",
+                "description": "La Data 360° Déclaration des Nations numériques.",
                 "domain": "canada.ca"
             }
         },
         "day_2": {
-            "unlocks_at": "December 6, 2019",
+            "unlocks_at": "December 3, 2021",
             "error_message": {
                 "title": "Bien essayé",
                 "text": "Une bonne façon de dire \"Revenez le 6 décembre pour voir le contenu.\""
             },
-            "title": "« Les données [comme] la nouvelle huile »",
-            "text": "Selon le Conseil des technologies de l'information et des communications (CTIC), avec l'utilisation et la pertinence croissantes de la technologie dans tous les secteurs de l'économie, les données et le numérique ont évolué en une économie florissante, presque autonome en soi. Il y a quelques années à peine, un article en première page titrait « data [as] the new oil » ou « les données [comme] la nouvelle huile », identifiant celles-ci, effectivement, comme une ressource naturelle virtuelle et renouvelable sans fin. Lisez les points saillants du CTIC, sur une stratégie d'économie des données.",
+            "title": "Vérification des renseignements personnels identifiables (RPI)",
+            "text": "Le Service numérique canadien a un outil qui permet de vérifier si une application anonymise les adresses IP lorsque des renseignements sont soumis à Google Analytics. Cet outil est mis en œuvre en tant que fonction de Google Cloud. Même si cet outil met l’accent sur les adresses IP, les RPI représentent une partie importante de la conversation sur la protection des renseignements personnels numériques. L’obtention de nombreux RPI par des sources non fiables pourrait compromettre vos renseignements personnels.",
             "link": {
-                "url": "https://wiki.gccollab.ca/images/7/7b/Whitepaper_CITC.pdf",
+                "url": "https://github.com/cds-snc/pii-checker",
                 "image": "https://images.unsplash.com/photo-1479292889369-1a48f234247e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1308&q=80",
-                "title": "Perspectives du CTIC sur une stratégie pour l’économie de données",
-                "description": "Le présent livre blanc expose les perspectives du CTIC sur une stratégie pour l’économie de données à une époque où une économie guidée par les données est un facteur de motivation mondial pour les nouveaux entrepreneurs et les industries émergentes qui désirent créer et commercialiser du nouveau contenu de propriété intellectuelle afin de réaliser leurs aspirations nationales, économiques et sociales.",
-                "domain": "wiki.gccollab.ca"
+                "title": "Vérification RPI",
+                "description": "Cet outil ainsi que d’autres pratiques comme le chiffrement servent à protéger vos renseignements.",
+                "domain": "github.com"
             }
         },
         "day_3": {
-            "unlocks_at": "December 9, 2019",
+            "unlocks_at": "December 6, 2021",
             "error_message": {
                 "title": "Attendez une petite minute…",
-                "text": "Vous pensiez pouvoir jeter un coup d'oeil? Retournez au travail et revenez le 9 décembre pour voir ce contenu!"
+                "text": "Vous pensiez pouvoir jeter un coup d'oeil? Retournez au travail et revenez le 6 décembre pour voir ce contenu!"
             },
-            "title": "Données ouvertes",
+            "title": "Termes relatifs aux données que vous devez connaître – en un seul endroit",
             "text": "Le saviez-vous?\n\nVous pouvez chercher des données ouvertes qui sont pertinentes aux Canadiens et  Canadiennes, apprendre comment travailler avec les jeux de données, voir ce que les citoyens ont fait avec les données ouvertes dans l’ensemble du pays.",
             "link": {
-                "url": "https://ouvert.canada.ca/fr/donnees-ouvertes",
-                "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2252&q=80",
-                "title": "Données ouvertes | Gouvernement ouvert, Gouvernement du Canada",
-                "description": "Chercher des données ouvertes qui sont pertinentes aux Canadiens et Canadiennes, apprendre comment travailler avec les jeux de données, voir ce que les citoyens ont fait avec les données ouvertes dans l’ensemble du pays",
-                "domain": "ouvert.canada.ca"
+                "url": "https://www.rdc-drc.ca/fr/glossaire/glossaire-original/",
+                "image": "https://images.unsplash.com/photo-1453814279372-783dc5b638ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+                "title": "Glossaire",
+                "description": "Faites-en l’essai en cherchant « contrôle des révisions ».",
+                "domain": "rdc-drc.ca"
             }
         },
         "day_4": {
-            "unlocks_at": "December 10, 2019",
+            "unlocks_at": "December 7, 2021",
             "error_message": {
                 "title": "La patience est une vertue.",
-                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous\n\nRevenez le 10 décembre pour voir ce contenu."
+                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous\n\nRevenez le 7 décembre pour voir ce contenu."
             },
-            "title": "Magasin des API",
-            "text": "“Les API (interface de protocole applicative)” sont les interfaces qui permettent à deux services ou programmes numériques complètement différents de communiquer entre eux. Les API permettent également aux services gouvernementaux de communiquer entre eux, avec vous en tant qu'utilisateur final ou avec une organisation tierce qui pourrait vouloir travailler avec des données ou fonctions gouvernementales.\n\nLes bonnes API créent un écosystème de services qui s'appuient les uns sur les autres et constitueront les éléments fondateurs du gouvernement numérique. Visitez la boutique de l'API du GC pour en savoir plus.",
+            "title": "La communauté des données du gouvernement du Canada (CDGC)",
+            "text": "Si vous n’avez jamais entendu parler de la CDGC, préparez vous à être renversés! La CDGC fait partie de l’École de la fonction publique du Canada, et elle offre du soutien dans les cinq domaines suivants :\n\nrassembler et mettre en contact des spécialistes en matière de données de tous les niveaux qui proviennent de différents ministères et organismes;\n\npermettre la création d’occasions d’apprentissage et de perfectionnement professionnel liées aux données;\n\nappuyer l’innovation et la communication entre les communautés de pratique en matière de données;\n\npromouvoir l’assimilation de normes en matière d’éthique et de données, et de pratiques de gouvernance;\n\ncoanimer la Conférence annuelle sur les données.",
             "link": {
-                "url": "https://api.canada.ca/fr/accueil",
-                "image": "https://api.canada.ca/sites/api-store-drupal-prod.apps.prod.openshift.ised-isde.canada.ca/files/2019-04/api-logo-fra_0.png",
-                "title": "Page d'accueil | Magasin des APIs",
-                "description": "Bienvenue dans le nouveau Magasin des APIs du Gouvernement du Canada, notre guichet unique pour les Interfaces de Programmation d'Applications (APIs).",
-                "domain": "api.canada.ca"
+                "url": "https://www.csps-efpc.gc.ca/partnerships/data-community-fra.aspx",
+                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+                "title": "La CDGC",
+                "description": " La communauté des données du GC vise à mettre en contact, à mobiliser et à soutenir les spécialistes en matière de données au gouvernement du Canada, qui sont de plus en plus nombreux.",
+                "domain": "canada.ca"
             }
         },
         "day_5": {
-            "unlocks_at": "December 11, 2019",
+            "unlocks_at": "December 8, 2021",
             "error_message": {
                 "title": "Ceci est un test",
-                "text": "Nous avons testé votre patience… Vous avez échoué!\n\nRevenez le 11 décembre pour voir ce contenu."
+                "text": "Nous avons testé votre patience… Vous avez échoué!\n\nRevenez le 8 décembre pour voir ce contenu."
             },
-            "title": "Des données pour le bien",
-            "text": "Nous parlons souvent de la façon dont les données peuvent être utilisées pour créer de la valeur pour les entreprises et les organisations. Saviez-vous que nous pouvons aussi utiliser les données pour le bien de la société?",
+            "title": "Démonstrations de données à l’échelle de la fonction publique",
+            "text": "Vous êtes vous déjà demandé de quelle façon les autres fonctionnaires tirent parti des données? La bibliothèque de démos d’outils de données du gouvernement du Canada est une collection de vidéos de projets de données mettant en évidence les innovations de la communauté des données du gouvernement du Canada qui démontrent à quel point les données peuvent servir à améliorer les politiques, les programmes et les opérations.",
             "link": {
-                "url": "https://ottawa.dataforgood.ca/",
-                "image": "https://images.unsplash.com/photo-1528947120591-c0bf5c1e63fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=697&q=80",
-                "title": "The Ottawa Data for Good Chapter",
-                "description": "Data For Good is a collective of do gooders, who want to use their powers for good, and not evil, to help make our communities better through data.",
-                "domain": "ottawa.dataforgood.ca"
+                "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/fr/videos",
+                "image": "https://images.unsplash.com/photo-1554260570-e9689a3418b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1182&q=80",
+                "title": "Démos d'outils de données du GC",
+                "description": "La bibliothèque de démos d’outils de données du GC est une collection de vidéos de projets de données mettant en évidence les innovations de la communauté des données du GC qui démontrent le pouvoir des données pour informer de meilleures politiques, programmes et opérations.",
+                "domain": "busrides-trajetsenbus.ca"
             }
         },
         "day_6": {
-            "unlocks_at": "December 12, 2019",
+            "unlocks_at": "December 9, 2021",
             "error_message": {
                 "title": "Absolument pas de trichage!",
-                "text": "Revenez le 12 décembre et vous aurez peut-être plus de chance!"
+                "text": "Revenez le 9 décembre et vous aurez peut-être plus de chance!"
             },
-            "title": "Littératie en matière de données",
-            "text": "Au fond, une organisation axée sur les données est une organisation qui les considère comme un outil permettant de prédire le succès, d'élaborer de meilleurs programmes et de servir les clients plus efficacement. Dans une organisation axée sur les données, le personnel est souvent confronté à des rapports, des tableaux de bord, des analyses et peut avoir l'occasion d'analyser directement ces données. Pour y parvenir efficacement, nos employés doivent savoir interpréter et gérer les données qu'ils utilisent chaque jour. Pour ce faire, il est indispensable d'accroître la maîtrise des données! Connaissez-vous bien les données?",
+            "title": "Données en action!",
+            "text": "Découvrez comment les données ont une incidence sur la biodiversité. Les Nations Unies ont créé le UNBiodiversity Lab, où vous pouvez activer et combiner des fonctions pour voir les endroits dans le monde où les gens ont accès à des soins de santé, la connectivité des récifs coralliens, l’empreinte humaine et plus encore.",
             "link": {
-                "url": "http://www.dataliteracy.info/",
-                "image": "http://www.dataliteracy.info//assets/img.jpg",
-                "title": "Qlik | Data Literacy Campaign",
-                "description": "Data is a right for everyone. But there's not a level playing field. Qlik is campaigning for greater data literacy – and we want you to join us today!",
-                "domain": "dataliteracy.info"
+                "url": "https://map.unbiodiversitylab.org/earth?basemap=grayscale&coordinates=20,0,2&layers=accessibility-to-healthcare_100",
+                "image": "https://images.unsplash.com/photo-1627215750463-3386c8ed92ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                "title": "UNBiodiversity Lab",
+                "description": "Les Nations Unies ont créé le UNBiodiversity Lab",
+                "domain": "map.unbiodiversitylab.org"
             }
         },
         "day_7": {
-            "unlocks_at": "December 13, 2019",
+            "unlocks_at": "December 10, 2021",
             "error_message": {
                 "title": "Admet le…",
-                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que tu as eu tort!\n\nRevenez le 13 décembre pour voir ce que vous attendre."
+                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que tu as eu tort!\n\nRevenez le 10 décembre pour voir ce que vous attendre."
             },
             "title": "La visualisation des données",
             "text": "dictionary.com décrit un infographique comme « “une présentation visuelle de l'information sous la forme d'un tableau, d'un graphique ou d'une autre image accompagnée d'un texte minimal, destinée à donner un aperçu facile à comprendre, souvent sur un sujet complexe » (traduction).\n\nEn quoi est-ce différent des visualisations de données ? Les ressources suivantes peuvent vous aider à répondre à cette question.",
@@ -122,19 +122,19 @@
             }
         },
         "day_8": {
-            "unlocks_at": "December 16, 2019",
+            "unlocks_at": "December 13, 2021",
             "error_message": {
                 "title": "N'abandonnez pas!",
-                "text": "N’abandonnez jamais quelque chose que vous voulez vraiment. Il est difficile d’attendre, mais revenez le 16 décembre pour voir le contenu."
+                "text": "N’abandonnez jamais quelque chose que vous voulez vraiment. Il est difficile d’attendre, mais revenez le 13 décembre pour voir le contenu."
             },
-            "title": "9 différents modèles infographiques",
-            "text": "Lors du jour 1  des données, nous avons appris que dans le monde entier, 2,5 trillions d'octets de données (2,5 × 1018) sont créés chaque jour, et 90 pour cent des données dans le monde ont été générées au cours des deux dernières années seulement (IBM, 2016). Le gouvernement du Canada produit et possède une vaste quantité de données diverses, notamment des données spatiales, des données opérationnelles, des données sur les services transactionnels et des données recueillies auprès de la population et des entreprises ou à propos de celles-ci.\n\nLa communication de ces données exige des compétences en narration d'histoires et en visualisation. Il est plus facile que jamais de créer des visuels intéressants. Jetez un coup d'œil à ces modèles et faites-en l'essai!",
+            "title": "L’apprentissage automatique sous la forme d’un jeu",
+            "text": "Nous croyons fermement en l’apprentissage par le jeu. Cette ressource vous permet d’entraîner l’ordinateur à reconnaître des nombres, du texte, des images et plus encore. Elle est parfaite pour les débutants qui souhaitent comprendre le concept de l’apprentissage automatique.",
             "link": {
-                "url": "https://fr.venngage.com/blog/differents-types-infographies/",
+                "url": "https://machinelearningforkids.co.uk/?lang=fr",
                 "image": "http://venngage-wordpress-fr.s3.amazonaws.com/uploads/2019/07/9-types-d’infographies-et-les-meilleurs-moyens-de-les-utiliser.png",
-                "title": "9 types d’infographies et les meilleurs moyens de les utiliser [+ modèles d’infographies]",
-                "description": "Quel type d’infographie est-il préférable d’utiliser ? Voici une liste des 9 meilleurs types de modèles d’infographies en fonction de vos objectifs et de la nature de vos données.",
-                "domain": "fr.venngage.com"
+                "title": "L’apprentissage automatique",
+                "description": "Il vous suffit de copier un gabarit!",
+                "domain": "machinelearningforkids.co.uk"
             }
         },
         "day_9": {
