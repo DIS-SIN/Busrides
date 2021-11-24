@@ -22,14 +22,13 @@ function Flap(props) {
     }
 
     function checkDate() {
-        // return new Date("December 5, 2019") >= new Date(dayContent.unlocks_at);
         return Date.now() >= new Date(dayContent.unlocks_at);
     }
 
     return (
         <div className={styles.flap} data-day={props.day} onClick={open} tabIndex="1">
             <p>{props.day}</p>
-            <IcomoonReact className={styles.lock} iconSet={iconSet} size={30} icon={checkDate() ? "lock-open" : "lock-closed"}/>
+            <IcomoonReact className={styles.lock} iconSet={iconSet} size={30} icon={checkDate() ? "lock-open" : "lock-locked"}/>
         </div>
     );
 }

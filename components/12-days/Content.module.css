@@ -8,6 +8,7 @@
     left: 0;
     border-radius: 12px 12px 0 0;
     overflow: scroll;
+    z-index: 100;
 }
 .content.open {
     height: 80%;
