@@ -1,10 +1,10 @@
 {
     "title": "Bienvenue aux 12 jours de données de Trajets en bus!",
-    "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 20 décembre.",
+    "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 17 décembre.",
     "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
     "meta": {
         "title": "12 jours de données",
-        "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 20 décembre.",
+        "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 17 décembre.",
         "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/2019-bg.jpg",
         "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/fr/12-days/data-2021"
     },
@@ -61,7 +61,7 @@
             "unlocks_at": "December 7, 2021",
             "error_message": {
                 "title": "La patience est une vertue.",
-                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous\n\nRevenez le 7 décembre pour voir ce contenu."
+                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous.\n\nRevenez le 7 décembre pour voir ce contenu."
             },
             "title": "La communauté des données du gouvernement du Canada (CDGC)",
             "text": "Si vous n’avez jamais entendu parler de la CDGC, préparez vous à être renversés! La CDGC fait partie de l’École de la fonction publique du Canada, et elle offre du soutien dans les cinq domaines suivants :\n\nrassembler et mettre en contact des spécialistes en matière de données de tous les niveaux qui proviennent de différents ministères et organismes;\n\npermettre la création d’occasions d’apprentissage et de perfectionnement professionnel liées aux données;\n\nappuyer l’innovation et la communication entre les communautés de pratique en matière de données;\n\npromouvoir l’assimilation de normes en matière d’éthique et de données, et de pratiques de gouvernance;\n\ncoanimer la Conférence annuelle sur les données.",
@@ -109,7 +109,7 @@
             "unlocks_at": "December 10, 2021",
             "error_message": {
                 "title": "Admet le…",
-                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que tu as eu tort!\n\nRevenez le 10 décembre pour voir ce que vous attendre."
+                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que vous avez eu tort!\n\nRevenez le 10 décembre pour voir ce que vous attendre."
             },
             "title": "La visualisation des données",
             "text": "dictionary.com décrit un infographique comme « “une présentation visuelle de l'information sous la forme d'un tableau, d'un graphique ou d'une autre image accompagnée d'un texte minimal, destinée à donner un aperçu facile à comprendre, souvent sur un sujet complexe » (traduction).\n\nEn quoi est-ce différent des visualisations de données ? Les ressources suivantes peuvent vous aider à répondre à cette question.",
@@ -173,7 +173,7 @@
             "unlocks_at": "December 16, 2021",
             "error_message": {
                 "title": "On dirait que vous avez du mal à attendre… voici une blague sur les données pour vous retenir!",
-                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 16 décembre pour voir ve contenu."
+                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 16 décembre pour voir ce contenu."
             },
             "title": "Balados",
             "text": "Écoutez Kaveh Afshar, qui parle de son expérience de travail au bureau principal des données à Environnement et Changement climatique Canada. Il explique comment son équipe est parvenue à aider les gens à régler des problèmes liés aux données à l’aide de connaissances en informatique, en statistiques et en mathématiques.",
