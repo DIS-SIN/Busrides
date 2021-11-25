@@ -1,16 +1,16 @@
 {
     "title": "Bienvenue aux 12 jours de données de Trajets en bus!",
-    "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 20 décembre.",
-    "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
+    "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 17 décembre.",
+    "image": "/images/12-days/bg.jpg",
     "meta": {
         "title": "12 jours de données",
-        "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 20 décembre.",
-        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/2019-bg.jpg",
+        "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 17 décembre.",
+        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/bg.jpg",
         "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/fr/12-days/data-2021"
     },
     "content": {
         "day_1": {
-            "unlocks_at": "December 2, 2021",
+            "unlocks_at": "December 2, 2020",
             "error_message": {
                 "title": "On ne jette pas un coup d'oeil!",
                 "text": "Revenez le 2 décembre pour voir ce contenu"
@@ -26,7 +26,7 @@
             }
         },
         "day_2": {
-            "unlocks_at": "December 3, 2021",
+            "unlocks_at": "December 3, 2020",
             "error_message": {
                 "title": "Bien essayé",
                 "text": "Une bonne façon de dire \"Revenez le 6 décembre pour voir le contenu.\""
@@ -42,7 +42,7 @@
             }
         },
         "day_3": {
-            "unlocks_at": "December 6, 2021",
+            "unlocks_at": "December 6, 2020",
             "error_message": {
                 "title": "Attendez une petite minute…",
                 "text": "Vous pensiez pouvoir jeter un coup d'oeil? Retournez au travail et revenez le 6 décembre pour voir ce contenu!"
@@ -58,10 +58,10 @@
             }
         },
         "day_4": {
-            "unlocks_at": "December 7, 2021",
+            "unlocks_at": "December 7, 2020",
             "error_message": {
                 "title": "La patience est une vertue.",
-                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous\n\nRevenez le 7 décembre pour voir ce contenu."
+                "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous.\n\nRevenez le 7 décembre pour voir ce contenu."
             },
             "title": "La communauté des données du gouvernement du Canada (CDGC)",
             "text": "Si vous n’avez jamais entendu parler de la CDGC, préparez vous à être renversés! La CDGC fait partie de l’École de la fonction publique du Canada, et elle offre du soutien dans les cinq domaines suivants :\n\nrassembler et mettre en contact des spécialistes en matière de données de tous les niveaux qui proviennent de différents ministères et organismes;\n\npermettre la création d’occasions d’apprentissage et de perfectionnement professionnel liées aux données;\n\nappuyer l’innovation et la communication entre les communautés de pratique en matière de données;\n\npromouvoir l’assimilation de normes en matière d’éthique et de données, et de pratiques de gouvernance;\n\ncoanimer la Conférence annuelle sur les données.",
@@ -74,7 +74,7 @@
             }
         },
         "day_5": {
-            "unlocks_at": "December 8, 2021",
+            "unlocks_at": "December 8, 2020",
             "error_message": {
                 "title": "Ceci est un test",
                 "text": "Nous avons testé votre patience… Vous avez échoué!\n\nRevenez le 8 décembre pour voir ce contenu."
@@ -90,7 +90,7 @@
             }
         },
         "day_6": {
-            "unlocks_at": "December 9, 2021",
+            "unlocks_at": "December 9, 2020",
             "error_message": {
                 "title": "Absolument pas de trichage!",
                 "text": "Revenez le 9 décembre et vous aurez peut-être plus de chance!"
@@ -106,10 +106,10 @@
             }
         },
         "day_7": {
-            "unlocks_at": "December 10, 2021",
+            "unlocks_at": "December 10, 2020",
             "error_message": {
                 "title": "Admet le…",
-                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que tu as eu tort!\n\nRevenez le 10 décembre pour voir ce que vous attendre."
+                "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que vous avez eu tort!\n\nRevenez le 10 décembre pour voir ce que vous attendre."
             },
             "title": "La visualisation des données",
             "text": "dictionary.com décrit un infographique comme « “une présentation visuelle de l'information sous la forme d'un tableau, d'un graphique ou d'une autre image accompagnée d'un texte minimal, destinée à donner un aperçu facile à comprendre, souvent sur un sujet complexe » (traduction).\n\nEn quoi est-ce différent des visualisations de données ? Les ressources suivantes peuvent vous aider à répondre à cette question.",
@@ -122,7 +122,7 @@
             }
         },
         "day_8": {
-            "unlocks_at": "December 13, 2021",
+            "unlocks_at": "December 13, 2020",
             "error_message": {
                 "title": "N'abandonnez pas!",
                 "text": "N’abandonnez jamais quelque chose que vous voulez vraiment. Il est difficile d’attendre, mais revenez le 13 décembre pour voir le contenu."
@@ -138,7 +138,7 @@
             }
         },
         "day_9": {
-            "unlocks_at": "December 14, 2021",
+            "unlocks_at": "December 14, 2020",
             "error_message": {
                 "title": "La patience:",
                 "text": "Ce que vous n’avez pas!\n\nRevenez le 14 décembre pour voir ce contenu."
@@ -154,7 +154,7 @@
             }
         },
         "day_10": {
-            "unlocks_at": "December 15, 2021",
+            "unlocks_at": "December 15, 2020",
             "error_message": {
                 "title": "Ils disent…",
                 "text": "Le plus vous attendez, le meilleur sera le contenu. Revenez le 15 décembre pour voir si c’est vrai!"
@@ -170,10 +170,10 @@
             }
         },
         "day_11": {
-            "unlocks_at": "December 16, 2021",
+            "unlocks_at": "December 16, 2020",
             "error_message": {
                 "title": "On dirait que vous avez du mal à attendre… voici une blague sur les données pour vous retenir!",
-                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 16 décembre pour voir ve contenu."
+                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 16 décembre pour voir ce contenu."
             },
             "title": "Balados",
             "text": "Écoutez Kaveh Afshar, qui parle de son expérience de travail au bureau principal des données à Environnement et Changement climatique Canada. Il explique comment son équipe est parvenue à aider les gens à régler des problèmes liés aux données à l’aide de connaissances en informatique, en statistiques et en mathématiques.",
@@ -186,7 +186,7 @@
             }
         },
         "day_12": {
-            "unlocks_at": "December 17, 2021",
+            "unlocks_at": "December 17, 2020",
             "error_message": {
                 "title": "Cela en vaudra vraiment la peine!",
                 "text": "Restez forts… ça arrive bientôt! Revenez le 17 décembre pour le dernier jour des 12 jours de données!"

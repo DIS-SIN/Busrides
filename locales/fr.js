@@ -56,6 +56,8 @@ const fr = {
     "IncreaseContrast": "Augmenter le contraste",
     "DecreaseContrast": "Diminuer le contraste",
     "ToggleGrayscale": "Basculer en niveaux de gris",
+    "Open": "Ouvrir",
+    "Close": "Fermer",
 
     // GCTheme locales
 

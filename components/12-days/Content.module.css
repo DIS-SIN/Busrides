@@ -7,7 +7,7 @@
     bottom: 0;
     left: 0;
     border-radius: 12px 12px 0 0;
-    overflow: scroll;
+    overflow: auto;
     z-index: 100;
 }
 .content.open {
@@ -25,7 +25,6 @@
 .contentBackgroundCover.hide {
     display: none;
 }
-
 
 .contentContainer {
     width: 90%;

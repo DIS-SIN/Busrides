@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: #293951;
+    padding: 10px 10px;
 }
 
 .header {

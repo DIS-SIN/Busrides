@@ -1,11 +1,11 @@
 {
     "title": "Welcome to Busrides’ 12 days of data!",
     "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 20th.",
-    "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
+    "image": "/images/12-days/bg.jpg",
     "meta": {
         "title": "12 Days of Data",
         "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 20th.",
-        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/2019-bg.jpg",
+        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/bg.jpg",
         "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/en/12-days/data-2019"
     },
     "content": {

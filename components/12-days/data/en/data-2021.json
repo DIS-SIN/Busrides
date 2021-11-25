@@ -1,16 +1,16 @@
 {
     "title": "Welcome to Busrides’ 12 days of data! 2021",
     "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 17th.",
-    "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
+    "image": "/images/12-days/bg.jpg",
     "meta": {
         "title": "12 Days of Data",
         "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 17th.",
-        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/2019-bg.jpg",
+        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/bg.jpg",
         "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/en/12-days/data-2021"
     },
     "content": {
         "day_1": {
-            "unlocks_at": "December 2, 2021",
+            "unlocks_at": "December 2, 2020",
             "error_message": {
                 "title": "No Peeking!",
                 "text": "Come back on December 2nd to view this content"
@@ -26,7 +26,7 @@
             }
         },
         "day_2": {
-            "unlocks_at": "December 3, 2021",
+            "unlocks_at": "December 3, 2020",
             "error_message": {
                 "title": "Nice try",
                 "text": "A good way of saying “Come back on December 3rd to view this content.”"
@@ -42,7 +42,7 @@
             }
         },
         "day_3": {
-            "unlocks_at": "December 6, 2021",
+            "unlocks_at": "December 6, 2020",
             "error_message": {
                 "title": "Now just wait a minute…",
                 "text": "You thought you could take a peek? Get back to work and come back on December 6th to see this content!"
@@ -58,7 +58,7 @@
             }
         },
         "day_4": {
-            "unlocks_at": "December 7, 2021",
+            "unlocks_at": "December 7, 2020",
             "error_message": {
                 "title": "Patience is a virtue",
                 "text": "“Patience is not the ability to wait, but the ability to keep a good attitude while waiting” - An author with more patience than you\n\nCome back on December 10th to view this content."
@@ -74,7 +74,7 @@
             }
         },
         "day_5": {
-            "unlocks_at": "December 8, 2021",
+            "unlocks_at": "December 8, 2020",
             "error_message": {
                 "title": "This is a test",
                 "text": "We tested your patience… Looks like you failed!\n\nCome back on December 8th to view this content."
@@ -90,7 +90,7 @@
             }
         },
         "day_6": {
-            "unlocks_at": "December 9, 2021",
+            "unlocks_at": "December 9, 2020",
             "error_message": {
                 "title": "Absolutely no peeking!",
                 "text": "Come back on December 9th and you might have more luck!"
@@ -106,7 +106,7 @@
             }
         },
         "day_7": {
-            "unlocks_at": "December 10, 2021",
+            "unlocks_at": "December 10, 2020",
             "error_message": {
                 "title": "Admit it…",
                 "text": "You thought you could look at the content before others? Looks like you were wrong! Come back on December 10th to see what we have waiting for you."
@@ -122,7 +122,7 @@
             }
         },
         "day_8": {
-            "unlocks_at": "December 13, 2021",
+            "unlocks_at": "December 13, 2020",
             "error_message": {
                 "title": "Don’t give up!",
                 "text": "Never give up on something you really want. It’s difficult to wait but come back on December 11th to see the content."
@@ -138,7 +138,7 @@
             }
         },
         "day_9": {
-            "unlocks_at": "December 14, 2021",
+            "unlocks_at": "December 14, 2020",
             "error_message": {
                 "title": "Patience:",
                 "text": "What you don’t have!\n\nCome back on December 14th to see this content."
@@ -154,7 +154,7 @@
             }
         },
         "day_10": {
-            "unlocks_at": "December 15, 2021",
+            "unlocks_at": "December 15, 2020",
             "error_message": {
                 "title": "They say…",
                 "text": "The longer you wait, the better the content. Come back on December 15th to see if it’s true!"
@@ -170,7 +170,7 @@
             }
         },
         "day_11": {
-            "unlocks_at": "December 16, 2021",
+            "unlocks_at": "December 16, 2020",
             "error_message": {
                 "title": "Looks like you’re having trouble waiting… here’s a data joke to hold you off!",
                 "text": "Question: What’s the difference between an introverted data analyst & an extroverted one?\n\nAnswer: the extrovert stares at YOUR shoes.\n\nCome back on December 16th to see this content."
