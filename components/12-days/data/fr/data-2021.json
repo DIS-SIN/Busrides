@@ -1,11 +1,11 @@
 {
     "title": "Bienvenue aux 12 jours de données de Trajets en bus!",
     "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 17 décembre.",
-    "image": "/images/12-days/bg.jpg",
+    "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
     "meta": {
         "title": "12 jours de données",
         "description": "Les 12 données et ressources les plus intéressantes se trouvent derrière les portes du calendrier. Une nouvelle porte sera disponible tous les jours ouvrables jusqu'au 17 décembre.",
-        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/bg.jpg",
+        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/2019-bg.jpg",
         "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/fr/12-days/data-2021"
     },
     "content": {
@@ -51,7 +51,7 @@
             "text": "Le saviez-vous?\n\nVous pouvez chercher des données ouvertes qui sont pertinentes aux Canadiens et  Canadiennes, apprendre comment travailler avec les jeux de données, voir ce que les citoyens ont fait avec les données ouvertes dans l’ensemble du pays.",
             "link": {
                 "url": "https://www.rdc-drc.ca/fr/glossaire/glossaire-original/",
-                "image": "https://images.unsplash.com/photo-1453814279372-783dc5b638ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+                "image": "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
                 "title": "Glossaire",
                 "description": "Faites-en l’essai en cherchant « contrôle des révisions ».",
                 "domain": "rdc-drc.ca"
@@ -67,7 +67,7 @@
             "text": "Si vous n’avez jamais entendu parler de la CDGC, préparez vous à être renversés! La CDGC fait partie de l’École de la fonction publique du Canada, et elle offre du soutien dans les cinq domaines suivants :\n\nrassembler et mettre en contact des spécialistes en matière de données de tous les niveaux qui proviennent de différents ministères et organismes;\n\npermettre la création d’occasions d’apprentissage et de perfectionnement professionnel liées aux données;\n\nappuyer l’innovation et la communication entre les communautés de pratique en matière de données;\n\npromouvoir l’assimilation de normes en matière d’éthique et de données, et de pratiques de gouvernance;\n\ncoanimer la Conférence annuelle sur les données.",
             "link": {
                 "url": "https://www.csps-efpc.gc.ca/partnerships/data-community-fra.aspx",
-                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+                "image": "https://busrides.ghost.io/content/images/2021/04/DA-logo-Ghost--3-.png",
                 "title": "La CDGC",
                 "description": " La communauté des données du GC vise à mettre en contact, à mobiliser et à soutenir les spécialistes en matière de données au gouvernement du Canada, qui sont de plus en plus nombreux.",
                 "domain": "canada.ca"
@@ -163,7 +163,7 @@
             "text": "Le répertoire des ressources de l’écosystème des données est un catalogue très utile de ressources en matière de données qui a été créé par et pour des praticiens des données du gouvernement du Canada. Vous y trouverez une foule de renseignements sur les données du gouvernement du Canada, qu’il s’agisse d’une liste des communautés actives ou des directives qui pourraient vous aider dans votre travail.",
             "link": {
                 "url": "https://www.gcpedia.gc.ca/wiki/Data_Ecosystem_Resource_Directory_(DERD)",
-                "image": "https://www.csps-efpc.gc.ca/partnerships/images/lp-eng.png",
+                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
                 "title": "Le répertoire des ressources de l’écosystème des données",
                 "description": "Vous y trouverez une foule de renseignements sur les données du gouvernement du Canada.",
                 "domain": "gcpedia.gc.ca"
@@ -173,7 +173,7 @@
             "unlocks_at": "December 16, 2020",
             "error_message": {
                 "title": "On dirait que vous avez du mal à attendre… voici une blague sur les données pour vous retenir!",
-                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 16 décembre pour voir ce contenu."
+                "text": "Question: Quelle est la devise de la science des données?\n\nRéponse: Si au début vous ne réussissez pas ; appelez ça la version 1.0.\n\nRevenez le 16 décembre pour voir ce contenu."
             },
             "title": "Balados",
             "text": "Écoutez Kaveh Afshar, qui parle de son expérience de travail au bureau principal des données à Environnement et Changement climatique Canada. Il explique comment son équipe est parvenue à aider les gens à régler des problèmes liés aux données à l’aide de connaissances en informatique, en statistiques et en mathématiques.",

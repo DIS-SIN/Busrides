@@ -1,11 +1,11 @@
 {
     "title": "Welcome to Busrides’ 12 days of data! 2021",
     "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 17th.",
-    "image": "/images/12-days/bg.jpg",
+    "image": "https://raw.githubusercontent.com/DIS-SIN/12-Days-of-Data/master/src/images/bg.jpg",
     "meta": {
         "title": "12 Days of Data",
         "description": "The 12 most interesting data facts and resources sit behind the calendar doors. A new door will be available to open every day until December 17th.",
-        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/bg.jpg",
+        "image": "https://busrides-trajetsenbus.csps-efpc.gc.ca/images/12-days/2019-bg.jpg",
         "url": "https://busrides-trajetsenbus.csps-efpc.gc.ca/en/12-days/data-2021"
     },
     "content": {
@@ -51,7 +51,7 @@
             "text": "It’s hard to keep track of the many terms related to data…and then you have to understand them. This resource put together by Research Data Canada is one for the bookmarks. You can easily search the term, get the definition, and resource!",
             "link": {
                 "url": "https://www.rdc-drc.ca/glossary/original-rdc-glossary/",
-                "image": "https://images.unsplash.com/photo-1453814279372-783dc5b638ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+                "image": "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
                 "title": "Original RDC Glossary",
                 "description": "Try it out by searching “Revision control”",
                 "domain": "rdc-drc.ca"
@@ -67,7 +67,7 @@
             "text": "If you haven’t heard about the GCDC, you’re about to blown away!As part of the Canada School of Public Service, the GC Data Community provides support in five main areas:\n\nconvening and connecting data practitioners from all levels across departments and agencies,\n\nenabling learning and professional development opportunities related to data,\n\nsupporting innovation and connections between data communities of practice,\n\npromoting uptake of ethical norms, data standards and governance practices, and\n\nco-hosting the annual Government of Canada Data Conference.",
             "link": {
                 "url": "https://www.csps-efpc.gc.ca/partnerships/data-community-eng.aspx",
-                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+                "image": "https://busrides.ghost.io/content/images/2021/04/DA-logo-Ghost--3-.png",
                 "title": "The GCDC",
                 "description": "The GC Data Community was created to connect, engage and support the growing community of data practitioners across the federal government. It operates based on support from over a dozen departments and agencies.",
                 "domain": "canada.ca"
@@ -163,7 +163,7 @@
             "text": "The Data Ecosystem Resource Directory is a handy catalogue of data resources put together by and for GC data practitioners. Browse through the directory to find everything about data in the GC, from a list of active communities to directives and guidelines that could help you with your day-to-day work.",
             "link": {
                 "url": "https://www.gcpedia.gc.ca/wiki/Data_Ecosystem_Resource_Directory_(DERD)",
-                "image": "https://www.csps-efpc.gc.ca/partnerships/images/lp-eng.png",
+                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
                 "title": "Data Ecosystem Resource Directory",
                 "description": "Browse through the directory",
                 "domain": "gcpedia.gc.ca"
@@ -173,7 +173,7 @@
             "unlocks_at": "December 16, 2020",
             "error_message": {
                 "title": "Looks like you’re having trouble waiting… here’s a data joke to hold you off!",
-                "text": "Question: What’s the difference between an introverted data analyst & an extroverted one?\n\nAnswer: the extrovert stares at YOUR shoes.\n\nCome back on December 16th to see this content."
+                "text": "Question: What is the data science motto?\n\nAnswer: If at first you don’t succeed; call it version 1.0.\n\nCome back on December 16th to see this content."
             },
             "title": "Data Podcast",
             "text": "Listen to Kaveh Afshar discuss his experience working in the Chief Data Office at Environment and Climate Change Canada, and how that team worked towards solving data problems for others through computer science, statistics and math knowledge.",
