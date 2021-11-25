@@ -191,14 +191,14 @@
                 "title": "Cela en vaudra vraiment la peine!",
                 "text": "Restez forts… ça arrive bientôt! Revenez le 17 décembre pour le dernier jour des 12 jours de données!"
             },
-            "title": "Communauté sur les données",
-            "text": "Le répertoire d’apprentissage automatique de l’Université de Californie à Irvine est une collection de bases de données, de théories des domaines et de générateurs de données qui sont utilisés par la communauté de l’apprentissage automatique. Ce répertoire a été largement utilisé par des étudiants, des enseignants et des chercheurs du monde entier à titre de principale source d’ensemble des données sur l’apprentissage automatique.",
+            "title": "Grasshopper",
+            "text": "Avec Grasshopper, une application de codage gratuite pour débutants, vous pouvez facilement apprendre et comprendre le codage sans aucune expérience préalable. En aussi peu que cinq minutes par jour, vous pouvez compléter des leçons, des quiz et des puzzles visuels pour développer vos compétences en codage. Passez à des niveaux de plus en plus difficiles au fur et à mesure que vous développez vos capacités, puis obtenez votre diplôme avec des compétences fondamentales en programmation pour votre prochaine étape en tant que programmeur.",
             "link": {
-                "url": "https://archive.ics.uci.edu/ml/about.html",
-                "image": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-                "title": "Le répertoire d’apprentissage automatique de l’Université de Californie à Irvine",
-                "description": "Une collection de bases de données, de théories des domaines et de générateurs de données",
-                "domain": "archive.ics.uci.edu"
+                "url": "https://www.frandroid.com/android/applications/499475_grasshopper-une-application-de-google-pour-apprendre-a-coder-en-javascript",
+                "image": "http://images.frandroid.com/wp-content/uploads/2018/04/grasshopper.jpg",
+                "title": "Grasshopper, une application de Google pour apprendre à coder en JavaScript - Frandroid",
+                "description": "Google a lancé un incubateur connu sous le nom d'Area 120 et permettant à des petits groupes de Googlers de réaliser leurs idées les plus folles.",
+                "domain": "frandroid.com"
             }
         }
     }
