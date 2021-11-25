@@ -13,7 +13,7 @@ export default function Content(props) {
             <React.Fragment>
                 <div className={props.contentIsOpen ? styles.contentBackgroundCover : `${styles.contentBackgroundCover} ${styles.hide}`}></div>
                 <div className={props.contentIsOpen ? `${styles.content} ${styles.open}` : styles.content}>
-                    <button className={styles.closeButton} onClick={() => props.openContent(false)} tabIndex="0">
+                    <button className={styles.closeButton} onClick={() => props.openContent(false)} aria-label={props.t.close}>
                         <IcomoonReact iconSet={iconSet} size={20} icon="close"/>
                     </button>
                     <div className={styles.contentContainer}>

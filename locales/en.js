@@ -56,6 +56,8 @@ const en = {
     "IncreaseContrast": "Increase contrast",
     "DecreaseContrast": "Decrease contrast",
     "ToggleGrayscale": "Toggle grayscale",
+    "open": "open",
+    "close": "close",
 
     // GCTheme locales
 
