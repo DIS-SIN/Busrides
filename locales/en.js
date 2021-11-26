@@ -58,6 +58,9 @@ const en = {
     "ToggleGrayscale": "Toggle grayscale",
     "open": "open",
     "close": "close",
+    "locked": "locked",
+    "unlocked": "unlocked",
+    "day":"Day",
 
     // GCTheme locales
 

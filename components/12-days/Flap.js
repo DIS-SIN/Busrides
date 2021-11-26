@@ -26,9 +26,11 @@ function Flap(props) {
     }
 
     return (
-        <button className={styles.flap} data-day={props.day} onClick={open} aria-label={`${props.t.open} ${props.day}` }>
-            <p>{props.day}</p>
-            <IcomoonReact className={styles.lock} iconSet={iconSet} size={30} icon={checkDate() ? "lock-open" : "lock-locked"}/>
+        
+        <button className={ styles.flap } data-day={ props.day } onClick={ open } >
+            <span className={ styles.hiddenday }>{props.t.day } </span>
+            <span className={ styles.day }>{props.day }</span>
+            <span className={ checkDate() ? styles.lockopen : styles.lockclosed }>{ checkDate() ? props.t.unlocked : props.t.locked }</span>
         </button>
     );
 }
