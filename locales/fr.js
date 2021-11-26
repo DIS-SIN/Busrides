@@ -58,6 +58,9 @@ const fr = {
     "ToggleGrayscale": "Basculer en niveaux de gris",
     "Open": "Ouvrir",
     "Close": "Fermer",
+    "locked": "Verrouillé",
+    "unlocked": "Déverrouillé",
+    "day":"Jour",
 
     // GCTheme locales
 
