@@ -27,10 +27,10 @@ function Flap(props) {
 
     return (
         
-        <button className={styles.flap} data-day={props.day} onClick={open} >
-            <span class={styles.hiddenday}>Day </span>
-            <span class={styles.day}>{props.day}</span>
-            <span class={ checkDate() ?styles.lockopen:styles.lockclosed }>{checkDate() ? "Unlocked" : "Locked"}</span>
+        <button className={styles.flap} data-day={ props.day } onClick={open} >
+            <span class={ styles.hiddenday }>Day </span>
+            <span class={ styles.day }>{props.day}</span>
+            <span class={ checkDate() ? styles.lockopen : styles.lockclosed }>{ checkDate() ? "Unlocked" : "Locked" }</span>
         </button>
     );
 }
