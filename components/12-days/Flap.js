@@ -28,9 +28,9 @@ function Flap(props) {
     return (
         
         <button className={styles.flap} data-day={ props.day } onClick={open} >
-            <span class={ styles.hiddenday }>Day </span>
-            <span class={ styles.day }>{props.day}</span>
-            <span class={ checkDate() ? styles.lockopen : styles.lockclosed }>{ checkDate() ? "Unlocked" : "Locked" }</span>
+            <span className={ styles.hiddenday }>Day </span>
+            <span className={ styles.day }>{props.day}</span>
+            <span className={ checkDate() ? styles.lockopen : styles.lockclosed }>{ checkDate() ? "Unlocked" : "Locked" }</span>
         </button>
     );
 }
