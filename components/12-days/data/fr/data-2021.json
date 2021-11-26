@@ -10,7 +10,7 @@
     },
     "content": {
         "day_1": {
-            "unlocks_at": "December 2, 2020",
+            "unlocks_at": "December 2, 2021",
             "error_message": {
                 "title": "On ne jette pas un coup d'oeil!",
                 "text": "Revenez le 2 décembre pour voir ce contenu"
@@ -26,7 +26,7 @@
             }
         },
         "day_2": {
-            "unlocks_at": "December 3, 2020",
+            "unlocks_at": "December 3, 2021",
             "error_message": {
                 "title": "Bien essayé",
                 "text": "Une bonne façon de dire \"Revenez le 6 décembre pour voir le contenu.\""
@@ -42,7 +42,7 @@
             }
         },
         "day_3": {
-            "unlocks_at": "December 6, 2020",
+            "unlocks_at": "December 6, 2021",
             "error_message": {
                 "title": "Attendez une petite minute…",
                 "text": "Vous pensiez pouvoir jeter un coup d'oeil? Retournez au travail et revenez le 6 décembre pour voir ce contenu!"
@@ -51,14 +51,14 @@
             "text": "Le saviez-vous?\n\nVous pouvez chercher des données ouvertes qui sont pertinentes aux Canadiens et  Canadiennes, apprendre comment travailler avec les jeux de données, voir ce que les citoyens ont fait avec les données ouvertes dans l’ensemble du pays.",
             "link": {
                 "url": "https://www.rdc-drc.ca/fr/glossaire/glossaire-original/",
-                "image": "https://images.unsplash.com/photo-1453814279372-783dc5b638ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+                "image": "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80",
                 "title": "Glossaire",
                 "description": "Faites-en l’essai en cherchant « contrôle des révisions ».",
                 "domain": "rdc-drc.ca"
             }
         },
         "day_4": {
-            "unlocks_at": "December 7, 2020",
+            "unlocks_at": "December 7, 2021",
             "error_message": {
                 "title": "La patience est une vertue.",
                 "text": "«La patience, ce n’est pas la capacité d’attendre, mais la capacité de garder une bonne attitude en attendant» - Un auteur qui a plus de patience que vous.\n\nRevenez le 7 décembre pour voir ce contenu."
@@ -67,14 +67,14 @@
             "text": "Si vous n’avez jamais entendu parler de la CDGC, préparez vous à être renversés! La CDGC fait partie de l’École de la fonction publique du Canada, et elle offre du soutien dans les cinq domaines suivants :\n\nrassembler et mettre en contact des spécialistes en matière de données de tous les niveaux qui proviennent de différents ministères et organismes;\n\npermettre la création d’occasions d’apprentissage et de perfectionnement professionnel liées aux données;\n\nappuyer l’innovation et la communication entre les communautés de pratique en matière de données;\n\npromouvoir l’assimilation de normes en matière d’éthique et de données, et de pratiques de gouvernance;\n\ncoanimer la Conférence annuelle sur les données.",
             "link": {
                 "url": "https://www.csps-efpc.gc.ca/partnerships/data-community-fra.aspx",
-                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
+                "image": "https://busrides.ghost.io/content/images/2021/04/DA-logo-Ghost--3-.png",
                 "title": "La CDGC",
                 "description": " La communauté des données du GC vise à mettre en contact, à mobiliser et à soutenir les spécialistes en matière de données au gouvernement du Canada, qui sont de plus en plus nombreux.",
                 "domain": "canada.ca"
             }
         },
         "day_5": {
-            "unlocks_at": "December 8, 2020",
+            "unlocks_at": "December 8, 2021",
             "error_message": {
                 "title": "Ceci est un test",
                 "text": "Nous avons testé votre patience… Vous avez échoué!\n\nRevenez le 8 décembre pour voir ce contenu."
@@ -90,7 +90,7 @@
             }
         },
         "day_6": {
-            "unlocks_at": "December 9, 2020",
+            "unlocks_at": "December 9, 2021",
             "error_message": {
                 "title": "Absolument pas de trichage!",
                 "text": "Revenez le 9 décembre et vous aurez peut-être plus de chance!"
@@ -106,7 +106,7 @@
             }
         },
         "day_7": {
-            "unlocks_at": "December 10, 2020",
+            "unlocks_at": "December 10, 2021",
             "error_message": {
                 "title": "Admet le…",
                 "text": "Vous pensiez pouvoir regarder le contenu avant les autres? On dirait que vous avez eu tort!\n\nRevenez le 10 décembre pour voir ce que vous attendre."
@@ -122,7 +122,7 @@
             }
         },
         "day_8": {
-            "unlocks_at": "December 13, 2020",
+            "unlocks_at": "December 13, 2021",
             "error_message": {
                 "title": "N'abandonnez pas!",
                 "text": "N’abandonnez jamais quelque chose que vous voulez vraiment. Il est difficile d’attendre, mais revenez le 13 décembre pour voir le contenu."
@@ -138,7 +138,7 @@
             }
         },
         "day_9": {
-            "unlocks_at": "December 14, 2020",
+            "unlocks_at": "December 14, 2021",
             "error_message": {
                 "title": "La patience:",
                 "text": "Ce que vous n’avez pas!\n\nRevenez le 14 décembre pour voir ce contenu."
@@ -154,7 +154,7 @@
             }
         },
         "day_10": {
-            "unlocks_at": "December 15, 2020",
+            "unlocks_at": "December 15, 2021",
             "error_message": {
                 "title": "Ils disent…",
                 "text": "Le plus vous attendez, le meilleur sera le contenu. Revenez le 15 décembre pour voir si c’est vrai!"
@@ -163,17 +163,17 @@
             "text": "Le répertoire des ressources de l’écosystème des données est un catalogue très utile de ressources en matière de données qui a été créé par et pour des praticiens des données du gouvernement du Canada. Vous y trouverez une foule de renseignements sur les données du gouvernement du Canada, qu’il s’agisse d’une liste des communautés actives ou des directives qui pourraient vous aider dans votre travail.",
             "link": {
                 "url": "https://www.gcpedia.gc.ca/wiki/Data_Ecosystem_Resource_Directory_(DERD)",
-                "image": "https://www.csps-efpc.gc.ca/partnerships/images/lp-eng.png",
+                "image": "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
                 "title": "Le répertoire des ressources de l’écosystème des données",
                 "description": "Vous y trouverez une foule de renseignements sur les données du gouvernement du Canada.",
                 "domain": "gcpedia.gc.ca"
             }
         },
         "day_11": {
-            "unlocks_at": "December 16, 2020",
+            "unlocks_at": "December 16, 2021",
             "error_message": {
                 "title": "On dirait que vous avez du mal à attendre… voici une blague sur les données pour vous retenir!",
-                "text": "Question: Quelle est la différence entre un analyste de données introverti et un analyste extraverti?\n\nRéponse: l'extraverti regarde VOS chaussures.\n\nRevenez le 16 décembre pour voir ce contenu."
+                "text": "Question: Quelle est la devise de la science des données?\n\nRéponse: Si au début vous ne réussissez pas ; appelez ça la version 1.0.\n\nRevenez le 16 décembre pour voir ce contenu."
             },
             "title": "Balados",
             "text": "Écoutez Kaveh Afshar, qui parle de son expérience de travail au bureau principal des données à Environnement et Changement climatique Canada. Il explique comment son équipe est parvenue à aider les gens à régler des problèmes liés aux données à l’aide de connaissances en informatique, en statistiques et en mathématiques.",
@@ -186,19 +186,19 @@
             }
         },
         "day_12": {
-            "unlocks_at": "December 17, 2020",
+            "unlocks_at": "December 17, 2021",
             "error_message": {
                 "title": "Cela en vaudra vraiment la peine!",
                 "text": "Restez forts… ça arrive bientôt! Revenez le 17 décembre pour le dernier jour des 12 jours de données!"
             },
-            "title": "Communauté sur les données",
-            "text": "Le répertoire d’apprentissage automatique de l’Université de Californie à Irvine est une collection de bases de données, de théories des domaines et de générateurs de données qui sont utilisés par la communauté de l’apprentissage automatique. Ce répertoire a été largement utilisé par des étudiants, des enseignants et des chercheurs du monde entier à titre de principale source d’ensemble des données sur l’apprentissage automatique.",
+            "title": "Grasshopper",
+            "text": "Avec Grasshopper, une application de codage gratuite pour débutants, vous pouvez facilement apprendre et comprendre le codage sans aucune expérience préalable. En aussi peu que cinq minutes par jour, vous pouvez compléter des leçons, des quiz et des puzzles visuels pour développer vos compétences en codage. Passez à des niveaux de plus en plus difficiles au fur et à mesure que vous développez vos capacités, puis obtenez votre diplôme avec des compétences fondamentales en programmation pour votre prochaine étape en tant que programmeur.",
             "link": {
-                "url": "https://archive.ics.uci.edu/ml/about.html",
-                "image": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
-                "title": "Le répertoire d’apprentissage automatique de l’Université de Californie à Irvine",
-                "description": "Une collection de bases de données, de théories des domaines et de générateurs de données",
-                "domain": "archive.ics.uci.edu"
+                "url": "https://www.frandroid.com/android/applications/499475_grasshopper-une-application-de-google-pour-apprendre-a-coder-en-javascript",
+                "image": "http://images.frandroid.com/wp-content/uploads/2018/04/grasshopper.jpg",
+                "title": "Grasshopper, une application de Google pour apprendre à coder en JavaScript - Frandroid",
+                "description": "Google a lancé un incubateur connu sous le nom d'Area 120 et permettant à des petits groupes de Googlers de réaliser leurs idées les plus folles.",
+                "domain": "frandroid.com"
             }
         }
     }
