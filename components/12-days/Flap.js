@@ -1,6 +1,4 @@
 import React from 'react';
-import IcomoonReact from "icomoon-react";
-import iconSet from "../icons/selection.json";
 import styles from './Flap.module.css';
 
 function Flap(props) {
@@ -26,11 +24,12 @@ function Flap(props) {
     }
 
     return (
-        
         <button className={ styles.flap } data-day={ props.day } onClick={ open } >
-            <span className={ styles.hiddenday }>{props.t.day } </span>
-            <span className={ styles.day }>{props.day }</span>
-            <span className={ checkDate() ? styles.lockopen : styles.lockclosed }>{ checkDate() ? props.t.unlocked : props.t.locked }</span>
+            <span className={"wb-inv"}> { props.t.day } </span>
+            <span className={ styles.day }>{ props.day }</span>
+            <span className={ checkDate() ? styles.lockopen : styles.lockclosed}>
+                <span className={"wb-inv"}>{ checkDate() ? props.t.unlocked : props.t.locked }</span>
+            </span>
         </button>
     );
 }
