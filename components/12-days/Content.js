@@ -3,17 +3,32 @@ import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from './Link';
 import styles from './Content.module.css';
+import ReactModal from 'react-modal';
+
+ReactModal.setAppElement('body');
+ReactModal.defaultStyles.overlay.backgroundColor = 'transparent';
+ReactModal.defaultStyles.overlay.zIndex = '100';
 
 export default function Content(props) {
-
+    let content;
     const dayContent = props.data.content[`day_${props.day}`];
+
+    function closeModal() {
+        content.style.height = '0';
+        props.openContent(false)
+    }
 
     if (dayContent){
         return (
-            <React.Fragment>
-                <div className={props.contentIsOpen ? styles.contentBackgroundCover : `${styles.contentBackgroundCover} ${styles.hide}`}></div>
-                <div className={props.contentIsOpen ? `${styles.content} ${styles.open}` : styles.content}>
-                    <button className={styles.closeButton} onClick={() => props.openContent(false)} aria-label={props.t.close}>
+            <ReactModal
+                isOpen={props.contentIsOpen}
+                onRequestClose={closeModal}
+                className="Modal"
+                shouldCloseOnEsc={true}
+                closeTimeoutMS={900}
+            >
+                <div className={`${styles.content} ${styles.open}`} ref={(_content) => (content = _content)}>
+                    <button className={styles.closeButton} onClick={closeModal} aria-label={props.t.close}>
                         <IcomoonReact iconSet={iconSet} size={20} icon="close"/>
                     </button>
                     <div className={styles.contentContainer}>
@@ -22,7 +37,7 @@ export default function Content(props) {
                         <Link data={dayContent.link}/>
                     </div>
                 </div>
-            </React.Fragment>
+            </ReactModal>
         );
     }
     return null;
