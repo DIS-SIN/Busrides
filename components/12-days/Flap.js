@@ -1,5 +1,4 @@
 import React from 'react';
-//import colors from './_colors.scss';
 import styles from './Flap.module.scss';
 
 function Flap(props) {
