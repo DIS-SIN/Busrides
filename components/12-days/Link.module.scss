@@ -1,8 +1,8 @@
 @import "./../../themes/_theme";
 
 $link-bg:$near-white;
-$grey-border:$standard-grey;
-$font-color:$black;
+
+
 
 .link {
     background-color: $link-bg;
@@ -48,7 +48,7 @@ $font-color:$black;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $bp-phone) {
 
     .link {
         flex-direction: column;
