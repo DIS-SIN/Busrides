@@ -1,0 +1,71 @@
+@import "./../../themes/_theme";
+
+$link-bg:$near-white;
+$grey-border:$standard-grey;
+$font-color:$black;
+
+.link {
+    background-color: $link-bg;
+    display: flex;
+    position: relative;
+    border:  solid 3px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: $font-color;
+    max-height: 140px;
+    img {
+        width: 15%;
+        min-width: 100px;
+        object-fit: cover;
+        border-radius: 3px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        padding: 20px;
+        box-sizing: border-box;
+        h3 {
+            font-size: 17px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 75%;
+            overflow: hidden;
+            margin: 0;
+        }
+        p {
+            font-size: 15px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 95%;
+            overflow: hidden;
+        }
+        span {
+            font-size: 14px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .link {
+        flex-direction: column;
+        max-height: 275px;
+        img {
+            height: 150px;
+            width: 100%;
+        }
+        div {
+            width: 100%;
+            padding: 12px;
+            h3 {
+                max-width: 100%;
+            }
+            p {
+                max-width: 100%;
+            }
+        }
+    }
+}
