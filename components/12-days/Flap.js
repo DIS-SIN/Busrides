@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Flap.module.css';
+import styles from './Flap.module.scss';
 
 function Flap(props) {
 

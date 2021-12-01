@@ -1,0 +1,84 @@
+@import "./../../themes/_theme";
+
+
+//numbers for each day
+$numbers-color:$dark-bluish-grey;
+//the lock icon color
+$lock-color:$dark-bluish-grey;
+//reverse (white)
+$lock-reverse:$white;
+
+// each card
+.flap {
+    width: 25%;
+    flex-grow: 1;
+    border: solid #99B1BF 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $numbers-color;
+    font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    background-color: rgba(224,233,242,0.75);
+    backdrop-filter: blur(6px);
+
+}
+// mostly the days numbers
+.day{
+    font-size:1em;
+}
+// both locks
+.lockopen,.lockclosed{
+    position:absolute;
+    display:block;
+    width:100%;
+    height:100%;
+    &:before{
+        content:'';
+        display:block;
+        position:absolute;
+        width:1em;
+        height:1em;
+        bottom:0;
+        right:0;
+        background-repeat:no-repeat;
+        background-position:center;
+        border-radius: 50%;
+
+    }
+}
+
+/* ----------LOCK OPEN ICON --------*/
+.lockopen{
+    //icon
+    &:before{
+        background-image: url("data:image/svg+xml, %3Csvg class='Flap_lock__2d6C-' style='fill:#{encodecolor($lock-color)};display:inline-block;vertical-align:middle' width='30' height='30' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M512 725.333c46.933 0 85.333-38.4 85.333-85.333s-38.4-85.333-85.333-85.333-85.333 38.4-85.333 85.333 38.4 85.333 85.333 85.333zM768 341.333h-42.667v-85.333c0-117.76-95.573-213.333-213.333-213.333s-213.333 95.573-213.333 213.333h81.067c0-72.96 59.307-132.267 132.267-132.267s132.267 59.307 132.267 132.267v85.333h-388.267c-46.933 0-85.333 38.4-85.333 85.333v426.667c0 46.933 38.4 85.333 85.333 85.333h512c46.933 0 85.333-38.4 85.333-85.333v-426.667c0-46.933-38.4-85.333-85.333-85.333zM768 853.333h-512v-426.667h512v426.667z'%3E%3C/path%3E%3C/svg%3E");
+    }
+    // hover state
+    &:focus, &:hover{
+        &:before{
+            background-color:$lock-color;    
+            background-image: url("data:image/svg+xml, %3Csvg class='Flap_lock__2d6C-' style='fill:#{encodecolor($lock-reverse)};display:inline-block;vertical-align:middle' width='30' height='30' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M512 725.333c46.933 0 85.333-38.4 85.333-85.333s-38.4-85.333-85.333-85.333-85.333 38.4-85.333 85.333 38.4 85.333 85.333 85.333zM768 341.333h-42.667v-85.333c0-117.76-95.573-213.333-213.333-213.333s-213.333 95.573-213.333 213.333h81.067c0-72.96 59.307-132.267 132.267-132.267s132.267 59.307 132.267 132.267v85.333h-388.267c-46.933 0-85.333 38.4-85.333 85.333v426.667c0 46.933 38.4 85.333 85.333 85.333h512c46.933 0 85.333-38.4 85.333-85.333v-426.667c0-46.933-38.4-85.333-85.333-85.333zM768 853.333h-512v-426.667h512v426.667z'%3E%3C/path%3E%3C/svg%3E");
+        }
+    }
+}
+
+
+/* ----------LOCK CLOSED ICON --------*/
+.lockclosed{
+    //icon
+    &:before{
+        background-image: url("data:image/svg+xml, %3Csvg class='Flap_lock__2d6C-' style='fill:#{encodecolor($lock-color)};display:inline-block;vertical-align:middle;' width='30' height='30' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M768 341.333h-42.667v-85.333c0-117.76-95.573-213.333-213.333-213.333s-213.333 95.573-213.333 213.333v85.333h-42.667c-46.933 0-85.333 38.4-85.333 85.333v426.667c0 46.933 38.4 85.333 85.333 85.333h512c46.933 0 85.333-38.4 85.333-85.333v-426.667c0-46.933-38.4-85.333-85.333-85.333zM512 725.333c-46.933 0-85.333-38.4-85.333-85.333s38.4-85.333 85.333-85.333 85.333 38.4 85.333 85.333-38.4 85.333-85.333 85.333zM644.267 341.333h-264.533v-85.333c0-72.96 59.307-132.267 132.267-132.267s132.267 59.307 132.267 132.267v85.333z'%3E%3C/path%3E%3C/svg%3E");
+    }
+    // hover state
+    &:focus, &:hover{
+        &:before{
+            background-color:$lock-color;  
+            background-image: url("data:image/svg+xml, %3Csvg class='Flap_lock__2d6C-' style='fill:#{encodecolor($lock-reverse)};display:inline-block;vertical-align:middle;' width='30' height='30' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M768 341.333h-42.667v-85.333c0-117.76-95.573-213.333-213.333-213.333s-213.333 95.573-213.333 213.333v85.333h-42.667c-46.933 0-85.333 38.4-85.333 85.333v426.667c0 46.933 38.4 85.333 85.333 85.333h512c46.933 0 85.333-38.4 85.333-85.333v-426.667c0-46.933-38.4-85.333-85.333-85.333zM512 725.333c-46.933 0-85.333-38.4-85.333-85.333s38.4-85.333 85.333-85.333 85.333 38.4 85.333 85.333-38.4 85.333-85.333 85.333zM644.267 341.333h-264.533v-85.333c0-72.96 59.307-132.267 132.267-132.267s132.267 59.307 132.267 132.267v85.333z'%3E%3C/path%3E%3C/svg%3E");
+        }
+    }
+}
