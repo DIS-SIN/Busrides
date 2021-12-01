@@ -2,7 +2,7 @@ import React from 'react';
 import IcomoonReact from "icomoon-react";
 import iconSet from "../icons/selection.json";
 import Link from './Link';
-import styles from './Content.module.css';
+import styles from './Content.module.scss';
 import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('body');
