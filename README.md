@@ -1,4 +1,4 @@
-# Bus-Rides-Ghost-Theme
+# BusRides
 
 [Bus Rides Website](https://busrides.ca/)
 
@@ -20,7 +20,7 @@ $ npm run dev
 
 ### Ghost API
 
-To be continued.
+[Ghost Api Doc](https://ghost.org/docs/content-api/)
 
 ### Components
 
@@ -38,7 +38,7 @@ You can find interface expressions translated into both languages in the locale 
 
 #### Main branches
 
-The main branches have their own names (master and deploy). The legacy Polly branch will likely be deprecated. Those do not 
+The main branches have their own names (master and deploy). The legacy Polly branch will likely be deprecated. Those do not require any naming convention.
 
 #### Quick Task Branches
 
