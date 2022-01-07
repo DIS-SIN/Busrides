@@ -7,6 +7,7 @@ import { initGA, logPageView } from '../helpers/analytics';
 import BrowserWarning from '../components/organisms/BrowserWarning';
 import SnackBar from '../components/molecules/SnackBar';
 import "../components/stylesheets/kg-bookmark.css";
+import "../components/stylesheets/kg-button.css";
 import "../components/stylesheets/styles.css";
 
 // Hide the default spinner to just use the progress bar
@@ -26,12 +27,12 @@ export default function MyApp({ Component, pageProps }) {
             window.GA_INITIALIZED = true;
         }
         logPageView();
-    },[Component]);
+    }, [Component]);
 
     function validateBrowser() {
-        if (pageProps.userAgent){
+        if (pageProps.userAgent) {
             let browser = Bowser.getParser(pageProps.userAgent);
-            if (browser.getBrowserName() === "Internet Explorer"){
+            if (browser.getBrowserName() === "Internet Explorer") {
                 pageProps.browserName = browser.getBrowserName();
                 return false;
             }
@@ -41,11 +42,11 @@ export default function MyApp({ Component, pageProps }) {
 
     return (
         validateBrowser() ?
-        <React.Fragment>
-            <SnackBar {...pageProps}/>
-            <Component {...pageProps} />
-        </React.Fragment>
-        :
-        <BrowserWarning {...pageProps}/>
+            <React.Fragment>
+                <SnackBar {...pageProps} />
+                <Component {...pageProps} />
+            </React.Fragment>
+            :
+            <BrowserWarning {...pageProps} />
     );
 }
