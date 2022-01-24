@@ -111,7 +111,7 @@ const en = {
     "Mobile applications text": "Mobile applications",
     "Mobile applications URL": "https://www.canada.ca/en/mobile.html",
     "About canada.ca text": "About Canada.ca",
-    "About canada.ca URL": "https://www1.canada.ca/en/newsite.html",
+    "About canada.ca URL": "https://www.canada.ca/en/government/about.html",
     "Terms and conditions text": "Terms and conditions",
     "Terms and conditions URL": "https://www.canada.ca/en/transparency/terms.html",
     "Privacy text": "Privacy",
