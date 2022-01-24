@@ -102,7 +102,7 @@ const en = {
     "Government wide reporting URL": "https://www.canada.ca/en/transparency/reporting.html",
     "Prime minister text": "Prime Minister",
     "Prime minister URL": "https://pm.gc.ca/eng",
-    "How government works text": "How government works",
+    "How government works text": "About government",
     "How government works URL": "https://www.canada.ca/en/government/system.html",
     "Open government text": "Open government",
     "Open government URL": "https://open.canada.ca/en/",
