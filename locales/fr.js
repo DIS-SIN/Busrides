@@ -89,7 +89,7 @@ const fr = {
 
     // Footer
     'Contact us text': 'Contactez-nous',
-    'Contact us URL': 'https://www.canada.ca/fr/contact.html',
+    'Contact us URL': 'https://www.csps-efpc.gc.ca/contact_us/index-fra.aspx',
     'Departments and agencies text': 'Ministères et organismes',
     'Departments and agencies URL': 'https://www.canada.ca/fr/gouvernement/min.html',
     'Public service and military text': 'Fonction publique et force militaire',

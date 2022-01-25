@@ -89,7 +89,7 @@ const en = {
     "symbol_of_the_government_of_canada": "Symbol of the Government of Canada",
 
     "Contact us text": "Contact us",
-    "Contact us URL": "https://www.canada.ca/en/contact.html",
+    "Contact us URL": "https://www.csps-efpc.gc.ca/contact_us/index-eng.aspx",
     "Departments and agencies text": "Departments and agencies",
     "Departments and agencies URL": "https://www.canada.ca/en/government/dept.html",
     "Public service and military text": "Public service and military",
