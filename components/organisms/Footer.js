@@ -11,7 +11,7 @@ export default function Footer(props) {
             <div className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p className={styles.row}>
-                        <span>{props.t["Busrides"]} © 2021&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+                        <span>{props.t["Busrides"]} © 2022&nbsp;&nbsp;•&nbsp;&nbsp;</span>
                         <a href={props.t.getAboutDALink} target="_blank" rel="noopener">{props.t["What is the Digital Academy?"]}</a>
                     </p>
                     <a className={styles.row} href={props.t.getDATwitter} aria-label={props.t["Digital Academy Twitter"]} target="_blank" rel="noopener">

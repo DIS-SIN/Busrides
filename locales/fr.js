@@ -15,7 +15,7 @@ const fr = {
     "getTopicSlugs": "[fr-conception, fr-donnees, fr-gouvernement-ouvert, fr-intelligence-artificielle, fr-technologie, fr-transformation-numerique]",
     "Accessibility settings": "Paramètres d'accessibilité",
     "What is the Digital Academy?": "Qu'est-ce que l'Académie du numérique?",
-    "getAboutDALink": "https://csps-efpc.gc.ca/About_us/Business_lines/digitalacademy-eng.aspx",
+    "getAboutDALink": "https://www.csps-efpc.gc.ca/about_us/business_lines/digitalacademy-fra.aspx",
     "getDATwitter": "https://twitter.com/AcademieNumCAN",
     "Digital Academy Twitter": "Académie du numérique Twitter",
     "Subscribe to our newsletter": "Abonnez-vous à notre infolettre",
@@ -89,7 +89,7 @@ const fr = {
 
     // Footer
     'Contact us text': 'Contactez-nous',
-    'Contact us URL': 'https://www.canada.ca/fr/contact.html',
+    'Contact us URL': 'https://www.csps-efpc.gc.ca/contact_us/index-fra.aspx',
     'Departments and agencies text': 'Ministères et organismes',
     'Departments and agencies URL': 'https://www.canada.ca/fr/gouvernement/min.html',
     'Public service and military text': 'Fonction publique et force militaire',
@@ -101,11 +101,11 @@ const fr = {
     'Government wide reporting text': 'Rapports à l\'échelle du gouvernement',
     'Government wide reporting URL': 'https://www.canada.ca/fr/transparence/rapports.html',
     'Prime minister text': 'Premier ministre',
-    'Prime minister URL': 'http://pm.gc.ca/fra',
+    'Prime minister URL': 'http://pm.gc.ca/fr',
     'How government works text': 'Comment le gouvernement fonctionne',
     'How government works URL': 'https://www.canada.ca/fr/gouvernement/systeme.html',
     'Open government text': 'Gouvernement ouvert',
-    'Open government URL': 'http://ouvert.canada.ca/',
+    'Open government URL': 'http://ouvert.canada.ca/fr',
     'Social media text': 'Médias sociaux',
     'Social media URL': 'https://www.canada.ca/fr/sociaux.html',
     'Mobile applications text': 'Applications mobiles',
@@ -115,7 +115,7 @@ const fr = {
     'Terms and conditions text': 'Avis',
     'Terms and conditions URL': 'https://www.canada.ca/fr/transparence/avis.html',
     'Privacy text': 'Confidentialité',
-    'Privacy URL': 'https://www.canada.ca/fr/transparence/confidentialite.html',
+    'Privacy URL': 'https://www.csps-efpc.gc.ca/termsandconditions/index-fra.aspx#pn',
 }
 
 export default fr;
