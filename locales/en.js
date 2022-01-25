@@ -113,7 +113,7 @@ const en = {
     "About canada.ca text": "About Canada.ca",
     "About canada.ca URL": "https://www.canada.ca/en/government/about.html",
     "Terms and conditions text": "Terms and conditions",
-    "Terms and conditions URL": "https://www.canada.ca/en/transparency/terms.html",
+    "Terms and conditions URL": "https://www.csps-efpc.gc.ca/termsandconditions/index-fra.aspx",
     "Privacy text": "Privacy",
     "Privacy URL": "https://www.csps-efpc.gc.ca/termsandconditions/index-eng.aspx#pn",
 }
