@@ -8,4 +8,4 @@ The CSPS Digital Academy has developed and curated a variety of learning product
 
 We know that taking on learning while balancing your busy workload requires a lot of dedication. To guide you through your digital learning journey, we’ve put together an array of online learning products, including self-paced and instructor-led courses, blogs and videos, to help meet your individual learning needs and style.
 
-***Tell us what you think!*** *This learning path is currently in the beta phase of development. We are collecting feedback to find out how we can improve our product. Send us your feedback at: [csps.digitalacademy-academiedunumerique.efpc@canada.ca](mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca).*
+***Tell us what you think!*** *This learning path is currently in the beta phase of development. We are collecting feedback to find out how we can improve our product. Send us your feedback at: [csps.digitalacademy-academienumerique.efpc@csps-efpc.gc.ca](mailto:csps.digitalacademy-academienumerique.efpc@csps-efpc.gc.ca).*
