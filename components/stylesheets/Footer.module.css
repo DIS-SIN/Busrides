@@ -27,7 +27,7 @@
     margin: 0;
 }
 
-.footer a:hover {
+.footer a:hover,.footer a:focus {
     text-decoration: underline !important;
     /* GCWeb theme fix */
     color: white;

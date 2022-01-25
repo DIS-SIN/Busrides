@@ -29,7 +29,7 @@ export default function Home(props) {
                 <div className={styles.promoBar}>
                     <p>
                         {props.t.betaNotice}
-                        <a href="mailto:csps.digitalacademy-academiedunumerique.efpc@canada.ca?subject=Busrides%20Feedback%20%2F%20R%C3%A9troaction%20sur%20Trajets%20en%20bus"> {props.t["Provide feedback"]}</a>
+                        <a href="mailto:csps.digitalacademy-academienumerique.efpc@csps-efpc.gc.ca?subject=Busrides%20Feedback%20%2F%20R%C3%A9troaction%20sur%20Trajets%20en%20bus"> {props.t["Provide feedback"]}</a>
                     </p>
                 </div>
             </Footer>
