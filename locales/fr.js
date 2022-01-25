@@ -115,7 +115,7 @@ const fr = {
     'Terms and conditions text': 'Avis',
     'Terms and conditions URL': 'https://www.canada.ca/fr/transparence/avis.html',
     'Privacy text': 'Confidentialité',
-    'Privacy URL': 'https://www.canada.ca/fr/transparence/confidentialite.html',
+    'Privacy URL': 'https://www.csps-efpc.gc.ca/termsandconditions/index-fra.aspx#pn',
 }
 
 export default fr;

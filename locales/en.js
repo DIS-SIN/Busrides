@@ -115,7 +115,7 @@ const en = {
     "Terms and conditions text": "Terms and conditions",
     "Terms and conditions URL": "https://www.canada.ca/en/transparency/terms.html",
     "Privacy text": "Privacy",
-    "Privacy URL": "https://www.canada.ca/en/transparency/privacy.html",
+    "Privacy URL": "https://www.csps-efpc.gc.ca/termsandconditions/index-eng.aspx#pn",
 }
 
 export default en;
