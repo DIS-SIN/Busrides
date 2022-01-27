@@ -38,7 +38,7 @@ export default function Card(props) {
                             {props.post.primary_tag.name}
                         </a>
                     </Link>
-                    <h2 className={styles.title}>{props.post.title}</h2>
+                    <h2 className={styles.title}><a href="#">{props.post.title}</a></h2>
                     <p className={styles.description}>{props.post.excerpt}</p>
                     <p className={styles.timeStamps}>{getTimeSincePublished()}<span>•</span>{getReadingTime()}</p>
                 </div>
