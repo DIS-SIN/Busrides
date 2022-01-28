@@ -24,14 +24,9 @@ export default function AccessabilityMenu(props) {
         let newContrastLevel = getNewLevel(directionMultiplier, contrastLevel);
         if(newContrastLevel>=20 && newContrastLevel<=180){
             setContrastLevel(newContrastLevel);
+
+            updateFilter(/contrast\(\d*\%\)/g, `contrast(${newContrastLevel}%)`);
         }
-        
-        if(contrastLevel<=20){
-            newContrastLevel=20;
-        }else if(contrastLevel >=180){
-            newContrastLevel=180;
-        }
-        updateFilter(/contrast\(\d*\%\)/g, `contrast(${newContrastLevel}%)`);
     }
 
     function toggleGrayscale(ev) {
