@@ -55,11 +55,12 @@ export default function AccessabilityMenu(props) {
             newFilter = filter + ` ${filterString}`;
         }
         setFilter(newFilter);
-        document.body.style.filter = newFilter;
+        document.body.querySelector('#__next').style.filter = newFilter;
     }
 
     return (
         <Tippy
+        appendTo={() => document.body}
         content={
             <div className={styles.menu}>
                 <div>
