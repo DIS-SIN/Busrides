@@ -22,7 +22,9 @@ export default function AccessabilityMenu(props) {
 
     function contrast(directionMultiplier) {
         let newContrastLevel = getNewLevel(directionMultiplier, contrastLevel);
-        setContrastLevel(newContrastLevel);
+        if(newContrastLevel>=20 && newContrastLevel<=180){
+            setContrastLevel(newContrastLevel);
+        }
         
         if(contrastLevel<=20){
             newContrastLevel=20;
