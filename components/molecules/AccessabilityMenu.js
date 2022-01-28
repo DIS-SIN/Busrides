@@ -22,8 +22,11 @@ export default function AccessabilityMenu(props) {
 
     function contrast(directionMultiplier) {
         let newContrastLevel = getNewLevel(directionMultiplier, contrastLevel);
-        setContrastLevel(newContrastLevel);
-        updateFilter(/contrast\(\d*\%\)/g, `contrast(${newContrastLevel}%)`);
+        if(newContrastLevel>=20 && newContrastLevel<=180){
+            setContrastLevel(newContrastLevel);
+
+            updateFilter(/contrast\(\d*\%\)/g, `contrast(${newContrastLevel}%)`);
+        }
     }
 
     function toggleGrayscale(ev) {
@@ -49,11 +52,12 @@ export default function AccessabilityMenu(props) {
             newFilter = filter + ` ${filterString}`;
         }
         setFilter(newFilter);
-        document.body.style.filter = newFilter;
+        document.body.querySelector('#__next').style.filter = newFilter;
     }
 
     return (
         <Tippy
+        appendTo={() => document.body}
         content={
             <div className={styles.menu}>
                 <div>
