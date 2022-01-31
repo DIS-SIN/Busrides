@@ -1,6 +1,7 @@
 const en = {
     "getURL": "https://busrides-trajetsenbus.csps-efpc.gc.ca/",
     "getLocale": "en",
+    "getLocaleAlpha3": "eng",
     "getOppositeLocale": "fr",
     "getOppositeLocaleFull": "Français",
     "getGhostLocaleTag": "english",
@@ -61,6 +62,10 @@ const en = {
     "locked": "locked",
     "unlocked": "unlocked",
     "day":"Day",
+
+    // Static meta tags.
+    "metaAuthor": "Canada School of Public Service",
+    "metaSubject": "ET Education and Training",
 
     // GCTheme locales
 

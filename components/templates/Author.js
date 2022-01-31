@@ -11,7 +11,7 @@ export default function Author(props) {
 
     return (
         <div>
-            <MetaTags title={props.author.name} description={props.author.bio} image={props.author.profile_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}author/${props.author.slug}`}/>
+            <MetaTags t={props.t} title={props.author.name} description={props.author.bio} image={props.author.profile_image} url={`${props.t.getURL}${props.t.getLocale === "en" ? "" : "fr/"}author/${props.author.slug}`}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.author.cover_image}>
                 <AuthorDetails t={props.t} authorPage authors={[props.author]} numberOfPosts={props.postsMeta.pagination.total}/>
