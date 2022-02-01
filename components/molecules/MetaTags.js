@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+import { cp_t } from "../../helpers/commonProps";
 
 export default function MetaTags(props) {
 
@@ -9,6 +10,14 @@ export default function MetaTags(props) {
             <title>{props.title}</title>
             <meta name="title" content={props.title}/>
             <meta name="description" content={props.description}/>
+            <meta name="author" content={props.t.metaAuthor}/>
+
+            {/* GC tags */}
+            <meta name="dcterms.title" content={props.title}/>
+            <meta name="dcterms.description" content={props.description}/>
+            <meta name="dcterms.language" title="ISO639-2/T" content={props.t.getLocaleAlpha3}/>
+            <meta name="dcterms.creator" content={props.t.metaAuthor}/>
+            <meta name="dcterms.subject" title="scheme" content={props.t.metaSubject}/>
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content="website"/>
@@ -28,8 +37,9 @@ export default function MetaTags(props) {
 }
 
 MetaTags.propTypes = {
+    t: cp_t.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
+    image: PropTypes.string.isRequired,
 };

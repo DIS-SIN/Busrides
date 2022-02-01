@@ -62,6 +62,11 @@ const fr = {
     "unlocked": "Déverrouillé",
     "day":"Jour",
 
+    // Static meta tags.
+    "getLocaleAlpha3": "fra",
+    "metaAuthor": "École de la fonction publique du Canada",
+    "metaSubject": "ET Éducation et formation",
+
     // GCTheme locales
 
     // Header
