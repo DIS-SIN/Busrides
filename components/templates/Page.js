@@ -11,7 +11,7 @@ export default function Page(props) {
 
     return (
         <div>
-            <MetaTags title={props.page.title} description={props.page.excerpt} image={props.page.feature_image} url={props.t.getURL + `${props.t.getLocale}/${props.page.slug}`}/>
+            <MetaTags t={props.t} title={props.page.title} description={props.page.excerpt} image={props.page.feature_image} url={props.t.getURL + `${props.t.getLocale}/${props.page.slug}`}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.page.feature_image}>
                 <h1>{props.page.title}</h1>

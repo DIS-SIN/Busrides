@@ -62,6 +62,11 @@ const en = {
     "unlocked": "unlocked",
     "day":"Day",
 
+    // Static meta tags.
+    "getLocaleAlpha3": "eng",
+    "metaAuthor": "Canada School of Public Service",
+    "metaSubject": "ET Education and Training",
+
     // GCTheme locales
 
     // Header

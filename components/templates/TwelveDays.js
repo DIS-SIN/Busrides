@@ -19,7 +19,7 @@ export default function TwelveDays(props) {
 
     return (
         <React.Fragment>
-            <MetaTags title={props.data.meta.title} description={props.data.meta.description} image={props.data.meta.image} url={props.data.meta.url}/>
+            <MetaTags t={props.t} title={props.data.meta.title} description={props.data.meta.description} image={props.data.meta.image} url={props.data.meta.url}/>
             <Header t={props.t} settings={props.settings}/>
             <div className={styles.header}>
                 <h1>{props.data.title}</h1>

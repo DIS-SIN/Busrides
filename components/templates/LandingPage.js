@@ -20,7 +20,7 @@ export default function LandingPage(props) {
 
     return (
         <div>
-            <MetaTags title={props.title} description={props.description} image={props.image} url={props.url}/>
+            <MetaTags t={props.t} title={props.title} description={props.description} image={props.image} url={props.url}/>
             <Header t={props.t} settings={props.settings}/>
             <Hero backgroundImage={props.image}>
                 <h1>{props.title}</h1>
