@@ -124,7 +124,7 @@ export default function Header(props) {
                 <div className="container">
                     <h2 className="wb-inv">{props.t["Menu"]}</h2>
                     <button type="button" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></button>
-                    <ul role="menu" aria-orientation="vertical" data-ajax-replace={`https://wet-boew.github.io/themes-dist/GCWeb/ajax/sitemenu-v5-${props.t.getLocale}.html`}>
+                    <ul role="menu" aria-orientation="vertical" data-ajax-replace={`https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-${props.t.getLocale}.html`}>
                         {}
                     </ul>
                 </div>
