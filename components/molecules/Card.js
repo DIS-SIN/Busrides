@@ -23,9 +23,20 @@ export default function Card(props) {
         return `${readingTime} min ${props.t["read"]}`;
     }
 
+    function selectCheck(obj){
+        let selection = window.getSelection();
+        if(selection.toString().length > 0){
+            obj.preventDefault();
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     return (
-        <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
-            <div className={styles.card}>
+      <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
+      
+            <div className={styles.card}  onClick={(e) => {selectCheck(e);}}>
                 <div className={styles.image} style={{backgroundImage: `url(${props.post.feature_image})`}}>
                     <Link href={`${props.t.getLocalePath}/author/[slug]`} as={`${props.t.getLocalePath}/author/${props.post.primary_author.slug}`} passHref>
                         <AuthorTippy t={props.t} post={props.post}/>
