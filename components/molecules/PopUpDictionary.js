@@ -57,27 +57,34 @@ export default function PopUpDictionary(props) {
 
     async function getTranslation() {
         let options = {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                'Ocp-Apim-Subscription-Key': "cfe1d8fa97bc4908b8c6294b5fdbbdcb",
-                'Ocp-Apim-Subscription-Region': "canadacentral",
-                'X-ClientTraceId': uuidv4().toString(),
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify([{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
                 'text': textContent
-            }]) // body data type must match "Content-Type" header
+            })
         }
 
-            let trans = await fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${props.t.getLocale}&to=${props.t.getOppositeLocale}`, options);
-            trans = await trans.json();
-            setTranslation(trans[0].translations[0].text);
+        const response = await fetch(`/api/translate?from=${props.t.getLocale}&to=${props.t.getOppositeLocale}`, options);
+
+        if (response.ok) {
+            const trans = await response.json();
+            setTranslation(trans.text);
+        } else {
+            const body = await response.json();
+
+            console.log(JSON.stringify(body))
+        }
+    }
+
+    function translationText(){
+        if (!translation) return null
+
+        return (
+            <React.Fragment>
+                <hr/>
+                <p><b>{props.t.getOppositeLocaleFull}:</b> {translation}</p>
+            </React.Fragment>
+        )
     }
 
     return (
@@ -86,8 +93,7 @@ export default function PopUpDictionary(props) {
             <React.Fragment>
                 <h3>{textContent}</h3>
                 <p>{definition}</p>
-                <hr/>
-                <p><b>{props.t.getOppositeLocaleFull}:</b> {translation}</p>
+                {translationText()}
             </React.Fragment>
         }
         visible={!isCollapsed && timeLeft == 0 && (definition != null || translation != null) && textContent != null && textContent.length <= 500 && textContent.match(/[a-zA-Z]/) != null}>
