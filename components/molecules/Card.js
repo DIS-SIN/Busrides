@@ -25,10 +25,10 @@ export default function Card(props) {
 
     function selectCheck(obj){
         let selection = window.getSelection();
-        if(selection.toString().length > 0){
+        if (selection.toString().length > 0) {
             obj.preventDefault();
             return false;
-        }else{
+        } else {
             return true;
         }
     }
