@@ -34,7 +34,7 @@ export default function Card(props) {
     }
 
     return (
-      <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
+        <Link href={`/${props.t.getLocale}/[slug]`} as={`/${props.t.getLocale}/${props.post.slug}`}>
       
             <div className={styles.card}  onClick={(e) => {selectCheck(e);}}>
                 <div className={styles.image} style={{backgroundImage: `url(${props.post.feature_image})`}}>
