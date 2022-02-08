@@ -86,6 +86,21 @@
     color: var(--card-tag-color);
 }
 
+.cardtitle{
+    color: var(--card-tag-color);
+    text-decoration:none;
+
+}
+
+.cardtitle:visited{
+    color: var(--card-tag-color);
+
+}
+.cardtitle:focus, .cardtitle:hover{
+    text-decoration:underline;
+
+}
+
 .title {
     color: var(--titles-color);
     letter-spacing: 0.4px;
