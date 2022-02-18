@@ -76,6 +76,7 @@ const en = {
     "Search Placeholder"      : "Search",
     "Menu"                    : "Menu",
     "Menu Title"              : "<span class='wb-inv'>Main </span>Menu <span class='expicon glyphicon glyphicon-chevron-down'></span>",
+    "Sign in"                 : "Sign in",
     "You are here"            : "You are here:",
     "Skip to main content"    : "Skip to main content",
     "Skip to about government": "Skip to About Government",

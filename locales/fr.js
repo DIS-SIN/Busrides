@@ -76,6 +76,7 @@ const fr = {
     "Search Placeholder"      : "Rechercher",
     "Menu"                    : "Menu",
     "Menu Title"              : "Menu <span class='wb-inv'> principal</span> <span class='expicon glyphicon glyphicon-chevron-down'></span>",
+    "Sign in"                 : "Se connecter",
     "You are here"            : "Vous êtes ici :",
     "Skip to main content"    : "Passer au contenu principal",
     "Skip to about government": "Passer à « Au sujet du gouvernement »",
