@@ -73,7 +73,7 @@ const fr = {
     "Language Title"          : "Sélection de la langue",
     "Logo Title"              : "Gouvernment du Canada",
     "Search"                  : "Recherche",
-    "Search Placeholder"      : "Rechercher dans Canada.ca",
+    "Search Placeholder"      : "Rechercher",
     "Menu"                    : "Menu",
     "Menu Title"              : "Menu <span class='wb-inv'> principal</span> <span class='expicon glyphicon glyphicon-chevron-down'></span>",
     "You are here"            : "Vous êtes ici :",
