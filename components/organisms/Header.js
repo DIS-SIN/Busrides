@@ -128,7 +128,7 @@ export default function Header(props) {
                         {}
                     </ul>
                     <div className="pull-right">
-                        <a href={`https://csps-efpc.gc.ca/platform/signin-${getLocaleThreeChar()}.aspx`} className={styles.btnlogin+` btn btn-primary`} role="button">{props.t["Sign in"]}</a>
+                        <a href={`https://csps-efpc.gc.ca/platform/signin-${getLocaleThreeChar()}.aspx`} className={`${styles.btnlogin} btn btn-primary`} role="button">{props.t["Sign in"]}</a>
                     </div>
                 </div>
             </nav>
