@@ -11,7 +11,7 @@ export default function Footer(props) {
             {props.children}
             <div id="BottomModifiedDate" className="container pagedetails">
                 <dl id="wb-dtmd">
-                    <dt>Date modified:</dt>
+                    <dt>{props.t["Date modified"]}</dt>
                     <dd><time property="dateModified">2022-02-14</time></dd>
                 </dl>
             </div>

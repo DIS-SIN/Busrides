@@ -87,13 +87,13 @@ const fr = {
     "Learning catalogue"             : "Catalogue d'apprentissage",
     "Learning tools"                 : "Outils d'apprentissage",
     "Blogs"                          : "Blogues",
-
+    // Footer
     'about_government'                  : 'Au sujet du gouvernement',
     'about_this_site'                   : 'Au sujet de ce site',
     'top_of_page'                       : 'Haut de la page',
     'symbol_of_the_government_of_canada': 'Symbole du gouvernement du Canada',
+    "Date modified"                     : "Date de modification : ",
 
-    // Footer
     'Contact us text': 'Contactez-nous',
     'Contact us URL': 'https://www.csps-efpc.gc.ca/contact_us/index-fra.aspx',
     'Departments and agencies text': 'Ministères et organismes',

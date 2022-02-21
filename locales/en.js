@@ -93,6 +93,7 @@ const en = {
     "about_this_site"                   : "About this site",
     "top_of_page"                       : "Top of Page",
     "symbol_of_the_government_of_canada": "Symbol of the Government of Canada",
+    "Date modified"                     : "Date Modified: ",
 
     "Contact us text": "Contact us",
     "Contact us URL": "https://www.csps-efpc.gc.ca/contact_us/index-eng.aspx",
