@@ -5,6 +5,7 @@
     width: 100%;
     padding: 15px 30px 15px 30px;
     box-sizing: border-box;
+    margin-top: 17px;
 }
 
 .headerContent {
@@ -49,6 +50,22 @@
     height: 25px;
     object-fit: contain;
     cursor: pointer;
+}
+
+.btnlogin{
+    background-color: #26374a !important;
+    border: 1px solid #26374a !important;
+    font-weight: 600 !important;
+    font-family: "Lato";
+    font-size: 17px !important;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 8px;
+    margin-right: 15px;
+    border-radius: 0;
+    
 }
 
 .navItem {

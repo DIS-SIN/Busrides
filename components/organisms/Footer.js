@@ -7,8 +7,17 @@ import styles from '../stylesheets/Footer.module.css';
 export default function Footer(props) {
     return (
         <footer id="wb-info">
+           
             {props.children}
+            <div id="BottomModifiedDate" className="container pagedetails">
+                <dl id="wb-dtmd">
+                    <dt>{props.t["Date modified"]}</dt>
+                    <dd><time property="dateModified">2022-02-14</time></dd>
+                </dl>
+            </div>
+
             <div className={styles.footer}>
+                
                 <div className={styles.footerContent}>
                     <p className={styles.row}>
                         <span>{props.t["Busrides"]} © 2022&nbsp;&nbsp;•&nbsp;&nbsp;</span>
