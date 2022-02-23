@@ -73,9 +73,10 @@ const fr = {
     "Language Title"          : "Sélection de la langue",
     "Logo Title"              : "Gouvernment du Canada",
     "Search"                  : "Recherche",
-    "Search Placeholder"      : "Rechercher dans Canada.ca",
+    "Search Placeholder"      : "Rechercher",
     "Menu"                    : "Menu",
     "Menu Title"              : "Menu <span class='wb-inv'> principal</span> <span class='expicon glyphicon glyphicon-chevron-down'></span>",
+    "Sign in"                 : "Se connecter",
     "You are here"            : "Vous êtes ici :",
     "Skip to main content"    : "Passer au contenu principal",
     "Skip to about government": "Passer à « Au sujet du gouvernement »",
@@ -86,13 +87,13 @@ const fr = {
     "Learning catalogue"             : "Catalogue d'apprentissage",
     "Learning tools"                 : "Outils d'apprentissage",
     "Blogs"                          : "Blogues",
-
+    // Footer
     'about_government'                  : 'Au sujet du gouvernement',
     'about_this_site'                   : 'Au sujet de ce site',
     'top_of_page'                       : 'Haut de la page',
     'symbol_of_the_government_of_canada': 'Symbole du gouvernement du Canada',
+    "Date modified"                     : "Date de modification : ",
 
-    // Footer
     'Contact us text': 'Contactez-nous',
     'Contact us URL': 'https://www.csps-efpc.gc.ca/contact_us/index-fra.aspx',
     'Departments and agencies text': 'Ministères et organismes',

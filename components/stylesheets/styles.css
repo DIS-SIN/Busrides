@@ -96,6 +96,10 @@ h2 {
     margin: revert;
 }
 
+footer#wb-info{
+    background-color:transparent;
+}
+
 .tippy-tooltip[data-animation=fade][data-state=hidden] {
     opacity: 0
 }

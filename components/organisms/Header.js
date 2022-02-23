@@ -127,8 +127,12 @@ export default function Header(props) {
                     <ul role="menu" aria-orientation="vertical" data-ajax-replace={`https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-${props.t.getLocale}.html`}>
                         {}
                     </ul>
+                    <div className="pull-right">
+                        <a href={`https://csps-efpc.gc.ca/platform/signin-${getLocaleThreeChar()}.aspx`} className={`${styles.btnlogin} btn btn-primary`} role="button">{props.t["Sign in"]}</a>
+                    </div>
                 </div>
             </nav>
+
             <nav id="wb-bc" property="breadcrumb">
                 <h2>{props.t["You are here"]}</h2>
                 <div className="container">
