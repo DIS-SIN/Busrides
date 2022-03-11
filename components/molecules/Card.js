@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import 'moment/locale/fr';
 import Tippy from '@tippy.js/react'
 import Link from 'next/link';
 import { cp_t, cp_post } from '../../helpers/commonProps';
