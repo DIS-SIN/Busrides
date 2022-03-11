@@ -759,3 +759,7 @@
         height: 450px;
     }
   }
+
+  .postContent summary{
+    font-weight:600;
+  }
