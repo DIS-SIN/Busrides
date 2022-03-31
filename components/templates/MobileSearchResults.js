@@ -28,7 +28,7 @@ export default function MobileSearchResults(props) {
 
     return (
         <div className={styles.mainContainer}>
-            <MetaTags t={props.t} title={`${props.t["Searched"]}: ${searchTerm}`} description={`${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`} image={"/thumbnail.jpg"} url={props.t.getURL + (props.t.getLocale === "en" ? "" : props.t.getLocale + "/" ) + `search/${encodeURI(searchTerm)}`}/>
+            <MetaTags t={props.t} title={`${props.t["Searched"]}: ${searchTerm}`} description={`${props.t["Searched"]}: ${searchTerm}, ${props.t["got"]} ${searchResults.total} ${props.t["results"]}`} image={`${props.t.getURL}thumbnail.jpg`} url={props.t.getURL + (props.t.getLocale === "en" ? "" : props.t.getLocale + "/" ) + `search/${encodeURI(searchTerm)}`}/>
             <Header t={props.t} settings={props.settings} hideSearchBar={true}/>
             <div className={styles.resultsPage}>
 
