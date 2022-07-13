@@ -45,7 +45,7 @@ export default function SnackBar(props) {
 
         return (
             <Snackbar open={showSnackBar} onClose={() => setShowSnackBar(false)} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
-                {snackBarContent &&
+                {snackBarContent && props.locale &&
                     <div className={styles.snackBar}>
                         <p>{snackBarContent.message[props.locale] + " "}
                             <a href={snackBarContent.links[props.locale].link}>{snackBarContent.links[props.locale].label}</a>
