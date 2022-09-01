@@ -7,7 +7,6 @@ import styles from '../stylesheets/Footer.module.css';
 export default function Footer(props) {
     return (
         <footer id="wb-info">
-           
             {props.children}
             <div id="BottomModifiedDate" className="container pagedetails">
                 <dl id="wb-dtmd">
@@ -17,7 +16,6 @@ export default function Footer(props) {
             </div>
 
             <div className={styles.footer}>
-                
                 <div className={styles.footerContent}>
                     <p className={styles.row}>
                         <span>{props.t["Busrides"]} © 2022&nbsp;&nbsp;•&nbsp;&nbsp;</span>
@@ -26,7 +24,7 @@ export default function Footer(props) {
                     <a className={styles.row} href={props.t.getDATwitter} aria-label={props.t["Digital Academy Twitter"]} target="_blank" rel="noopener">
                         <IcomoonReact iconSet={iconSet} size={16} icon="twitter"/>
                     </a>
-                    <a className={styles.row} href="https://da-an.us3.list-manage.com/subscribe?u=9e5810d743bf898c302d3c312&id=bbc8bab3e7" target="_blank" rel="noopener">{props.t["Subscribe to our newsletter"]}</a>
+                    <a className={styles.row} href={props.t["NewsletterLink"]} target="_blank" rel="noopener">{props.t["Subscribe to our newsletter"]}</a>
                 </div>
             </div>
             <div className="landscape">
