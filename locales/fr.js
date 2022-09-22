@@ -50,7 +50,7 @@ const fr = {
     "Learning Paths": "Parcours d’apprentissage de la Série Découverte",
     "learningPathsSlogan": "L'apprentissage dont vous avez besoin, quand et comme vous l'avez besoin.",
     "WTH Series": "C'est quoi ça",
-    "wthSeriesSlogan": "Insérer le slogan ici",
+    "wthSeriesSlogan": "« C’est quoi ça » est une série où nous abordons des sujets numériques tendance.",
     "Videos": "Démos d'outils de données du GC",
     "VideosSlogan": "La bibliothèque de démos d’outils de données du GC est une collection de vidéos de projets de données mettant en évidence les innovations de la communauté des données du GC qui démontrent le pouvoir des données pour informer de meilleures politiques, programmes et opérations.",
     "Grayscale": "Gris",
