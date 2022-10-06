@@ -16,8 +16,6 @@ export default function LandingPage(props) {
     const [postsMeta, setPostsMeta] = useState(props.postsMeta);
     const [apiOptions, setApiOptions] = useState(props.apiOptions);
 
-    console.log(props.settings);
-
     return (
         <div>
             <MetaTags t={props.t} title={props.title} description={props.description} image={props.image} url={props.url}/>

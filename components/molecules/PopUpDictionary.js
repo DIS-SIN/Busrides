@@ -41,6 +41,12 @@ export default function PopUpDictionary(props) {
 
     async function getDefinition() {
         console.log(textContent.trim());
+
+        // custom hardcoded definition for WTH series
+        if (textContent.trim().toLowerCase() === 'wth') {
+            setDefinition('Initialism of what the heck');
+            return;
+        }
         try {
             let def = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/${props.t.getLocale === "en" ? "en_US" : props.t.getLocale}/${textContent.trim()}`);
             def = await def.json();
@@ -62,6 +68,12 @@ export default function PopUpDictionary(props) {
             body: JSON.stringify({
                 'text': textContent
             })
+        }
+
+        // custom hardcoded translation for WTH series
+        if (textContent.trim().toLowerCase() === 'wth') {
+            setTranslation(`C'est quoi ça`);
+            return;
         }
 
         const response = await fetch(`/api/translate?from=${props.t.getLocale}&to=${props.t.getOppositeLocale}`, options);
