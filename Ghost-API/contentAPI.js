@@ -4,7 +4,7 @@ import GhostContentAPI from "@tryghost/content-api";
 const api = new GhostContentAPI({
     url: 'https://busrides.ghost.io',
     key: 'dbc5b6eeac0de80a555116ddf8',
-    version: "v3"
+    version: "v4.0"
 });
 
 export async function getPosts(options) {
