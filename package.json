@@ -24,7 +24,7 @@
     "@material-ui/core": "^4.11.4",
     "@react-hook/window-size": "^3.0.7",
     "@tippy.js/react": "^3.1.1",
-    "@tryghost/content-api": "^1.4.13",
+    "@tryghost/content-api": "^1.11.5",
     "bowser": "^2.10.0",
     "gc-tortilla": "^1.0.3",
     "icomoon-react": "^2.0.16",
