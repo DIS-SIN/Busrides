@@ -122,7 +122,7 @@ const fr = {
 
     "Social media": "Médias sociaux",
     "Mobile applications": "Applications mobiles",
-    "About Canada.ca": "À propos de Canada.caa",
+    "About Canada.ca": "À propos de Canada.ca",
     "Terms and conditions": "Avis",
     "Privacy": "Confidentialité",
 
