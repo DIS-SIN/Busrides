@@ -11,14 +11,14 @@ export default function Footer(props) {
             <div id="BottomModifiedDate" className="container pagedetails">
                 <dl id="wb-dtmd">
                     <dt>{props.t["Date modified"]}</dt>
-                    <dd><time property="dateModified">2022-02-14</time></dd>
+                    <dd><time property="dateModified">2023-03-14</time></dd>
                 </dl>
             </div>
 
             <div className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p className={styles.row}>
-                        <span>{props.t["Busrides"]} © 2022&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+                        <span>{props.t["Busrides"]} © 2023&nbsp;&nbsp;•&nbsp;&nbsp;</span>
                         <a href={props.t.getAboutDALink} target="_blank" rel="noopener">{props.t["What is the Digital Academy?"]}</a>
                     </p>
                     <a className={styles.row} href={props.t.getDATwitter} aria-label={props.t["Digital Academy Twitter"]} target="_blank" rel="noopener">
@@ -27,36 +27,54 @@ export default function Footer(props) {
                     <a className={styles.row} href={props.t["NewsletterLink"]} target="_blank" rel="noopener">{props.t["Subscribe to our newsletter"]}</a>
                 </div>
             </div>
-            <div className="landscape">
-                <nav className="container wb-navcurr">
-                    <h2 className="wb-inv">{props.t["about_government"]}</h2>
-                    <ul className="list-unstyled colcount-sm-2 colcount-md-3">
-                        <li><a href={props.t["Contact us URL"]}>{props.t["Contact us text"]}</a></li>
-                        <li><a href={props.t["Departments and agencies URL"]}>{props.t["Departments and agencies text"]}</a></li>
-                        <li><a href={props.t["Public service and military URL"]}>{props.t["Public service and military text"]}</a></li>
-                        <li><a href={props.t["News URL"]}>{props.t["News text"]}</a></li>
-                        <li><a href={props.t["Treaties laws and regulations URL"]}>{props.t["Treaties laws and regulations text"]}</a></li>
-                        <li><a href={props.t["Government wide reporting URL"]}>{props.t["Government wide reporting text"]}</a></li>
-                        <li><a href={props.t["Prime minister URL"]}>{props.t["Prime minister text"]}</a></li>
-                        <li><a href={props.t["How government works URL"]}>{props.t["How government works text"]}</a></li>
-                        <li><a href={props.t["Open government URL"]}>{props.t["Open government text"]}</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div className={`brand ${styles.brand}`}>
+
+            <h2 className="wb-inv">{props.t["About this site"]}</h2>
+
+            <div className="gc-main-footer">
                 <div className="container">
-                    <div className="row">
-                        <nav className="col-md-9 col-lg-10 ftr-urlt-lnk">
-                            <h2 className="wb-inv">{props.t["about_this_site"]}</h2>
-                            <ul>
-                                <li><a href={props.t["Social media URL"]}>{props.t["Social media text"]}</a></li>
-                                <li><a href={props.t["Mobile applications URL"]}>{props.t["Mobile applications text"]}</a></li>
-                                <li><a href={props.t["About canada.ca URL"]}>{props.t["About canada.ca text"]}</a></li>
-                                <li><a href={props.t["Terms and conditions URL"]}>{props.t["Terms and conditions text"]}</a></li>
-                                <li><a href={props.t["Privacy URL"]}>{props.t["Privacy text"]}</a></li>
-                            </ul>
-                        </nav>
-                        <div className="col-xs-12 col-md-3 col-lg-2 text-right"> <img src="/theme/GCWeb/assets/wmms-blk.svg" alt={props.t["symbol_of_the_government_of_canada"]} /> </div>
+                    <nav>
+                        <h3>{props.t["Government of Canada"]}</h3>
+                        <ul className="list-col-xs-1 list-col-sm-2 list-col-md-3"><li><a href={props.t["contact-url"]}>{props.t["All contacts"]}</a></li>
+                            <li><a href={props.t["dept-url"]}>{props.t["Departments and agencies"]}</a></li>
+                            <li><a href={props.t["system-url"]}>{props.t["About government"]}</a></li>
+                        </ul>
+                        <h4><span className="wb-inv">{props.t["Themes and topics"]}</span></h4>
+                        <ul className="list-unstyled colcount-sm-2 colcount-md-3"><li><a href={props.t["jobs-url"]}>{props.t["Jobs"]}</a></li>
+                            <li><a href={props.t["immigration-citizenship-url"]}>{props.t["Immigration and citizenship"]}</a></li>
+                            <li><a href={props.t["travel-url"]}>{props.t["Travel and tourism"]}</a></li>
+                            <li><a href={props.t["business-url"]}>{props.t["Business"]}</a></li>
+                            <li><a href={props.t["benefits-url"]}>{props.t["Benefits"]}</a></li>
+                            <li><a href={props.t["health-url"]}>{props.t["Health"]}</a></li>
+                            <li><a href={props.t["taxes-url"]}>{props.t["Taxes"]}</a></li>
+                            <li><a href={props.t["environment-url"]}>{props.t["Environment and natural resources"]}</a></li>
+                            <li><a href={props.t["defence-url"]}>{props.t["National security and defence"]}</a></li>
+                            <li><a href={props.t["culture-url"]}>{props.t["Culture, history and sport"]}</a></li>
+                            <li><a href={props.t["policing-url"]}>{props.t["Policing, justice and emergencies"]}</a></li>
+                            <li><a href={props.t["transport-url"]}>{props.t["Transport and infrastructure"]}</a></li>
+                            <li><a href={props.t["world-monde-url"]}>{props.t["Canada and the world"]}</a></li>
+                            <li><a href={props.t["finance-url"]}>{props.t["Money and finance"]}</a></li>
+                            <li><a href={props.t["science-url"]}>{props.t["Science and innovation"]}</a></li>
+                            <li><a href={props.t["indigenous-peoples-url"]}>{props.t["Indigenous peoples"]}</a></li>
+                            <li><a href={props.t["veterans-url"]}>{props.t["Veterans and military"]}</a></li>
+                            <li><a href={props.t["youth-url"]}>{props.t["Youth"]}</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div className="gc-sub-footer">
+                <div className="container d-flex align-items-center">
+                    <nav>
+                        <h3 className="wb-inv">{props.t["Government of Canada Corporate"]}</h3>
+                        <ul>
+                            <li><a href={props.t["social-url"]}>{props.t["Social media"]}</a></li>
+                            <li><a href={props.t["mobile-url"]}>{props.t["Mobile applications"]}</a></li>
+                            <li><a href={props.t["about-url"]}>{props.t["About Canada.ca"]}</a></li>
+                            <li><a href={props.t["terms-url"]}>{props.t["Terms and conditions"]}</a></li>
+                            <li><a href={props.t["privacy-url"]}>{props.t["Privacy"]}</a></li></ul>
+                    </nav>
+                    <div className="wtrmrk align-self-end">
+                        <img src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" alt={props.t["Symbol of the Government of Canada"]} />
                     </div>
                 </div>
             </div>

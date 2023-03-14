@@ -94,6 +94,8 @@ wb.i18nDict = {
 	},
 	pos: "Geçerli pozisyon:",
 	dur: "Toplam zaman:",
+	msgYoutubeNotLoad: "Video encountered loading issues",
+	msgYoutubeVdLoad: "Loading youtube video",
 
 	/* Share widget */
 	"shr-txt": "Paylaş",
@@ -184,6 +186,7 @@ wb.i18nDict = {
 	info1000: ",",
 	lenMenu: "_MENU_ girdileri göster",
 	filter: "Maddeleri filtrele",
+	tbFilterInst: "This table provides a sorting feature via the buttons across the column header row with only one instance visible at a time.",
 
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
@@ -263,7 +266,7 @@ $.extend( $.validator.messages, {
 	email: "Lütfen geçerli bir e-posta adresi giriniz.",
 	url: "Lütfen geçerli bir web adresi (URL) giriniz.",
 	date: "Lütfen geçerli bir tarih giriniz.",
-	dateISO: "Lütfen geçerli bir tarih giriniz(ISO formatında)",
+	dateISO: "Lütfen geçerli bir tarih giriniz(ISO formatında).",
 	number: "Lütfen geçerli bir sayı giriniz.",
 	digits: "Lütfen sadece sayısal karakterler giriniz.",
 	creditcard: "Lütfen geçerli bir kredi kartı giriniz.",

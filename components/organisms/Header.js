@@ -97,12 +97,13 @@ export default function Header(props) {
                             </li>
                         </ul>
                     </section>
-                    <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" resource="#wb-publisher" typeof="GovernmentOrganization">
+                    <div className="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
                         <a href={`https://www.canada.ca/${props.t.getLocale}.html`} property="url">
                             <img src={`/theme/GCWeb/assets/sig-blk-${props.t.getLocale}.svg`} alt={props.t["Logo Title"]} property="logo" /><span className="wb-inv" property="name" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></span>
                         </a>
+                        <meta property="name" content={props.t["Government of Canada"]} />
                         <meta property="areaServed" typeof="Country" content="Canada" />
-                        <link property="logo" href="/theme/GCWeb/assets/wmms-blk.svg" />
+                        <link property="logo" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" />
                     </div>
                     <section id="wb-srch" className="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4">
                         <h2>{props.t["Search"]}</h2>
@@ -120,18 +121,26 @@ export default function Header(props) {
                     </section>
                 </div>
             </div>
-            <nav className="gcweb-menu" typeof="SiteNavigationElement">
-                <div className="container">
-                    <h2 className="wb-inv">{props.t["Menu"]}</h2>
-                    <button type="button" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></button>
-                    <ul role="menu" aria-orientation="vertical" data-ajax-replace={`https://cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-v5-${props.t.getLocale}.html`}>
-                        {}
-                    </ul>
-                    <div className="pull-right">
-                        <a href={`https://csps-efpc.gc.ca/platform/signin-${getLocaleThreeChar()}.aspx`} className={`${styles.btnlogin} btn btn-primary`} role="button">{props.t["Sign in"]}</a>
+            <hr />
+	        <div className="container">
+		        <div className="row">
+                    <div className="col-md-8">
+                        <nav className="gcweb-menu" typeof="SiteNavigationElement">
+                            <h2 className="wb-inv">{props.t["Menu"]}</h2>
+                            <button type="button" aria-haspopup="true" aria-expanded="false" dangerouslySetInnerHTML={{ __html: props.t["Menu Title"] }}></button>
+                            <ul role="menu" aria-orientation="vertical" data-ajax-replace={`https://www.canada.ca/content/dam/canada/sitemenu/sitemenu-v2-${props.t.getLocale}.html`}>
+                                {}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div className="col-xs-6 col-xs-offset-6 col-md-offset-0 col-md-4">
+					    <section id="wb-so">
+	                        <h2 className="wb-inv">{props.t["Sign in"]}</h2>
+                            <a className="btn btn-primary" href={`https://csps-efpc.gc.ca/platform/signin-${getLocaleThreeChar()}.aspx`}>{props.t["Sign in"]}</a>
+                        </section>
                     </div>
                 </div>
-            </nav>
+            </div>
 
             <nav id="wb-bc" property="breadcrumb">
                 <h2>{props.t["You are here"]}</h2>

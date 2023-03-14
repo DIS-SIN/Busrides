@@ -1,14 +1,14 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.47 - 2022-01-31
+ * v4.0.58.1 - 2023-02-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
  * @overview Helper methods for WET
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
- * Credits: http://kaibun.net/blog/2013/04/19/a-fully-fledged-coffeescript-boilerplate-for-jquery-plugins/
+ * Credits: https://web.archive.org/web/20130826230640/http://kaibun.net/blog/2013/04/19/a-fully-fledged-coffeescript-boilerplate-for-jquery-plugins/
  */
 ( function( $, wb ) {
 
@@ -1232,7 +1232,7 @@ wb.date = {
 	fromDateISO: function( dateISO ) {
 		var date = null;
 
-		if ( dateISO && dateISO.match( /\d{4}-\d{2}-\d{2}/ ) ) {
+		if ( dateISO && /\d{4}-\d{2}-\d{2}/.test( dateISO ) ) {
 			date = new Date( dateISO.substr( 0, 4 ), dateISO.substr( 5, 2 ) - 1, dateISO.substr( 8, 2 ), 0, 0, 0, 0 );
 		}
 		return date;
@@ -1256,33 +1256,110 @@ wb.escapeAttribute = function( str ) {
 };
 
 /*
+ * Returns an escaped HTML string
+ */
+wb.escapeHTML = function( str ) {
+	return wb.escapeAttribute( str
+		.replace( /&/g, "&#38;" )
+		.replace( /</g, "&#60;" )
+		.replace( />/g, "&#62;" ) );
+};
+
+/*
+ * Returns a UTF-8 output from Base64
+ * Reference: https://developer.mozilla.org/fr/docs/Glossary/Base64 (To be reviewed later because escape function is deprecated)
+ */
+wb.decodeUTF8Base64 = function( str ) {
+	return decodeURIComponent( escape( atob( str ) ) );
+};
+
+/*
 * Find most common Personal Identifiable Information (PII) in a string and return either the cleaned string either true/false
-* @param {string} str
-* @param {boolean} toClean
+* @param {string} str (required) - the content that needs to be verified
+*
+* @param {boolean} scope - if true will scrub the content
+* @param {object} (optional) the 2nd param (scope) can also be an object having the following properties (optional):
+* 	{string} any key name of the default patterns e.g. email, digits, etc. with the value 1. The function will only scrub the content that match the regex of the default patterns passed in this object
+* 	{regex} customCase - this param is a regex. It will search and replace the values corresponding that pattern
+*
+* @param {object} opts (optional) - the 3rd param of the function that can contain the following properties (optional):
+* 	{boolean} isCustomExclusive - if true, it will scrubb only the custom regex if the regex is the only property of the "scope" object
+* 	{bolean} useFullBlock - if true, it will replace the scrubbed characters with the "█" symbol;
+* 	{string} replaceWith - this string will replace the scrubbed content
+*
+
 * @return {string | true | false}
 * @example
 * wb.findPotentialPII( "email:test@test.com, phone:123 123 1234", true )
 * returns "email:, phone:",
+*
 * wb.findPotentialPII( "email:test@test.com, phone:123 123 1234", false )
 * returns true
+*
+* wb.findPotentialPII( "email:test@test.com, phone:123 123 1234", { email:1 }{ replaceWith: [REDACTED/CAVIARDÉ] } )
+* returns "email:[REDACTED/CAVIARDÉ], phone:123 123 1234"
+*
+* wb.findPotentialPII( "email:test@test.com, phone:123 123 1234, numéro de cas 12345678", { "customCase":/\b(?:case[\s-]?number[\s\-\\.]?(?:\d{5,10}))|(?:numéro[\s-]?de[\s-]?cas[\s\-\\.]?(?:\d{5,10}))/ig }, { useFullBlock:1})
+* returns "phone:████████████, email:█████████████, postalCode:██████, ██████████████████████"
 */
-wb.findPotentialPII = function( str, toClean ) {
-
-	if ( typeof str  !== "string" ) {
+wb.findPotentialPII = function( str, scope, opts ) {
+	if ( str && typeof str  !== "string" ) {
 		return false;
 	}
-	var regEx = [
-			/\b(?:\w*[\s\\.-]*?\d[\s\\.-]*?){5,}\b/ig, //5digits or more pattern
-			/\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig, //postal code pattern
-			/\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig //email pattern
-		],
-		isFound = false;
+	var oRegEx = {
+			digits: /\d(?:[\s\-\\.\\/]?\d){8,}(?!\d)/ig, //9digits or more pattern
+			passport: /\b[A-Za-z]{2}[\s\\.-]*?\d{6}\b/ig, //canadian nr passport pattern
+			email: /\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig, //email pattern
+			postalCode: /\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig, //postal code pattern
+			username: /(?:(username|user)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig,
+			password: /(?:(password|pass)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig
+		},
+		isFound = false,
+		txtMarker = opts && opts.replaceWith ? opts.replaceWith : "",
+		toClean = typeof scope === "object" ? true : scope,
+		arMatchedStr,
+		settings = opts || {},
+		defaultSettings = {
+			isCustomExclusive: false,
+			useFullBlock: false,
+			replaceWith: ""
+		},
+		isFullBlock = settings.useFullBlock || false,
+		validatedScope = typeof scope === "object" ? {} : oRegEx;
+	settings = $.extend( {}, defaultSettings, settings );
 
-	for ( var key in regEx ) {
-		if ( str.match( regEx[ key ] ) ) {
+	if ( Object.keys( validatedScope ).length === 0 ) {
+		if ( settings.isCustomExclusive ) {
+			for ( var key in scope ) {
+				if ( scope[ key ] instanceof RegExp ) {
+					validatedScope[ key ] = scope[ key ];
+				}
+			}
+		} else {
+			if ( Object.keys( scope ).length === 1 && Object.values( scope )[ 0 ] instanceof RegExp ) {
+				validatedScope = oRegEx;
+				validatedScope[ Object.keys( scope )[ 0 ] ] = Object.values( scope )[ 0 ];
+			} else {
+				for ( var keyScope in scope ) {
+					if ( Object.prototype.hasOwnProperty.call( oRegEx, keyScope ) ) {
+						validatedScope [ keyScope ] = oRegEx [ keyScope ];
+					} else {
+						if ( scope[ keyScope ]  instanceof RegExp ) {
+							validatedScope [ keyScope ] = scope [ keyScope ];
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for ( var valKey in validatedScope ) {
+		arMatchedStr = str.match( validatedScope[ valKey ] );
+		if ( arMatchedStr ) {
 			isFound = true;
 			if ( toClean ) {
-				str = str.replaceAll( regEx[ key ], "" );
+				txtMarker = isFullBlock ? "█".repeat( arMatchedStr[ 0 ].length ) : txtMarker;
+				str = str.replaceAll( validatedScope[ valKey ], txtMarker );
 			}
 		}
 	}
@@ -1465,12 +1542,12 @@ var componentName = "wb-addcal",
 					en: {
 						"addcal-addto": "Add to",
 						"addcal-calendar": "calendar",
-						"addcal-ical": "iCal format (iPhone, Outlook...)"
+						"addcal-other": "Other (Outlook, Apple, etc.)"
 					},
 					fr: {
 						"addcal-addto": "Ajouter au",
 						"addcal-calendar": "calendrier",
-						"addcal-ical": "Format iCal (iPhone, Outlook....)"
+						"addcal-other": "Autre (Outlook, Apple, etc.)"
 					}
 				};
 
@@ -1479,7 +1556,7 @@ var componentName = "wb-addcal",
 			i18nDict = {
 				addto: i18nDict[ "addcal-addto" ],
 				calendar: i18nDict[ "addcal-calendar" ],
-				ical: i18nDict[ "addcal-ical" ]
+				ical: i18nDict[ "addcal-other" ]
 			};
 
 			// Set date stamp with the date modified
@@ -1490,6 +1567,8 @@ var componentName = "wb-addcal",
 				prop_cache = properties[ i ];
 				switch ( prop_cache.getAttribute( "property" ) ) {
 				case "name":
+
+					// If the property=name is inside an element with typeof=Place defined
 					if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[typeof=Place]" ).length ) {
 						event_details.placeName = prop_cache.textContent;
 					} else {
@@ -1500,13 +1579,15 @@ var componentName = "wb-addcal",
 					event_details.description = prop_cache.textContent.replace( /(\r\n|\n|\r)/gm, " " );
 					break;
 				case "startDate":
-					event_details.sDate = dtToISOString( $( "time[property='startDate']" ) );
+					event_details.sDate = dtToISOString( $( "time[property='startDate']", $elm ) );
 					break;
 				case "endDate":
-					event_details.eDate = dtToISOString( $( "time[property='endDate']" ) );
+					event_details.eDate = dtToISOString( $( "time[property='endDate']", $elm ) );
 					break;
 				case "location":
-					if ( !prop_cache.getAttribute( "typeof" ) ) {
+
+					// If the location doesn't have typeof defined OR has typeof=VirtualLocation without URL inside.
+					if ( !prop_cache.getAttribute( "typeof" ) || ( prop_cache.getAttribute( "typeof" ) === "VirtualLocation" && !$( prop_cache ).find( "[property=url]" ).length ) ) {
 						event_details.placeName = prop_cache.textContent;
 					}
 					break;
@@ -1521,6 +1602,13 @@ var componentName = "wb-addcal",
 					break;
 				case "postalCode":
 					event_details.placePostalCode = prop_cache.textContent;
+					break;
+				case "url":
+
+					// If the property=url is inside a property=location
+					if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[property=location]" ).length ) {
+						event_details.placeName = prop_cache.textContent;
+					}
 					break;
 				}
 			}
@@ -1550,8 +1638,8 @@ var componentName = "wb-addcal",
 
 			// Create and add details summary to the wb-addcal event and initiate the unordered list
 			$elm.append( "<details class='max-content " + componentName + "-buttons'><summary>" + i18nDict.addto + " " + i18nDict.calendar +
-			"</summary><ul class='list-unstyled mrgn-bttm-0 mrgn-tp-sm'><li><a class='btn btn-link btn-lg mrgn-top-lg' href='" + googleLink.replace( /'/g, "%27" ) + "'>Google<span class='sr-only'>" + i18nDict.calendar + "</span></a></li><li><button class='btn btn-link btn-lg download-ics'>" + i18nDict.ical +
-			"<span class='sr-only'>Calendar</span></button></li></ul></details>" );
+			"</summary><ul class='list-unstyled mrgn-bttm-0'><li><a class='btn btn-link' href='" + googleLink.replace( /'/g, "%27" ) + "' target='_blank' rel='noreferrer noopener'>Google<span class='wb-inv'>" + i18nDict.calendar + "</span></a></li><li><button class='btn btn-link download-ics'>" + i18nDict.ical +
+			"<span class='wb-inv'>Calendar</span></button></li></ul></details>" );
 		}
 
 		wb.ready( $( elm ), componentName );
@@ -1833,12 +1921,14 @@ wb.add( selector );
  */
 var componentName = "wb-calevt",
 	selector = "." + componentName,
+	componentEventName = componentName + "-cal",
+	selectorEvent = "." + componentEventName,
 	initEvent = "wb-init" + selector,
 	evDetails = "ev-details",
 	setFocusEvent = "focus",
 	dataAttr = componentName,
 	$document = wb.doc,
-	i18n, i18nText,
+	hiddenClass = "hidden",
 
 	/**
 	 * @method init
@@ -1854,14 +1944,6 @@ var componentName = "wb-calevt",
 
 		if ( elm ) {
 			$elm = $( elm );
-
-			// Only initialize the i18nText once
-			if ( !i18nText ) {
-				i18n = wb.i18n;
-				i18nText = {
-					calendar: i18n( "cal" )
-				};
-			}
 
 			// Load ajax content
 			$.when.apply( $, $.map( $elm.find( "[data-calevt]" ), getAjax ) )
@@ -1906,7 +1988,7 @@ var componentName = "wb-calevt",
 
 		events = getEvents( $elm );
 		containerId = $elm.data( "calevtSrc" );
-		$container = $( "#" + containerId ).addClass( componentName + "-cal" );
+		$container = $( "#" + containerId ).addClass( componentEventName );
 
 		year = settings.year;
 		month = settings.month;
@@ -1941,8 +2023,6 @@ var componentName = "wb-calevt",
 			events: events.list,
 			$events: $elm
 		} );
-
-		$container.attr( "aria-label", i18nText.calendar );
 	},
 
 	daysBetween = function( dateLow, dateHigh ) {
@@ -1986,15 +2066,16 @@ var componentName = "wb-calevt",
 					}
 				]
 			},
-			objEventsList = obj.find( "ol > li, ul > li" ),
-			iLen = objEventsList.length,
+			objEventsList = obj.find( "ul, ol" ).first(),
+			objEventsListItems = objEventsList.find( "> li:not(.wb-fltr-out)" ),
+			iLen = objEventsListItems.length,
 			dateTimeRegExp = /datetime\s+\{date:\s*(\d+-\d+-\d+)\}/,
 			i, $event, event, $objTitle, title, link, href, target,
 			linkId, date, tCollection, tCollectionTemp,	strDate1,
 			strDate2, z, zLen, className, dateClass;
 
 		for ( i = 0; i !== iLen; i += 1 ) {
-			$event = objEventsList.eq( i );
+			$event = objEventsListItems.eq( i );
 			event = $event[ 0 ];
 			$objTitle = $event.find( "*:header:first" );
 			className = $objTitle.attr( "class" );
@@ -2163,10 +2244,10 @@ var componentName = "wb-calevt",
 
 	filterEvents = function( year, month ) {
 		this.find( "li.cal-disp-onshow" )
-			.addClass( "wb-inv" )
+			.addClass( hiddenClass )
 			.has( ":header[class*=filter-" + year + "-" +
 				wb.string.pad( parseInt( month, 10 ) + 1, 2 ) + "]" )
-			.removeClass( "wb-inv" );
+			.removeClass( hiddenClass );
 	},
 
 	showEvents = function() {
@@ -2190,9 +2271,27 @@ var componentName = "wb-calevt",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb " + initEvent, selector, init );
+$document.on( "timerpoke.wb " + initEvent + " wb-redraw" + selector, selector, function( event ) {
 
-$document.on( "wb-navigate.wb-clndr", ".wb-calevt-cal", function( event ) {
+	var eventType = event.type,
+		$elm = $( "#" + event.target.id ),
+		calendarId = event.currentTarget.dataset.calevtSrc;
+
+	switch ( eventType ) {
+	case "timerpoke":
+	case "wb-init":
+		init( event );
+		break;
+
+	case "wb-redraw":
+		$( "#" + calendarId + " .wb-clndr" ).remove();
+		processEvents( $elm );
+		$elm.trigger( "wb-updated" + selector );
+		break;
+	}
+} );
+
+$document.on( "wb-navigate.wb-clndr", selectorEvent, function( event ) {
 	var lib = event.target.lib,
 		$calEvent;
 
@@ -2208,7 +2307,7 @@ $document.on( "wb-navigate.wb-clndr", ".wb-calevt-cal", function( event ) {
 	}
 } );
 
-$document.on( "focusin focusout keydown", ".wb-calevt-cal .cal-days td > a", function( event ) {
+$document.on( "focusin focusout keydown", selectorEvent + " .cal-evt", function( event ) {
 	var eventType = event.type,
 		$link;
 
@@ -2228,7 +2327,7 @@ $document.on( "focusin focusout keydown", ".wb-calevt-cal .cal-days td > a", fun
 	}
 } );
 
-$document.on( "keydown", ".wb-calevt-cal .cal-days td > ul li", function( event ) {
+$document.on( "keydown", selectorEvent + " td > ul li", function( event ) {
 	var $item = $( event.currentTarget ),
 		$toFocus, $itemParent;
 
@@ -2252,6 +2351,10 @@ $document.on( "keydown", ".wb-calevt-cal .cal-days td > ul li", function( event 
 		$itemParent.trigger( setFocusEvent );
 		break;
 	}
+} );
+
+$document.on( "focusout", selectorEvent + " td > ul", function( event ) {
+	hideEvents.call( event.target );
 } );
 
 // Add the timer poke to initialize the plugin
@@ -2289,25 +2392,27 @@ var i18nText,
 			goToMonth: i18n( "cal-goToMnth" ),
 			dayNames: i18n( "days" ),
 			currDay: i18n( "currDay" ),
-			format: i18n( "cal-format" )
+			format: i18n( "cal-format" ),
+			calendar: i18n( "cal" )
 		};
 
 		textWeekDayNames = i18nText.dayNames;
 		textMonthNames = i18nText.monthNames;
 
-		$calBase = $( "<div class='wb-clndr' role='application'>" +
+		$calBase = $( "<div class='wb-clndr' role='application' aria-label='" + i18nText.calendar + "'>" +
 			"<div class='cal-nav'>" +
+				"<span class='wb-inv current-month' aria-live='polite'></span>" + // Added for screen-readers
 				"<button type='button' class='btn pull-left cal-month-prev'>" +
-					"<span class='glyphicon glyphicon-arrow-left'></span>" +
+					"<span class='glyphicon glyphicon-arrow-left' aria-hidden='true'></span>" +
 					"<span class='wb-inv'>" + i18nText.prevMonth + "<span></span></span>" +
 				"</button>" +
 				"<button type='button' class='btn pull-right cal-month-next'>" +
-					"<span class='glyphicon glyphicon-arrow-right'></span>" +
+					"<span class='glyphicon glyphicon-arrow-right' aria-hidden='true'></span>" +
 					"<span class='wb-inv'>" + i18nText.nextMonth + "<span></span></span>" +
 				"</button>" +
 				"<div class='form-group'>" +
-					"<select title='" + i18nText.goToYear + "' class='cal-year'></select>\n" +
-					"<select title='" + i18nText.goToMonth + "' class='cal-month'>" +
+					"<label><span class='wb-inv'>" + i18nText.goToYear + "</span><select class='cal-year'></select></label>\n" +
+					"<label><span class='wb-inv'>" + i18nText.goToMonth + "</span><select class='cal-month'>" +
 						( function() {
 							var months = "",
 								m;
@@ -2318,18 +2423,18 @@ var i18nText,
 
 							return months;
 						} )() +
-					"</select>" +
+					"</select></label>" +
 				"</div>" +
 			"</div>" +
 			"<table>" +
-				"<thead role='presentation'>" +
+				"<thead>" +
 					"<tr>" +
 						( function() {
 							var days = "",
 								d;
 
 							for ( d = 0; d < 7; d += 1 ) {
-								days += "<th role='columnheader'><abbr title='" + textWeekDayNames[ d ] + "'>" + textWeekDayNames[ d ].substr( 0, 1 ) + "</abbr></th>";
+								days += "<th><abbr title='" + textWeekDayNames[ d ] + "'>" + textWeekDayNames[ d ].substr( 0, 1 ) + "</abbr></th>";
 							}
 
 							return days;
@@ -2395,7 +2500,8 @@ var i18nText,
 			.trigger( {
 				type: navigateEvent,
 				year: this.year,
-				month: this.month
+				month: this.month,
+				initEvent: true
 			} );
 	},
 
@@ -2553,6 +2659,11 @@ $document.on( navigateEvent, selector, function( event ) {
 	}
 
 	createDays( event.currentTarget, event.year, event.month );
+
+	// Added declaration of current month in aria-live="polite" for screen-readers
+	if ( !event.initEvent ) {
+		$calendar.find( ".current-month" ).text( i18nText.monthNames[ month ] + " " + year );
+	}
 } );
 
 $document.on( "change", selector, function( event ) {
@@ -2578,7 +2689,7 @@ $document.on( "change", selector, function( event ) {
 	} );
 } );
 
-$document.on( "click vclick touchstart", ".cal-month-prev, .cal-month-next", function( event ) {
+$document.on( "click", ".cal-month-prev, .cal-month-next", function( event ) {
 	var $calendar = $( event.currentTarget ).closest( selector ),
 		calendar = $calendar.get( 0 ),
 		className = event.currentTarget.className,
@@ -4100,12 +4211,12 @@ var componentName = "wb-ctrycnt",
 
 			// From https://github.com/aFarkas/webshim/blob/master/src/shims/geolocation.js#L89-L127
 			$.ajax( {
-				url: "https://freegeoip.app/json/",
+				url: "https://api.country.is/",
 				dataType: "json",
 				cache: true,
 				success: function( data ) {
 					if ( data ) {
-						countryCode = data.country_code;
+						countryCode = data.country;
 						try {
 							localStorage.setItem( "countryCode", countryCode );
 						} catch ( error ) {
@@ -4375,6 +4486,65 @@ for ( s = 0; s !== selectorsLength; s += 1 ) {
 } )( jQuery, window, wb );
 
 /**
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * @title Data Fusion Query
+ * @overview Map a query parameter value into an input value
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ *
+ */
+( function( document, $, wb ) {
+"use strict";
+
+/**
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = "wb-data-fusion-query",
+	selector = "[data-fusion-query][name]",
+	initEvent = "wb-init." + componentName,
+
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm,
+			inputName,
+			queryParamValue;
+
+		if ( elm ) {
+			$elm = $( elm );
+
+			// Retrieve the query parameter value and set it on the input
+			inputName = $elm.attr( "name" );
+			queryParamValue = wb.pageUrlParts.params[ inputName ];
+			if ( queryParamValue ) {
+				$elm.val( queryParamValue.replace( /\+/g, " " ) );
+			}
+
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+		}
+	};
+
+// Bind the init event of the plugin
+wb.doc.on( "timerpoke.wb " + initEvent, selector, init );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( document, jQuery, wb );
+
+/**
  * @title WET-BOEW Data InView
  * @overview A simplified data-attribute driven plugin that responds to moving in and out of the viewport.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -4465,7 +4635,7 @@ var componentName = "wb-inview",
 		// Link the overlay close button to the dismiss action if the inview content is dismissable
 		if ( $elm.hasClass( "wb-dismissable" ) ) {
 			if ( $dataInView.hasClass( "wb-overlay" ) ) {
-				$dataInView.children( ".overlay-close" ).on( "click vclick", function( event ) {
+				$dataInView.children( ".overlay-close" ).on( "click", function( event ) {
 					var which = event.which;
 
 					// Ignore middle/right mouse buttons
@@ -4878,7 +5048,7 @@ var componentName = "wb-dismissable",
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // Handler for clicking on the dismiss button
-$document.on( "click vclick", "." + dismissClass, function( event ) {
+$document.on( "click", "." + dismissClass, function( event ) {
 	var elm = event.currentTarget,
 		which = event.which;
 
@@ -6191,9 +6361,15 @@ var componentName = "wb-filter",
 
 			totalEntries = $elm.find( ( settings.section || "" ) + " " + settings.selector ).length;
 
-			filterUI = "<div class=\"input-group\"><label for=\"" + inptId + "\" class=\"input-group-addon\"><span class=\"glyphicon glyphicon-filter\" aria-hidden=\"true\"></span> " + i18nText.filter_label + "</label><input id=\"" + inptId + "\" class=\"form-control " + inputClass + "\" data-" + dtNameFltrArea + "=\"" + elm.id + "\" type=\"search\"></div>" + "<p aria-live=\"polite\" id=\"" + elm.id + "-info\">" + infoFormater( totalEntries, totalEntries ) + "</p>";
+			filterUI = $( "<div class=\"input-group\">" +
+				"<label for=\"" + inptId + "\" class=\"input-group-addon\"><span class=\"glyphicon glyphicon-filter\" aria-hidden=\"true\"></span> " + i18nText.filter_label + "</label>" +
+				"<input id=\"" + inptId + "\" class=\"form-control " + inputClass + "\" data-" + dtNameFltrArea + "=\"" + elm.id + "\" aria-controls=\"" + elm.id + "\" type=\"search\">" +
+				"</div>" +
+				"<p aria-live=\"polite\" id=\"" + elm.id + "-info\">" + infoFormater( totalEntries, totalEntries ) + "</p>" );
 
-			if ( prependUI ) {
+			if ( settings.source ) {
+				$( settings.source ).prepend( filterUI );
+			} else if ( prependUI ) {
 				$elm.prepend( filterUI );
 			} else {
 				$elm.before( filterUI );
@@ -6289,7 +6465,7 @@ var componentName = "wb-filter",
 			$item = $items.eq( i );
 			text = unAccent( $item.text() );
 
-			if ( !text.match( searchFilterRegularExp ) ) {
+			if ( !searchFilterRegularExp.test( text ) ) {
 				if ( hndParentSelector ) {
 					$item = $item.parentsUntil( hndParentSelector );
 				}
@@ -6352,6 +6528,7 @@ wb.add( selector );
  */
 var componentName = "wb-fnote",
 	selector = "." + componentName,
+	modFlag = "data-" + componentName,
 	initEvent = "wb-init" + selector,
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
@@ -6386,7 +6563,7 @@ var componentName = "wb-fnote",
 			$elm.find( "dd p.fn-rtn a span span" ).remove();
 
 			// Listen for footnote reference links that get clicked
-			$document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
+			$document.on( "click", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
 				var eventTarget = event.target,
 					which = event.which,
 					refId, $refLinkDest;
@@ -6397,7 +6574,8 @@ var componentName = "wb-fnote",
 					$refLinkDest = $document.find( refId );
 
 					$refLinkDest.find( "p.fn-rtn a" )
-						.attr( "href", "#" + eventTarget.parentNode.id );
+						.attr( "href", "#" + eventTarget.parentNode.id )
+						.attr( modFlag, true );
 
 					// Assign focus to $refLinkDest
 					$refLinkDest.trigger( setFocusEvent );
@@ -6406,21 +6584,39 @@ var componentName = "wb-fnote",
 			} );
 
 			// Listen for footnote return links that get clicked
-			$document.on( "click vclick", selector + " dd p.fn-rtn a", function( event ) {
+			$document.on( "click", selector + " dd p.fn-rtn a", function( event ) {
 				var which = event.which,
+					$elmTarget = $( event.target ),
 					ref,
-					refId;
+					refId,
+					refIdSrc,
+					refIdDashIdx,
+					searchRefId;
 
 				// Ignore middle/right mouse button
 				if ( !which || which === 1 ) {
-					ref = event.target.getAttribute( "href" );
+					ref = $elmTarget.attr( "href" );
 
 					// Focus on associated referrer link (if the return link points to an ID)
 					if ( ref.charAt( 0 ) === "#" ) {
-						refId = "#" + wb.jqEscape( ref.substring( 1 ) );
+						refId = wb.jqEscape( ref.substring( 1 ) );
+
+						// When first clicked, ensure we send the user on the first instance when the id follow the recommend pattern
+						refIdDashIdx = refId.indexOf( "-" );
+						if ( refIdDashIdx !== -1 && !$elmTarget.attr( modFlag ) ) {
+							searchRefId = refId.substring( 0, refIdDashIdx + 1 );
+							refIdSrc = wb.jqEscape( $( "sup[id^='" + searchRefId + "']:first()" ).attr( "id" ) );
+							if ( !refIdSrc || refId !== refIdSrc ) {
+								console.warn( componentName + " - Relink first reference of " + ref + " for #" + refIdSrc );
+								refId = refIdSrc;
+								$elmTarget
+									.attr( "href", "#" + refId )
+									.attr( modFlag, true );
+							}
+						}
 
 						// Assign focus to the link
-						$document.find( refId + " a" ).trigger( setFocusEvent );
+						$document.find( "#" + refId + " a" ).trigger( setFocusEvent );
 						return false;
 					}
 				}
@@ -6534,6 +6730,19 @@ var componentName = "wb-frmvld",
 						summaryHeading = settings.hdLvl,
 						i, len, validator;
 
+					if ( wb.lang === "fr" ) {
+
+						// alphanumeric regex is changed to allow french characters;
+						$.validator.addMethod( "alphanumeric", function( value, element ) {
+							return this.optional( element ) || /^[a-zàâçéèêëîïôûùüÿæœ0-9_]+$/i.test( value );
+						}, "Letters, numbers, and underscores only please." );
+
+						// error french text is adjusted to remove the word "spaces"
+						$.extend( $.validator.messages, {
+							alphanumeric: "Veuillez fournir seulement des lettres, nombres et soulignages."
+						} );
+					}
+
 					// Append the aria-live region (for provide message updates to screen readers)
 					$elm.append( "<div class='arialive wb-inv' aria-live='polite' aria-relevant='all'></div>" );
 
@@ -6542,6 +6751,26 @@ var componentName = "wb-frmvld",
 					for ( i = 0; i !== len; i += 1 ) {
 						labels[ i ].innerHTML += " ";
 					}
+
+					// Hide "required" label text in older forms from screen readers
+					// Prevents redundant "required" announcements on semantically-required fields whose labels mention they're required
+					$form.find( "strong.required:not([aria-hidden='true'])" ).each( function() {
+						const $requiredText = $( this ),
+							$label = $requiredText.closest( "label" ),
+							fieldId = $label.attr( "for" );
+						let $field = fieldId ? $( "#" + fieldId ) : $label.find( ":input" ).first();
+
+						// If the label's field has yet to be found, look for fields that refer to the label via aria-labelledby
+						if ( !$field.length ) {
+							const labelId = $label.attr( "id" ) || $requiredText.closest( "id" );
+							$field = $form.find( "[aria-labelledby~='" + labelId + "']:input" ).first();
+						}
+
+						// Hide the "required" text if its field is semantically-required
+						if ( $field.is( "[required], [aria-required='true']" ) ) {
+							$requiredText.attr( "aria-hidden", "true" );
+						}
+					} );
 
 					// The jQuery validation plug-in in action
 					validator = $form.validate( {
@@ -6760,7 +6989,7 @@ var componentName = "wb-frmvld",
 					} );
 
 					// Clear the form and remove error messages on reset
-					$document.on( "click vclick touchstart", selector + " input[type=reset]", function( event ) {
+					$document.on( "click", selector + " input[type=reset]", function( event ) {
 						var which = event.which,
 							ariaLive;
 
@@ -6872,6 +7101,207 @@ $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
+
+} )( jQuery, wb );
+
+/**
+ * @title WET-BOEW JSON Fetch [ json-fetch ]
+ * @overview Load and filter data from a JSON file
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+/*global jsonpointer */
+( function( $, wb ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var $document = wb.doc,
+	component = "json-fetch",
+	fetchEvent = component + ".wb",
+	jsonCache = { },
+	jsonCacheBacklog = { },
+	completeJsonFetch = function( callerId, refId, response, status, xhr, selector ) {
+		if ( !window.jsonpointer ) {
+
+			// JSON pointer library is loaded but not executed in memory yet, we need to wait a tick before to continue
+			setTimeout( function() {
+				completeJsonFetch( callerId, refId, response, status, xhr, selector );
+			}, 100 );
+			return false;
+		}
+		if ( selector ) {
+			response = jsonpointer.get( response, selector );
+		}
+		$( "#" + callerId ).trigger( {
+			type: "json-fetched.wb",
+			fetch: {
+				response: response,
+				status: status,
+				xhr: xhr,
+				refId: refId
+			}
+		}, this );
+	};
+
+// Event binding
+$document.on( fetchEvent, function( event ) {
+
+	var caller = event.element || event.target,
+		fetchOpts = event.fetch || { url: "" },
+		urlParts = fetchOpts.url.split( "#" ),
+		url = urlParts[ 0 ],
+		fetchNoCache = fetchOpts.nocache,
+		fetchNoCacheKey = fetchOpts.nocachekey || wb.cacheBustKey || "wbCacheBust",
+		fetchNoCacheValue,
+		fetchCacheURL,
+		hashPart,
+		datasetName,
+		selector = urlParts[ 1 ] || false,
+		callerId, refId = fetchOpts.refId,
+		cachedResponse;
+
+	// Filter out any events triggered by descendants
+	if ( caller === event.target || event.currentTarget === event.target ) {
+
+		if ( !caller.id ) {
+			caller.id = wb.getId();
+		}
+		callerId = caller.id;
+
+		if ( selector ) {
+
+			// If a Dataset Name exist let it managed by wb-jsonpatch plugin
+			hashPart = selector.split( "/" );
+			datasetName = hashPart[ 0 ];
+
+			// A dataset name must start with "[" character, if it is a letter, then follow JSON Schema (to be implemented)
+			if ( datasetName.charCodeAt( 0 ) === 91 ) {
+
+				// Let the wb-jsonpatch plugin to manage it
+				$( "#" + callerId ).trigger( {
+					type: "postpone.wb-jsonmanager",
+					postpone: {
+						callerId: callerId,
+						refId: refId,
+						dsname: datasetName,
+						selector: selector.substring( datasetName.length )
+					}
+				} );
+				return;
+			}
+			fetchOpts.url = url;
+		}
+
+		if ( fetchNoCache ) {
+			if ( fetchNoCache === "nocache" ) {
+				fetchNoCacheValue = wb.guid();
+			} else {
+				fetchNoCacheValue = wb.sessionGUID();
+			}
+			fetchCacheURL = fetchNoCacheKey + "=" + fetchNoCacheValue;
+
+			if ( url.indexOf( "?" ) !== -1 ) {
+				url = url + "&" + fetchCacheURL;
+			} else {
+				url = url + "?" + fetchCacheURL;
+			}
+			fetchOpts.url = url;
+		}
+
+		Modernizr.load( {
+			load: "site!deps/jsonpointer" + wb.getMode() + ".js",
+			complete: function() {
+
+				// Ensure this fetch has an URL. There is no URL when only using dataset name (a virtual JSON file).
+				if ( !url ) {
+					return;
+				}
+
+				if ( !fetchOpts.nocache ) {
+					cachedResponse = jsonCache[ url ];
+
+					if ( cachedResponse ) {
+						completeJsonFetch( callerId, refId, cachedResponse, "success", undefined, selector );
+						return;
+					} else {
+						if ( !jsonCacheBacklog[ url ] ) {
+							jsonCacheBacklog[ url ] = [ ];
+						} else {
+							jsonCacheBacklog[ url ].push( {
+								"callerId": callerId,
+								"refId": refId,
+								"selector": selector
+							} );
+							return;
+						}
+					}
+				}
+
+				// Ensure we only receive JSON data and don't allow jsonp
+				// jQuery will raise an error if other data format is received
+				fetchOpts.dataType = "json";
+				if ( fetchOpts.jsonp ) {
+					fetchOpts.jsonp = false;
+				}
+
+				// Sending Data
+				if ( fetchOpts.data ) {
+					try {
+						fetchOpts.data = ( typeof fetchOpts.data === "string" ? fetchOpts.data : JSON.stringify( fetchOpts.data ) );
+					} catch ( err ) {
+						throw "JSON fetch - Data being sent to server - " + err;
+					}
+
+					fetchOpts.method = fetchOpts.method || "POST";
+					fetchOpts.contentType = fetchOpts.contentType || "application/json";
+				}
+
+				$.ajax( fetchOpts )
+					.done( function( response, status, xhr ) {
+						var i, i_len, i_cache, backlog;
+
+						if ( !fetchOpts.nocache ) {
+							try {
+								jsonCache[ url ] = response;
+							} catch ( error ) {
+								return;
+							}
+						}
+
+						completeJsonFetch( callerId, refId, response, status, xhr, selector );
+
+						if ( jsonCacheBacklog[ url ] ) {
+							backlog = jsonCacheBacklog[ url ];
+
+							i_len = backlog.length;
+
+							for ( i = 0; i !== i_len; i += 1 ) {
+								i_cache = backlog[ i ];
+								completeJsonFetch( i_cache.callerId, i_cache.refId, response, status, xhr, i_cache.selector );
+							}
+						}
+
+					} )
+					.fail( function( xhr, status, error ) {
+						$( "#" + callerId ).trigger( {
+							type: "json-failed.wb",
+							fetch: {
+								xhr: xhr,
+								status: status,
+								error: error,
+								refId: refId
+							}
+						}, this );
+					}, this );
+			}
+		} );
+	}
+} );
 
 } )( jQuery, wb );
 
@@ -7021,6 +7451,8 @@ var componentName = "wb-lbx",
 					var $item = this.currItem,
 						$content = this.contentContainer,
 						$wrap = this.wrap,
+						$container = $wrap.find( ".mfp-container" ),
+						$containerParent = $container.parent(),
 						$modal = $wrap.find( ".modal-dialog" ),
 						$buttons = $wrap.find( ".mfp-close, .mfp-arrow" ),
 						len = $buttons.length,
@@ -7044,10 +7476,18 @@ var componentName = "wb-lbx",
 					this.contentContainer.attr( "data-pgtitle", document.getElementsByTagName( "H1" )[ 0 ].textContent );
 
 					trapTabbing( $wrap );
+
+					if ( !$containerParent.is( "dialog" ) ) {
+						$container.wrap( "<dialog class='mfp-container' open='open'></dialog>" );
+					} else {
+						$containerParent.attr( "open", "open" );
+					}
 				},
 				close: function() {
 					$document.find( "body" ).removeClass( "wb-modal" );
 					$document.find( modalHideSelector ).removeAttr( "aria-hidden" );
+					this.wrap.find( "dialog" ).removeAttr( "open" );
+
 				},
 				change: function() {
 					var $item = this.currItem,
@@ -7197,7 +7637,7 @@ var componentName = "wb-lbx",
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // Handler for clicking on a same page link within the overlay to outside the overlay
-$document.on( "click vclick", ".mfp-wrap a[href^='#']", function( event ) {
+$document.on( "click", ".mfp-wrap a[href^='#']", function( event ) {
 	var which = event.which,
 		eventTarget = event.currentTarget,
 		$lightbox, linkTarget;
@@ -7836,13 +8276,12 @@ $document.on( "mouseenter", selector + " .sm", function() {
 } );
 
 // Touchscreen "touches" on menubar items should close the submenu if it is open
-$document.on( "touchstart click", selector + " .item[aria-haspopup=true]", function( event ) {
-	var isTouchstart = event.type === "touchstart",
-		which = event.which,
+$document.on( "click", selector + " .item[aria-haspopup=true]", function( event ) {
+	var which = event.which,
 		$this, $parent;
 
 	// Ignore middle and right mouse buttons
-	if ( isTouchstart || ( !which || which === 1 ) ) {
+	if ( !which || which === 1 ) {
 		event.preventDefault();
 		$this = $( this );
 		$parent = $this.parent();
@@ -7850,10 +8289,6 @@ $document.on( "touchstart click", selector + " .item[aria-haspopup=true]", funct
 		// Open the submenu if it is closed
 		if ( !$parent.hasClass( "sm-open" ) ) {
 			$this.trigger( "focusin" );
-
-		// Close the open submenu for a touch event
-		} else if ( isTouchstart ) {
-			menuClose( $parent, true );
 		}
 	}
 } );
@@ -7891,12 +8326,12 @@ $document.on( "click", selector + " [role=menu] [aria-haspopup=true]", function(
 } );
 
 // Clicks and touches outside of menus should close any open menus
-$document.on( "click touchstart", function( event ) {
+$document.on( "click", function( event ) {
 	var $openMenus,
 		which = event.which;
 
 	// Ignore middle and right mouse buttons
-	if ( event.type === "touchstart" || ( !which || which === 1 ) ) {
+	if ( event.type === "" || ( !which || which === 1 ) ) {
 		$openMenus = $( selector + " .sm-open" );
 		if ( $openMenus.length !== 0 &&
 			$( event.target ).closest( selector ).length === 0 ) {
@@ -8806,7 +9241,8 @@ $document.on( initializedEvent, selector, function( event ) {
 			}, i18nText ),
 			media = $media.get( 0 ),
 			youTube = window.youTube,
-			url;
+			url,
+			i18n = wb.i18n;
 
 		if ( $media.attr( "id" ) === undef ) {
 			$media.attr( "id", mId );
@@ -8836,19 +9272,51 @@ $document.on( initializedEvent, selector, function( event ) {
 
 			// finally lets load safely
 			return Modernizr.load( {
-				load: "https://www.youtube.com/iframe_api"
+				load: "https://www.youtube.com/iframe_api",
+
+				//possible solution for multimedia and doaction conflict in corporate network
+				complete: function() {
+
+					// Ensure that Youtube API is loading the iframe and if it fails, ensure that it will show a message, like accessing the web via our GC network.
+					setTimeout( function() {
+						var resources, arrIframesYt, $notifText;
+
+						resources = window.performance.getEntriesByType( "resource" );
+
+						/* get all the iframe initiators that have the same YT url id */
+						arrIframesYt  = resources.filter( function( obj ) {
+
+							return obj.initiatorType === "iframe" && obj.name.includes( data.youTubeId );
+
+						} );
+
+
+						/* if none found, most probably wb is loaded in restricted network so wb.ready() is triggered for not preventing other wb components to load*/
+						if ( arrIframesYt.length < 1 ) {
+							if ( !wb.isReady ) {
+
+								// show the video notification error
+								$notifText = $( "<div aria-live='polite' class='pstn-lft-xs bg-dark text-white'><p class='mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md'>" + i18n( "msgYoutubeNotLoad" ) + "</p></div>" );
+								$this.prepend( $notifText );
+								data.notifyText = $notifText;
+								wb.ready( $this, componentName );
+							}
+						}
+					}, 1000 );
+
+				}
 			} );
 
 		} else if ( media.error === null && media.currentSrc !== "" && media.currentSrc !== undef ) {
 			$this.trigger( renderUIEvent, [ type, data ] );
+
+			// Identify that initialization has completed
+			wb.ready( $this, componentName );
 		} else {
 
 			// Do nothing since IE8 support is no longer required
 			return;
 		}
-
-		// Identify that initialization has completed
-		wb.ready( $this, componentName );
 	}
 } );
 
@@ -8875,8 +9343,14 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 			},
 			events: {
 				onReady: function( event ) {
+					if ( data.notifyText ) {
+						data.notifyText.hide();
+					}
 					onResize();
 					youTubeEvents( event );
+					if ( !wb.isReady ) {
+						wb.ready( $this, componentName );
+					}
 				},
 				onStateChange: youTubeEvents,
 				onApiChange: function() {
@@ -8884,6 +9358,9 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 					//If captions were enabled before the module was ready, re-enable them
 					var t = $this.get( 0 );
 					t.player( "setCaptionsVisible", t.player( "getCaptionsVisible" ) );
+				},
+				onError: function() {
+					console.warn( "There is an issue loading the Youtube player" );
 				}
 			}
 		} );
@@ -8987,19 +9464,19 @@ $document.on( "click", selector, function( event ) {
 	// Optimized multiple class tests to include child glyphicon because Safari was reporting the click event
 	// from the child span not the parent button, forcing us to have to check for both elements
 	// JSPerf for multiple class matching https://jsperf.com/hasclass-vs-is-stackoverflow/7
-	if ( className.match( /playpause|-play|-pause|display/ ) || $target.is( "object" ) || $target.is( "video" ) ) {
+	if (  /playpause|-play|-pause|display/.test( className ) || $target.is( "object" ) || $target.is( "video" ) ) {
 		this.player( "getPaused" ) || this.player( "getEnded" ) ? this.player( "play" ) : this.player( "pause" );
-	} else if ( className.match( /(^|\s)cc\b|-subtitles/ ) && !$target.attr( "disabled" ) && !$target.parent().attr( "disabled" ) ) {
+	} else if ( /(^|\s)cc\b|-subtitles/.test( className ) && !$target.attr( "disabled" ) && !$target.parent().attr( "disabled" ) ) {
 		this.player( "setCaptionsVisible", !this.player( "getCaptionsVisible" ) );
-	} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
+	} else if ( /\bmute\b|-volume-(up|off)/.test( className ) ) {
 		this.player( "setMuted", !this.player( "getMuted" ) );
 	} else if ( $target.is( "progress" ) || $target.hasClass( "progress" ) || $target.hasClass( "progress-bar" ) ) {
 		this.player( "setCurrentTime", this.player( "getDuration" ) * ( ( event.pageX - $target.offset().left ) / $target.width() ) );
-	} else if ( className.match( /\brewind\b|-backward/ ) ) {
+	} else if ( /\brewind\b|-backward/.test( className ) ) {
 		this.player( "setCurrentTime", this.player( "getCurrentTime" ) - this.player( "getDuration" ) * 0.05 );
-	} else if ( className.match( /\bfastforward\b|-forward/ ) ) {
+	} else if ( /\bfastforward\b|-forward/.test( className ) ) {
 		this.player( "setCurrentTime", this.player( "getCurrentTime" ) + this.player( "getDuration" ) * 0.05 );
-	} else if ( className.match( /cuepoint/ ) ) {
+	} else if ( className.includes( "cuepoint" ) ) {
 		$( this ).trigger( { type: "cuepoint", cuepoint: $target.data( "cuepoint" ) } );
 	}
 } );
@@ -9524,6 +10001,7 @@ var componentName = "wb-overlay",
 
 		$overlay
 			.addClass( "open" )
+			.attr( "role", "dialog" )
 			.attr( "aria-hidden", "false" );
 
 		if ( $overlay.hasClass( "wb-popup-full" ) || $overlay.hasClass( "wb-popup-mid" ) ) {
@@ -9554,6 +10032,7 @@ var componentName = "wb-overlay",
 
 		$overlay
 			.removeClass( "open" )
+			.removeAttr( "role" )
 			.attr( "aria-hidden", "true" );
 
 		if ( $overlay.hasClass( "wb-popup-full" ) || $overlay.hasClass( "wb-popup-mid" ) ) {
@@ -9637,7 +10116,7 @@ $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
 } );
 
 // Handler for clicking on the close button of the overlay
-$document.on( "click vclick", "." + closeClass, function( event ) {
+$document.on( "click", "." + closeClass, function( event ) {
 	var which = event.which;
 
 	// Ignore if not initialized and middle/right mouse buttons
@@ -9651,7 +10130,7 @@ $document.on( "click vclick", "." + closeClass, function( event ) {
 } );
 
 // Handler for clicking on a source link for the overlay
-$document.on( "click vclick keydown", "." + linkClass, function( event ) {
+$document.on( "click keydown", "." + linkClass, function( event ) {
 	var which = event.which,
 		sourceLink = event.currentTarget,
 		overlayId = sourceLink.hash.substring( 1 );
@@ -9673,7 +10152,7 @@ $document.on( "click vclick keydown", "." + linkClass, function( event ) {
 } );
 
 // Handler for clicking on a same page link within the overlay to outside the overlay
-$document.on( "click vclick", selector + " a[href^='#']", function( event ) {
+$document.on( "click", selector + " a[href^='#']", function( event ) {
 	var which = event.which,
 		eventTarget = event.target,
 		href, overlay, linkTarget;
@@ -9702,7 +10181,7 @@ $document.on( "click vclick", selector + " a[href^='#']", function( event ) {
 } );
 
 // Outside activity detection
-$document.on( "click vclick touchstart focusin", "body", function( event ) {
+$document.on( "click focusin", "body", function( event ) {
 	var eventTarget = event.target,
 		which = event.which,
 		overlayId, overlay;
@@ -10899,6 +11378,7 @@ var componentName = "wb-steps",
 
 		// set default attributes
 		control.className = ( type === "prev" ? "btn btn-md btn-default" : "btn btn-md btn-primary" ) + " " + style;
+		control.setAttribute( "type", "button" );
 		control.innerHTML = text;
 
 		return control;
@@ -11127,7 +11607,7 @@ $document.on( "draw.dt", selector, function( event, settings ) {
 	$elm.find( "th" ).each( function( index ) {
 		var $th = $( this ),
 			$btn = $th.find( "button" );
-		if ( order && order[ 0 ][ 0 ] === index ) {
+		if ( order && order.length && order[ 0 ][ 0 ] === index ) {
 			var label = ( order[ 0 ][ 1 ] === "desc" ) ? i18nText.aria.sortAscending : i18nText.aria.sortDescending;
 			label = $btn.text() + label;
 			$btn.attr( "title", label );
@@ -11206,9 +11686,10 @@ $document.on( "init.dt", function( event ) {
 		$elm.find( "th" ).each( function() {
 			var $th = $( this ),
 				label = ( $th.attr( "aria-sort" ) === "ascending" ) ? i18nText.aria.sortDescending : i18nText.aria.sortAscending;
-
-			$th.html( "<button type='button' class='sorting-cnt' aria-controls='" + $th.attr( "aria-controls" ) +  "' title='" + $th.text().replace( /'/g, "&#39;" ) + label + "'>" + $th.html() + " <span class='sorting-icons' aria-hidden='true'></span></button>" );
-			$th.removeAttr( "aria-label tabindex aria-controls" );
+			if ( $th.attr( "data-orderable" ) !== "false" ) {
+				$th.html( "<button type='button' aria-controls='" + $th.attr( "aria-controls" ) +  "' title='" + $th.text().replace( /'/g, "&#39;" ) + label + "'>" + $th.html() + "<span class='sorting-cnt'><span class='sorting-icons' aria-hidden='true'></span></span></button>" );
+				$th.removeAttr( "aria-label tabindex aria-controls" );
+			}
 		} );
 		$elm.attr( "aria-label", i18nText.tblFilterInstruction );
 	}
@@ -11235,7 +11716,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 		};
 
 	// Lets reset the search
-	$datatable.search( "" ).columns().search( "" ).draw();
+	$datatable.search( "" ).columns().search( "" );
 
 	// Lets loop throug all options
 	var $prevCol = -1, $cachedVal = "";
@@ -11266,17 +11747,17 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 		if ( $elm.is( "select" ) ) {
 			$value = $elm.find( "option:selected" ).val();
 		} else if ( $elm.is( "input[type='number']" ) ) {
-			var $minNum, $maxNum;
+			var $minNum, $maxNum = null;
 
 			// Retain minimum number (always the first number input)
 			if ( $cachedVal === "" ) {
 				$cachedVal = parseFloat( $val );
 				$cachedVal = ( $cachedVal ) ? $cachedVal : "-0";
+			} else {
+				$maxNum = parseFloat( $val );
+				$maxNum = ( $maxNum ) ? $maxNum : "-0";
 			}
 			$minNum = $cachedVal;
-
-			// Maximum number is always the current selected number
-			$maxNum = parseFloat( $val );
 
 			//Number filtering logic needs to be reviewed in order to remove the "-0" value (issue #9235)
 			// Generates a list of numbers (within the min and max number)
@@ -11286,15 +11767,21 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 
 					if ( !isNaN( $num ) ) {
 						if ( $aoType === "and" ) {
-							if ( $cachedVal !== $maxNum && $cachedVal !== "-0" && $num >= $minNum && $num <= $maxNum ) {
+							if ( $cachedVal !== $maxNum && $cachedVal !== "-0" && $maxNum !== "0" && $num >= $minNum && $num <= $maxNum ) {
 								return true;
 							}
 						} else {
-							if ( $cachedVal === $maxNum && $num >= $minNum ) {
+							if ( $maxNum === null ) { // only one input number
+								return $minNum === "-0" || $minNum === $num;
+							} else if ( $maxNum === $cachedVal && $cachedVal === "-0" ) { // both are empty
 								return true;
-							} else if ( $cachedVal === "-0" && $num <= $maxNum ) {
+							} else if ( $maxNum !== "-0" && $minNum === $maxNum && $num === $maxNum ) { // min and max are the same
 								return true;
-							} else if ( $cachedVal !== "-0" && $num >= $minNum && $num <= $maxNum ) {
+							} else if ( $maxNum === "-0" && $num >= $minNum ) { // max number is missing
+								return true;
+							} else if ( $cachedVal === "-0" && $num <= $maxNum ) { // min number is missing
+								return true;
+							} else if ( $cachedVal !== "-0" && $num >= $minNum && $num <= $maxNum ) { // min and max are present
 								return true;
 							}
 						}
@@ -11387,10 +11874,10 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 				$regex = "(" + $value + ")";
 			}
 
-			$datatable.column( $column ).search( $regex, true ).draw();
+			$datatable.column( $column ).search( $regex, true );
 		}
 	} );
-
+	$datatable.draw();
 	return false;
 } );
 
@@ -11403,10 +11890,8 @@ $document.on( "click", ".wb-tables-filter [type='reset']", function( event ) {
 	$datatable.search( "" ).columns().search( "" ).draw();
 
 	$form.find( "select" ).prop( "selectedIndex", 0 );
-	$form.find( "input:checkbox" ).prop( "checked", false );
-	$form.find( "input:radio" ).prop( "checked", false );
-	$form.find( "input[type=date]" ).val( "" );
-
+	$form.find( "input:checkbox, input:radio" ).prop( "checked", false );
+	$form.find( ":input" ).not( ":button, :submit, :reset, :hidden, :checkbox, :radio" ).val( "" );
 	return false;
 } );
 
@@ -12589,7 +13074,7 @@ var componentName = "wb-toggle",
 					// Check if the element is toggled on based on the
 					// open attribute or "on" CSS class
 					isOpen = elm.nodeName.toLowerCase() === "details" ?
-						!!elm.getAttribute( "open" ) :
+						!!elm.hasAttribute( "open" ) :
 						( " " + tab.className + " " ).indexOf( " " + data.stateOn + " " );
 					if ( isOpen ) {
 						hasOpen = true;
@@ -13069,6 +13554,517 @@ wb.add( selector );
 } )( jQuery, window, wb );
 
 /**
+ * @title WET-BOEW Data Json [data-json-after], [data-json-append],
+ * [data-json-before], [data-json-prepend], [data-json-replace], [data-json-replacewith] and [data-wb-json]
+ * @overview Insert content extracted from JSON file.
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+/*global jsonpointer */
+( function( $, window, wb ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = "wb-data-json",
+	shortName = "wb-json",
+	selectors = [
+		"[data-json-after]",
+		"[data-json-append]",
+		"[data-json-before]",
+		"[data-json-prepend]",
+		"[data-json-replace]",
+		"[data-json-replacewith]",
+		"[data-" + shortName + "]"
+	],
+	allowJsonTypes = [ "after", "append", "before", "prepend", "val" ],
+	allowAttrNames = /(href|src|data-*|aria-*|role|pattern|min|max|step|low|high|lang|hreflang|action)/,
+	allowPropNames = /(checked|selected|disabled|required|readonly|multiple|hidden)/,
+	selectorsLength = selectors.length,
+	selector = selectors.join( "," ),
+	initEvent = "wb-init." + componentName,
+	updateEvent = "wb-update." + componentName,
+	contentUpdatedEvent = "wb-contentupdated",
+	dataQueue = componentName + "-queue",
+	$document = wb.doc,
+	s,
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 * @param {string} ajaxType The type of JSON operation, either after, append, before or replace
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm;
+
+		if ( elm ) {
+
+			var jsonCoreTypes = [
+					"before",
+					"replace",
+					"replacewith",
+					"after",
+					"append",
+					"prepend"
+				],
+				jsonType, jsondata,
+				i, i_len = jsonCoreTypes.length, i_cache,
+				lstCall = [],
+				url;
+
+			$elm = $( elm );
+
+			for ( i = 0; i !== i_len; i += 1 ) {
+				jsonType = jsonCoreTypes[ i ];
+				url = elm.getAttribute( "data-json-" + jsonType );
+				if ( url !== null ) {
+					lstCall.push( {
+						type: jsonType,
+						url: url
+					} );
+				}
+			}
+
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+
+			jsondata = wb.getData( $elm, shortName );
+
+			if ( jsondata && jsondata.url ) {
+				lstCall.push( jsondata );
+			} else if ( jsondata && $.isArray( jsondata ) ) {
+				i_len = jsondata.length;
+				for ( i = 0; i !== i_len; i += 1 ) {
+					lstCall.push( jsondata[ i ] );
+				}
+			}
+
+			// Save it to the dataJSON object.
+			$elm.data( dataQueue, lstCall );
+
+			i_len = lstCall.length;
+			for ( i = 0; i !== i_len; i += 1 ) {
+				i_cache = lstCall[ i ];
+				loadJSON( elm, i_cache.url, i, i_cache.nocache, i_cache.nocachekey, i_cache.data, i_cache.contenttype, i_cache.method );
+			}
+
+		}
+	},
+
+	loadJSON = function( elm, url, refId, nocache, nocachekey, data, contentType, method ) {
+		var $elm = $( elm ),
+			fetchObj = {
+				url: url,
+				refId: refId,
+				nocache: nocache,
+				nocachekey: nocachekey,
+				data: data,
+				contentType: contentType,
+				method: method
+			};
+
+		$elm.trigger( {
+			type: "json-fetch.wb",
+			fetch: fetchObj
+		} );
+	},
+
+
+	// Manage JSON value After the json data has been fetched. This function can deal with array.
+	jsonFetched = function( event ) {
+
+		var elm = event.target,
+			$elm = $( elm ),
+			lstCall = $elm.data( dataQueue ),
+			fetchObj = event.fetch,
+			itmSettings = lstCall[ fetchObj.refId ],
+			jsonType = itmSettings.type,
+			attrname = itmSettings.prop || itmSettings.attr,
+			showEmpty = itmSettings.showempty,
+			content = fetchObj.response,
+			typeOfContent = typeof content,
+			jQueryCaching;
+
+		if ( showEmpty || typeOfContent !== "undefined" ) {
+
+			if ( showEmpty && typeOfContent === "undefined" ) {
+				content = "";
+			}
+
+			//Prevents the force caching of nested resources
+			jQueryCaching = jQuery.ajaxSettings.cache;
+			jQuery.ajaxSettings.cache = true;
+
+			// "replace" and "replaceWith" doesn't map to a jQuery function
+			if ( !jsonType ) {
+				jsonType = "template";
+				applyTemplate( elm, itmSettings, content );
+
+				// Trigger wet
+				if ( itmSettings.trigger ) {
+					$elm
+						.find( wb.allSelectors )
+						.addClass( "wb-init" )
+						.filter( ":not(#" + elm.id + " .wb-init .wb-init)" )
+						.trigger( "timerpoke.wb" );
+				}
+			} else if ( jsonType === "replace" ) {
+				$elm.html( content );
+			} else if ( jsonType === "replacewith" ) {
+				$elm.replaceWith( content );
+			} else if ( jsonType === "addclass" ) {
+				$elm.addClass( content );
+			} else if ( jsonType === "removeclass" ) {
+				$elm.removeClass( content );
+			} else if ( jsonType === "prop" && attrname && allowPropNames.test( attrname ) ) {
+				$elm.prop( attrname, content );
+			} else if ( jsonType === "attr" && attrname && allowAttrNames.test( attrname ) ) {
+				$elm.attr( attrname, content );
+			} else if ( typeof $elm[ jsonType ] === "function" && allowJsonTypes.indexOf( jsonType ) !== -1 ) {
+				$elm[ jsonType ]( content );
+			} else {
+				throw componentName + " do not support type: " + jsonType;
+			}
+
+			//Resets the initial jQuery caching setting
+			jQuery.ajaxSettings.cache = jQueryCaching;
+
+			$elm.trigger( contentUpdatedEvent, { "json-type": jsonType, "content": content } );
+		}
+	},
+
+	// Apply the template as per the configuration
+	applyTemplate = function( elm, settings, content ) {
+
+		var mapping = settings.mapping || [ {} ],
+			mapping_len,
+			filterTrueness = settings.filter || [],
+			filterFaslseness = settings.filternot || [],
+			queryAll = settings.queryall,
+			i, i_len, i_cache,
+			j, j_cache, j_cache_attr,
+			basePntr,
+			clone, selElements,
+			cached_node,
+			cached_textContent,
+			cached_value,
+			selectorToClone = settings.tobeclone,
+			elmClass = elm.className,
+			elmAppendTo = elm,
+			dataTable,
+			dataTableAddRow,
+			template = settings.source ? document.querySelector( settings.source ) : elm.querySelector( "template" );
+
+		// If combined with wb-tables plugin
+		if ( elm.tagName === "TABLE" && elmClass.indexOf( "wb-tables" ) !== -1 ) {
+
+			//  Wait for its initialization before to applyTemplate
+			if ( elmClass.indexOf( "wb-tables-inited" ) === -1 ) {
+				$( elm ).one( "wb-ready.wb-tables,init.dt", function( ) {
+					applyTemplate( elm, settings, content );
+				} );
+				return;
+			}
+
+			// Edge case, when both plugin are ready at the same time, just wait for the next tick
+			if ( !$.fn.dataTable.isDataTable( elm ) && elmClass.indexOf( componentName + "-dtwait" ) === -1 ) {
+				elm.classList.add( componentName + "-dtwait" );
+				setTimeout( function( ) {
+					applyTemplate( elm, settings, content );
+				}, 50 );
+				return;
+			}
+
+			dataTable = $( elm ).dataTable( { "retrieve": true } ).api();
+			dataTableAddRow = dataTable.row.add;
+			selectorToClone = "tr"; // Only table row can be added
+		}
+
+		if ( !$.isArray( content ) ) {
+			if ( typeof content !== "object" ) {
+				content = [ content ];
+			} else {
+				content = $.map( content, function( val, index ) {
+					if ( typeof val === "object" && !$.isArray( val ) ) {
+						if ( !val[ "@id" ] ) {
+							val[ "@id" ] = index;
+						}
+					} else {
+						val = {
+							"@id": index,
+							"@value": val
+						};
+					}
+					return [ val ];
+				} );
+			}
+		}
+		i_len = content.length;
+
+		if ( !$.isArray( mapping ) ) {
+			mapping = [ mapping ];
+		}
+		mapping_len = mapping.length;
+
+		if ( !template ) {
+			return;
+		}
+
+		// Needed when executing sub-template that wasn't polyfill, like in IE11
+		if ( !template.content ) {
+			wb.tmplPolyfill( template );
+		}
+
+		if ( settings.appendto ) {
+			elmAppendTo = $( settings.appendto ).get( 0 );
+		}
+
+		for ( i = 0; i < i_len; i += 1 ) {
+			i_cache = content[ i ];
+
+			if ( filterPassJSON( i_cache, filterTrueness, filterFaslseness ) ) {
+
+				basePntr = "/" + i;
+
+				if ( !selectorToClone ) {
+					clone = template.content.cloneNode( true );
+				} else {
+					clone = template.content.querySelector( selectorToClone ).cloneNode( true );
+				}
+
+				if ( queryAll ) {
+					selElements = clone.querySelectorAll( queryAll );
+				}
+
+				for ( j = 0; j < mapping_len || j === 0; j += 1 ) {
+					j_cache = mapping[ j ];
+
+					// Get the node used to insert content
+					if ( selElements ) {
+						cached_node = selElements[ j ];
+					} else if ( j_cache.selector ) {
+						cached_node = clone.querySelector( j_cache.selector );
+					} else {
+						cached_node = clone;
+					}
+					j_cache_attr = j_cache.attr;
+					if ( j_cache_attr ) {
+						if ( !cached_node.hasAttribute( j_cache_attr ) ) {
+							cached_node.setAttribute( j_cache_attr, "" );
+						}
+						cached_node = cached_node.getAttributeNode( j_cache_attr );
+					}
+
+					// Get the value
+					if ( typeof i_cache === "string" ) {
+						cached_value = i_cache;
+					} else if ( typeof j_cache === "string" ) {
+						cached_value = jsonpointer.get( content, basePntr + j_cache );
+					} else {
+						cached_value = jsonpointer.get( content, basePntr + j_cache.value );
+					}
+
+					// Placeholder text replacement if any
+					if ( j_cache.placeholder ) {
+						cached_textContent = cached_node.textContent || "";
+						cached_value = cached_textContent.replace( j_cache.placeholder, cached_value );
+					}
+
+					// Set the value to the node
+					if ( j_cache.isHTML ) {
+						cached_node.innerHTML = cached_value;
+					} else if ( $.isArray( cached_value ) || cached_value && !( cached_value instanceof String ) && typeof cached_value === "object" ) {
+						applyTemplate( cached_node, j_cache, cached_value );
+					} else {
+						cached_node.textContent = cached_value;
+					}
+				}
+
+				if ( dataTableAddRow ) {
+
+					// If wb-tables, use its API to add rows
+					dataTableAddRow( $( clone ) );
+				} else {
+					elmAppendTo.appendChild( clone );
+				}
+			}
+		}
+
+		// Refresh the dataTable display
+		if ( dataTableAddRow ) {
+			dataTable.draw();
+		}
+	},
+
+	// Filtering a JSON
+	// Return true if trueness && falseness
+	// Return false if !( trueness && falseness )
+	// trueness and falseness is an array of { "path": "", "value": "" } object
+	filterPassJSON = function( obj, trueness, falseness ) {
+		var i, i_cache,
+			trueness_len = trueness.length,
+			falseness_len = falseness.length,
+			compareResult = false,
+			isEqual;
+
+		if ( trueness_len || falseness_len ) {
+
+			for ( i = 0; i < trueness_len; i += 1 ) {
+				i_cache = trueness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( i_cache.optional ) {
+					compareResult = compareResult || isEqual;
+				} else if ( !isEqual ) {
+					return false;
+				} else {
+					compareResult = true;
+				}
+			}
+			if ( trueness_len && !compareResult ) {
+				return false;
+			}
+
+			for ( i = 0; i < falseness_len; i += 1 ) {
+				i_cache = falseness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( isEqual && !i_cache.optional || isEqual && i_cache.optional ) {
+					return false;
+				}
+			}
+
+		}
+		return true;
+	},
+
+	//
+	_equalsJSON = function( a, b ) {
+		switch ( typeof a ) {
+		case "undefined":
+			return false;
+		case "boolean":
+		case "string":
+		case "number":
+			return a === b;
+		case "object":
+			if ( a === null ) {
+				return b === null;
+			}
+			var i, l;
+			if ( $.isArray( a ) ) {
+				if (  $.isArray( b ) || a.length !== b.length ) {
+					return false;
+				}
+				for ( i = 0, l = a.length; i < l; i++ ) {
+					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+						return false;
+					}
+				}
+				return true;
+			}
+			var bKeys = _objectKeys( b ),
+				bLength = bKeys.length;
+			if ( _objectKeys( a ).length !== bLength ) {
+				return false;
+			}
+			for ( i = 0; i < bLength; i++ ) {
+				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		default:
+			return false;
+		}
+	},
+	_objectKeys = function( obj ) {
+		var keys;
+		if ( $.isArray( obj ) ) {
+			keys = new Array( obj.length );
+			for ( var k = 0; k < keys.length; k++ ) {
+				keys[ k ] = "" + k;
+			}
+			return keys;
+		}
+		if ( Object.keys ) {
+			return Object.keys( obj );
+		}
+		keys = [];
+		for ( var i in obj ) {
+			if ( Object.prototype.hasOwnProperty.call( obj, i ) ) {
+				keys.push( i );
+			}
+		}
+		return keys;
+	},
+
+	// Manage JSON value After the json data has been fetched
+	jsonUpdate = function( event ) {
+		var elm = event.target,
+			$elm = $( elm ),
+			lstCall = $elm.data( dataQueue ),
+			refId = lstCall.length,
+			wbJsonConfig = event[ "wb-json" ];
+
+		if ( !( wbJsonConfig.url && ( wbJsonConfig.type || wbJsonConfig.source ) ) ) {
+			throw "Data JSON update not configured properly";
+		}
+
+		lstCall.push( wbJsonConfig );
+		$elm.data( dataQueue, lstCall );
+
+		loadJSON( elm, wbJsonConfig.url, refId );
+	};
+
+$document.on( "json-failed.wb", selector, function( ) {
+	throw "Bad JSON Fetched from url in " + componentName;
+} );
+
+// Load template polyfill
+Modernizr.load( {
+	test: ( "content" in document.createElement( "template" ) ),
+	nope: "site!deps/template" + wb.getMode() + ".js"
+} );
+
+$document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " json-fetched.wb", selector, function( event ) {
+
+	if ( event.currentTarget === event.target ) {
+		switch ( event.type ) {
+
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
+		case "wb-update":
+			jsonUpdate( event );
+			break;
+		default:
+			jsonFetched( event );
+			break;
+		}
+	}
+
+	return true;
+} );
+
+// Add the timerpoke to initialize the plugin
+for ( s = 0; s !== selectorsLength; s += 1 ) {
+	wb.add( selectors[ s ] );
+}
+
+} )( jQuery, window, wb );
+
+/**
  * @title WET-BOEW Disable Event
  * @overview Event creates the active offer for users that have disabled the event.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -13104,7 +14100,9 @@ var componentName = "wb-disable",
 			noticeHeader = i18n( "disable-notice-h" ),
 			noticeBody = i18n( "disable-notice" ),
 			noticehtml = "<section",
-			noticehtmlend = "</a>.</p></section>";
+			noticehtmlend = "</a>.</p></section>",
+			canonicalUrl,
+			canonicalLink;
 
 		if ( elm ) {
 
@@ -13128,9 +14126,28 @@ var componentName = "wb-disable",
 						/* swallow error */
 					}
 
+					// Add canonical link if not already present
+					if ( !document.querySelector( "link[rel=canonical]" ) ) {
+
+						// Remove wbdisable from URL
+						canonicalUrl = window.location.href.replace( /&?wbdisable=true/gi, "" ).replace( "?&", "?" ).replace( "?#", "#" );
+
+						if ( canonicalUrl.indexOf( "?" ) === ( canonicalUrl.length - 1 ) ) {
+							canonicalUrl = canonicalUrl.replace( "?", "" );
+						}
+
+						canonicalLink = document.createElement( "link" );
+						canonicalLink.rel = "canonical";
+						canonicalLink.href = canonicalUrl;
+
+						document.head.appendChild( canonicalLink );
+					}
+
 					// Add notice and link to re-enable WET plugins and polyfills
-					noticehtml = noticehtml + " class='container-fluid bg-warning text-center mrgn-tp-sm py-4'><h2 class='mrgn-tp-0'>" + noticeHeader + "</h2><p>" + noticeBody + "</p><p><a rel='alternate' property='significantLink' href='" + nQuery + "wbdisable=false'>" + i18n( "wb-enable" ) + noticehtmlend;
+					let significantLinkId = wb.getId();
+					noticehtml = noticehtml + " class='container-fluid bg-warning text-center mrgn-tp-sm py-4'><h2 class='mrgn-tp-0'>" + noticeHeader + "</h2><p>" + noticeBody + "</p><p><a id='" + significantLinkId + "' rel='alternate' href='" + nQuery + "wbdisable=false'>" + i18n( "wb-enable" ) + noticehtmlend;
 					$( elm ).after( noticehtml );
+					document.querySelector( "#" + significantLinkId ).setAttribute( "property", "significantLink" );
 					return true;
 				} else {
 					$html.addClass( "wb-enable" );
@@ -13184,7 +14201,7 @@ wb.add( selector );
 
 var $document = wb.doc,
 	$window = wb.win,
-	clickEvents = "click vclick",
+	clickEvents = "click",
 	setFocusEvent = "setfocus.wb",
 	linkSelector = "a[href]",
 	$linkTarget,
@@ -13269,6 +14286,922 @@ $document.on( clickEvents, linkSelector, function( event ) {
 } );
 
 } )( jQuery, wb );
+
+/**
+ * @title WET-BOEW JSON Manager
+ * @overview Manage JSON dataset, execute JSON patch operation.
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+/*global jsonpointer, jsonpatch */
+( function( $, window, wb ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = "wb-jsonmanager",
+	selector = "[data-" + componentName + "]",
+	initEvent = "wb-init." + componentName,
+	postponeEvent = "postpone." + componentName,
+	patchesEvent = "patches." + componentName,
+	jsonFailedClass = "jsonfail",
+	reloadFlag = "data-" + componentName + "-reload",
+	dsNameRegistered = [],
+	datasetCache = {},
+	datasetCacheSettings = {},
+	dsDelayed = {},
+	dsPostponePatches = {},
+	$document = wb.doc,
+	defaults = {
+		ops: [
+			{
+				name: "wb-count",
+				fn: function( obj, key, tree ) {
+					var countme = obj[ key ],
+						len = 0, i_len, i,
+						filter = this.filter || [ ],
+						filternot = this.filternot || [ ];
+
+					if ( !$.isArray( filter ) ) {
+						filter = [ filter ];
+					}
+					if ( !$.isArray( filternot ) ) {
+						filternot = [ filternot ];
+					}
+
+					if ( ( filter.length || filternot.length ) && $.isArray( countme ) ) {
+
+						// Iterate in obj[key] / item and check if is true for the given path is any.
+						i_len = countme.length;
+
+						for ( i = 0; i !== i_len; i = i + 1 ) {
+							if ( filterPassJSON( countme[ i ], filter, filternot ) ) {
+								len = len + 1;
+							}
+						}
+					} else if ( $.isArray( countme ) ) {
+						len = countme.length;
+					}
+					jsonpatch.apply( tree, [
+						{ op: "add", path: this.set, value: len }
+					] );
+				}
+			},
+			{
+				name: "wb-first",
+				fn: function( obj, key, tree ) {
+					var currObj = obj[ key ];
+					if ( !$.isArray( currObj ) || currObj.length === 0 ) {
+						return;
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "add", path: this.set, value: currObj[ 0 ] }
+					] );
+				}
+			},
+			{
+				name: "wb-last",
+				fn: function( obj, key, tree ) {
+					var currObj = obj[ key ];
+					if ( !$.isArray( currObj ) || currObj.length === 0 ) {
+						return;
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "add", path: this.set, value: currObj[ currObj.length - 1 ] }
+					] );
+				}
+			},
+			{
+				name: "wb-nbtolocal",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ],
+						loc = this.locale || window.wb.lang,
+						suffix = this.suffix || "",
+						prefix = this.prefix || "";
+
+					if ( typeof val === "string" ) {
+						val = parseFloat( val );
+						if ( isNaN( val ) ) {
+							return;
+						}
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "replace", path: this.path, value: prefix + val.toLocaleString( loc ) + suffix  }
+					] );
+				}
+			},
+			{
+				name: "wb-decodeUTF8Base64",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ];
+
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.decodeUTF8Base64( val ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.decodeUTF8Base64( val ) }
+						] );
+					}
+				}
+			},
+			{
+				name: "wb-escapeHTML",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ];
+
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.escapeHTML( val ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.escapeHTML( val ) }
+						] );
+					}
+				}
+			},
+			{
+				name: "wb-toDateISO",
+				fn: function( obj, key, tree ) {
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.date.toDateISO( obj[ key ] ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.date.toDateISO( obj[ key ] ) }
+						] );
+					}
+				}
+			},
+			{
+				name: "wb-toDateTimeISO",
+				fn: function( obj, key, tree ) {
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.date.toDateISO( obj[ key ], true ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.date.toDateISO( obj[ key ], true ) }
+						] );
+					}
+				}
+			}
+		],
+		opsArray: [
+			{
+				name: "wb-toDateISO",
+				fn: function( arr )  {
+					var setval = this.set,
+						pathval = this.path,
+						i, i_len = arr.length;
+					for ( i = 0; i !== i_len; i += 1 ) {
+						if ( setval ) {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateISO", set: "/" + i + setval, path: "/" + i + pathval }
+							] );
+						} else {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateISO", path: "/" + i + pathval }
+							] );
+						}
+					}
+				}
+			},
+			{
+				name: "wb-toDateTimeISO",
+				fn: function( arr ) {
+					var setval = this.set,
+						pathval = this.path,
+						i, i_len = arr.length;
+					for ( i = 0; i !== i_len; i += 1 ) {
+						if ( setval ) {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateTimeISO", set: "/" + i + setval, path: "/" + i + pathval }
+							] );
+						} else {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateTimeISO", path: "/" + i + pathval }
+							] );
+						}
+					}
+				}
+			}
+		],
+		opsRoot: [],
+		settings: { },
+		docMapKeys: { "referer": document.referrer, "locationHref": location.href }
+	},
+
+	// Add debug information after the JSON manager element
+	debugPrintOut = function( $elm, name, json, patches ) {
+		$elm.after( "<p lang=\"en\"><strong>JSON Manager Debug</strong> (" +  name + ")</p><ul lang=\"en\"><li>JSON: <pre><code>" + JSON.stringify( json ) + "</code></pre></li><li>Patches: <pre><code>" + JSON.stringify( patches ) + "</code></pre>" );
+		console.log( json );
+	},
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm,
+			jsSettings = window[ componentName ] || { },
+			ops, opsArray, opsRoot,
+			i, i_len, i_cache,
+			url, dsName;
+
+		if ( elm ) {
+			$elm = $( elm );
+
+			// Load handlebars
+			Modernizr.load( {
+
+				// For loading multiple dependencies
+				load: [
+					"site!deps/json-patch" + wb.getMode() + ".js",
+					"site!deps/jsonpointer" + wb.getMode() + ".js"
+				],
+				testReady: function() {
+					return window.jsonpatch && window.jsonpointer;
+				},
+				complete: function() {
+					var elmData = wb.getData( $elm, componentName );
+
+					if ( !defaults.registered ) {
+						ops = defaults.ops.concat( jsSettings.ops || [ ] );
+						opsArray = defaults.opsArray.concat( jsSettings.opsArray || [ ] );
+						opsRoot = defaults.opsRoot.concat( jsSettings.opsRoot || [ ] );
+
+						if ( ops.length ) {
+							for ( i = 0, i_len = ops.length; i !== i_len; i++ ) {
+								i_cache = ops[ i ];
+								jsonpatch.registerOps( i_cache.name, i_cache.fn );
+							}
+						}
+						if ( opsArray.length ) {
+							for ( i = 0, i_len = opsArray.length; i !== i_len; i++ ) {
+								i_cache = opsArray[ i ];
+								jsonpatch.registerOpsArray( i_cache.name, i_cache.fn );
+							}
+						}
+						if ( opsRoot.length ) {
+							for ( i = 0, i_len = opsRoot.length; i !== i_len; i++ ) {
+								i_cache = opsRoot[ i ];
+								jsonpatch.registerOpsRoot( i_cache.name, i_cache.fn );
+							}
+						}
+						defaults.settings = $.extend( {}, defaults.settings, jsSettings.settings || {} );
+						defaults.registered = true;
+					}
+
+					dsName = elmData.name;
+					if ( !dsName || dsName in dsNameRegistered ) {
+						throw "Dataset name must be unique";
+					}
+					dsNameRegistered.push( dsName );
+
+					url = elmData.url;
+
+					if ( url ) {
+
+						// Fetch the JSON
+						$elm.trigger( {
+							type: "json-fetch.wb",
+							fetch: {
+								url: url,
+								nocache: elmData.nocache,
+								nocachekey: elmData.nocachekey,
+								data: elmData.data,
+								contentType: elmData.contenttype,
+								method: elmData.method
+							}
+						} );
+
+						// If the URL is a dataset, make it ready
+						if ( url.charCodeAt( 0 ) === 35 && url.charCodeAt( 1 ) === 91 ) {
+							wb.ready( $elm, componentName );
+						}
+					} else if ( !url && elmData.extractor ) {
+						$elm.trigger( {
+							type: "json-fetched.wb",
+							fetch: {
+								response: {}
+							}
+						} );
+						wb.ready( $elm, componentName );
+
+					} else {
+
+						$elm.trigger( {
+							type: "json-fetch.wb"
+						} );
+						wb.ready( $elm, componentName );
+					}
+
+				}
+			} );
+		}
+	},
+	extractData = function( elmObj ) {
+
+		var isGroup = false,
+			selectedTag,
+			targetTag,
+			lastIndex = [],
+			j_tag = "",
+			group = {},
+			arrMap = [],
+			node_children = [],
+			j_node = 0,
+			arrRepeatPath = [],
+			combineToObj = function( cur_obj ) {
+				if ( cur_obj.selector === j_tag ) {
+					if ( !lastIndex.includes( j_tag ) ) {
+						group[ cur_obj.path ] = cur_obj.attr && node_children[ j_node ].getAttributeNode( cur_obj.attr ) ?
+							node_children[ j_node ].getAttributeNode( cur_obj.attr ).textContent :
+							node_children[ j_node ].textContent;
+						lastIndex.push( j_tag );
+					}
+				}
+			},
+			manageObjDir = function( selector, selectedValue, json_return ) {
+				var arrPath = selector.path.split( "/" ).filter( Boolean );
+				if ( arrPath.length > 1 ) {
+					var pointer = "";
+					pointer = arrPath.pop();
+
+					if ( arrPath[ 0 ] && arrPath[ 0 ] !== "" ) {
+
+						if ( !json_return[ arrPath[ 0 ] ] && !arrRepeatPath.includes( arrPath[ 0 ] ) ) {
+							arrRepeatPath.push( arrPath[ 0 ] );
+							json_return[ arrPath[ 0 ] ] = {};
+						}
+						if ( selector.selectAll && !json_return[ arrPath[ 0 ] ] [ pointer ]  ) {
+							json_return[ arrPath[ 0 ] ] [ pointer ] = [];
+						}
+						if ( selector.selectAll ) {
+							json_return[ arrPath[ 0 ] ] [ pointer ].push( selectedValue );
+						} else {
+							json_return[ arrPath[ 0 ] ] [ pointer ] = selectedValue;
+						}
+
+					} else {
+
+						if ( selector.selectAll ) {
+							json_return[ arrPath[ 0 ] ].push( selectedValue );
+						} else {
+							json_return[ pointer ] = selectedValue;
+						}
+					}
+				} else {
+
+					if ( selector.selectAll ) {
+						if ( !json_return[ selectedTag.path ] ) {
+							json_return[ selectedTag.path ] = [];
+						}
+						json_return[ selectedTag.path ].push( selectedValue );
+					} else {
+						json_return[ selectedTag.path ] = selectedValue;
+					}
+				}
+			},
+			jsonSource = {};
+
+
+		for ( var tag = 0; tag <= elmObj.length - 1; tag++ ) {
+
+			selectedTag = elmObj[ tag ];
+
+			if ( !selectedTag.interface ) {
+
+				targetTag = document.querySelectorAll( selectedTag.selector || "" );
+				isGroup = selectedTag.extractor && selectedTag.extractor.length >= 1 ? true : false;
+
+				if ( selectedTag.selectAll ) {
+
+					for ( var i_node = 0; i_node <= targetTag.length - 1; i_node++ ) {
+
+						var selectedTagValue = selectedTag.attr && targetTag [ i_node ].getAttributeNode( selectedTag.attr ) ?
+							targetTag [ i_node ].getAttributeNode( selectedTag.attr ).textContent :
+							targetTag [ i_node ].textContent;
+
+						manageObjDir( selectedTag, selectedTagValue, jsonSource );
+					}
+				}
+
+				// extract from combined selectors and group the values e.g dt with dd
+				if ( isGroup ) {
+
+					jsonSource[ selectedTag.path ] = [];
+
+					node_children = targetTag[ 0 ].children;
+
+					var extractorLength = Object.keys( selectedTag.extractor ).length;
+
+					for ( j_node = 0; j_node <= node_children.length - 1; j_node++ ) {
+
+						j_tag = node_children[ j_node ].tagName.toLowerCase();
+
+						selectedTag.extractor.find( combineToObj );
+						if ( Object.keys( group ).length === extractorLength ) {
+							arrMap.push( group );
+							group = {};
+							lastIndex = [];
+						}
+					}
+					$.extend( jsonSource[ selectedTag.path ], arrMap );
+				}
+
+				if ( targetTag.length ) {
+					targetTag = selectedTag.attr && targetTag [ 0 ].getAttributeNode( selectedTag.attr ) ?
+						targetTag [ 0 ].getAttributeNode( selectedTag.attr ).textContent :
+						targetTag [ 0 ].textContent;
+				}
+
+			} else {
+
+				targetTag = defaults.docMapKeys[ selectedTag.interface ];
+
+				manageObjDir( selectedTag, targetTag, jsonSource );
+			}
+
+			if ( !selectedTag.selectAll  ) {
+				if ( isGroup === false ) {
+					manageObjDir( selectedTag, targetTag, jsonSource );
+				}
+			}
+		}
+
+		return jsonSource;
+	},
+
+	// Filtering a JSON
+	// Return true if trueness && falseness
+	// Return false if !( trueness && falseness )
+	// trueness and falseness is an array of { "path": "", "value": "" } object
+	filterPassJSON = function( obj, trueness, falseness ) {
+		var i, i_cache,
+			trueness_len = trueness.length,
+			falseness_len = falseness.length,
+			compareResult = false,
+			isEqual;
+
+		if ( trueness_len || falseness_len ) {
+
+			for ( i = 0; i < trueness_len; i += 1 ) {
+				i_cache = trueness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( i_cache.optional ) {
+					compareResult = compareResult || isEqual;
+				} else if ( !isEqual ) {
+					return false;
+				} else {
+					compareResult = true;
+				}
+			}
+			if ( trueness_len && !compareResult ) {
+				return false;
+			}
+
+			for ( i = 0; i < falseness_len; i += 1 ) {
+				i_cache = falseness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( isEqual && !i_cache.optional || isEqual && i_cache.optional ) {
+					return false;
+				}
+			}
+
+		}
+		return true;
+	},
+
+	// Utility function to compare two JSON value
+	_equalsJSON = function( a, b ) {
+		switch ( typeof a ) {
+		case "undefined":
+			return false;
+		case "boolean":
+		case "string":
+		case "number":
+			return a === b;
+		case "object":
+			if ( a === null ) {
+				return b === null;
+			}
+			var i, l;
+			if ( $.isArray( a ) ) {
+				if (  $.isArray( b ) || a.length !== b.length ) {
+					return false;
+				}
+				for ( i = 0, l = a.length; i < l; i++ ) {
+					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+						return false;
+					}
+				}
+				return true;
+			}
+			var bKeys = _objectKeys( b ),
+				bLength = bKeys.length;
+			if ( _objectKeys( a ).length !== bLength ) {
+				return false;
+			}
+			for ( i = 0; i < bLength; i++ ) {
+				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		default:
+			return false;
+		}
+	},
+	_objectKeys = function( obj ) {
+		var keys;
+		if ( $.isArray( obj ) ) {
+			keys = new Array( obj.length );
+			for ( var k = 0; k < keys.length; k++ ) {
+				keys[ k ] = "" + k;
+			}
+			return keys;
+		}
+		if ( Object.keys ) {
+			return Object.keys( obj );
+		}
+		keys = [];
+		for ( var i in obj ) {
+			if ( Object.prototype.hasOwnProperty.call( obj, i ) ) {
+				keys.push( i );
+			}
+		}
+		return keys;
+	},
+
+	// Create series of patches for filtering
+	getPatchesToFilter = function( JSONsource, filterPath, filterTrueness, filterFaslseness ) {
+		var filterObj,
+			i, i_len;
+
+		if ( !$.isArray( filterTrueness ) ) {
+			filterTrueness = [ filterTrueness ];
+		}
+		if ( !$.isArray( filterFaslseness ) ) {
+			filterFaslseness = [ filterFaslseness ];
+		}
+
+		filterObj = jsonpointer.get( JSONsource, filterPath );
+		if ( $.isArray( filterObj ) ) {
+			i_len = filterObj.length - 1;
+			for ( i = i_len; i !== -1; i -= 1 ) {
+				if ( !filterPassJSON( filterObj[ i ], filterTrueness, filterFaslseness ) ) {
+					jsonpatch.apply( JSONsource, [ { op: "remove", path: filterPath + "/" + i } ] );
+				}
+			}
+		}
+		return JSONsource;
+	};
+
+// IE dedicated patch to support ECMA-402 but limited to English and French number formatting
+if ( wb.ie ) {
+	Number.prototype.toLocaleString = function( locale ) {
+
+		var splitVal = this.toString().split( "." ),
+			integer = splitVal[ 0 ],
+			decimal = splitVal[ 1 ],
+			intLength = integer.length,
+			nbSection = intLength % 3 || 3,
+			strValue = integer.substr( 0, nbSection ),
+			isFrenchLoc = ( locale === "fr" ),
+			thousandSep = ( isFrenchLoc ? " " : "," ),
+			i;
+
+		for ( i = nbSection; i < intLength; i = i + 3 ) {
+			strValue = strValue + thousandSep + integer.substr( i, 3 );
+		}
+		if ( decimal.length ) {
+			if ( isFrenchLoc ) {
+				strValue = strValue + "," + decimal;
+			} else {
+				strValue = strValue + "." + decimal;
+			}
+		}
+		return strValue;
+	};
+}
+
+$document.on( "json-failed.wb", selector, function( event ) {
+	var elm = event.target,
+		$elm;
+
+	if ( elm === event.currentTarget ) {
+		$elm = $( elm );
+		$elm.addClass( jsonFailedClass );
+
+		// Identify that initialization has completed
+		wb.ready( $elm, componentName );
+	}
+} );
+
+$document.on( "json-fetched.wb", selector, function( event ) {
+	var elm = event.target,
+		$elm = $( elm ),
+		settings,
+		dsName,
+		JSONresponse = event.fetch.response,
+		isArrayResponse = $.isArray( JSONresponse ),
+		resultSet,
+		i, i_len, i_cache, backlog, selector,
+		patches, filterTrueness, filterFaslseness, filterPath, extractor;
+
+	if ( elm === event.currentTarget ) {
+		settings = wb.getData( $elm, componentName );
+
+		extractor = settings.extractor;
+		if ( extractor ) {
+			if ( !$.isArray( extractor ) ) {
+				extractor = [ extractor ];
+			}
+			JSONresponse = $.extend( JSONresponse, extractData( extractor ) );
+
+		}
+
+		dsName = "[" + settings.name + "]";
+		patches = settings.patches || [];
+		filterPath = settings.fpath;
+		filterTrueness = settings.filter || [];
+		filterFaslseness = settings.filternot || [];
+
+		if ( !$.isArray( patches ) ) {
+			patches = [ patches ];
+		}
+
+		if ( isArrayResponse ) {
+			JSONresponse = $.extend( true, [], JSONresponse );
+		} else {
+			JSONresponse = $.extend( true, {}, JSONresponse );
+		}
+
+		// Apply a filtering
+		if ( filterPath ) {
+			JSONresponse = getPatchesToFilter( JSONresponse, filterPath, filterTrueness, filterFaslseness );
+		}
+
+		// Apply the wraproot
+		if ( settings.wraproot  ) {
+			i_cache = { };
+			i_cache[ settings.wraproot ] = JSONresponse;
+			JSONresponse = i_cache;
+		}
+
+		// Apply the patches
+		if ( patches.length ) {
+			jsonpatch.apply( JSONresponse, patches );
+		}
+		if ( settings.debug ) {
+			debugPrintOut( $elm, "initEvent", JSONresponse, patches );
+		}
+
+		try {
+			datasetCache[ dsName ] = JSONresponse;
+		} catch ( error ) {
+			return;
+		}
+		datasetCacheSettings[ dsName ] = settings;
+
+		if ( elm.hasAttribute( reloadFlag ) ) {
+			elm.removeAttribute( reloadFlag );
+			i_cache = dsPostponePatches[ dsName ];
+			if ( i_cache ) {
+				$elm.trigger( i_cache );
+			}
+		}
+
+		if ( !settings.wait && dsDelayed[ dsName ] ) {
+			backlog = dsDelayed[ dsName ];
+			i_len = backlog.length;
+			for ( i = 0; i !== i_len; i += 1 ) {
+				i_cache = backlog[ i ];
+				selector = i_cache.selector;
+				if ( selector.length ) {
+					try {
+						resultSet = jsonpointer.get( JSONresponse, selector );
+					} catch  ( e ) {
+						throw dsName + " - JSON selector not found: " + selector;
+					}
+				} else {
+					resultSet = JSONresponse;
+				}
+				$( "#" + i_cache.callerId ).trigger( {
+					type: "json-fetched.wb",
+					fetch: {
+						response: resultSet,
+						status: "200",
+						refId: i_cache.refId,
+						xhr: null
+					}
+				}, this );
+			}
+		}
+
+		// Identify that initialization has completed
+		wb.ready( $elm, componentName );
+	}
+} );
+
+// Apply patches to a preloaded JSON data
+$document.on( patchesEvent, selector, function( event ) {
+	var elm = event.target,
+		$elm = $( elm ),
+		patches = event.patches,
+		filterPath = event.fpath,
+		filterTrueness = event.filter || [],
+		filterFaslseness = event.filternot || [],
+		isCumulative = !!event.cumulative,
+		settings,
+		dsName,
+		dsJSON, resultSet,
+		delayedLst,
+		i, i_len, i_cache, pntrSelector;
+
+	if ( elm === event.currentTarget && $.isArray( patches ) ) {
+		settings = wb.getData( $elm, componentName );
+
+		if ( !settings ) {
+			return true;
+		}
+		dsName = "[" + settings.name + "]";
+
+		// Check if the patches need to be hold until the next json-fetch event
+		if ( elm.hasAttribute( reloadFlag ) ) {
+			dsPostponePatches[ dsName ] = event;
+			return true;
+		}
+
+		if ( !dsDelayed[ dsName ] ) {
+			throw "Applying patched on undefined dataset name: " + dsName;
+		}
+
+		dsJSON = datasetCache[ dsName ];
+		if ( !isCumulative ) {
+			dsJSON = $.extend( true, ( $.isArray( dsJSON ) ? [] : {} ), dsJSON );
+		}
+
+		// Apply a filtering
+		if ( filterPath ) {
+			dsJSON = getPatchesToFilter( dsJSON, filterPath, filterTrueness, filterFaslseness );
+		}
+
+		jsonpatch.apply( dsJSON, patches );
+
+		if ( settings.debug ) {
+			debugPrintOut( $elm, "patchesEvent", dsJSON, patches );
+		}
+
+		delayedLst = dsDelayed[ dsName ];
+		i_len = delayedLst.length;
+		for ( i = 0; i !== i_len; i += 1 ) {
+			i_cache = delayedLst[ i ];
+			pntrSelector = i_cache.selector;
+			if ( pntrSelector.length ) {
+				try {
+					resultSet = jsonpointer.get( dsJSON, pntrSelector );
+				} catch  ( e ) {
+					throw dsName + " - JSON selector not found: " + pntrSelector;
+				}
+			} else {
+				resultSet = dsJSON;
+			}
+			$( "#" + i_cache.callerId ).trigger( {
+				type: "json-fetched.wb",
+				fetch: {
+					response: resultSet,
+					status: "200",
+					refId: i_cache.refId,
+					xhr: null
+				}
+			}, this );
+		}
+	}
+} );
+
+
+// Used by the JSON-fetch plugin for when trying fetching a resource that is mapped a dataset name
+$document.on( postponeEvent, function( event ) {
+	var jsonPostpone = event.postpone,
+		dsName = jsonPostpone.dsname,
+		callerId = jsonPostpone.callerId,
+		refId = jsonPostpone.refId,
+		selector = jsonPostpone.selector,
+		resultSet;
+
+	if ( !dsDelayed[ dsName ] ) {
+		dsDelayed[ dsName ] = [ ];
+	}
+
+	// Add to the delayed updates list
+	dsDelayed[ dsName ].push( {
+		"callerId": callerId,
+		"refId": refId,
+		"selector": selector
+	} );
+
+	// Send the data if the dataset is ready?
+	if ( datasetCache[ dsName ] && !datasetCacheSettings[ dsName ].wait ) {
+		resultSet = datasetCache[ dsName ];
+		if ( selector.length ) {
+			try {
+				resultSet = jsonpointer.get( resultSet, selector );
+			} catch  ( e ) {
+				throw dsName + " - JSON selector not found: " + selector;
+			}
+		}
+		$( "#" + callerId ).trigger( {
+			type: "json-fetched.wb",
+			fetch: {
+				response: resultSet,
+				status: "200",
+				refId: refId,
+				xhr: null
+			}
+		}, this );
+	}
+
+} );
+
+/*
+ * Integration with wb-fieldflow
+ *
+ */
+function pushData( $elm, prop, data, reset ) {
+	var dtCache = $elm.data( prop );
+	if ( !dtCache || reset ) {
+		dtCache = [];
+	}
+	dtCache.push( data );
+	return $elm.data( prop, dtCache );
+}
+
+// Fieldflow "op" action
+$document.on( "op.action.wb-fieldflow", ".wb-fieldflow", function( event, data ) {
+
+	if ( !data.op ) {
+		return;
+	}
+
+	// Postpone the event for form submission
+	data.preventSubmit = true;
+	pushData( $( data.provEvt ), "wb-fieldflow-submit", data );
+} );
+
+// Fieldflow "op" submit
+$document.on( "op.submit.wb-fieldflow", ".wb-fieldflow", function( event, data ) {
+
+	// Get the hbs Plugin
+	var op = data.op,
+		source = data.source,
+		ops;
+
+	if ( !op ) {
+		return true;
+	}
+
+	if ( !$.isArray( op ) ) {
+		ops = [];
+		ops.push( op );
+	} else {
+		ops = op;
+	}
+
+	$( source ).trigger( {
+		type: "patches.wb-jsonmanager",
+		patches: ops
+	} );
+} );
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb " + initEvent, selector, init );
+
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( jQuery, window, wb );
 
 /**
  * @title WET-BOEW wb-postback
