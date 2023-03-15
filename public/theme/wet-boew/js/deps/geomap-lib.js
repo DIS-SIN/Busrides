@@ -853,20 +853,20 @@ var componentName = "wb-geomap",
 	 */
 	addChkBox = function( mapLayer, feature ) {
 
-		return "<td><label class='wb-inv' for='cb_" + feature.getId() + "'>" +
+		return "<label class='wb-inv' for='cb_" + feature.getId() + "'>" +
 					i18nText.labelSelect + "</label><input type='checkbox' id='cb_" +
 					feature.getId() + "' class='geomap-cbx' data-map='" + mapLayer.map.id +
 					"' data-layer='" + feature.layerId + "' data-feature='" +
-					feature.getId() + "' /></td>";
+					feature.getId() + "' />";
 	},
 
 	/**
 	 * Add zoom button to table columns
 	 */
 	addZoomTo = function( mapLayer, feature ) {
-		return "<td class='text-right'><a href='javascript:;' data-map='" + mapLayer.map.id +
+		return "<a href='javascript:;' data-map='" + mapLayer.map.id +
 			"' data-layer='" + feature.layerId + "' data-feature='" + feature.getId() +
-			"' class='btn btn-link geomap-zoomto' alt='" + i18nText.zoomFeature + "' role='button'><span class='glyphicon glyphicon-zoom-in'></span></a></td>";
+			"' class='btn btn-link geomap-zoomto' alt='" + i18nText.zoomFeature + "' role='button'><span class='glyphicon glyphicon-zoom-in'></span></a>";
 	},
 
 	/**
@@ -1645,7 +1645,7 @@ var componentName = "wb-geomap",
 
 						// bind events to the options
 						// TODO: do this in the wb-update event
-						$( ".al-opt a" ).on( "keydown click vclick", function( event ) {
+						$( ".al-opt a" ).on( "keydown click", function( event ) {
 							var link = event.target,
 								eventType = event.type,
 								which = event.which;
@@ -1657,8 +1657,6 @@ var componentName = "wb-geomap",
 								}
 								break;
 							case "click":
-							case "vclick":
-							case "touchstart":
 
 								// Ignore middle/right mouse buttons
 								if ( !which || which === 1 ) {
@@ -1676,7 +1674,7 @@ var componentName = "wb-geomap",
 					}
 
 				},
-				dataType: wb.ielt10 ? "jsonp" : "json",
+				dataType: "json",
 				cache: false
 			} );
 
@@ -2430,12 +2428,13 @@ MapLayer.prototype.addToLegend = function() {
  */
 Geomap.prototype.addTabularData = function() {
 
-	var $table, table, featureTable, featureArray, attr, theadTr, thElms, thLen,
+	var $table, table, featureTable, featureArray, attr, theadTr, tdChkBox, tdZoomTo, thElms, thLen,
 		trElms, trLen, useMapControls, attrMap, trElmsInd, geomType,
 		feat, feature, features, vectorFeature, wktFeature,
 		script, bbox, vertices, len, vertLen, lenTable,
-		thZoom = "<th><span class='wb-inv'>" + i18nText.zoomFeature + "</span></th>",
-		thSelect = "<th><span class='wb-inv'>" + i18nText.select + "</span></th>",
+		thZoom = "<span class='wb-inv'>" + i18nText.zoomFeature + "</span>",
+		thSelect = "<span class='wb-inv'>" + i18nText.select + "</span>",
+		thElmZoom, thElmSelect,
 		wktParser = new ol.format.WKT(),
 		thRegex = /<\/?[^>]+>/gi,
 		vectRegex = /\W/g,
@@ -2474,13 +2473,17 @@ Geomap.prototype.addTabularData = function() {
 		}
 
 		// If zoomTo add the header column headers
-		theadTr = $table.find( "thead tr" );
+		theadTr = $table.find( "thead tr" ).get( 0 );
 		if ( featureTable.zoom && useMapControls ) {
-			theadTr.append( thZoom );
+			thElmZoom = document.createElement( "th" );
+			thElmZoom.innerHTML = thZoom;
+			theadTr.insertBefore( thElmZoom, theadTr.firstChild );
 		}
 
 		// Add select checkbox
-		theadTr.prepend( thSelect );
+		thElmSelect = document.createElement( "th" );
+		thElmSelect.innerHTML = thSelect;
+		theadTr.appendChild( thElmSelect );
 
 		colors = defaultColors();
 
@@ -2559,8 +2562,13 @@ Geomap.prototype.addTabularData = function() {
 				trElmsInd.setAttribute( "id", vectorFeature.getId().replace( vectRegex, "_" ) );
 
 				// Add the checkboxes and zoom controls
-				$( trElmsInd ).html( addChkBox( this, vectorFeature ) + trElmsInd.innerHTML +
-				( useMapControls && featureTable.zoom ? addZoomTo( this, vectorFeature ) : "" ) );
+				tdChkBox = trElmsInd.insertCell( 0 );
+				tdChkBox.innerHTML = addChkBox( this, vectorFeature );
+				if ( useMapControls && featureTable.zoom ) {
+					tdZoomTo = trElmsInd.insertCell( -1 );
+					tdZoomTo.classList.add( "text-right" );
+					tdZoomTo.innerHTML = addZoomTo( this, vectorFeature );
+				}
 
 				// Add the attributes to the feature then add it to the feature array
 				vectorFeature.attributes = attrMap;
@@ -2658,17 +2666,20 @@ MapLayer.prototype.populateDataTable = function() {
 	var _this = this,
 		attributes = _this.settings.attributes,
 		len = attributeLen(),
-		$table = $( "<table class='table' aria-label='" + _this.settings.title + "' id='" + _this.id + "'><caption>" + _this.settings.caption + "</caption></table>" ),
+		$table,
+		sTable = "<table aria-label='" + _this.settings.title + "' id='" + _this.id + "' " +
+			"data-wb-tables='{ \"order\": [], \"columnDefs\": [ { \"targets\": [ 0, " + ( len + 1 ) + " ], \"orderable\": false } ] }'" +
+			"class='table",
+		sCaption = "'><caption>" + _this.settings.caption + "</caption>",
 		head = "<th><span class='wb-inv'>" + i18nText.select + "</span></th>",
 		body = "",
 		features = _this.layer.getSource().getFeatures(),
 		key, attKey;
 
 	if ( _this.settings.datatable ) {
-		$table.addClass( "wb-tables" );
-		$table.attr( "data-wb-tables", "{ \"order\": [], \"columnDefs\": [ { \"targets\": [ 0, " + ( len + 1 ) + " ], \"orderable\": false } ] }" );
+		sTable = sTable + " wb-tables";
 	} else {
-		$table.addClass( "table-condensed" );
+		sTable = sTable + " table-condensed";
 	}
 
 	// Create the header row
@@ -2685,7 +2696,7 @@ MapLayer.prototype.populateDataTable = function() {
 	// for ( var i = 0; i < features.length || ( function() { refreshPlugins( _this.map ); return false; }() ); i += 1 ) {
 	for ( var i = 0; i < features.length; i += 1 ) {
 
-		body += "<tr>" + addChkBox( _this, features[ i ] );
+		body += "<tr><td>" + addChkBox( _this, features[ i ] );
 
 		attributes = features[ i ].attributes;
 
@@ -2695,11 +2706,11 @@ MapLayer.prototype.populateDataTable = function() {
 			}
 		}
 
-		body += _this.map.settings.useMapControls && _this.settings.zoom ? addZoomTo( _this.map, features[ i ] ) : "";
+		body += _this.map.settings.useMapControls && _this.settings.zoom ? "<td class='text-right'>" + addZoomTo( _this.map, features[ i ] ) : "";
 
 	}
 
-	$table.append( head, "<tbody>" + body + "</tbody>" );
+	$table = $( sTable + sCaption + head + "<tbody>" + body + "</tbody>" + "</table>" );
 
 	$( "div[ data-layer='" + _this.id + "'].geomap-table-wrapper" ).append( $table );
 

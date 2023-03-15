@@ -1,18 +1,98 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.47 - 2022-01-31
+ * v4.0.58.1 - 2023-02-28
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
-/*! @license DOMPurify 2.3.3 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.3.3/LICENSE */
+/*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.DOMPurify = factory());
-}(this, function () { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.DOMPurify = factory());
+})(this, (function () { 'use strict';
 
-  function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+  function _typeof(obj) {
+    "@babel/helpers - typeof";
+
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+      return typeof obj;
+    } : function (obj) {
+      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    }, _typeof(obj);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
+  }
+
+  function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+
+    try {
+      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function _construct(Parent, args, Class) {
+    if (_isNativeReflectConstruct()) {
+      _construct = Reflect.construct;
+    } else {
+      _construct = function _construct(Parent, args, Class) {
+        var a = [null];
+        a.push.apply(a, args);
+        var Constructor = Function.bind.apply(Parent, a);
+        var instance = new Constructor();
+        if (Class) _setPrototypeOf(instance, Class.prototype);
+        return instance;
+      };
+    }
+
+    return _construct.apply(null, arguments);
+  }
+
+  function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+  }
+
+  function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+  }
+
+  function _iterableToArray(iter) {
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
+  function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
 
   var hasOwnProperty = Object.hasOwnProperty,
       setPrototypeOf = Object.setPrototypeOf,
@@ -47,46 +127,44 @@
 
   if (!construct) {
     construct = function construct(Func, args) {
-      return new (Function.prototype.bind.apply(Func, [null].concat(_toConsumableArray(args))))();
+      return _construct(Func, _toConsumableArray(args));
     };
   }
 
   var arrayForEach = unapply(Array.prototype.forEach);
   var arrayPop = unapply(Array.prototype.pop);
   var arrayPush = unapply(Array.prototype.push);
-
   var stringToLowerCase = unapply(String.prototype.toLowerCase);
+  var stringToString = unapply(String.prototype.toString);
   var stringMatch = unapply(String.prototype.match);
   var stringReplace = unapply(String.prototype.replace);
   var stringIndexOf = unapply(String.prototype.indexOf);
   var stringTrim = unapply(String.prototype.trim);
-
   var regExpTest = unapply(RegExp.prototype.test);
-
   var typeErrorCreate = unconstruct(TypeError);
-
   function unapply(func) {
     return function (thisArg) {
-      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
         args[_key - 1] = arguments[_key];
       }
 
       return apply(func, thisArg, args);
     };
   }
-
   function unconstruct(func) {
     return function () {
-      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
 
       return construct(func, args);
     };
   }
-
   /* Add properties to a lookup table */
-  function addToSet(set, array) {
+
+  function addToSet(set, array, transformCaseFunc) {
+    transformCaseFunc = transformCaseFunc ? transformCaseFunc : stringToLowerCase;
+
     if (setPrototypeOf) {
       // Make 'in' and truthy checks like Boolean(set.constructor)
       // independent of any properties defined on Object.prototype.
@@ -95,10 +173,13 @@
     }
 
     var l = array.length;
+
     while (l--) {
       var element = array[l];
+
       if (typeof element === 'string') {
-        var lcElement = stringToLowerCase(element);
+        var lcElement = transformCaseFunc(element);
+
         if (lcElement !== element) {
           // Config presets (e.g. tags.js, attrs.js) are immutable.
           if (!isFrozen(array)) {
@@ -114,28 +195,29 @@
 
     return set;
   }
-
   /* Shallow clone an object */
+
   function clone(object) {
     var newObject = create(null);
+    var property;
 
-    var property = void 0;
     for (property in object) {
-      if (apply(hasOwnProperty, object, [property])) {
+      if (apply(hasOwnProperty, object, [property]) === true) {
         newObject[property] = object[property];
       }
     }
 
     return newObject;
   }
-
   /* IE10 doesn't support __lookupGetter__ so lets'
    * simulate it. It also automatically checks
    * if the prop is function or getter and behaves
    * accordingly. */
+
   function lookupGetter(object, prop) {
     while (object !== null) {
       var desc = getOwnPropertyDescriptor(object, prop);
+
       if (desc) {
         if (desc.get) {
           return unapply(desc.get);
@@ -157,54 +239,44 @@
     return fallbackValue;
   }
 
-  var html = freeze(['a', 'abbr', 'acronym', 'address', 'area', 'article', 'aside', 'audio', 'b', 'bdi', 'bdo', 'big', 'blink', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'center', 'cite', 'code', 'col', 'colgroup', 'content', 'data', 'datalist', 'dd', 'decorator', 'del', 'details', 'dfn', 'dialog', 'dir', 'div', 'dl', 'dt', 'element', 'em', 'fieldset', 'figcaption', 'figure', 'font', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'img', 'input', 'ins', 'kbd', 'label', 'legend', 'li', 'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meter', 'nav', 'nobr', 'ol', 'optgroup', 'option', 'output', 'p', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'section', 'select', 'shadow', 'small', 'source', 'spacer', 'span', 'strike', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'tr', 'track', 'tt', 'u', 'ul', 'var', 'video', 'wbr']);
+  var html$1 = freeze(['a', 'abbr', 'acronym', 'address', 'area', 'article', 'aside', 'audio', 'b', 'bdi', 'bdo', 'big', 'blink', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'center', 'cite', 'code', 'col', 'colgroup', 'content', 'data', 'datalist', 'dd', 'decorator', 'del', 'details', 'dfn', 'dialog', 'dir', 'div', 'dl', 'dt', 'element', 'em', 'fieldset', 'figcaption', 'figure', 'font', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'img', 'input', 'ins', 'kbd', 'label', 'legend', 'li', 'main', 'map', 'mark', 'marquee', 'menu', 'menuitem', 'meter', 'nav', 'nobr', 'ol', 'optgroup', 'option', 'output', 'p', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'section', 'select', 'shadow', 'small', 'source', 'spacer', 'span', 'strike', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'tr', 'track', 'tt', 'u', 'ul', 'var', 'video', 'wbr']); // SVG
 
-  // SVG
-  var svg = freeze(['svg', 'a', 'altglyph', 'altglyphdef', 'altglyphitem', 'animatecolor', 'animatemotion', 'animatetransform', 'circle', 'clippath', 'defs', 'desc', 'ellipse', 'filter', 'font', 'g', 'glyph', 'glyphref', 'hkern', 'image', 'line', 'lineargradient', 'marker', 'mask', 'metadata', 'mpath', 'path', 'pattern', 'polygon', 'polyline', 'radialgradient', 'rect', 'stop', 'style', 'switch', 'symbol', 'text', 'textpath', 'title', 'tref', 'tspan', 'view', 'vkern']);
-
-  var svgFilters = freeze(['feBlend', 'feColorMatrix', 'feComponentTransfer', 'feComposite', 'feConvolveMatrix', 'feDiffuseLighting', 'feDisplacementMap', 'feDistantLight', 'feFlood', 'feFuncA', 'feFuncB', 'feFuncG', 'feFuncR', 'feGaussianBlur', 'feMerge', 'feMergeNode', 'feMorphology', 'feOffset', 'fePointLight', 'feSpecularLighting', 'feSpotLight', 'feTile', 'feTurbulence']);
-
-  // List of SVG elements that are disallowed by default.
+  var svg$1 = freeze(['svg', 'a', 'altglyph', 'altglyphdef', 'altglyphitem', 'animatecolor', 'animatemotion', 'animatetransform', 'circle', 'clippath', 'defs', 'desc', 'ellipse', 'filter', 'font', 'g', 'glyph', 'glyphref', 'hkern', 'image', 'line', 'lineargradient', 'marker', 'mask', 'metadata', 'mpath', 'path', 'pattern', 'polygon', 'polyline', 'radialgradient', 'rect', 'stop', 'style', 'switch', 'symbol', 'text', 'textpath', 'title', 'tref', 'tspan', 'view', 'vkern']);
+  var svgFilters = freeze(['feBlend', 'feColorMatrix', 'feComponentTransfer', 'feComposite', 'feConvolveMatrix', 'feDiffuseLighting', 'feDisplacementMap', 'feDistantLight', 'feFlood', 'feFuncA', 'feFuncB', 'feFuncG', 'feFuncR', 'feGaussianBlur', 'feImage', 'feMerge', 'feMergeNode', 'feMorphology', 'feOffset', 'fePointLight', 'feSpecularLighting', 'feSpotLight', 'feTile', 'feTurbulence']); // List of SVG elements that are disallowed by default.
   // We still need to know them so that we can do namespace
   // checks properly in case one wants to add them to
   // allow-list.
-  var svgDisallowed = freeze(['animate', 'color-profile', 'cursor', 'discard', 'fedropshadow', 'feimage', 'font-face', 'font-face-format', 'font-face-name', 'font-face-src', 'font-face-uri', 'foreignobject', 'hatch', 'hatchpath', 'mesh', 'meshgradient', 'meshpatch', 'meshrow', 'missing-glyph', 'script', 'set', 'solidcolor', 'unknown', 'use']);
 
-  var mathMl = freeze(['math', 'menclose', 'merror', 'mfenced', 'mfrac', 'mglyph', 'mi', 'mlabeledtr', 'mmultiscripts', 'mn', 'mo', 'mover', 'mpadded', 'mphantom', 'mroot', 'mrow', 'ms', 'mspace', 'msqrt', 'mstyle', 'msub', 'msup', 'msubsup', 'mtable', 'mtd', 'mtext', 'mtr', 'munder', 'munderover']);
-
-  // Similarly to SVG, we want to know all MathML elements,
+  var svgDisallowed = freeze(['animate', 'color-profile', 'cursor', 'discard', 'fedropshadow', 'font-face', 'font-face-format', 'font-face-name', 'font-face-src', 'font-face-uri', 'foreignobject', 'hatch', 'hatchpath', 'mesh', 'meshgradient', 'meshpatch', 'meshrow', 'missing-glyph', 'script', 'set', 'solidcolor', 'unknown', 'use']);
+  var mathMl$1 = freeze(['math', 'menclose', 'merror', 'mfenced', 'mfrac', 'mglyph', 'mi', 'mlabeledtr', 'mmultiscripts', 'mn', 'mo', 'mover', 'mpadded', 'mphantom', 'mroot', 'mrow', 'ms', 'mspace', 'msqrt', 'mstyle', 'msub', 'msup', 'msubsup', 'mtable', 'mtd', 'mtext', 'mtr', 'munder', 'munderover']); // Similarly to SVG, we want to know all MathML elements,
   // even those that we disallow by default.
-  var mathMlDisallowed = freeze(['maction', 'maligngroup', 'malignmark', 'mlongdiv', 'mscarries', 'mscarry', 'msgroup', 'mstack', 'msline', 'msrow', 'semantics', 'annotation', 'annotation-xml', 'mprescripts', 'none']);
 
+  var mathMlDisallowed = freeze(['maction', 'maligngroup', 'malignmark', 'mlongdiv', 'mscarries', 'mscarry', 'msgroup', 'mstack', 'msline', 'msrow', 'semantics', 'annotation', 'annotation-xml', 'mprescripts', 'none']);
   var text = freeze(['#text']);
 
-  var html$1 = freeze(['accept', 'action', 'align', 'alt', 'autocapitalize', 'autocomplete', 'autopictureinpicture', 'autoplay', 'background', 'bgcolor', 'border', 'capture', 'cellpadding', 'cellspacing', 'checked', 'cite', 'class', 'clear', 'color', 'cols', 'colspan', 'controls', 'controlslist', 'coords', 'crossorigin', 'datetime', 'decoding', 'default', 'dir', 'disabled', 'disablepictureinpicture', 'disableremoteplayback', 'download', 'draggable', 'enctype', 'enterkeyhint', 'face', 'for', 'headers', 'height', 'hidden', 'high', 'href', 'hreflang', 'id', 'inputmode', 'integrity', 'ismap', 'kind', 'label', 'lang', 'list', 'loading', 'loop', 'low', 'max', 'maxlength', 'media', 'method', 'min', 'minlength', 'multiple', 'muted', 'name', 'noshade', 'novalidate', 'nowrap', 'open', 'optimum', 'pattern', 'placeholder', 'playsinline', 'poster', 'preload', 'pubdate', 'radiogroup', 'readonly', 'rel', 'required', 'rev', 'reversed', 'role', 'rows', 'rowspan', 'spellcheck', 'scope', 'selected', 'shape', 'size', 'sizes', 'span', 'srclang', 'start', 'src', 'srcset', 'step', 'style', 'summary', 'tabindex', 'title', 'translate', 'type', 'usemap', 'valign', 'value', 'width', 'xmlns', 'slot']);
-
-  var svg$1 = freeze(['accent-height', 'accumulate', 'additive', 'alignment-baseline', 'ascent', 'attributename', 'attributetype', 'azimuth', 'basefrequency', 'baseline-shift', 'begin', 'bias', 'by', 'class', 'clip', 'clippathunits', 'clip-path', 'clip-rule', 'color', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'cx', 'cy', 'd', 'dx', 'dy', 'diffuseconstant', 'direction', 'display', 'divisor', 'dur', 'edgemode', 'elevation', 'end', 'fill', 'fill-opacity', 'fill-rule', 'filter', 'filterunits', 'flood-color', 'flood-opacity', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'fx', 'fy', 'g1', 'g2', 'glyph-name', 'glyphref', 'gradientunits', 'gradienttransform', 'height', 'href', 'id', 'image-rendering', 'in', 'in2', 'k', 'k1', 'k2', 'k3', 'k4', 'kerning', 'keypoints', 'keysplines', 'keytimes', 'lang', 'lengthadjust', 'letter-spacing', 'kernelmatrix', 'kernelunitlength', 'lighting-color', 'local', 'marker-end', 'marker-mid', 'marker-start', 'markerheight', 'markerunits', 'markerwidth', 'maskcontentunits', 'maskunits', 'max', 'mask', 'media', 'method', 'mode', 'min', 'name', 'numoctaves', 'offset', 'operator', 'opacity', 'order', 'orient', 'orientation', 'origin', 'overflow', 'paint-order', 'path', 'pathlength', 'patterncontentunits', 'patterntransform', 'patternunits', 'points', 'preservealpha', 'preserveaspectratio', 'primitiveunits', 'r', 'rx', 'ry', 'radius', 'refx', 'refy', 'repeatcount', 'repeatdur', 'restart', 'result', 'rotate', 'scale', 'seed', 'shape-rendering', 'specularconstant', 'specularexponent', 'spreadmethod', 'startoffset', 'stddeviation', 'stitchtiles', 'stop-color', 'stop-opacity', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke', 'stroke-width', 'style', 'surfacescale', 'systemlanguage', 'tabindex', 'targetx', 'targety', 'transform', 'text-anchor', 'text-decoration', 'text-rendering', 'textlength', 'type', 'u1', 'u2', 'unicode', 'values', 'viewbox', 'visibility', 'version', 'vert-adv-y', 'vert-origin-x', 'vert-origin-y', 'width', 'word-spacing', 'wrap', 'writing-mode', 'xchannelselector', 'ychannelselector', 'x', 'x1', 'x2', 'xmlns', 'y', 'y1', 'y2', 'z', 'zoomandpan']);
-
-  var mathMl$1 = freeze(['accent', 'accentunder', 'align', 'bevelled', 'close', 'columnsalign', 'columnlines', 'columnspan', 'denomalign', 'depth', 'dir', 'display', 'displaystyle', 'encoding', 'fence', 'frame', 'height', 'href', 'id', 'largeop', 'length', 'linethickness', 'lspace', 'lquote', 'mathbackground', 'mathcolor', 'mathsize', 'mathvariant', 'maxsize', 'minsize', 'movablelimits', 'notation', 'numalign', 'open', 'rowalign', 'rowlines', 'rowspacing', 'rowspan', 'rspace', 'rquote', 'scriptlevel', 'scriptminsize', 'scriptsizemultiplier', 'selection', 'separator', 'separators', 'stretchy', 'subscriptshift', 'supscriptshift', 'symmetric', 'voffset', 'width', 'xmlns']);
-
+  var html = freeze(['accept', 'action', 'align', 'alt', 'autocapitalize', 'autocomplete', 'autopictureinpicture', 'autoplay', 'background', 'bgcolor', 'border', 'capture', 'cellpadding', 'cellspacing', 'checked', 'cite', 'class', 'clear', 'color', 'cols', 'colspan', 'controls', 'controlslist', 'coords', 'crossorigin', 'datetime', 'decoding', 'default', 'dir', 'disabled', 'disablepictureinpicture', 'disableremoteplayback', 'download', 'draggable', 'enctype', 'enterkeyhint', 'face', 'for', 'headers', 'height', 'hidden', 'high', 'href', 'hreflang', 'id', 'inputmode', 'integrity', 'ismap', 'kind', 'label', 'lang', 'list', 'loading', 'loop', 'low', 'max', 'maxlength', 'media', 'method', 'min', 'minlength', 'multiple', 'muted', 'name', 'nonce', 'noshade', 'novalidate', 'nowrap', 'open', 'optimum', 'pattern', 'placeholder', 'playsinline', 'poster', 'preload', 'pubdate', 'radiogroup', 'readonly', 'rel', 'required', 'rev', 'reversed', 'role', 'rows', 'rowspan', 'spellcheck', 'scope', 'selected', 'shape', 'size', 'sizes', 'span', 'srclang', 'start', 'src', 'srcset', 'step', 'style', 'summary', 'tabindex', 'title', 'translate', 'type', 'usemap', 'valign', 'value', 'width', 'xmlns', 'slot']);
+  var svg = freeze(['accent-height', 'accumulate', 'additive', 'alignment-baseline', 'ascent', 'attributename', 'attributetype', 'azimuth', 'basefrequency', 'baseline-shift', 'begin', 'bias', 'by', 'class', 'clip', 'clippathunits', 'clip-path', 'clip-rule', 'color', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'cx', 'cy', 'd', 'dx', 'dy', 'diffuseconstant', 'direction', 'display', 'divisor', 'dur', 'edgemode', 'elevation', 'end', 'fill', 'fill-opacity', 'fill-rule', 'filter', 'filterunits', 'flood-color', 'flood-opacity', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'fx', 'fy', 'g1', 'g2', 'glyph-name', 'glyphref', 'gradientunits', 'gradienttransform', 'height', 'href', 'id', 'image-rendering', 'in', 'in2', 'k', 'k1', 'k2', 'k3', 'k4', 'kerning', 'keypoints', 'keysplines', 'keytimes', 'lang', 'lengthadjust', 'letter-spacing', 'kernelmatrix', 'kernelunitlength', 'lighting-color', 'local', 'marker-end', 'marker-mid', 'marker-start', 'markerheight', 'markerunits', 'markerwidth', 'maskcontentunits', 'maskunits', 'max', 'mask', 'media', 'method', 'mode', 'min', 'name', 'numoctaves', 'offset', 'operator', 'opacity', 'order', 'orient', 'orientation', 'origin', 'overflow', 'paint-order', 'path', 'pathlength', 'patterncontentunits', 'patterntransform', 'patternunits', 'points', 'preservealpha', 'preserveaspectratio', 'primitiveunits', 'r', 'rx', 'ry', 'radius', 'refx', 'refy', 'repeatcount', 'repeatdur', 'restart', 'result', 'rotate', 'scale', 'seed', 'shape-rendering', 'specularconstant', 'specularexponent', 'spreadmethod', 'startoffset', 'stddeviation', 'stitchtiles', 'stop-color', 'stop-opacity', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke', 'stroke-width', 'style', 'surfacescale', 'systemlanguage', 'tabindex', 'targetx', 'targety', 'transform', 'transform-origin', 'text-anchor', 'text-decoration', 'text-rendering', 'textlength', 'type', 'u1', 'u2', 'unicode', 'values', 'viewbox', 'visibility', 'version', 'vert-adv-y', 'vert-origin-x', 'vert-origin-y', 'width', 'word-spacing', 'wrap', 'writing-mode', 'xchannelselector', 'ychannelselector', 'x', 'x1', 'x2', 'xmlns', 'y', 'y1', 'y2', 'z', 'zoomandpan']);
+  var mathMl = freeze(['accent', 'accentunder', 'align', 'bevelled', 'close', 'columnsalign', 'columnlines', 'columnspan', 'denomalign', 'depth', 'dir', 'display', 'displaystyle', 'encoding', 'fence', 'frame', 'height', 'href', 'id', 'largeop', 'length', 'linethickness', 'lspace', 'lquote', 'mathbackground', 'mathcolor', 'mathsize', 'mathvariant', 'maxsize', 'minsize', 'movablelimits', 'notation', 'numalign', 'open', 'rowalign', 'rowlines', 'rowspacing', 'rowspan', 'rspace', 'rquote', 'scriptlevel', 'scriptminsize', 'scriptsizemultiplier', 'selection', 'separator', 'separators', 'stretchy', 'subscriptshift', 'supscriptshift', 'symmetric', 'voffset', 'width', 'xmlns']);
   var xml = freeze(['xlink:href', 'xml:id', 'xlink:title', 'xml:space', 'xmlns:xlink']);
 
-  // eslint-disable-next-line unicorn/better-regex
-  var MUSTACHE_EXPR = seal(/\{\{[\s\S]*|[\s\S]*\}\}/gm); // Specify template detection regex for SAFE_FOR_TEMPLATES mode
-  var ERB_EXPR = seal(/<%[\s\S]*|[\s\S]*%>/gm);
+  var MUSTACHE_EXPR = seal(/\{\{[\w\W]*|[\w\W]*\}\}/gm); // Specify template detection regex for SAFE_FOR_TEMPLATES mode
+
+  var ERB_EXPR = seal(/<%[\w\W]*|[\w\W]*%>/gm);
+  var TMPLIT_EXPR = seal(/\${[\w\W]*}/gm);
   var DATA_ATTR = seal(/^data-[\-\w.\u00B7-\uFFFF]/); // eslint-disable-line no-useless-escape
+
   var ARIA_ATTR = seal(/^aria-[\-\w]+$/); // eslint-disable-line no-useless-escape
+
   var IS_ALLOWED_URI = seal(/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i // eslint-disable-line no-useless-escape
   );
   var IS_SCRIPT_OR_DATA = seal(/^(?:\w+script|data):/i);
   var ATTR_WHITESPACE = seal(/[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g // eslint-disable-line no-control-regex
   );
-
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-  function _toConsumableArray$1(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+  var DOCTYPE_NAME = seal(/^html$/i);
 
   var getGlobal = function getGlobal() {
     return typeof window === 'undefined' ? null : window;
   };
-
   /**
    * Creates a no-op policy for internal use only.
    * Don't export this function outside this module!
@@ -213,16 +285,19 @@
    * @return {?TrustedTypePolicy} The policy created (or null, if Trusted Types
    * are not supported).
    */
-  var _createTrustedTypesPolicy = function _createTrustedTypesPolicy(trustedTypes, document) {
-    if ((typeof trustedTypes === 'undefined' ? 'undefined' : _typeof(trustedTypes)) !== 'object' || typeof trustedTypes.createPolicy !== 'function') {
-      return null;
-    }
 
-    // Allow the callers to control the unique policy name
+
+  var _createTrustedTypesPolicy = function _createTrustedTypesPolicy(trustedTypes, document) {
+    if (_typeof(trustedTypes) !== 'object' || typeof trustedTypes.createPolicy !== 'function') {
+      return null;
+    } // Allow the callers to control the unique policy name
     // by adding a data-tt-policy-suffix to the script element with the DOMPurify.
     // Policy creation with duplicate names throws in Trusted Types.
+
+
     var suffix = null;
     var ATTR_NAME = 'data-tt-policy-suffix';
+
     if (document.currentScript && document.currentScript.hasAttribute(ATTR_NAME)) {
       suffix = document.currentScript.getAttribute(ATTR_NAME);
     }
@@ -231,8 +306,11 @@
 
     try {
       return trustedTypes.createPolicy(policyName, {
-        createHTML: function createHTML(html$$1) {
-          return html$$1;
+        createHTML: function createHTML(html) {
+          return html;
+        },
+        createScriptURL: function createScriptURL(scriptUrl) {
+          return scriptUrl;
         }
       });
     } catch (_) {
@@ -250,29 +328,28 @@
     var DOMPurify = function DOMPurify(root) {
       return createDOMPurify(root);
     };
-
     /**
      * Version label, exposed for easier checks
      * if DOMPurify is up to date or not
      */
-    DOMPurify.version = '2.3.3';
 
+
+    DOMPurify.version = '2.4.4';
     /**
      * Array of elements that DOMPurify removed during sanitation.
      * Empty if nothing was removed.
      */
+
     DOMPurify.removed = [];
 
     if (!window || !window.document || window.document.nodeType !== 9) {
       // Not running in a browser, provide a factory function
       // so that you can pass your own Window
       DOMPurify.isSupported = false;
-
       return DOMPurify;
     }
 
     var originalDocument = window.document;
-
     var document = window.document;
     var DocumentFragment = window.DocumentFragment,
         HTMLTemplateElement = window.HTMLTemplateElement,
@@ -280,64 +357,58 @@
         Element = window.Element,
         NodeFilter = window.NodeFilter,
         _window$NamedNodeMap = window.NamedNodeMap,
-        NamedNodeMap = _window$NamedNodeMap === undefined ? window.NamedNodeMap || window.MozNamedAttrMap : _window$NamedNodeMap,
-        Text = window.Text,
-        Comment = window.Comment,
+        NamedNodeMap = _window$NamedNodeMap === void 0 ? window.NamedNodeMap || window.MozNamedAttrMap : _window$NamedNodeMap,
+        HTMLFormElement = window.HTMLFormElement,
         DOMParser = window.DOMParser,
         trustedTypes = window.trustedTypes;
-
-
     var ElementPrototype = Element.prototype;
-
     var cloneNode = lookupGetter(ElementPrototype, 'cloneNode');
     var getNextSibling = lookupGetter(ElementPrototype, 'nextSibling');
     var getChildNodes = lookupGetter(ElementPrototype, 'childNodes');
-    var getParentNode = lookupGetter(ElementPrototype, 'parentNode');
-
-    // As per issue #47, the web-components registry is inherited by a
+    var getParentNode = lookupGetter(ElementPrototype, 'parentNode'); // As per issue #47, the web-components registry is inherited by a
     // new document created via createHTMLDocument. As per the spec
     // (http://w3c.github.io/webcomponents/spec/custom/#creating-and-passing-registries)
     // a new empty registry is used when creating a template contents owner
     // document, so we use that as our parent document to ensure nothing
     // is inherited.
+
     if (typeof HTMLTemplateElement === 'function') {
       var template = document.createElement('template');
+
       if (template.content && template.content.ownerDocument) {
         document = template.content.ownerDocument;
       }
     }
 
     var trustedTypesPolicy = _createTrustedTypesPolicy(trustedTypes, originalDocument);
-    var emptyHTML = trustedTypesPolicy && RETURN_TRUSTED_TYPE ? trustedTypesPolicy.createHTML('') : '';
 
+    var emptyHTML = trustedTypesPolicy ? trustedTypesPolicy.createHTML('') : '';
     var _document = document,
         implementation = _document.implementation,
         createNodeIterator = _document.createNodeIterator,
         createDocumentFragment = _document.createDocumentFragment,
         getElementsByTagName = _document.getElementsByTagName;
     var importNode = originalDocument.importNode;
-
-
     var documentMode = {};
+
     try {
       documentMode = clone(document).documentMode ? document.documentMode : {};
     } catch (_) {}
 
     var hooks = {};
-
     /**
      * Expose whether this browser supports running the full DOMPurify.
      */
+
     DOMPurify.isSupported = typeof getParentNode === 'function' && implementation && typeof implementation.createHTMLDocument !== 'undefined' && documentMode !== 9;
-
-    var MUSTACHE_EXPR$$1 = MUSTACHE_EXPR,
-        ERB_EXPR$$1 = ERB_EXPR,
-        DATA_ATTR$$1 = DATA_ATTR,
-        ARIA_ATTR$$1 = ARIA_ATTR,
-        IS_SCRIPT_OR_DATA$$1 = IS_SCRIPT_OR_DATA,
-        ATTR_WHITESPACE$$1 = ATTR_WHITESPACE;
-    var IS_ALLOWED_URI$$1 = IS_ALLOWED_URI;
-
+    var MUSTACHE_EXPR$1 = MUSTACHE_EXPR,
+        ERB_EXPR$1 = ERB_EXPR,
+        TMPLIT_EXPR$1 = TMPLIT_EXPR,
+        DATA_ATTR$1 = DATA_ATTR,
+        ARIA_ATTR$1 = ARIA_ATTR,
+        IS_SCRIPT_OR_DATA$1 = IS_SCRIPT_OR_DATA,
+        ATTR_WHITESPACE$1 = ATTR_WHITESPACE;
+    var IS_ALLOWED_URI$1 = IS_ALLOWED_URI;
     /**
      * We consider the elements and attributes below to be safe. Ideally
      * don't add any new ones but feel free to remove unwanted ones.
@@ -346,165 +417,245 @@
     /* allowed element names */
 
     var ALLOWED_TAGS = null;
-    var DEFAULT_ALLOWED_TAGS = addToSet({}, [].concat(_toConsumableArray$1(html), _toConsumableArray$1(svg), _toConsumableArray$1(svgFilters), _toConsumableArray$1(mathMl), _toConsumableArray$1(text)));
-
+    var DEFAULT_ALLOWED_TAGS = addToSet({}, [].concat(_toConsumableArray(html$1), _toConsumableArray(svg$1), _toConsumableArray(svgFilters), _toConsumableArray(mathMl$1), _toConsumableArray(text)));
     /* Allowed attribute names */
+
     var ALLOWED_ATTR = null;
-    var DEFAULT_ALLOWED_ATTR = addToSet({}, [].concat(_toConsumableArray$1(html$1), _toConsumableArray$1(svg$1), _toConsumableArray$1(mathMl$1), _toConsumableArray$1(xml)));
+    var DEFAULT_ALLOWED_ATTR = addToSet({}, [].concat(_toConsumableArray(html), _toConsumableArray(svg), _toConsumableArray(mathMl), _toConsumableArray(xml)));
+    /*
+     * Configure how DOMPUrify should handle custom elements and their attributes as well as customized built-in elements.
+     * @property {RegExp|Function|null} tagNameCheck one of [null, regexPattern, predicate]. Default: `null` (disallow any custom elements)
+     * @property {RegExp|Function|null} attributeNameCheck one of [null, regexPattern, predicate]. Default: `null` (disallow any attributes not on the allow list)
+     * @property {boolean} allowCustomizedBuiltInElements allow custom elements derived from built-ins if they pass CUSTOM_ELEMENT_HANDLING.tagNameCheck. Default: `false`.
+     */
 
+    var CUSTOM_ELEMENT_HANDLING = Object.seal(Object.create(null, {
+      tagNameCheck: {
+        writable: true,
+        configurable: false,
+        enumerable: true,
+        value: null
+      },
+      attributeNameCheck: {
+        writable: true,
+        configurable: false,
+        enumerable: true,
+        value: null
+      },
+      allowCustomizedBuiltInElements: {
+        writable: true,
+        configurable: false,
+        enumerable: true,
+        value: false
+      }
+    }));
     /* Explicitly forbidden tags (overrides ALLOWED_TAGS/ADD_TAGS) */
+
     var FORBID_TAGS = null;
-
     /* Explicitly forbidden attributes (overrides ALLOWED_ATTR/ADD_ATTR) */
+
     var FORBID_ATTR = null;
-
     /* Decide if ARIA attributes are okay */
+
     var ALLOW_ARIA_ATTR = true;
-
     /* Decide if custom data attributes are okay */
+
     var ALLOW_DATA_ATTR = true;
-
     /* Decide if unknown protocols are okay */
-    var ALLOW_UNKNOWN_PROTOCOLS = false;
 
+    var ALLOW_UNKNOWN_PROTOCOLS = false;
+    /* Decide if self-closing tags in attributes are allowed.
+     * Usually removed due to a mXSS issue in jQuery 3.0 */
+
+    var ALLOW_SELF_CLOSE_IN_ATTR = true;
     /* Output should be safe for common template engines.
      * This means, DOMPurify removes data attributes, mustaches and ERB
      */
+
     var SAFE_FOR_TEMPLATES = false;
-
     /* Decide if document with <html>... should be returned */
+
     var WHOLE_DOCUMENT = false;
-
     /* Track whether config is already set on this instance of DOMPurify. */
-    var SET_CONFIG = false;
 
+    var SET_CONFIG = false;
     /* Decide if all elements (e.g. style, script) must be children of
      * document.body. By default, browsers might move them to document.head */
-    var FORCE_BODY = false;
 
+    var FORCE_BODY = false;
     /* Decide if a DOM `HTMLBodyElement` should be returned, instead of a html
      * string (or a TrustedHTML object if Trusted Types are supported).
      * If `WHOLE_DOCUMENT` is enabled a `HTMLHtmlElement` will be returned instead
      */
-    var RETURN_DOM = false;
 
+    var RETURN_DOM = false;
     /* Decide if a DOM `DocumentFragment` should be returned, instead of a html
      * string  (or a TrustedHTML object if Trusted Types are supported) */
+
     var RETURN_DOM_FRAGMENT = false;
-
-    /* If `RETURN_DOM` or `RETURN_DOM_FRAGMENT` is enabled, decide if the returned DOM
-     * `Node` is imported into the current `Document`. If this flag is not enabled the
-     * `Node` will belong (its ownerDocument) to a fresh `HTMLDocument`, created by
-     * DOMPurify.
-     *
-     * This defaults to `true` starting DOMPurify 2.2.0. Note that setting it to `false`
-     * might cause XSS from attacks hidden in closed shadowroots in case the browser
-     * supports Declarative Shadow: DOM https://web.dev/declarative-shadow-dom/
-     */
-    var RETURN_DOM_IMPORT = true;
-
     /* Try to return a Trusted Type object instead of a string, return a string in
      * case Trusted Types are not supported  */
+
     var RETURN_TRUSTED_TYPE = false;
+    /* Output should be free from DOM clobbering attacks?
+     * This sanitizes markups named with colliding, clobberable built-in DOM APIs.
+     */
 
-    /* Output should be free from DOM clobbering attacks? */
     var SANITIZE_DOM = true;
+    /* Achieve full DOM Clobbering protection by isolating the namespace of named
+     * properties and JS variables, mitigating attacks that abuse the HTML/DOM spec rules.
+     *
+     * HTML/DOM spec rules that enable DOM Clobbering:
+     *   - Named Access on Window (§7.3.3)
+     *   - DOM Tree Accessors (§3.1.5)
+     *   - Form Element Parent-Child Relations (§4.10.3)
+     *   - Iframe srcdoc / Nested WindowProxies (§4.8.5)
+     *   - HTMLCollection (§4.2.10.2)
+     *
+     * Namespace isolation is implemented by prefixing `id` and `name` attributes
+     * with a constant string, i.e., `user-content-`
+     */
 
+    var SANITIZE_NAMED_PROPS = false;
+    var SANITIZE_NAMED_PROPS_PREFIX = 'user-content-';
     /* Keep element content when removing element? */
-    var KEEP_CONTENT = true;
 
+    var KEEP_CONTENT = true;
     /* If a `Node` is passed to sanitize(), then performs sanitization in-place instead
      * of importing it into a new Document and returning a sanitized copy */
+
     var IN_PLACE = false;
-
     /* Allow usage of profiles like html, svg and mathMl */
-    var USE_PROFILES = {};
 
+    var USE_PROFILES = {};
     /* Tags to ignore content of when KEEP_CONTENT is true */
+
     var FORBID_CONTENTS = null;
     var DEFAULT_FORBID_CONTENTS = addToSet({}, ['annotation-xml', 'audio', 'colgroup', 'desc', 'foreignobject', 'head', 'iframe', 'math', 'mi', 'mn', 'mo', 'ms', 'mtext', 'noembed', 'noframes', 'noscript', 'plaintext', 'script', 'style', 'svg', 'template', 'thead', 'title', 'video', 'xmp']);
-
     /* Tags that are safe for data: URIs */
+
     var DATA_URI_TAGS = null;
     var DEFAULT_DATA_URI_TAGS = addToSet({}, ['audio', 'video', 'img', 'source', 'image', 'track']);
-
     /* Attributes safe for values like "javascript:" */
+
     var URI_SAFE_ATTRIBUTES = null;
     var DEFAULT_URI_SAFE_ATTRIBUTES = addToSet({}, ['alt', 'class', 'for', 'id', 'label', 'name', 'pattern', 'placeholder', 'role', 'summary', 'title', 'value', 'style', 'xmlns']);
-
     var MATHML_NAMESPACE = 'http://www.w3.org/1998/Math/MathML';
     var SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
     var HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
     /* Document namespace */
+
     var NAMESPACE = HTML_NAMESPACE;
     var IS_EMPTY_INPUT = false;
+    /* Allowed XHTML+XML namespaces */
 
+    var ALLOWED_NAMESPACES = null;
+    var DEFAULT_ALLOWED_NAMESPACES = addToSet({}, [MATHML_NAMESPACE, SVG_NAMESPACE, HTML_NAMESPACE], stringToString);
     /* Parsing of strict XHTML documents */
-    var PARSER_MEDIA_TYPE = void 0;
+
+    var PARSER_MEDIA_TYPE;
     var SUPPORTED_PARSER_MEDIA_TYPES = ['application/xhtml+xml', 'text/html'];
     var DEFAULT_PARSER_MEDIA_TYPE = 'text/html';
-    var transformCaseFunc = void 0;
-
+    var transformCaseFunc;
     /* Keep a reference to config to pass to hooks */
-    var CONFIG = null;
 
+    var CONFIG = null;
     /* Ideally, do not touch anything below this line */
+
     /* ______________________________________________ */
 
     var formElement = document.createElement('form');
 
+    var isRegexOrFunction = function isRegexOrFunction(testValue) {
+      return testValue instanceof RegExp || testValue instanceof Function;
+    };
     /**
      * _parseConfig
      *
      * @param  {Object} cfg optional config literal
      */
     // eslint-disable-next-line complexity
+
+
     var _parseConfig = function _parseConfig(cfg) {
       if (CONFIG && CONFIG === cfg) {
         return;
       }
-
       /* Shield configuration object from tampering */
-      if (!cfg || (typeof cfg === 'undefined' ? 'undefined' : _typeof(cfg)) !== 'object') {
+
+
+      if (!cfg || _typeof(cfg) !== 'object') {
         cfg = {};
       }
-
       /* Shield configuration object from prototype pollution */
-      cfg = clone(cfg);
 
+
+      cfg = clone(cfg);
+      PARSER_MEDIA_TYPE = // eslint-disable-next-line unicorn/prefer-includes
+      SUPPORTED_PARSER_MEDIA_TYPES.indexOf(cfg.PARSER_MEDIA_TYPE) === -1 ? PARSER_MEDIA_TYPE = DEFAULT_PARSER_MEDIA_TYPE : PARSER_MEDIA_TYPE = cfg.PARSER_MEDIA_TYPE; // HTML tags and attributes are not case-sensitive, converting to lowercase. Keeping XHTML as is.
+
+      transformCaseFunc = PARSER_MEDIA_TYPE === 'application/xhtml+xml' ? stringToString : stringToLowerCase;
       /* Set configuration parameters */
-      ALLOWED_TAGS = 'ALLOWED_TAGS' in cfg ? addToSet({}, cfg.ALLOWED_TAGS) : DEFAULT_ALLOWED_TAGS;
-      ALLOWED_ATTR = 'ALLOWED_ATTR' in cfg ? addToSet({}, cfg.ALLOWED_ATTR) : DEFAULT_ALLOWED_ATTR;
-      URI_SAFE_ATTRIBUTES = 'ADD_URI_SAFE_ATTR' in cfg ? addToSet(clone(DEFAULT_URI_SAFE_ATTRIBUTES), cfg.ADD_URI_SAFE_ATTR) : DEFAULT_URI_SAFE_ATTRIBUTES;
-      DATA_URI_TAGS = 'ADD_DATA_URI_TAGS' in cfg ? addToSet(clone(DEFAULT_DATA_URI_TAGS), cfg.ADD_DATA_URI_TAGS) : DEFAULT_DATA_URI_TAGS;
-      FORBID_CONTENTS = 'FORBID_CONTENTS' in cfg ? addToSet({}, cfg.FORBID_CONTENTS) : DEFAULT_FORBID_CONTENTS;
-      FORBID_TAGS = 'FORBID_TAGS' in cfg ? addToSet({}, cfg.FORBID_TAGS) : {};
-      FORBID_ATTR = 'FORBID_ATTR' in cfg ? addToSet({}, cfg.FORBID_ATTR) : {};
+
+      ALLOWED_TAGS = 'ALLOWED_TAGS' in cfg ? addToSet({}, cfg.ALLOWED_TAGS, transformCaseFunc) : DEFAULT_ALLOWED_TAGS;
+      ALLOWED_ATTR = 'ALLOWED_ATTR' in cfg ? addToSet({}, cfg.ALLOWED_ATTR, transformCaseFunc) : DEFAULT_ALLOWED_ATTR;
+      ALLOWED_NAMESPACES = 'ALLOWED_NAMESPACES' in cfg ? addToSet({}, cfg.ALLOWED_NAMESPACES, stringToString) : DEFAULT_ALLOWED_NAMESPACES;
+      URI_SAFE_ATTRIBUTES = 'ADD_URI_SAFE_ATTR' in cfg ? addToSet(clone(DEFAULT_URI_SAFE_ATTRIBUTES), // eslint-disable-line indent
+      cfg.ADD_URI_SAFE_ATTR, // eslint-disable-line indent
+      transformCaseFunc // eslint-disable-line indent
+      ) // eslint-disable-line indent
+      : DEFAULT_URI_SAFE_ATTRIBUTES;
+      DATA_URI_TAGS = 'ADD_DATA_URI_TAGS' in cfg ? addToSet(clone(DEFAULT_DATA_URI_TAGS), // eslint-disable-line indent
+      cfg.ADD_DATA_URI_TAGS, // eslint-disable-line indent
+      transformCaseFunc // eslint-disable-line indent
+      ) // eslint-disable-line indent
+      : DEFAULT_DATA_URI_TAGS;
+      FORBID_CONTENTS = 'FORBID_CONTENTS' in cfg ? addToSet({}, cfg.FORBID_CONTENTS, transformCaseFunc) : DEFAULT_FORBID_CONTENTS;
+      FORBID_TAGS = 'FORBID_TAGS' in cfg ? addToSet({}, cfg.FORBID_TAGS, transformCaseFunc) : {};
+      FORBID_ATTR = 'FORBID_ATTR' in cfg ? addToSet({}, cfg.FORBID_ATTR, transformCaseFunc) : {};
       USE_PROFILES = 'USE_PROFILES' in cfg ? cfg.USE_PROFILES : false;
       ALLOW_ARIA_ATTR = cfg.ALLOW_ARIA_ATTR !== false; // Default true
+
       ALLOW_DATA_ATTR = cfg.ALLOW_DATA_ATTR !== false; // Default true
+
       ALLOW_UNKNOWN_PROTOCOLS = cfg.ALLOW_UNKNOWN_PROTOCOLS || false; // Default false
+
+      ALLOW_SELF_CLOSE_IN_ATTR = cfg.ALLOW_SELF_CLOSE_IN_ATTR !== false; // Default true
+
       SAFE_FOR_TEMPLATES = cfg.SAFE_FOR_TEMPLATES || false; // Default false
+
       WHOLE_DOCUMENT = cfg.WHOLE_DOCUMENT || false; // Default false
+
       RETURN_DOM = cfg.RETURN_DOM || false; // Default false
+
       RETURN_DOM_FRAGMENT = cfg.RETURN_DOM_FRAGMENT || false; // Default false
-      RETURN_DOM_IMPORT = cfg.RETURN_DOM_IMPORT !== false; // Default true
+
       RETURN_TRUSTED_TYPE = cfg.RETURN_TRUSTED_TYPE || false; // Default false
+
       FORCE_BODY = cfg.FORCE_BODY || false; // Default false
+
       SANITIZE_DOM = cfg.SANITIZE_DOM !== false; // Default true
+
+      SANITIZE_NAMED_PROPS = cfg.SANITIZE_NAMED_PROPS || false; // Default false
+
       KEEP_CONTENT = cfg.KEEP_CONTENT !== false; // Default true
+
       IN_PLACE = cfg.IN_PLACE || false; // Default false
-      IS_ALLOWED_URI$$1 = cfg.ALLOWED_URI_REGEXP || IS_ALLOWED_URI$$1;
+
+      IS_ALLOWED_URI$1 = cfg.ALLOWED_URI_REGEXP || IS_ALLOWED_URI$1;
       NAMESPACE = cfg.NAMESPACE || HTML_NAMESPACE;
 
-      PARSER_MEDIA_TYPE =
-      // eslint-disable-next-line unicorn/prefer-includes
-      SUPPORTED_PARSER_MEDIA_TYPES.indexOf(cfg.PARSER_MEDIA_TYPE) === -1 ? PARSER_MEDIA_TYPE = DEFAULT_PARSER_MEDIA_TYPE : PARSER_MEDIA_TYPE = cfg.PARSER_MEDIA_TYPE;
+      if (cfg.CUSTOM_ELEMENT_HANDLING && isRegexOrFunction(cfg.CUSTOM_ELEMENT_HANDLING.tagNameCheck)) {
+        CUSTOM_ELEMENT_HANDLING.tagNameCheck = cfg.CUSTOM_ELEMENT_HANDLING.tagNameCheck;
+      }
 
-      // HTML tags and attributes are not case-sensitive, converting to lowercase. Keeping XHTML as is.
-      transformCaseFunc = PARSER_MEDIA_TYPE === 'application/xhtml+xml' ? function (x) {
-        return x;
-      } : stringToLowerCase;
+      if (cfg.CUSTOM_ELEMENT_HANDLING && isRegexOrFunction(cfg.CUSTOM_ELEMENT_HANDLING.attributeNameCheck)) {
+        CUSTOM_ELEMENT_HANDLING.attributeNameCheck = cfg.CUSTOM_ELEMENT_HANDLING.attributeNameCheck;
+      }
+
+      if (cfg.CUSTOM_ELEMENT_HANDLING && typeof cfg.CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements === 'boolean') {
+        CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements = cfg.CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements;
+      }
 
       if (SAFE_FOR_TEMPLATES) {
         ALLOW_DATA_ATTR = false;
@@ -513,42 +664,45 @@
       if (RETURN_DOM_FRAGMENT) {
         RETURN_DOM = true;
       }
-
       /* Parse profile info */
+
+
       if (USE_PROFILES) {
-        ALLOWED_TAGS = addToSet({}, [].concat(_toConsumableArray$1(text)));
+        ALLOWED_TAGS = addToSet({}, _toConsumableArray(text));
         ALLOWED_ATTR = [];
+
         if (USE_PROFILES.html === true) {
-          addToSet(ALLOWED_TAGS, html);
-          addToSet(ALLOWED_ATTR, html$1);
+          addToSet(ALLOWED_TAGS, html$1);
+          addToSet(ALLOWED_ATTR, html);
         }
 
         if (USE_PROFILES.svg === true) {
-          addToSet(ALLOWED_TAGS, svg);
-          addToSet(ALLOWED_ATTR, svg$1);
+          addToSet(ALLOWED_TAGS, svg$1);
+          addToSet(ALLOWED_ATTR, svg);
           addToSet(ALLOWED_ATTR, xml);
         }
 
         if (USE_PROFILES.svgFilters === true) {
           addToSet(ALLOWED_TAGS, svgFilters);
-          addToSet(ALLOWED_ATTR, svg$1);
+          addToSet(ALLOWED_ATTR, svg);
           addToSet(ALLOWED_ATTR, xml);
         }
 
         if (USE_PROFILES.mathMl === true) {
-          addToSet(ALLOWED_TAGS, mathMl);
-          addToSet(ALLOWED_ATTR, mathMl$1);
+          addToSet(ALLOWED_TAGS, mathMl$1);
+          addToSet(ALLOWED_ATTR, mathMl);
           addToSet(ALLOWED_ATTR, xml);
         }
       }
-
       /* Merge configuration parameters */
+
+
       if (cfg.ADD_TAGS) {
         if (ALLOWED_TAGS === DEFAULT_ALLOWED_TAGS) {
           ALLOWED_TAGS = clone(ALLOWED_TAGS);
         }
 
-        addToSet(ALLOWED_TAGS, cfg.ADD_TAGS);
+        addToSet(ALLOWED_TAGS, cfg.ADD_TAGS, transformCaseFunc);
       }
 
       if (cfg.ADD_ATTR) {
@@ -556,11 +710,11 @@
           ALLOWED_ATTR = clone(ALLOWED_ATTR);
         }
 
-        addToSet(ALLOWED_ATTR, cfg.ADD_ATTR);
+        addToSet(ALLOWED_ATTR, cfg.ADD_ATTR, transformCaseFunc);
       }
 
       if (cfg.ADD_URI_SAFE_ATTR) {
-        addToSet(URI_SAFE_ATTRIBUTES, cfg.ADD_URI_SAFE_ATTR);
+        addToSet(URI_SAFE_ATTRIBUTES, cfg.ADD_URI_SAFE_ATTR, transformCaseFunc);
       }
 
       if (cfg.FORBID_CONTENTS) {
@@ -568,27 +722,30 @@
           FORBID_CONTENTS = clone(FORBID_CONTENTS);
         }
 
-        addToSet(FORBID_CONTENTS, cfg.FORBID_CONTENTS);
+        addToSet(FORBID_CONTENTS, cfg.FORBID_CONTENTS, transformCaseFunc);
       }
-
       /* Add #text in case KEEP_CONTENT is set to true */
+
+
       if (KEEP_CONTENT) {
         ALLOWED_TAGS['#text'] = true;
       }
-
       /* Add html, head and body to ALLOWED_TAGS in case WHOLE_DOCUMENT is true */
+
+
       if (WHOLE_DOCUMENT) {
         addToSet(ALLOWED_TAGS, ['html', 'head', 'body']);
       }
-
       /* Add tbody to ALLOWED_TAGS in case tables are permitted, see #286, #365 */
+
+
       if (ALLOWED_TAGS.table) {
         addToSet(ALLOWED_TAGS, ['tbody']);
         delete FORBID_TAGS.tbody;
-      }
-
-      // Prevent further manipulation of configuration.
+      } // Prevent further manipulation of configuration.
       // Not available in IE8, Safari 5, etc.
+
+
       if (freeze) {
         freeze(cfg);
       }
@@ -597,19 +754,21 @@
     };
 
     var MATHML_TEXT_INTEGRATION_POINTS = addToSet({}, ['mi', 'mo', 'mn', 'ms', 'mtext']);
+    var HTML_INTEGRATION_POINTS = addToSet({}, ['foreignobject', 'desc', 'title', 'annotation-xml']); // Certain elements are allowed in both SVG and HTML
+    // namespace. We need to specify them explicitly
+    // so that they don't get erroneously deleted from
+    // HTML namespace.
 
-    var HTML_INTEGRATION_POINTS = addToSet({}, ['foreignobject', 'desc', 'title', 'annotation-xml']);
-
+    var COMMON_SVG_AND_HTML_ELEMENTS = addToSet({}, ['title', 'style', 'font', 'a', 'script']);
     /* Keep track of all possible SVG and MathML tags
      * so that we can perform the namespace checks
      * correctly. */
-    var ALL_SVG_TAGS = addToSet({}, svg);
+
+    var ALL_SVG_TAGS = addToSet({}, svg$1);
     addToSet(ALL_SVG_TAGS, svgFilters);
     addToSet(ALL_SVG_TAGS, svgDisallowed);
-
-    var ALL_MATHML_TAGS = addToSet({}, mathMl);
+    var ALL_MATHML_TAGS = addToSet({}, mathMl$1);
     addToSet(ALL_MATHML_TAGS, mathMlDisallowed);
-
     /**
      *
      *
@@ -618,14 +777,14 @@
      *  namespace that a spec-compliant parser would never
      *  return. Return true otherwise.
      */
-    var _checkValidNamespace = function _checkValidNamespace(element) {
-      var parent = getParentNode(element);
 
-      // In JSDOM, if we're inside shadow DOM, then parentNode
+    var _checkValidNamespace = function _checkValidNamespace(element) {
+      var parent = getParentNode(element); // In JSDOM, if we're inside shadow DOM, then parentNode
       // can be null. We just simulate parent in this case.
+
       if (!parent || !parent.tagName) {
         parent = {
-          namespaceURI: HTML_NAMESPACE,
+          namespaceURI: NAMESPACE,
           tagName: 'template'
         };
       }
@@ -633,23 +792,27 @@
       var tagName = stringToLowerCase(element.tagName);
       var parentTagName = stringToLowerCase(parent.tagName);
 
+      if (!ALLOWED_NAMESPACES[element.namespaceURI]) {
+        return false;
+      }
+
       if (element.namespaceURI === SVG_NAMESPACE) {
         // The only way to switch from HTML namespace to SVG
         // is via <svg>. If it happens via any other tag, then
         // it should be killed.
         if (parent.namespaceURI === HTML_NAMESPACE) {
           return tagName === 'svg';
-        }
-
-        // The only way to switch from MathML to SVG is via
+        } // The only way to switch from MathML to SVG is via`
         // svg if parent is either <annotation-xml> or MathML
         // text integration points.
+
+
         if (parent.namespaceURI === MATHML_NAMESPACE) {
           return tagName === 'svg' && (parentTagName === 'annotation-xml' || MATHML_TEXT_INTEGRATION_POINTS[parentTagName]);
-        }
-
-        // We only allow elements that are defined in SVG
+        } // We only allow elements that are defined in SVG
         // spec. All others are disallowed in SVG namespace.
+
+
         return Boolean(ALL_SVG_TAGS[tagName]);
       }
 
@@ -659,16 +822,16 @@
         // it should be killed.
         if (parent.namespaceURI === HTML_NAMESPACE) {
           return tagName === 'math';
-        }
-
-        // The only way to switch from SVG to MathML is via
+        } // The only way to switch from SVG to MathML is via
         // <math> and HTML integration points
+
+
         if (parent.namespaceURI === SVG_NAMESPACE) {
           return tagName === 'math' && HTML_INTEGRATION_POINTS[parentTagName];
-        }
-
-        // We only allow elements that are defined in MathML
+        } // We only allow elements that are defined in MathML
         // spec. All others are disallowed in MathML namespace.
+
+
         return Boolean(ALL_MATHML_TAGS[tagName]);
       }
 
@@ -682,32 +845,36 @@
 
         if (parent.namespaceURI === MATHML_NAMESPACE && !MATHML_TEXT_INTEGRATION_POINTS[parentTagName]) {
           return false;
-        }
-
-        // Certain elements are allowed in both SVG and HTML
-        // namespace. We need to specify them explicitly
-        // so that they don't get erronously deleted from
-        // HTML namespace.
-        var commonSvgAndHTMLElements = addToSet({}, ['title', 'style', 'font', 'a', 'script']);
-
-        // We disallow tags that are specific for MathML
+        } // We disallow tags that are specific for MathML
         // or SVG and should never appear in HTML namespace
-        return !ALL_MATHML_TAGS[tagName] && (commonSvgAndHTMLElements[tagName] || !ALL_SVG_TAGS[tagName]);
-      }
 
-      // The code should never reach this place (this means
+
+        return !ALL_MATHML_TAGS[tagName] && (COMMON_SVG_AND_HTML_ELEMENTS[tagName] || !ALL_SVG_TAGS[tagName]);
+      } // For XHTML and XML documents that support custom namespaces
+
+
+      if (PARSER_MEDIA_TYPE === 'application/xhtml+xml' && ALLOWED_NAMESPACES[element.namespaceURI]) {
+        return true;
+      } // The code should never reach this place (this means
       // that the element somehow got namespace that is not
-      // HTML, SVG or MathML). Return false just in case.
+      // HTML, SVG, MathML or allowed via ALLOWED_NAMESPACES).
+      // Return false just in case.
+
+
       return false;
     };
-
     /**
      * _forceRemove
      *
      * @param  {Node} node a DOM node
      */
+
+
     var _forceRemove = function _forceRemove(node) {
-      arrayPush(DOMPurify.removed, { element: node });
+      arrayPush(DOMPurify.removed, {
+        element: node
+      });
+
       try {
         // eslint-disable-next-line unicorn/prefer-dom-node-remove
         node.parentNode.removeChild(node);
@@ -719,13 +886,14 @@
         }
       }
     };
-
     /**
      * _removeAttribute
      *
      * @param  {String} name an Attribute name
      * @param  {Node} node a DOM node
      */
+
+
     var _removeAttribute = function _removeAttribute(name, node) {
       try {
         arrayPush(DOMPurify.removed, {
@@ -739,9 +907,8 @@
         });
       }
 
-      node.removeAttribute(name);
+      node.removeAttribute(name); // We void attribute values for unremovable "is"" attributes
 
-      // We void attribute values for unremovable "is"" attributes
       if (name === 'is' && !ALLOWED_ATTR[name]) {
         if (RETURN_DOM || RETURN_DOM_FRAGMENT) {
           try {
@@ -754,17 +921,18 @@
         }
       }
     };
-
     /**
      * _initDocument
      *
      * @param  {String} dirty a string of dirty markup
      * @return {Document} a DOM, filled with the dirty markup
      */
+
+
     var _initDocument = function _initDocument(dirty) {
       /* Create a HTML document */
-      var doc = void 0;
-      var leadingWhitespace = void 0;
+      var doc;
+      var leadingWhitespace;
 
       if (FORCE_BODY) {
         dirty = '<remove></remove>' + dirty;
@@ -774,7 +942,7 @@
         leadingWhitespace = matches && matches[0];
       }
 
-      if (PARSER_MEDIA_TYPE === 'application/xhtml+xml') {
+      if (PARSER_MEDIA_TYPE === 'application/xhtml+xml' && NAMESPACE === HTML_NAMESPACE) {
         // Root of XHTML doc must contain xmlns declaration (see https://www.w3.org/TR/xhtml1/normative.html#strict)
         dirty = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + dirty + '</body></html>';
       }
@@ -784,19 +952,21 @@
        * Use the DOMParser API by default, fallback later if needs be
        * DOMParser not work for svg when has multiple root element.
        */
+
       if (NAMESPACE === HTML_NAMESPACE) {
         try {
           doc = new DOMParser().parseFromString(dirtyPayload, PARSER_MEDIA_TYPE);
         } catch (_) {}
       }
-
       /* Use createHTMLDocument in case DOMParser is not available */
+
+
       if (!doc || !doc.documentElement) {
         doc = implementation.createDocument(NAMESPACE, 'template', null);
+
         try {
-          doc.documentElement.innerHTML = IS_EMPTY_INPUT ? '' : dirtyPayload;
-        } catch (_) {
-          // Syntax error if dirtyPayload is invalid xml
+          doc.documentElement.innerHTML = IS_EMPTY_INPUT ? emptyHTML : dirtyPayload;
+        } catch (_) {// Syntax error if dirtyPayload is invalid xml
         }
       }
 
@@ -805,53 +975,49 @@
       if (dirty && leadingWhitespace) {
         body.insertBefore(document.createTextNode(leadingWhitespace), body.childNodes[0] || null);
       }
-
       /* Work on whole document or just its body */
+
+
       if (NAMESPACE === HTML_NAMESPACE) {
         return getElementsByTagName.call(doc, WHOLE_DOCUMENT ? 'html' : 'body')[0];
       }
 
       return WHOLE_DOCUMENT ? doc.documentElement : body;
     };
-
     /**
      * _createIterator
      *
      * @param  {Document} root document/fragment to create iterator for
      * @return {Iterator} iterator instance
      */
-    var _createIterator = function _createIterator(root) {
-      return createNodeIterator.call(root.ownerDocument || root, root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT, null, false);
-    };
 
+
+    var _createIterator = function _createIterator(root) {
+      return createNodeIterator.call(root.ownerDocument || root, root, // eslint-disable-next-line no-bitwise
+      NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT, null, false);
+    };
     /**
      * _isClobbered
      *
      * @param  {Node} elm element to check for clobbering attacks
      * @return {Boolean} true if clobbered, false if safe
      */
+
+
     var _isClobbered = function _isClobbered(elm) {
-      if (elm instanceof Text || elm instanceof Comment) {
-        return false;
-      }
-
-      if (typeof elm.nodeName !== 'string' || typeof elm.textContent !== 'string' || typeof elm.removeChild !== 'function' || !(elm.attributes instanceof NamedNodeMap) || typeof elm.removeAttribute !== 'function' || typeof elm.setAttribute !== 'function' || typeof elm.namespaceURI !== 'string' || typeof elm.insertBefore !== 'function') {
-        return true;
-      }
-
-      return false;
+      return elm instanceof HTMLFormElement && (typeof elm.nodeName !== 'string' || typeof elm.textContent !== 'string' || typeof elm.removeChild !== 'function' || !(elm.attributes instanceof NamedNodeMap) || typeof elm.removeAttribute !== 'function' || typeof elm.setAttribute !== 'function' || typeof elm.namespaceURI !== 'string' || typeof elm.insertBefore !== 'function' || typeof elm.hasChildNodes !== 'function');
     };
-
     /**
      * _isNode
      *
      * @param  {Node} obj object to check whether it's a DOM node
      * @return {Boolean} true is object is a DOM node
      */
-    var _isNode = function _isNode(object) {
-      return (typeof Node === 'undefined' ? 'undefined' : _typeof(Node)) === 'object' ? object instanceof Node : object && (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string';
-    };
 
+
+    var _isNode = function _isNode(object) {
+      return _typeof(Node) === 'object' ? object instanceof Node : object && _typeof(object) === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string';
+    };
     /**
      * _executeHook
      * Execute user configurable hooks
@@ -860,6 +1026,8 @@
      * @param  {Node} currentNode node to work on with the hook
      * @param  {Object} data additional hook parameters
      */
+
+
     var _executeHook = function _executeHook(entryPoint, currentNode, data) {
       if (!hooks[entryPoint]) {
         return;
@@ -869,7 +1037,6 @@
         hook.call(DOMPurify, currentNode, data, CONFIG);
       });
     };
-
     /**
      * _sanitizeElements
      *
@@ -880,48 +1047,67 @@
      * @param   {Node} currentNode to check for permission to exist
      * @return  {Boolean} true if node was killed, false if left alive
      */
+
+
     var _sanitizeElements = function _sanitizeElements(currentNode) {
-      var content = void 0;
-
+      var content;
       /* Execute a hook if present */
-      _executeHook('beforeSanitizeElements', currentNode, null);
 
+      _executeHook('beforeSanitizeElements', currentNode, null);
       /* Check if element is clobbered or can clobber */
+
+
       if (_isClobbered(currentNode)) {
         _forceRemove(currentNode);
+
         return true;
       }
-
       /* Check if tagname contains Unicode */
-      if (stringMatch(currentNode.nodeName, /[\u0080-\uFFFF]/)) {
+
+
+      if (regExpTest(/[\u0080-\uFFFF]/, currentNode.nodeName)) {
         _forceRemove(currentNode);
+
         return true;
       }
-
       /* Now let's check the element's type and name */
-      var tagName = transformCaseFunc(currentNode.nodeName);
 
+
+      var tagName = transformCaseFunc(currentNode.nodeName);
       /* Execute a hook if present */
+
       _executeHook('uponSanitizeElement', currentNode, {
         tagName: tagName,
         allowedTags: ALLOWED_TAGS
       });
-
       /* Detect mXSS attempts abusing namespace confusion */
-      if (!_isNode(currentNode.firstElementChild) && (!_isNode(currentNode.content) || !_isNode(currentNode.content.firstElementChild)) && regExpTest(/<[/\w]/g, currentNode.innerHTML) && regExpTest(/<[/\w]/g, currentNode.textContent)) {
+
+
+      if (currentNode.hasChildNodes() && !_isNode(currentNode.firstElementChild) && (!_isNode(currentNode.content) || !_isNode(currentNode.content.firstElementChild)) && regExpTest(/<[/\w]/g, currentNode.innerHTML) && regExpTest(/<[/\w]/g, currentNode.textContent)) {
         _forceRemove(currentNode);
+
         return true;
       }
-
       /* Mitigate a problem with templates inside select */
+
+
       if (tagName === 'select' && regExpTest(/<template/i, currentNode.innerHTML)) {
         _forceRemove(currentNode);
+
         return true;
       }
-
       /* Remove element if anything forbids its presence */
+
+
       if (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName]) {
+        /* Check if we have a custom element to handle */
+        if (!FORBID_TAGS[tagName] && _basicCustomElementTest(tagName)) {
+          if (CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof RegExp && regExpTest(CUSTOM_ELEMENT_HANDLING.tagNameCheck, tagName)) return false;
+          if (CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof Function && CUSTOM_ELEMENT_HANDLING.tagNameCheck(tagName)) return false;
+        }
         /* Keep content except for bad-listed elements */
+
+
         if (KEEP_CONTENT && !FORBID_CONTENTS[tagName]) {
           var parentNode = getParentNode(currentNode) || currentNode.parentNode;
           var childNodes = getChildNodes(currentNode) || currentNode.childNodes;
@@ -936,38 +1122,47 @@
         }
 
         _forceRemove(currentNode);
+
         return true;
       }
-
       /* Check whether element has a valid namespace */
+
+
       if (currentNode instanceof Element && !_checkValidNamespace(currentNode)) {
         _forceRemove(currentNode);
+
         return true;
       }
 
       if ((tagName === 'noscript' || tagName === 'noembed') && regExpTest(/<\/no(script|embed)/i, currentNode.innerHTML)) {
         _forceRemove(currentNode);
+
         return true;
       }
-
       /* Sanitize element content to be template-safe */
+
+
       if (SAFE_FOR_TEMPLATES && currentNode.nodeType === 3) {
         /* Get the element's text content */
         content = currentNode.textContent;
-        content = stringReplace(content, MUSTACHE_EXPR$$1, ' ');
-        content = stringReplace(content, ERB_EXPR$$1, ' ');
+        content = stringReplace(content, MUSTACHE_EXPR$1, ' ');
+        content = stringReplace(content, ERB_EXPR$1, ' ');
+        content = stringReplace(content, TMPLIT_EXPR$1, ' ');
+
         if (currentNode.textContent !== content) {
-          arrayPush(DOMPurify.removed, { element: currentNode.cloneNode() });
+          arrayPush(DOMPurify.removed, {
+            element: currentNode.cloneNode()
+          });
           currentNode.textContent = content;
         }
       }
-
       /* Execute a hook if present */
+
+
       _executeHook('afterSanitizeElements', currentNode, null);
 
       return false;
     };
-
     /**
      * _isValidAttribute
      *
@@ -977,27 +1172,47 @@
      * @return {Boolean} Returns true if `value` is valid, otherwise false.
      */
     // eslint-disable-next-line complexity
+
+
     var _isValidAttribute = function _isValidAttribute(lcTag, lcName, value) {
       /* Make sure attribute cannot clobber */
       if (SANITIZE_DOM && (lcName === 'id' || lcName === 'name') && (value in document || value in formElement)) {
         return false;
       }
-
       /* Allow valid data-* attributes: At least one character after "-"
           (https://html.spec.whatwg.org/multipage/dom.html#embedding-custom-non-visible-data-with-the-data-*-attributes)
           XML-compatible (https://html.spec.whatwg.org/multipage/infrastructure.html#xml-compatible and http://www.w3.org/TR/xml/#d0e804)
           We don't need to check the value; it's always URI safe. */
-      if (ALLOW_DATA_ATTR && !FORBID_ATTR[lcName] && regExpTest(DATA_ATTR$$1, lcName)) ; else if (ALLOW_ARIA_ATTR && regExpTest(ARIA_ATTR$$1, lcName)) ; else if (!ALLOWED_ATTR[lcName] || FORBID_ATTR[lcName]) {
-        return false;
 
+
+      if (ALLOW_DATA_ATTR && !FORBID_ATTR[lcName] && regExpTest(DATA_ATTR$1, lcName)) ; else if (ALLOW_ARIA_ATTR && regExpTest(ARIA_ATTR$1, lcName)) ; else if (!ALLOWED_ATTR[lcName] || FORBID_ATTR[lcName]) {
+        if ( // First condition does a very basic check if a) it's basically a valid custom element tagname AND
+        // b) if the tagName passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.tagNameCheck
+        // and c) if the attribute name passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.attributeNameCheck
+        _basicCustomElementTest(lcTag) && (CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof RegExp && regExpTest(CUSTOM_ELEMENT_HANDLING.tagNameCheck, lcTag) || CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof Function && CUSTOM_ELEMENT_HANDLING.tagNameCheck(lcTag)) && (CUSTOM_ELEMENT_HANDLING.attributeNameCheck instanceof RegExp && regExpTest(CUSTOM_ELEMENT_HANDLING.attributeNameCheck, lcName) || CUSTOM_ELEMENT_HANDLING.attributeNameCheck instanceof Function && CUSTOM_ELEMENT_HANDLING.attributeNameCheck(lcName)) || // Alternative, second condition checks if it's an `is`-attribute, AND
+        // the value passes whatever the user has configured for CUSTOM_ELEMENT_HANDLING.tagNameCheck
+        lcName === 'is' && CUSTOM_ELEMENT_HANDLING.allowCustomizedBuiltInElements && (CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof RegExp && regExpTest(CUSTOM_ELEMENT_HANDLING.tagNameCheck, value) || CUSTOM_ELEMENT_HANDLING.tagNameCheck instanceof Function && CUSTOM_ELEMENT_HANDLING.tagNameCheck(value))) ; else {
+          return false;
+        }
         /* Check value is safe. First, is attr inert? If so, is safe */
-      } else if (URI_SAFE_ATTRIBUTES[lcName]) ; else if (regExpTest(IS_ALLOWED_URI$$1, stringReplace(value, ATTR_WHITESPACE$$1, ''))) ; else if ((lcName === 'src' || lcName === 'xlink:href' || lcName === 'href') && lcTag !== 'script' && stringIndexOf(value, 'data:') === 0 && DATA_URI_TAGS[lcTag]) ; else if (ALLOW_UNKNOWN_PROTOCOLS && !regExpTest(IS_SCRIPT_OR_DATA$$1, stringReplace(value, ATTR_WHITESPACE$$1, ''))) ; else if (!value) ; else {
+
+      } else if (URI_SAFE_ATTRIBUTES[lcName]) ; else if (regExpTest(IS_ALLOWED_URI$1, stringReplace(value, ATTR_WHITESPACE$1, ''))) ; else if ((lcName === 'src' || lcName === 'xlink:href' || lcName === 'href') && lcTag !== 'script' && stringIndexOf(value, 'data:') === 0 && DATA_URI_TAGS[lcTag]) ; else if (ALLOW_UNKNOWN_PROTOCOLS && !regExpTest(IS_SCRIPT_OR_DATA$1, stringReplace(value, ATTR_WHITESPACE$1, ''))) ; else if (!value) ; else {
         return false;
       }
 
       return true;
     };
+    /**
+     * _basicCustomElementCheck
+     * checks if at least one dash is included in tagName, and it's not the first char
+     * for more sophisticated checking see https://github.com/sindresorhus/validate-element-name
+     * @param {string} tagName name of the tag of the node to sanitize
+     */
 
+
+    var _basicCustomElementTest = function _basicCustomElementTest(tagName) {
+      return tagName.indexOf('-') > 0;
+    };
     /**
      * _sanitizeAttributes
      *
@@ -1008,16 +1223,18 @@
      *
      * @param  {Node} currentNode to sanitize
      */
+
+
     var _sanitizeAttributes = function _sanitizeAttributes(currentNode) {
-      var attr = void 0;
-      var value = void 0;
-      var lcName = void 0;
-      var l = void 0;
+      var attr;
+      var value;
+      var lcName;
+      var l;
       /* Execute a hook if present */
+
       _executeHook('beforeSanitizeAttributes', currentNode, null);
 
       var attributes = currentNode.attributes;
-
       /* Check if we have attributes; if not we might have a text node */
 
       if (!attributes) {
@@ -1031,56 +1248,95 @@
         allowedAttributes: ALLOWED_ATTR
       };
       l = attributes.length;
-
       /* Go backwards over all attributes; safely remove bad ones */
+
       while (l--) {
         attr = attributes[l];
         var _attr = attr,
             name = _attr.name,
             namespaceURI = _attr.namespaceURI;
-
-        value = stringTrim(attr.value);
+        value = name === 'value' ? attr.value : stringTrim(attr.value);
         lcName = transformCaseFunc(name);
-
         /* Execute a hook if present */
+
         hookEvent.attrName = lcName;
         hookEvent.attrValue = value;
         hookEvent.keepAttr = true;
         hookEvent.forceKeepAttr = undefined; // Allows developers to see this is a property they can set
+
         _executeHook('uponSanitizeAttribute', currentNode, hookEvent);
+
         value = hookEvent.attrValue;
         /* Did the hooks approve of the attribute? */
+
         if (hookEvent.forceKeepAttr) {
           continue;
         }
-
         /* Remove attribute */
-        _removeAttribute(name, currentNode);
 
+
+        _removeAttribute(name, currentNode);
         /* Did the hooks approve of the attribute? */
+
+
         if (!hookEvent.keepAttr) {
           continue;
         }
-
         /* Work around a security issue in jQuery 3.0 */
-        if (regExpTest(/\/>/i, value)) {
+
+
+        if (!ALLOW_SELF_CLOSE_IN_ATTR && regExpTest(/\/>/i, value)) {
           _removeAttribute(name, currentNode);
+
           continue;
         }
-
         /* Sanitize attribute content to be template-safe */
-        if (SAFE_FOR_TEMPLATES) {
-          value = stringReplace(value, MUSTACHE_EXPR$$1, ' ');
-          value = stringReplace(value, ERB_EXPR$$1, ' ');
-        }
 
+
+        if (SAFE_FOR_TEMPLATES) {
+          value = stringReplace(value, MUSTACHE_EXPR$1, ' ');
+          value = stringReplace(value, ERB_EXPR$1, ' ');
+          value = stringReplace(value, TMPLIT_EXPR$1, ' ');
+        }
         /* Is `value` valid for this attribute? */
+
+
         var lcTag = transformCaseFunc(currentNode.nodeName);
+
         if (!_isValidAttribute(lcTag, lcName, value)) {
           continue;
         }
+        /* Full DOM Clobbering protection via namespace isolation,
+         * Prefix id and name attributes with `user-content-`
+         */
 
+
+        if (SANITIZE_NAMED_PROPS && (lcName === 'id' || lcName === 'name')) {
+          // Remove the attribute with this value
+          _removeAttribute(name, currentNode); // Prefix the value and later re-create the attribute with the sanitized value
+
+
+          value = SANITIZE_NAMED_PROPS_PREFIX + value;
+        }
+        /* Handle attributes that require Trusted Types */
+
+
+        if (trustedTypesPolicy && _typeof(trustedTypes) === 'object' && typeof trustedTypes.getAttributeType === 'function') {
+          if (namespaceURI) ; else {
+            switch (trustedTypes.getAttributeType(lcTag, lcName)) {
+              case 'TrustedHTML':
+                value = trustedTypesPolicy.createHTML(value);
+                break;
+
+              case 'TrustedScriptURL':
+                value = trustedTypesPolicy.createScriptURL(value);
+                break;
+            }
+          }
+        }
         /* Handle invalid data-* attribute set by try-catching it */
+
+
         try {
           if (namespaceURI) {
             currentNode.setAttributeNS(namespaceURI, name, value);
@@ -1092,45 +1348,52 @@
           arrayPop(DOMPurify.removed);
         } catch (_) {}
       }
-
       /* Execute a hook if present */
+
+
       _executeHook('afterSanitizeAttributes', currentNode, null);
     };
-
     /**
      * _sanitizeShadowDOM
      *
      * @param  {DocumentFragment} fragment to iterate over recursively
      */
-    var _sanitizeShadowDOM = function _sanitizeShadowDOM(fragment) {
-      var shadowNode = void 0;
-      var shadowIterator = _createIterator(fragment);
 
+
+    var _sanitizeShadowDOM = function _sanitizeShadowDOM(fragment) {
+      var shadowNode;
+
+      var shadowIterator = _createIterator(fragment);
       /* Execute a hook if present */
+
+
       _executeHook('beforeSanitizeShadowDOM', fragment, null);
 
       while (shadowNode = shadowIterator.nextNode()) {
         /* Execute a hook if present */
         _executeHook('uponSanitizeShadowNode', shadowNode, null);
-
         /* Sanitize tags and elements */
+
+
         if (_sanitizeElements(shadowNode)) {
           continue;
         }
-
         /* Deep shadow DOM detected */
+
+
         if (shadowNode.content instanceof DocumentFragment) {
           _sanitizeShadowDOM(shadowNode.content);
         }
-
         /* Check attributes, sanitize if necessary */
+
+
         _sanitizeAttributes(shadowNode);
       }
-
       /* Execute a hook if present */
+
+
       _executeHook('afterSanitizeShadowDOM', fragment, null);
     };
-
     /**
      * Sanitize
      * Public method providing core sanitation functionality
@@ -1139,34 +1402,42 @@
      * @param {Object} configuration object
      */
     // eslint-disable-next-line complexity
-    DOMPurify.sanitize = function (dirty, cfg) {
-      var body = void 0;
-      var importedNode = void 0;
-      var currentNode = void 0;
-      var oldNode = void 0;
-      var returnNode = void 0;
+
+
+    DOMPurify.sanitize = function (dirty) {
+      var cfg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var body;
+      var importedNode;
+      var currentNode;
+      var oldNode;
+      var returnNode;
       /* Make sure we have a string to sanitize.
         DO NOT return early, as this will return the wrong type if
         the user has requested a DOM object rather than a string */
+
       IS_EMPTY_INPUT = !dirty;
+
       if (IS_EMPTY_INPUT) {
         dirty = '<!-->';
       }
-
       /* Stringify, in case dirty is an object */
+
+
       if (typeof dirty !== 'string' && !_isNode(dirty)) {
         // eslint-disable-next-line no-negated-condition
         if (typeof dirty.toString !== 'function') {
           throw typeErrorCreate('toString is not a function');
         } else {
           dirty = dirty.toString();
+
           if (typeof dirty !== 'string') {
             throw typeErrorCreate('dirty is not a string, aborting');
           }
         }
       }
-
       /* Check we can run. Otherwise fall back or ignore */
+
+
       if (!DOMPurify.isSupported) {
         if (_typeof(window.toStaticHTML) === 'object' || typeof window.toStaticHTML === 'function') {
           if (typeof dirty === 'string') {
@@ -1180,25 +1451,37 @@
 
         return dirty;
       }
-
       /* Assign config vars */
+
+
       if (!SET_CONFIG) {
         _parseConfig(cfg);
       }
-
       /* Clean up removed elements */
-      DOMPurify.removed = [];
 
+
+      DOMPurify.removed = [];
       /* Check if dirty is correctly typed for IN_PLACE */
+
       if (typeof dirty === 'string') {
         IN_PLACE = false;
       }
 
-      if (IN_PLACE) ; else if (dirty instanceof Node) {
+      if (IN_PLACE) {
+        /* Do some early pre-sanitization to avoid unsafe root nodes */
+        if (dirty.nodeName) {
+          var tagName = transformCaseFunc(dirty.nodeName);
+
+          if (!ALLOWED_TAGS[tagName] || FORBID_TAGS[tagName]) {
+            throw typeErrorCreate('root node is forbidden and cannot be sanitized in-place');
+          }
+        }
+      } else if (dirty instanceof Node) {
         /* If dirty is a DOM element, append to an empty document to avoid
            elements being stripped by the parser */
         body = _initDocument('<!---->');
         importedNode = body.ownerDocument.importNode(dirty, true);
+
         if (importedNode.nodeType === 1 && importedNode.nodeName === 'BODY') {
           /* Node is already a body, use as is */
           body = importedNode;
@@ -1210,60 +1493,67 @@
         }
       } else {
         /* Exit directly if we have nothing to do */
-        if (!RETURN_DOM && !SAFE_FOR_TEMPLATES && !WHOLE_DOCUMENT &&
-        // eslint-disable-next-line unicorn/prefer-includes
+        if (!RETURN_DOM && !SAFE_FOR_TEMPLATES && !WHOLE_DOCUMENT && // eslint-disable-next-line unicorn/prefer-includes
         dirty.indexOf('<') === -1) {
           return trustedTypesPolicy && RETURN_TRUSTED_TYPE ? trustedTypesPolicy.createHTML(dirty) : dirty;
         }
-
         /* Initialize the document to work on */
-        body = _initDocument(dirty);
 
+
+        body = _initDocument(dirty);
         /* Check we have a DOM node from the data */
+
         if (!body) {
-          return RETURN_DOM ? null : emptyHTML;
+          return RETURN_DOM ? null : RETURN_TRUSTED_TYPE ? emptyHTML : '';
         }
       }
-
       /* Remove first element node (ours) if FORCE_BODY is set */
+
+
       if (body && FORCE_BODY) {
         _forceRemove(body.firstChild);
       }
-
       /* Get node iterator */
-      var nodeIterator = _createIterator(IN_PLACE ? dirty : body);
 
+
+      var nodeIterator = _createIterator(IN_PLACE ? dirty : body);
       /* Now start iterating over the created document */
+
+
       while (currentNode = nodeIterator.nextNode()) {
         /* Fix IE's strange behavior with manipulated textNodes #89 */
         if (currentNode.nodeType === 3 && currentNode === oldNode) {
           continue;
         }
-
         /* Sanitize tags and elements */
+
+
         if (_sanitizeElements(currentNode)) {
           continue;
         }
-
         /* Shadow DOM detected, sanitize it */
+
+
         if (currentNode.content instanceof DocumentFragment) {
           _sanitizeShadowDOM(currentNode.content);
         }
-
         /* Check attributes, sanitize if necessary */
+
+
         _sanitizeAttributes(currentNode);
 
         oldNode = currentNode;
       }
 
       oldNode = null;
-
       /* If we sanitized `dirty` in-place, return it. */
+
       if (IN_PLACE) {
         return dirty;
       }
-
       /* Return sanitized string or DOM */
+
+
       if (RETURN_DOM) {
         if (RETURN_DOM_FRAGMENT) {
           returnNode = createDocumentFragment.call(body.ownerDocument);
@@ -1276,7 +1566,7 @@
           returnNode = body;
         }
 
-        if (RETURN_DOM_IMPORT) {
+        if (ALLOWED_ATTR.shadowroot || ALLOWED_ATTR.shadowrootmod) {
           /*
             AdoptNode() is not used because internal state is not reset
             (e.g. the past names map of a HTMLFormElement), this is safe
@@ -1291,37 +1581,46 @@
       }
 
       var serializedHTML = WHOLE_DOCUMENT ? body.outerHTML : body.innerHTML;
+      /* Serialize doctype if allowed */
 
+      if (WHOLE_DOCUMENT && ALLOWED_TAGS['!doctype'] && body.ownerDocument && body.ownerDocument.doctype && body.ownerDocument.doctype.name && regExpTest(DOCTYPE_NAME, body.ownerDocument.doctype.name)) {
+        serializedHTML = '<!DOCTYPE ' + body.ownerDocument.doctype.name + '>\n' + serializedHTML;
+      }
       /* Sanitize final string template-safe */
+
+
       if (SAFE_FOR_TEMPLATES) {
-        serializedHTML = stringReplace(serializedHTML, MUSTACHE_EXPR$$1, ' ');
-        serializedHTML = stringReplace(serializedHTML, ERB_EXPR$$1, ' ');
+        serializedHTML = stringReplace(serializedHTML, MUSTACHE_EXPR$1, ' ');
+        serializedHTML = stringReplace(serializedHTML, ERB_EXPR$1, ' ');
+        serializedHTML = stringReplace(serializedHTML, TMPLIT_EXPR$1, ' ');
       }
 
       return trustedTypesPolicy && RETURN_TRUSTED_TYPE ? trustedTypesPolicy.createHTML(serializedHTML) : serializedHTML;
     };
-
     /**
      * Public method to set the configuration once
      * setConfig
      *
      * @param {Object} cfg configuration object
      */
+
+
     DOMPurify.setConfig = function (cfg) {
       _parseConfig(cfg);
+
       SET_CONFIG = true;
     };
-
     /**
      * Public method to remove the configuration
      * clearConfig
      *
      */
+
+
     DOMPurify.clearConfig = function () {
       CONFIG = null;
       SET_CONFIG = false;
     };
-
     /**
      * Public method to check if an attribute value is valid.
      * Uses last set config, if any. Otherwise, uses config defaults.
@@ -1332,6 +1631,8 @@
      * @param  {string} value Attribute value.
      * @return {Boolean} Returns true if `value` is valid. Otherwise, returns false.
      */
+
+
     DOMPurify.isValidAttribute = function (tag, attr, value) {
       /* Initialize shared config vars if necessary. */
       if (!CONFIG) {
@@ -1342,7 +1643,6 @@
       var lcName = transformCaseFunc(attr);
       return _isValidAttribute(lcTag, lcName, value);
     };
-
     /**
      * AddHook
      * Public method to add DOMPurify hooks
@@ -1350,6 +1650,8 @@
      * @param {String} entryPoint entry point for the hook to add
      * @param {Function} hookFunction function to execute
      */
+
+
     DOMPurify.addHook = function (entryPoint, hookFunction) {
       if (typeof hookFunction !== 'function') {
         return;
@@ -1358,37 +1660,41 @@
       hooks[entryPoint] = hooks[entryPoint] || [];
       arrayPush(hooks[entryPoint], hookFunction);
     };
-
     /**
      * RemoveHook
      * Public method to remove a DOMPurify hook at a given entryPoint
      * (pops it from the stack of hooks if more are present)
      *
      * @param {String} entryPoint entry point for the hook to remove
+     * @return {Function} removed(popped) hook
      */
+
+
     DOMPurify.removeHook = function (entryPoint) {
       if (hooks[entryPoint]) {
-        arrayPop(hooks[entryPoint]);
+        return arrayPop(hooks[entryPoint]);
       }
     };
-
     /**
      * RemoveHooks
      * Public method to remove all DOMPurify hooks at a given entryPoint
      *
      * @param  {String} entryPoint entry point for the hooks to remove
      */
+
+
     DOMPurify.removeHooks = function (entryPoint) {
       if (hooks[entryPoint]) {
         hooks[entryPoint] = [];
       }
     };
-
     /**
      * RemoveAllHooks
      * Public method to remove all DOMPurify hooks
      *
      */
+
+
     DOMPurify.removeAllHooks = function () {
       hooks = {};
     };
@@ -1666,6 +1972,39 @@ jQuery.html = function( value ) {
 ;window.Modernizr=function(e,t,n){function L(e){f.cssText=e}function A(e,t){return L(p.join(e+";")+(t||""))}function O(e,t){return typeof e===t}function M(e,t){return!!~(""+e).indexOf(t)}function _(e,t){for(var r in e){var i=e[r];if(!M(i,"-")&&f[i]!==n)return t=="pfx"?i:!0}return!1}function D(e,t,r){for(var i in e){var s=t[e[i]];if(s!==n)return r===!1?e[i]:O(s,"function")?s.bind(r||t):s}return!1}function P(e,t,n){var r=e.charAt(0).toUpperCase()+e.slice(1),i=(e+" "+v.join(r+" ")+r).split(" ");return O(t,"string")||O(t,"undefined")?_(i,t):(i=(e+" "+m.join(r+" ")+r).split(" "),D(i,t,n))}function H(){i.input=function(n){for(var r=0,i=n.length;r<i;r++)w[n[r]]=n[r]in l;return w.list&&(w.list=!!t.createElement("datalist")&&!!e.HTMLDataListElement),w}("autocomplete autofocus list placeholder max min multiple pattern required step".split(" ")),i.inputtypes=function(e){for(var r=0,i,s,u,a=e.length;r<a;r++)l.setAttribute("type",s=e[r]),i=l.type!=="text",i&&(l.value=c,l.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(s)&&l.style.WebkitAppearance!==n?(o.appendChild(l),u=t.defaultView,i=u.getComputedStyle&&u.getComputedStyle(l,null).WebkitAppearance!=="textfield"&&l.offsetHeight!==0,o.removeChild(l)):/^(search|tel)$/.test(s)||(/^(url|email)$/.test(s)?i=l.checkValidity&&l.checkValidity()===!1:i=l.value!=c)),b[e[r]]=!!i;return b}("search tel url email datetime date month week time datetime-local number range color".split(" "))}var r="2.8.3",i={},s=!0,o=t.documentElement,u="modernizr",a=t.createElement(u),f=a.style,l=t.createElement("input"),c=":)",h={}.toString,p=" -webkit- -moz- -o- -ms- ".split(" "),d="Webkit Moz O ms",v=d.split(" "),m=d.toLowerCase().split(" "),g={svg:"http://www.w3.org/2000/svg"},y={},b={},w={},E=[],S=E.slice,x,T=function(e,n,r,i){var s,a,f,l,c=t.createElement("div"),h=t.body,p=h||t.createElement("body");if(parseInt(r,10))while(r--)f=t.createElement("div"),f.id=i?i[r]:u+(r+1),c.appendChild(f);return s=["&#173;",'<style id="s',u,'">',e,"</style>"].join(""),c.id=u,(h?c:p).innerHTML+=s,p.appendChild(c),h||(p.style.background="",p.style.overflow="hidden",l=o.style.overflow,o.style.overflow="hidden",o.appendChild(p)),a=n(c,e),h?c.parentNode.removeChild(c):(p.parentNode.removeChild(p),o.style.overflow=l),!!a},N=function(t){var n=e.matchMedia||e.msMatchMedia;if(n)return n(t)&&n(t).matches||!1;var r;return T("@media "+t+" { #"+u+" { position: absolute; } }",function(t){r=(e.getComputedStyle?getComputedStyle(t,null):t.currentStyle)["position"]=="absolute"}),r},C={}.hasOwnProperty,k;!O(C,"undefined")&&!O(C.call,"undefined")?k=function(e,t){return C.call(e,t)}:k=function(e,t){return t in e&&O(e.constructor.prototype[t],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(t){var n=this;if(typeof n!="function")throw new TypeError;var r=S.call(arguments,1),i=function(){if(this instanceof i){var e=function(){};e.prototype=n.prototype;var s=new e,o=n.apply(s,r.concat(S.call(arguments)));return Object(o)===o?o:s}return n.apply(t,r.concat(S.call(arguments)))};return i}),y.backgroundsize=function(){return P("backgroundSize")},y.borderimage=function(){return P("borderImage")},y.csstransitions=function(){return P("transition")},y.fontface=function(){var e;return T('@font-face {font-family:"font";src:url("https://")}',function(n,r){var i=t.getElementById("smodernizr"),s=i.sheet||i.styleSheet,o=s?s.cssRules&&s.cssRules[0]?s.cssRules[0].cssText:s.cssText||"":"";e=/src/i.test(o)&&o.indexOf(r.split(" ")[0])===0}),e},y.svg=function(){return!!t.createElementNS&&!!t.createElementNS(g.svg,"svg").createSVGRect};for(var B in y)k(y,B)&&(x=B.toLowerCase(),i[x]=y[B](),E.push((i[x]?"":"no-")+x));return i.input||H(),i.addTest=function(e,t){if(typeof e=="object")for(var r in e)k(e,r)&&i.addTest(r,e[r]);else{e=e.toLowerCase();if(i[e]!==n)return i;t=typeof t=="function"?t():t,typeof s!="undefined"&&s&&(o.className+=" "+(t?"":"no-")+e),i[e]=t}return i},L(""),a=l=null,i._version=r,i._prefixes=p,i._domPrefixes=m,i._cssomPrefixes=v,i.mq=N,i.testProp=function(e){return _([e])},i.testAllProps=P,i.testStyles=T,o.className=o.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(s?" js "+E.join(" "):""),i}(this,this.document),function(e,t,n){function r(e){return"[object Function]"==d.call(e)}function i(e){return"string"==typeof e}function s(){}function o(e){return!e||"loaded"==e||"complete"==e||"uninitialized"==e}function u(){var e=v.shift();m=1,e?e.t?h(function(){("c"==e.t?k.injectCss:k.injectJs)(e.s,0,e.a,e.x,e.e,1)},0):(e(),u()):m=0}function a(e,n,r,i,s,a,f){function l(t){if(!d&&o(c.readyState)&&(w.r=d=1,!m&&u(),c.onload=c.onreadystatechange=null,t)){"img"!=e&&h(function(){b.removeChild(c)},50);for(var r in T[n])T[n].hasOwnProperty(r)&&T[n][r].onload()}}var f=f||k.errorTimeout,c=t.createElement(e),d=0,g=0,w={t:r,s:n,e:s,a:a,x:f};1===T[n]&&(g=1,T[n]=[]),"object"==e?c.data=n:(c.src=n,c.type=e),c.width=c.height="0",c.onerror=c.onload=c.onreadystatechange=function(){l.call(this,g)},v.splice(i,0,w),"img"!=e&&(g||2===T[n]?(b.insertBefore(c,y?null:p),h(l,f)):T[n].push(c))}function f(e,t,n,r,s){return m=0,t=t||"j",i(e)?a("c"==t?E:w,e,t,this.i++,n,r,s):(v.splice(this.i++,0,e),1==v.length&&u()),this}function l(){var e=k;return e.loader={load:f,i:0},e}var c=t.documentElement,h=e.setTimeout,p=t.getElementsByTagName("script")[0],d={}.toString,v=[],m=0,g="MozAppearance"in c.style,y=g&&!!t.createRange().compareNode,b=y?c:p.parentNode,c=e.opera&&"[object Opera]"==d.call(e.opera),c=!!t.attachEvent&&!c,w=g?"object":c?"script":"img",E=c?"script":w,S=Array.isArray||function(e){return"[object Array]"==d.call(e)},x=[],T={},N={timeout:function(e,t){return t.length&&(e.timeout=t[0]),e}},C,k;k=function(e){function t(e){var e=e.split("!"),t=x.length,n=e.pop(),r=e.length,n={url:n,origUrl:n,prefixes:e},i,s,o;for(s=0;s<r;s++)o=e[s].split("="),(i=N[o.shift()])&&(n=i(n,o));for(s=0;s<t;s++)n=x[s](n);return n}function o(e,i,s,o,u){var a=t(e),f=a.autoCallback;a.url.split(".").pop().split("?").shift(),a.bypass||(i&&(i=r(i)?i:i[e]||i[o]||i[e.split("/").pop().split("?")[0]]),a.instead?a.instead(e,i,s,o,u):(T[a.url]?a.noexec=!0:T[a.url]=1,s.load(a.url,a.forceCSS||!a.forceJS&&"css"==a.url.split(".").pop().split("?").shift()?"c":n,a.noexec,a.attrs,a.timeout),(r(i)||r(f))&&s.load(function(){l(),i&&i(a.origUrl,u,o),f&&f(a.origUrl,u,o),T[a.url]=2})))}function u(e,t){function n(e,n){if(e){if(i(e))n||(f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}),o(e,f,t,0,u);else if(Object(e)===e)for(p in h=function(){var t=0,n;for(n in e)e.hasOwnProperty(n)&&t++;return t}(),e)e.hasOwnProperty(p)&&(!n&&!--h&&(r(f)?f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}:f[p]=function(e){return function(){var t=[].slice.call(arguments);e&&e.apply(this,t),c()}}(l[p])),o(e[p],f,t,p,u))}else!n&&c()}var u=!!e.test,a=e.load||e.both,f=e.callback||s,l=f,c=e.complete||s,h,p;n(u?e.yep:e.nope,!!a),a&&n(a)}var a,f,c=this.yepnope.loader;if(i(e))o(e,0,c,0);else if(S(e))for(a=0;a<e.length;a++)f=e[a],i(f)?o(f,0,c,0):S(f)?k(f):Object(f)===f&&u(f,c);else Object(e)===e&&u(e,c)},k.addPrefix=function(e,t){N[e]=t},k.addFilter=function(e){x.push(e)},k.errorTimeout=1e4,null==t.readyState&&t.addEventListener&&(t.readyState="loading",t.addEventListener("DOMContentLoaded",C=function(){t.removeEventListener("DOMContentLoaded",C,0),t.readyState="complete"},0)),e.yepnope=l(),e.yepnope.executeStack=u,e.yepnope.injectJs=function(e,n,r,i,a,f){var l=t.createElement("script"),c,d,i=i||k.errorTimeout;l.src=e;for(d in r)l.setAttribute(d,r[d]);n=f?u:n||s,l.onreadystatechange=l.onload=function(){!c&&o(l.readyState)&&(c=1,n(),l.onload=l.onreadystatechange=null)},h(function(){c||(c=1,n(1))},i),a?l.onload():p.parentNode.insertBefore(l,p)},e.yepnope.injectCss=function(e,n,r,i,o,a){var i=t.createElement("link"),f,n=a?u:n||s;i.href=e,i.rel="stylesheet",i.type="text/css";for(f in r)i.setAttribute(f,r[f]);o||(p.parentNode.insertBefore(i,p),h(n,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("details",function(){var e=document,t=e.createElement("details"),n,r,i;return"open"in t?(r=e.body||function(){var t=e.documentElement;return n=!0,t.insertBefore(e.createElement("body"),t.firstElementChild||t.firstChild)}(),t.innerHTML="<summary>a</summary>b",t.style.display="block",r.appendChild(t),i=t.offsetHeight,t.open=!0,i=i!=t.offsetHeight,r.removeChild(t),n&&r.parentNode.removeChild(r),i):!1}),Modernizr.addTest("progressbar",function(){return document.createElement("progress").max!==undefined}),Modernizr.addTest("meter",function(){return document.createElement("meter").max!==undefined}),Modernizr.addTest("mathml",function(){var e=!1;if(document.createElementNS){var t="http://www.w3.org/1998/Math/MathML",n=document.createElement("div");n.style.position="absolute";var r=n.appendChild(document.createElementNS(t,"math")).appendChild(document.createElementNS(t,"mfrac"));r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("xx")),r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("yy")),document.body.appendChild(n),e=n.offsetHeight>n.offsetWidth}return e}),Modernizr.addTest("cors",!!(window.XMLHttpRequest&&"withCredentials"in new XMLHttpRequest));
 
 /**
+ * String.prototype.includes() polyfill
+ * @author Ricokola
+ * @license MIT
+ */
+if ( !String.prototype.includes ) {
+	String.prototype.includes = function( string ) {
+
+		return this.indexOf( string ) !== -1;
+
+	};
+}
+
+/**
+ * String.prototype.replaceAll() polyfill
+ * https://gomakethings.com/how-to-replace-a-section-of-a-string-with-another-one-with-vanilla-js/
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if ( !String.prototype.replaceAll ) {
+	String.prototype.replaceAll = function( str, newStr ) {
+
+		// If a regex pattern
+		if ( Object.prototype.toString.call( str ).toLowerCase() === "[object regexp]" ) {
+			return this.replace( str, newStr );
+		}
+
+		// If a string
+		return this.replace( new RegExp( str, "g" ), newStr );
+
+	};
+}
+
+/**
  * @title WET-BOEW Vapour loader
  * @overview Helper methods for WET
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -1698,18 +2037,13 @@ var getUrlParts = function( url ) {
 
 			// A collection of the parameters of the query string part of the URL.
 			params: ( function() {
-				var results = {},
-					queryString = encodeURI( decodeURI( a.search.replace( /^\?/, "" ) ) ).replace( /'/g, "%27" ).split( "&" ),
-					len = queryString.length,
-					key, strings, i;
-
-				for ( i = 0; i !== len; i += 1 ) {
-					if ( ( key = queryString[ i ] ) !== null ) {
-						strings = key.split( "=" );
-						results[ strings[ 0 ] ] = strings[ 1 ];
-					}
+				var queryString = a.search.replace( /(^\?)/, "" );
+				if ( !queryString ) {
+					return {};
 				}
-				return results;
+				return queryString.split( "&" ).map( function( n ) {
+					return ( n = n.split( "=" ), this[ n[ 0 ] ] = decodeURIComponent( n[ 1 ] ), this );
+				}.bind( {} ) )[ 0 ];
 			}() )
 		};
 	},
@@ -1729,9 +2063,33 @@ var getUrlParts = function( url ) {
 
 	/**
 	 * @variable i18n
-	 * @return {string} of HTML document language
+	 * @return {string} of WET document language
 	 */
-	lang = document.documentElement.lang,
+	lang = ( function( ele ) {
+		let lang = document.documentElement.lang;
+		const shortLangLength = 2;
+
+		// Perform extra checks if the page uses a long language code
+		if ( lang.length > shortLangLength ) {
+			let longLangs = [ "pt-BR", "zh-Hans" ]; // Built-in long language codes
+
+			// Check if any custom long language codes have been specified
+			// Specify by adding data-wb-core and data-lang-long="en-CA en-US etc" attributes to WET's script element (e.g. wet-boew.js or wet-boew.min.js)
+			if ( ele[ 0 ].hasAttribute( "data-wb-core" ) &&  ele[ 0 ].hasAttribute( "data-lang-long" ) ) {
+				const longLangsCustom = ele.attr( "data-lang-long" ).split( " " );
+
+				// Add extra language codes to the beginning of the longLangs array to match them more quickly
+				longLangs = longLangsCustom.concat( longLangs );
+			}
+
+			// Shorten the language code if it doesn't exist in the longLangs array
+			if ( longLangs.indexOf( lang ) === -1 ) {
+				lang = lang.substring( 0, shortLangLength );
+			}
+		}
+
+		return lang;
+	}( $src ) ),
 
 	paths = ( function( ele ) {
 		var paths = {};
@@ -1903,7 +2261,7 @@ var getUrlParts = function( url ) {
 		ielt8: ( oldie < 8 ),
 		ielt9: ( oldie < 9 ),
 		ielt10: ( oldie < 10 ),
-		ie11: ( !!navigator.userAgent.match( /Trident\/7\./ ) ),
+		ie11: ( navigator.userAgent.includes( "Trident/7." ) ),
 
 		selectors: [],
 
@@ -2337,7 +2695,7 @@ Modernizr.load( [
  * @overview Helper methods for WET
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
- * Credits: http://kaibun.net/blog/2013/04/19/a-fully-fledged-coffeescript-boilerplate-for-jquery-plugins/
+ * Credits: https://web.archive.org/web/20130826230640/http://kaibun.net/blog/2013/04/19/a-fully-fledged-coffeescript-boilerplate-for-jquery-plugins/
  */
 ( function( $, wb ) {
 
@@ -3561,7 +3919,7 @@ wb.date = {
 	fromDateISO: function( dateISO ) {
 		var date = null;
 
-		if ( dateISO && dateISO.match( /\d{4}-\d{2}-\d{2}/ ) ) {
+		if ( dateISO && /\d{4}-\d{2}-\d{2}/.test( dateISO ) ) {
 			date = new Date( dateISO.substr( 0, 4 ), dateISO.substr( 5, 2 ) - 1, dateISO.substr( 8, 2 ), 0, 0, 0, 0 );
 		}
 		return date;
@@ -3585,33 +3943,110 @@ wb.escapeAttribute = function( str ) {
 };
 
 /*
+ * Returns an escaped HTML string
+ */
+wb.escapeHTML = function( str ) {
+	return wb.escapeAttribute( str
+		.replace( /&/g, "&#38;" )
+		.replace( /</g, "&#60;" )
+		.replace( />/g, "&#62;" ) );
+};
+
+/*
+ * Returns a UTF-8 output from Base64
+ * Reference: https://developer.mozilla.org/fr/docs/Glossary/Base64 (To be reviewed later because escape function is deprecated)
+ */
+wb.decodeUTF8Base64 = function( str ) {
+	return decodeURIComponent( escape( atob( str ) ) );
+};
+
+/*
 * Find most common Personal Identifiable Information (PII) in a string and return either the cleaned string either true/false
-* @param {string} str
-* @param {boolean} toClean
+* @param {string} str (required) - the content that needs to be verified
+*
+* @param {boolean} scope - if true will scrub the content
+* @param {object} (optional) the 2nd param (scope) can also be an object having the following properties (optional):
+* 	{string} any key name of the default patterns e.g. email, digits, etc. with the value 1. The function will only scrub the content that match the regex of the default patterns passed in this object
+* 	{regex} customCase - this param is a regex. It will search and replace the values corresponding that pattern
+*
+* @param {object} opts (optional) - the 3rd param of the function that can contain the following properties (optional):
+* 	{boolean} isCustomExclusive - if true, it will scrubb only the custom regex if the regex is the only property of the "scope" object
+* 	{bolean} useFullBlock - if true, it will replace the scrubbed characters with the "█" symbol;
+* 	{string} replaceWith - this string will replace the scrubbed content
+*
+
 * @return {string | true | false}
 * @example
 * wb.findPotentialPII( "email:test@test.com, phone:123 123 1234", true )
 * returns "email:, phone:",
+*
 * wb.findPotentialPII( "email:test@test.com, phone:123 123 1234", false )
 * returns true
+*
+* wb.findPotentialPII( "email:test@test.com, phone:123 123 1234", { email:1 }{ replaceWith: [REDACTED/CAVIARDÉ] } )
+* returns "email:[REDACTED/CAVIARDÉ], phone:123 123 1234"
+*
+* wb.findPotentialPII( "email:test@test.com, phone:123 123 1234, numéro de cas 12345678", { "customCase":/\b(?:case[\s-]?number[\s\-\\.]?(?:\d{5,10}))|(?:numéro[\s-]?de[\s-]?cas[\s\-\\.]?(?:\d{5,10}))/ig }, { useFullBlock:1})
+* returns "phone:████████████, email:█████████████, postalCode:██████, ██████████████████████"
 */
-wb.findPotentialPII = function( str, toClean ) {
-
-	if ( typeof str  !== "string" ) {
+wb.findPotentialPII = function( str, scope, opts ) {
+	if ( str && typeof str  !== "string" ) {
 		return false;
 	}
-	var regEx = [
-			/\b(?:\w*[\s\\.-]*?\d[\s\\.-]*?){5,}\b/ig, //5digits or more pattern
-			/\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig, //postal code pattern
-			/\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig //email pattern
-		],
-		isFound = false;
+	var oRegEx = {
+			digits: /\d(?:[\s\-\\.\\/]?\d){8,}(?!\d)/ig, //9digits or more pattern
+			passport: /\b[A-Za-z]{2}[\s\\.-]*?\d{6}\b/ig, //canadian nr passport pattern
+			email: /\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig, //email pattern
+			postalCode: /\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig, //postal code pattern
+			username: /(?:(username|user)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig,
+			password: /(?:(password|pass)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig
+		},
+		isFound = false,
+		txtMarker = opts && opts.replaceWith ? opts.replaceWith : "",
+		toClean = typeof scope === "object" ? true : scope,
+		arMatchedStr,
+		settings = opts || {},
+		defaultSettings = {
+			isCustomExclusive: false,
+			useFullBlock: false,
+			replaceWith: ""
+		},
+		isFullBlock = settings.useFullBlock || false,
+		validatedScope = typeof scope === "object" ? {} : oRegEx;
+	settings = $.extend( {}, defaultSettings, settings );
 
-	for ( var key in regEx ) {
-		if ( str.match( regEx[ key ] ) ) {
+	if ( Object.keys( validatedScope ).length === 0 ) {
+		if ( settings.isCustomExclusive ) {
+			for ( var key in scope ) {
+				if ( scope[ key ] instanceof RegExp ) {
+					validatedScope[ key ] = scope[ key ];
+				}
+			}
+		} else {
+			if ( Object.keys( scope ).length === 1 && Object.values( scope )[ 0 ] instanceof RegExp ) {
+				validatedScope = oRegEx;
+				validatedScope[ Object.keys( scope )[ 0 ] ] = Object.values( scope )[ 0 ];
+			} else {
+				for ( var keyScope in scope ) {
+					if ( Object.prototype.hasOwnProperty.call( oRegEx, keyScope ) ) {
+						validatedScope [ keyScope ] = oRegEx [ keyScope ];
+					} else {
+						if ( scope[ keyScope ]  instanceof RegExp ) {
+							validatedScope [ keyScope ] = scope [ keyScope ];
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for ( var valKey in validatedScope ) {
+		arMatchedStr = str.match( validatedScope[ valKey ] );
+		if ( arMatchedStr ) {
 			isFound = true;
 			if ( toClean ) {
-				str = str.replaceAll( regEx[ key ], "" );
+				txtMarker = isFullBlock ? "█".repeat( arMatchedStr[ 0 ].length ) : txtMarker;
+				str = str.replaceAll( validatedScope[ valKey ], txtMarker );
 			}
 		}
 	}
@@ -3794,12 +4229,12 @@ var componentName = "wb-addcal",
 					en: {
 						"addcal-addto": "Add to",
 						"addcal-calendar": "calendar",
-						"addcal-ical": "iCal format (iPhone, Outlook...)"
+						"addcal-other": "Other (Outlook, Apple, etc.)"
 					},
 					fr: {
 						"addcal-addto": "Ajouter au",
 						"addcal-calendar": "calendrier",
-						"addcal-ical": "Format iCal (iPhone, Outlook....)"
+						"addcal-other": "Autre (Outlook, Apple, etc.)"
 					}
 				};
 
@@ -3808,7 +4243,7 @@ var componentName = "wb-addcal",
 			i18nDict = {
 				addto: i18nDict[ "addcal-addto" ],
 				calendar: i18nDict[ "addcal-calendar" ],
-				ical: i18nDict[ "addcal-ical" ]
+				ical: i18nDict[ "addcal-other" ]
 			};
 
 			// Set date stamp with the date modified
@@ -3819,6 +4254,8 @@ var componentName = "wb-addcal",
 				prop_cache = properties[ i ];
 				switch ( prop_cache.getAttribute( "property" ) ) {
 				case "name":
+
+					// If the property=name is inside an element with typeof=Place defined
 					if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[typeof=Place]" ).length ) {
 						event_details.placeName = prop_cache.textContent;
 					} else {
@@ -3829,13 +4266,15 @@ var componentName = "wb-addcal",
 					event_details.description = prop_cache.textContent.replace( /(\r\n|\n|\r)/gm, " " );
 					break;
 				case "startDate":
-					event_details.sDate = dtToISOString( $( "time[property='startDate']" ) );
+					event_details.sDate = dtToISOString( $( "time[property='startDate']", $elm ) );
 					break;
 				case "endDate":
-					event_details.eDate = dtToISOString( $( "time[property='endDate']" ) );
+					event_details.eDate = dtToISOString( $( "time[property='endDate']", $elm ) );
 					break;
 				case "location":
-					if ( !prop_cache.getAttribute( "typeof" ) ) {
+
+					// If the location doesn't have typeof defined OR has typeof=VirtualLocation without URL inside.
+					if ( !prop_cache.getAttribute( "typeof" ) || ( prop_cache.getAttribute( "typeof" ) === "VirtualLocation" && !$( prop_cache ).find( "[property=url]" ).length ) ) {
 						event_details.placeName = prop_cache.textContent;
 					}
 					break;
@@ -3850,6 +4289,13 @@ var componentName = "wb-addcal",
 					break;
 				case "postalCode":
 					event_details.placePostalCode = prop_cache.textContent;
+					break;
+				case "url":
+
+					// If the property=url is inside a property=location
+					if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[property=location]" ).length ) {
+						event_details.placeName = prop_cache.textContent;
+					}
 					break;
 				}
 			}
@@ -3879,8 +4325,8 @@ var componentName = "wb-addcal",
 
 			// Create and add details summary to the wb-addcal event and initiate the unordered list
 			$elm.append( "<details class='max-content " + componentName + "-buttons'><summary>" + i18nDict.addto + " " + i18nDict.calendar +
-			"</summary><ul class='list-unstyled mrgn-bttm-0 mrgn-tp-sm'><li><a class='btn btn-link btn-lg mrgn-top-lg' href='" + googleLink.replace( /'/g, "%27" ) + "'>Google<span class='sr-only'>" + i18nDict.calendar + "</span></a></li><li><button class='btn btn-link btn-lg download-ics'>" + i18nDict.ical +
-			"<span class='sr-only'>Calendar</span></button></li></ul></details>" );
+			"</summary><ul class='list-unstyled mrgn-bttm-0'><li><a class='btn btn-link' href='" + googleLink.replace( /'/g, "%27" ) + "' target='_blank' rel='noreferrer noopener'>Google<span class='wb-inv'>" + i18nDict.calendar + "</span></a></li><li><button class='btn btn-link download-ics'>" + i18nDict.ical +
+			"<span class='wb-inv'>Calendar</span></button></li></ul></details>" );
 		}
 
 		wb.ready( $( elm ), componentName );
@@ -4162,12 +4608,14 @@ wb.add( selector );
  */
 var componentName = "wb-calevt",
 	selector = "." + componentName,
+	componentEventName = componentName + "-cal",
+	selectorEvent = "." + componentEventName,
 	initEvent = "wb-init" + selector,
 	evDetails = "ev-details",
 	setFocusEvent = "focus",
 	dataAttr = componentName,
 	$document = wb.doc,
-	i18n, i18nText,
+	hiddenClass = "hidden",
 
 	/**
 	 * @method init
@@ -4183,14 +4631,6 @@ var componentName = "wb-calevt",
 
 		if ( elm ) {
 			$elm = $( elm );
-
-			// Only initialize the i18nText once
-			if ( !i18nText ) {
-				i18n = wb.i18n;
-				i18nText = {
-					calendar: i18n( "cal" )
-				};
-			}
 
 			// Load ajax content
 			$.when.apply( $, $.map( $elm.find( "[data-calevt]" ), getAjax ) )
@@ -4235,7 +4675,7 @@ var componentName = "wb-calevt",
 
 		events = getEvents( $elm );
 		containerId = $elm.data( "calevtSrc" );
-		$container = $( "#" + containerId ).addClass( componentName + "-cal" );
+		$container = $( "#" + containerId ).addClass( componentEventName );
 
 		year = settings.year;
 		month = settings.month;
@@ -4270,8 +4710,6 @@ var componentName = "wb-calevt",
 			events: events.list,
 			$events: $elm
 		} );
-
-		$container.attr( "aria-label", i18nText.calendar );
 	},
 
 	daysBetween = function( dateLow, dateHigh ) {
@@ -4315,15 +4753,16 @@ var componentName = "wb-calevt",
 					}
 				]
 			},
-			objEventsList = obj.find( "ol > li, ul > li" ),
-			iLen = objEventsList.length,
+			objEventsList = obj.find( "ul, ol" ).first(),
+			objEventsListItems = objEventsList.find( "> li:not(.wb-fltr-out)" ),
+			iLen = objEventsListItems.length,
 			dateTimeRegExp = /datetime\s+\{date:\s*(\d+-\d+-\d+)\}/,
 			i, $event, event, $objTitle, title, link, href, target,
 			linkId, date, tCollection, tCollectionTemp,	strDate1,
 			strDate2, z, zLen, className, dateClass;
 
 		for ( i = 0; i !== iLen; i += 1 ) {
-			$event = objEventsList.eq( i );
+			$event = objEventsListItems.eq( i );
 			event = $event[ 0 ];
 			$objTitle = $event.find( "*:header:first" );
 			className = $objTitle.attr( "class" );
@@ -4492,10 +4931,10 @@ var componentName = "wb-calevt",
 
 	filterEvents = function( year, month ) {
 		this.find( "li.cal-disp-onshow" )
-			.addClass( "wb-inv" )
+			.addClass( hiddenClass )
 			.has( ":header[class*=filter-" + year + "-" +
 				wb.string.pad( parseInt( month, 10 ) + 1, 2 ) + "]" )
-			.removeClass( "wb-inv" );
+			.removeClass( hiddenClass );
 	},
 
 	showEvents = function() {
@@ -4519,9 +4958,27 @@ var componentName = "wb-calevt",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb " + initEvent, selector, init );
+$document.on( "timerpoke.wb " + initEvent + " wb-redraw" + selector, selector, function( event ) {
 
-$document.on( "wb-navigate.wb-clndr", ".wb-calevt-cal", function( event ) {
+	var eventType = event.type,
+		$elm = $( "#" + event.target.id ),
+		calendarId = event.currentTarget.dataset.calevtSrc;
+
+	switch ( eventType ) {
+	case "timerpoke":
+	case "wb-init":
+		init( event );
+		break;
+
+	case "wb-redraw":
+		$( "#" + calendarId + " .wb-clndr" ).remove();
+		processEvents( $elm );
+		$elm.trigger( "wb-updated" + selector );
+		break;
+	}
+} );
+
+$document.on( "wb-navigate.wb-clndr", selectorEvent, function( event ) {
 	var lib = event.target.lib,
 		$calEvent;
 
@@ -4537,7 +4994,7 @@ $document.on( "wb-navigate.wb-clndr", ".wb-calevt-cal", function( event ) {
 	}
 } );
 
-$document.on( "focusin focusout keydown", ".wb-calevt-cal .cal-days td > a", function( event ) {
+$document.on( "focusin focusout keydown", selectorEvent + " .cal-evt", function( event ) {
 	var eventType = event.type,
 		$link;
 
@@ -4557,7 +5014,7 @@ $document.on( "focusin focusout keydown", ".wb-calevt-cal .cal-days td > a", fun
 	}
 } );
 
-$document.on( "keydown", ".wb-calevt-cal .cal-days td > ul li", function( event ) {
+$document.on( "keydown", selectorEvent + " td > ul li", function( event ) {
 	var $item = $( event.currentTarget ),
 		$toFocus, $itemParent;
 
@@ -4581,6 +5038,10 @@ $document.on( "keydown", ".wb-calevt-cal .cal-days td > ul li", function( event 
 		$itemParent.trigger( setFocusEvent );
 		break;
 	}
+} );
+
+$document.on( "focusout", selectorEvent + " td > ul", function( event ) {
+	hideEvents.call( event.target );
 } );
 
 // Add the timer poke to initialize the plugin
@@ -4618,25 +5079,27 @@ var i18nText,
 			goToMonth: i18n( "cal-goToMnth" ),
 			dayNames: i18n( "days" ),
 			currDay: i18n( "currDay" ),
-			format: i18n( "cal-format" )
+			format: i18n( "cal-format" ),
+			calendar: i18n( "cal" )
 		};
 
 		textWeekDayNames = i18nText.dayNames;
 		textMonthNames = i18nText.monthNames;
 
-		$calBase = $( "<div class='wb-clndr' role='application'>" +
+		$calBase = $( "<div class='wb-clndr' role='application' aria-label='" + i18nText.calendar + "'>" +
 			"<div class='cal-nav'>" +
+				"<span class='wb-inv current-month' aria-live='polite'></span>" + // Added for screen-readers
 				"<button type='button' class='btn pull-left cal-month-prev'>" +
-					"<span class='glyphicon glyphicon-arrow-left'></span>" +
+					"<span class='glyphicon glyphicon-arrow-left' aria-hidden='true'></span>" +
 					"<span class='wb-inv'>" + i18nText.prevMonth + "<span></span></span>" +
 				"</button>" +
 				"<button type='button' class='btn pull-right cal-month-next'>" +
-					"<span class='glyphicon glyphicon-arrow-right'></span>" +
+					"<span class='glyphicon glyphicon-arrow-right' aria-hidden='true'></span>" +
 					"<span class='wb-inv'>" + i18nText.nextMonth + "<span></span></span>" +
 				"</button>" +
 				"<div class='form-group'>" +
-					"<select title='" + i18nText.goToYear + "' class='cal-year'></select>\n" +
-					"<select title='" + i18nText.goToMonth + "' class='cal-month'>" +
+					"<label><span class='wb-inv'>" + i18nText.goToYear + "</span><select class='cal-year'></select></label>\n" +
+					"<label><span class='wb-inv'>" + i18nText.goToMonth + "</span><select class='cal-month'>" +
 						( function() {
 							var months = "",
 								m;
@@ -4647,18 +5110,18 @@ var i18nText,
 
 							return months;
 						} )() +
-					"</select>" +
+					"</select></label>" +
 				"</div>" +
 			"</div>" +
 			"<table>" +
-				"<thead role='presentation'>" +
+				"<thead>" +
 					"<tr>" +
 						( function() {
 							var days = "",
 								d;
 
 							for ( d = 0; d < 7; d += 1 ) {
-								days += "<th role='columnheader'><abbr title='" + textWeekDayNames[ d ] + "'>" + textWeekDayNames[ d ].substr( 0, 1 ) + "</abbr></th>";
+								days += "<th><abbr title='" + textWeekDayNames[ d ] + "'>" + textWeekDayNames[ d ].substr( 0, 1 ) + "</abbr></th>";
 							}
 
 							return days;
@@ -4724,7 +5187,8 @@ var i18nText,
 			.trigger( {
 				type: navigateEvent,
 				year: this.year,
-				month: this.month
+				month: this.month,
+				initEvent: true
 			} );
 	},
 
@@ -4882,6 +5346,11 @@ $document.on( navigateEvent, selector, function( event ) {
 	}
 
 	createDays( event.currentTarget, event.year, event.month );
+
+	// Added declaration of current month in aria-live="polite" for screen-readers
+	if ( !event.initEvent ) {
+		$calendar.find( ".current-month" ).text( i18nText.monthNames[ month ] + " " + year );
+	}
 } );
 
 $document.on( "change", selector, function( event ) {
@@ -4907,7 +5376,7 @@ $document.on( "change", selector, function( event ) {
 	} );
 } );
 
-$document.on( "click vclick touchstart", ".cal-month-prev, .cal-month-next", function( event ) {
+$document.on( "click", ".cal-month-prev, .cal-month-next", function( event ) {
 	var $calendar = $( event.currentTarget ).closest( selector ),
 		calendar = $calendar.get( 0 ),
 		className = event.currentTarget.className,
@@ -6429,12 +6898,12 @@ var componentName = "wb-ctrycnt",
 
 			// From https://github.com/aFarkas/webshim/blob/master/src/shims/geolocation.js#L89-L127
 			$.ajax( {
-				url: "https://freegeoip.app/json/",
+				url: "https://api.country.is/",
 				dataType: "json",
 				cache: true,
 				success: function( data ) {
 					if ( data ) {
-						countryCode = data.country_code;
+						countryCode = data.country;
 						try {
 							localStorage.setItem( "countryCode", countryCode );
 						} catch ( error ) {
@@ -6704,6 +7173,65 @@ for ( s = 0; s !== selectorsLength; s += 1 ) {
 } )( jQuery, window, wb );
 
 /**
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * @title Data Fusion Query
+ * @overview Map a query parameter value into an input value
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ *
+ */
+( function( document, $, wb ) {
+"use strict";
+
+/**
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = "wb-data-fusion-query",
+	selector = "[data-fusion-query][name]",
+	initEvent = "wb-init." + componentName,
+
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm,
+			inputName,
+			queryParamValue;
+
+		if ( elm ) {
+			$elm = $( elm );
+
+			// Retrieve the query parameter value and set it on the input
+			inputName = $elm.attr( "name" );
+			queryParamValue = wb.pageUrlParts.params[ inputName ];
+			if ( queryParamValue ) {
+				$elm.val( queryParamValue.replace( /\+/g, " " ) );
+			}
+
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+		}
+	};
+
+// Bind the init event of the plugin
+wb.doc.on( "timerpoke.wb " + initEvent, selector, init );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( document, jQuery, wb );
+
+/**
  * @title WET-BOEW Data InView
  * @overview A simplified data-attribute driven plugin that responds to moving in and out of the viewport.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6794,7 +7322,7 @@ var componentName = "wb-inview",
 		// Link the overlay close button to the dismiss action if the inview content is dismissable
 		if ( $elm.hasClass( "wb-dismissable" ) ) {
 			if ( $dataInView.hasClass( "wb-overlay" ) ) {
-				$dataInView.children( ".overlay-close" ).on( "click vclick", function( event ) {
+				$dataInView.children( ".overlay-close" ).on( "click", function( event ) {
 					var which = event.which;
 
 					// Ignore middle/right mouse buttons
@@ -7207,7 +7735,7 @@ var componentName = "wb-dismissable",
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // Handler for clicking on the dismiss button
-$document.on( "click vclick", "." + dismissClass, function( event ) {
+$document.on( "click", "." + dismissClass, function( event ) {
 	var elm = event.currentTarget,
 		which = event.which;
 
@@ -8520,9 +9048,15 @@ var componentName = "wb-filter",
 
 			totalEntries = $elm.find( ( settings.section || "" ) + " " + settings.selector ).length;
 
-			filterUI = "<div class=\"input-group\"><label for=\"" + inptId + "\" class=\"input-group-addon\"><span class=\"glyphicon glyphicon-filter\" aria-hidden=\"true\"></span> " + i18nText.filter_label + "</label><input id=\"" + inptId + "\" class=\"form-control " + inputClass + "\" data-" + dtNameFltrArea + "=\"" + elm.id + "\" type=\"search\"></div>" + "<p aria-live=\"polite\" id=\"" + elm.id + "-info\">" + infoFormater( totalEntries, totalEntries ) + "</p>";
+			filterUI = $( "<div class=\"input-group\">" +
+				"<label for=\"" + inptId + "\" class=\"input-group-addon\"><span class=\"glyphicon glyphicon-filter\" aria-hidden=\"true\"></span> " + i18nText.filter_label + "</label>" +
+				"<input id=\"" + inptId + "\" class=\"form-control " + inputClass + "\" data-" + dtNameFltrArea + "=\"" + elm.id + "\" aria-controls=\"" + elm.id + "\" type=\"search\">" +
+				"</div>" +
+				"<p aria-live=\"polite\" id=\"" + elm.id + "-info\">" + infoFormater( totalEntries, totalEntries ) + "</p>" );
 
-			if ( prependUI ) {
+			if ( settings.source ) {
+				$( settings.source ).prepend( filterUI );
+			} else if ( prependUI ) {
 				$elm.prepend( filterUI );
 			} else {
 				$elm.before( filterUI );
@@ -8618,7 +9152,7 @@ var componentName = "wb-filter",
 			$item = $items.eq( i );
 			text = unAccent( $item.text() );
 
-			if ( !text.match( searchFilterRegularExp ) ) {
+			if ( !searchFilterRegularExp.test( text ) ) {
 				if ( hndParentSelector ) {
 					$item = $item.parentsUntil( hndParentSelector );
 				}
@@ -8681,6 +9215,7 @@ wb.add( selector );
  */
 var componentName = "wb-fnote",
 	selector = "." + componentName,
+	modFlag = "data-" + componentName,
 	initEvent = "wb-init" + selector,
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
@@ -8715,7 +9250,7 @@ var componentName = "wb-fnote",
 			$elm.find( "dd p.fn-rtn a span span" ).remove();
 
 			// Listen for footnote reference links that get clicked
-			$document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
+			$document.on( "click", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
 				var eventTarget = event.target,
 					which = event.which,
 					refId, $refLinkDest;
@@ -8726,7 +9261,8 @@ var componentName = "wb-fnote",
 					$refLinkDest = $document.find( refId );
 
 					$refLinkDest.find( "p.fn-rtn a" )
-						.attr( "href", "#" + eventTarget.parentNode.id );
+						.attr( "href", "#" + eventTarget.parentNode.id )
+						.attr( modFlag, true );
 
 					// Assign focus to $refLinkDest
 					$refLinkDest.trigger( setFocusEvent );
@@ -8735,21 +9271,39 @@ var componentName = "wb-fnote",
 			} );
 
 			// Listen for footnote return links that get clicked
-			$document.on( "click vclick", selector + " dd p.fn-rtn a", function( event ) {
+			$document.on( "click", selector + " dd p.fn-rtn a", function( event ) {
 				var which = event.which,
+					$elmTarget = $( event.target ),
 					ref,
-					refId;
+					refId,
+					refIdSrc,
+					refIdDashIdx,
+					searchRefId;
 
 				// Ignore middle/right mouse button
 				if ( !which || which === 1 ) {
-					ref = event.target.getAttribute( "href" );
+					ref = $elmTarget.attr( "href" );
 
 					// Focus on associated referrer link (if the return link points to an ID)
 					if ( ref.charAt( 0 ) === "#" ) {
-						refId = "#" + wb.jqEscape( ref.substring( 1 ) );
+						refId = wb.jqEscape( ref.substring( 1 ) );
+
+						// When first clicked, ensure we send the user on the first instance when the id follow the recommend pattern
+						refIdDashIdx = refId.indexOf( "-" );
+						if ( refIdDashIdx !== -1 && !$elmTarget.attr( modFlag ) ) {
+							searchRefId = refId.substring( 0, refIdDashIdx + 1 );
+							refIdSrc = wb.jqEscape( $( "sup[id^='" + searchRefId + "']:first()" ).attr( "id" ) );
+							if ( !refIdSrc || refId !== refIdSrc ) {
+								console.warn( componentName + " - Relink first reference of " + ref + " for #" + refIdSrc );
+								refId = refIdSrc;
+								$elmTarget
+									.attr( "href", "#" + refId )
+									.attr( modFlag, true );
+							}
+						}
 
 						// Assign focus to the link
-						$document.find( refId + " a" ).trigger( setFocusEvent );
+						$document.find( "#" + refId + " a" ).trigger( setFocusEvent );
 						return false;
 					}
 				}
@@ -8863,6 +9417,19 @@ var componentName = "wb-frmvld",
 						summaryHeading = settings.hdLvl,
 						i, len, validator;
 
+					if ( wb.lang === "fr" ) {
+
+						// alphanumeric regex is changed to allow french characters;
+						$.validator.addMethod( "alphanumeric", function( value, element ) {
+							return this.optional( element ) || /^[a-zàâçéèêëîïôûùüÿæœ0-9_]+$/i.test( value );
+						}, "Letters, numbers, and underscores only please." );
+
+						// error french text is adjusted to remove the word "spaces"
+						$.extend( $.validator.messages, {
+							alphanumeric: "Veuillez fournir seulement des lettres, nombres et soulignages."
+						} );
+					}
+
 					// Append the aria-live region (for provide message updates to screen readers)
 					$elm.append( "<div class='arialive wb-inv' aria-live='polite' aria-relevant='all'></div>" );
 
@@ -8871,6 +9438,26 @@ var componentName = "wb-frmvld",
 					for ( i = 0; i !== len; i += 1 ) {
 						labels[ i ].innerHTML += " ";
 					}
+
+					// Hide "required" label text in older forms from screen readers
+					// Prevents redundant "required" announcements on semantically-required fields whose labels mention they're required
+					$form.find( "strong.required:not([aria-hidden='true'])" ).each( function() {
+						const $requiredText = $( this ),
+							$label = $requiredText.closest( "label" ),
+							fieldId = $label.attr( "for" );
+						let $field = fieldId ? $( "#" + fieldId ) : $label.find( ":input" ).first();
+
+						// If the label's field has yet to be found, look for fields that refer to the label via aria-labelledby
+						if ( !$field.length ) {
+							const labelId = $label.attr( "id" ) || $requiredText.closest( "id" );
+							$field = $form.find( "[aria-labelledby~='" + labelId + "']:input" ).first();
+						}
+
+						// Hide the "required" text if its field is semantically-required
+						if ( $field.is( "[required], [aria-required='true']" ) ) {
+							$requiredText.attr( "aria-hidden", "true" );
+						}
+					} );
 
 					// The jQuery validation plug-in in action
 					validator = $form.validate( {
@@ -9089,7 +9676,7 @@ var componentName = "wb-frmvld",
 					} );
 
 					// Clear the form and remove error messages on reset
-					$document.on( "click vclick touchstart", selector + " input[type=reset]", function( event ) {
+					$document.on( "click", selector + " input[type=reset]", function( event ) {
 						var which = event.which,
 							ariaLive;
 
@@ -9201,6 +9788,207 @@ $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
+
+} )( jQuery, wb );
+
+/**
+ * @title WET-BOEW JSON Fetch [ json-fetch ]
+ * @overview Load and filter data from a JSON file
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+/*global jsonpointer */
+( function( $, wb ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var $document = wb.doc,
+	component = "json-fetch",
+	fetchEvent = component + ".wb",
+	jsonCache = { },
+	jsonCacheBacklog = { },
+	completeJsonFetch = function( callerId, refId, response, status, xhr, selector ) {
+		if ( !window.jsonpointer ) {
+
+			// JSON pointer library is loaded but not executed in memory yet, we need to wait a tick before to continue
+			setTimeout( function() {
+				completeJsonFetch( callerId, refId, response, status, xhr, selector );
+			}, 100 );
+			return false;
+		}
+		if ( selector ) {
+			response = jsonpointer.get( response, selector );
+		}
+		$( "#" + callerId ).trigger( {
+			type: "json-fetched.wb",
+			fetch: {
+				response: response,
+				status: status,
+				xhr: xhr,
+				refId: refId
+			}
+		}, this );
+	};
+
+// Event binding
+$document.on( fetchEvent, function( event ) {
+
+	var caller = event.element || event.target,
+		fetchOpts = event.fetch || { url: "" },
+		urlParts = fetchOpts.url.split( "#" ),
+		url = urlParts[ 0 ],
+		fetchNoCache = fetchOpts.nocache,
+		fetchNoCacheKey = fetchOpts.nocachekey || wb.cacheBustKey || "wbCacheBust",
+		fetchNoCacheValue,
+		fetchCacheURL,
+		hashPart,
+		datasetName,
+		selector = urlParts[ 1 ] || false,
+		callerId, refId = fetchOpts.refId,
+		cachedResponse;
+
+	// Filter out any events triggered by descendants
+	if ( caller === event.target || event.currentTarget === event.target ) {
+
+		if ( !caller.id ) {
+			caller.id = wb.getId();
+		}
+		callerId = caller.id;
+
+		if ( selector ) {
+
+			// If a Dataset Name exist let it managed by wb-jsonpatch plugin
+			hashPart = selector.split( "/" );
+			datasetName = hashPart[ 0 ];
+
+			// A dataset name must start with "[" character, if it is a letter, then follow JSON Schema (to be implemented)
+			if ( datasetName.charCodeAt( 0 ) === 91 ) {
+
+				// Let the wb-jsonpatch plugin to manage it
+				$( "#" + callerId ).trigger( {
+					type: "postpone.wb-jsonmanager",
+					postpone: {
+						callerId: callerId,
+						refId: refId,
+						dsname: datasetName,
+						selector: selector.substring( datasetName.length )
+					}
+				} );
+				return;
+			}
+			fetchOpts.url = url;
+		}
+
+		if ( fetchNoCache ) {
+			if ( fetchNoCache === "nocache" ) {
+				fetchNoCacheValue = wb.guid();
+			} else {
+				fetchNoCacheValue = wb.sessionGUID();
+			}
+			fetchCacheURL = fetchNoCacheKey + "=" + fetchNoCacheValue;
+
+			if ( url.indexOf( "?" ) !== -1 ) {
+				url = url + "&" + fetchCacheURL;
+			} else {
+				url = url + "?" + fetchCacheURL;
+			}
+			fetchOpts.url = url;
+		}
+
+		Modernizr.load( {
+			load: "site!deps/jsonpointer" + wb.getMode() + ".js",
+			complete: function() {
+
+				// Ensure this fetch has an URL. There is no URL when only using dataset name (a virtual JSON file).
+				if ( !url ) {
+					return;
+				}
+
+				if ( !fetchOpts.nocache ) {
+					cachedResponse = jsonCache[ url ];
+
+					if ( cachedResponse ) {
+						completeJsonFetch( callerId, refId, cachedResponse, "success", undefined, selector );
+						return;
+					} else {
+						if ( !jsonCacheBacklog[ url ] ) {
+							jsonCacheBacklog[ url ] = [ ];
+						} else {
+							jsonCacheBacklog[ url ].push( {
+								"callerId": callerId,
+								"refId": refId,
+								"selector": selector
+							} );
+							return;
+						}
+					}
+				}
+
+				// Ensure we only receive JSON data and don't allow jsonp
+				// jQuery will raise an error if other data format is received
+				fetchOpts.dataType = "json";
+				if ( fetchOpts.jsonp ) {
+					fetchOpts.jsonp = false;
+				}
+
+				// Sending Data
+				if ( fetchOpts.data ) {
+					try {
+						fetchOpts.data = ( typeof fetchOpts.data === "string" ? fetchOpts.data : JSON.stringify( fetchOpts.data ) );
+					} catch ( err ) {
+						throw "JSON fetch - Data being sent to server - " + err;
+					}
+
+					fetchOpts.method = fetchOpts.method || "POST";
+					fetchOpts.contentType = fetchOpts.contentType || "application/json";
+				}
+
+				$.ajax( fetchOpts )
+					.done( function( response, status, xhr ) {
+						var i, i_len, i_cache, backlog;
+
+						if ( !fetchOpts.nocache ) {
+							try {
+								jsonCache[ url ] = response;
+							} catch ( error ) {
+								return;
+							}
+						}
+
+						completeJsonFetch( callerId, refId, response, status, xhr, selector );
+
+						if ( jsonCacheBacklog[ url ] ) {
+							backlog = jsonCacheBacklog[ url ];
+
+							i_len = backlog.length;
+
+							for ( i = 0; i !== i_len; i += 1 ) {
+								i_cache = backlog[ i ];
+								completeJsonFetch( i_cache.callerId, i_cache.refId, response, status, xhr, i_cache.selector );
+							}
+						}
+
+					} )
+					.fail( function( xhr, status, error ) {
+						$( "#" + callerId ).trigger( {
+							type: "json-failed.wb",
+							fetch: {
+								xhr: xhr,
+								status: status,
+								error: error,
+								refId: refId
+							}
+						}, this );
+					}, this );
+			}
+		} );
+	}
+} );
 
 } )( jQuery, wb );
 
@@ -9350,6 +10138,8 @@ var componentName = "wb-lbx",
 					var $item = this.currItem,
 						$content = this.contentContainer,
 						$wrap = this.wrap,
+						$container = $wrap.find( ".mfp-container" ),
+						$containerParent = $container.parent(),
 						$modal = $wrap.find( ".modal-dialog" ),
 						$buttons = $wrap.find( ".mfp-close, .mfp-arrow" ),
 						len = $buttons.length,
@@ -9373,10 +10163,18 @@ var componentName = "wb-lbx",
 					this.contentContainer.attr( "data-pgtitle", document.getElementsByTagName( "H1" )[ 0 ].textContent );
 
 					trapTabbing( $wrap );
+
+					if ( !$containerParent.is( "dialog" ) ) {
+						$container.wrap( "<dialog class='mfp-container' open='open'></dialog>" );
+					} else {
+						$containerParent.attr( "open", "open" );
+					}
 				},
 				close: function() {
 					$document.find( "body" ).removeClass( "wb-modal" );
 					$document.find( modalHideSelector ).removeAttr( "aria-hidden" );
+					this.wrap.find( "dialog" ).removeAttr( "open" );
+
 				},
 				change: function() {
 					var $item = this.currItem,
@@ -9526,7 +10324,7 @@ var componentName = "wb-lbx",
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // Handler for clicking on a same page link within the overlay to outside the overlay
-$document.on( "click vclick", ".mfp-wrap a[href^='#']", function( event ) {
+$document.on( "click", ".mfp-wrap a[href^='#']", function( event ) {
 	var which = event.which,
 		eventTarget = event.currentTarget,
 		$lightbox, linkTarget;
@@ -10165,13 +10963,12 @@ $document.on( "mouseenter", selector + " .sm", function() {
 } );
 
 // Touchscreen "touches" on menubar items should close the submenu if it is open
-$document.on( "touchstart click", selector + " .item[aria-haspopup=true]", function( event ) {
-	var isTouchstart = event.type === "touchstart",
-		which = event.which,
+$document.on( "click", selector + " .item[aria-haspopup=true]", function( event ) {
+	var which = event.which,
 		$this, $parent;
 
 	// Ignore middle and right mouse buttons
-	if ( isTouchstart || ( !which || which === 1 ) ) {
+	if ( !which || which === 1 ) {
 		event.preventDefault();
 		$this = $( this );
 		$parent = $this.parent();
@@ -10179,10 +10976,6 @@ $document.on( "touchstart click", selector + " .item[aria-haspopup=true]", funct
 		// Open the submenu if it is closed
 		if ( !$parent.hasClass( "sm-open" ) ) {
 			$this.trigger( "focusin" );
-
-		// Close the open submenu for a touch event
-		} else if ( isTouchstart ) {
-			menuClose( $parent, true );
 		}
 	}
 } );
@@ -10220,12 +11013,12 @@ $document.on( "click", selector + " [role=menu] [aria-haspopup=true]", function(
 } );
 
 // Clicks and touches outside of menus should close any open menus
-$document.on( "click touchstart", function( event ) {
+$document.on( "click", function( event ) {
 	var $openMenus,
 		which = event.which;
 
 	// Ignore middle and right mouse buttons
-	if ( event.type === "touchstart" || ( !which || which === 1 ) ) {
+	if ( event.type === "" || ( !which || which === 1 ) ) {
 		$openMenus = $( selector + " .sm-open" );
 		if ( $openMenus.length !== 0 &&
 			$( event.target ).closest( selector ).length === 0 ) {
@@ -11135,7 +11928,8 @@ $document.on( initializedEvent, selector, function( event ) {
 			}, i18nText ),
 			media = $media.get( 0 ),
 			youTube = window.youTube,
-			url;
+			url,
+			i18n = wb.i18n;
 
 		if ( $media.attr( "id" ) === undef ) {
 			$media.attr( "id", mId );
@@ -11165,19 +11959,51 @@ $document.on( initializedEvent, selector, function( event ) {
 
 			// finally lets load safely
 			return Modernizr.load( {
-				load: "https://www.youtube.com/iframe_api"
+				load: "https://www.youtube.com/iframe_api",
+
+				//possible solution for multimedia and doaction conflict in corporate network
+				complete: function() {
+
+					// Ensure that Youtube API is loading the iframe and if it fails, ensure that it will show a message, like accessing the web via our GC network.
+					setTimeout( function() {
+						var resources, arrIframesYt, $notifText;
+
+						resources = window.performance.getEntriesByType( "resource" );
+
+						/* get all the iframe initiators that have the same YT url id */
+						arrIframesYt  = resources.filter( function( obj ) {
+
+							return obj.initiatorType === "iframe" && obj.name.includes( data.youTubeId );
+
+						} );
+
+
+						/* if none found, most probably wb is loaded in restricted network so wb.ready() is triggered for not preventing other wb components to load*/
+						if ( arrIframesYt.length < 1 ) {
+							if ( !wb.isReady ) {
+
+								// show the video notification error
+								$notifText = $( "<div aria-live='polite' class='pstn-lft-xs bg-dark text-white'><p class='mrgn-tp-md mrgn-rght-md mrgn-bttm-md mrgn-lft-md'>" + i18n( "msgYoutubeNotLoad" ) + "</p></div>" );
+								$this.prepend( $notifText );
+								data.notifyText = $notifText;
+								wb.ready( $this, componentName );
+							}
+						}
+					}, 1000 );
+
+				}
 			} );
 
 		} else if ( media.error === null && media.currentSrc !== "" && media.currentSrc !== undef ) {
 			$this.trigger( renderUIEvent, [ type, data ] );
+
+			// Identify that initialization has completed
+			wb.ready( $this, componentName );
 		} else {
 
 			// Do nothing since IE8 support is no longer required
 			return;
 		}
-
-		// Identify that initialization has completed
-		wb.ready( $this, componentName );
 	}
 } );
 
@@ -11204,8 +12030,14 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 			},
 			events: {
 				onReady: function( event ) {
+					if ( data.notifyText ) {
+						data.notifyText.hide();
+					}
 					onResize();
 					youTubeEvents( event );
+					if ( !wb.isReady ) {
+						wb.ready( $this, componentName );
+					}
 				},
 				onStateChange: youTubeEvents,
 				onApiChange: function() {
@@ -11213,6 +12045,9 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 					//If captions were enabled before the module was ready, re-enable them
 					var t = $this.get( 0 );
 					t.player( "setCaptionsVisible", t.player( "getCaptionsVisible" ) );
+				},
+				onError: function() {
+					console.warn( "There is an issue loading the Youtube player" );
 				}
 			}
 		} );
@@ -11316,19 +12151,19 @@ $document.on( "click", selector, function( event ) {
 	// Optimized multiple class tests to include child glyphicon because Safari was reporting the click event
 	// from the child span not the parent button, forcing us to have to check for both elements
 	// JSPerf for multiple class matching https://jsperf.com/hasclass-vs-is-stackoverflow/7
-	if ( className.match( /playpause|-play|-pause|display/ ) || $target.is( "object" ) || $target.is( "video" ) ) {
+	if (  /playpause|-play|-pause|display/.test( className ) || $target.is( "object" ) || $target.is( "video" ) ) {
 		this.player( "getPaused" ) || this.player( "getEnded" ) ? this.player( "play" ) : this.player( "pause" );
-	} else if ( className.match( /(^|\s)cc\b|-subtitles/ ) && !$target.attr( "disabled" ) && !$target.parent().attr( "disabled" ) ) {
+	} else if ( /(^|\s)cc\b|-subtitles/.test( className ) && !$target.attr( "disabled" ) && !$target.parent().attr( "disabled" ) ) {
 		this.player( "setCaptionsVisible", !this.player( "getCaptionsVisible" ) );
-	} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
+	} else if ( /\bmute\b|-volume-(up|off)/.test( className ) ) {
 		this.player( "setMuted", !this.player( "getMuted" ) );
 	} else if ( $target.is( "progress" ) || $target.hasClass( "progress" ) || $target.hasClass( "progress-bar" ) ) {
 		this.player( "setCurrentTime", this.player( "getDuration" ) * ( ( event.pageX - $target.offset().left ) / $target.width() ) );
-	} else if ( className.match( /\brewind\b|-backward/ ) ) {
+	} else if ( /\brewind\b|-backward/.test( className ) ) {
 		this.player( "setCurrentTime", this.player( "getCurrentTime" ) - this.player( "getDuration" ) * 0.05 );
-	} else if ( className.match( /\bfastforward\b|-forward/ ) ) {
+	} else if ( /\bfastforward\b|-forward/.test( className ) ) {
 		this.player( "setCurrentTime", this.player( "getCurrentTime" ) + this.player( "getDuration" ) * 0.05 );
-	} else if ( className.match( /cuepoint/ ) ) {
+	} else if ( className.includes( "cuepoint" ) ) {
 		$( this ).trigger( { type: "cuepoint", cuepoint: $target.data( "cuepoint" ) } );
 	}
 } );
@@ -11853,6 +12688,7 @@ var componentName = "wb-overlay",
 
 		$overlay
 			.addClass( "open" )
+			.attr( "role", "dialog" )
 			.attr( "aria-hidden", "false" );
 
 		if ( $overlay.hasClass( "wb-popup-full" ) || $overlay.hasClass( "wb-popup-mid" ) ) {
@@ -11883,6 +12719,7 @@ var componentName = "wb-overlay",
 
 		$overlay
 			.removeClass( "open" )
+			.removeAttr( "role" )
 			.attr( "aria-hidden", "true" );
 
 		if ( $overlay.hasClass( "wb-popup-full" ) || $overlay.hasClass( "wb-popup-mid" ) ) {
@@ -11966,7 +12803,7 @@ $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
 } );
 
 // Handler for clicking on the close button of the overlay
-$document.on( "click vclick", "." + closeClass, function( event ) {
+$document.on( "click", "." + closeClass, function( event ) {
 	var which = event.which;
 
 	// Ignore if not initialized and middle/right mouse buttons
@@ -11980,7 +12817,7 @@ $document.on( "click vclick", "." + closeClass, function( event ) {
 } );
 
 // Handler for clicking on a source link for the overlay
-$document.on( "click vclick keydown", "." + linkClass, function( event ) {
+$document.on( "click keydown", "." + linkClass, function( event ) {
 	var which = event.which,
 		sourceLink = event.currentTarget,
 		overlayId = sourceLink.hash.substring( 1 );
@@ -12002,7 +12839,7 @@ $document.on( "click vclick keydown", "." + linkClass, function( event ) {
 } );
 
 // Handler for clicking on a same page link within the overlay to outside the overlay
-$document.on( "click vclick", selector + " a[href^='#']", function( event ) {
+$document.on( "click", selector + " a[href^='#']", function( event ) {
 	var which = event.which,
 		eventTarget = event.target,
 		href, overlay, linkTarget;
@@ -12031,7 +12868,7 @@ $document.on( "click vclick", selector + " a[href^='#']", function( event ) {
 } );
 
 // Outside activity detection
-$document.on( "click vclick touchstart focusin", "body", function( event ) {
+$document.on( "click focusin", "body", function( event ) {
 	var eventTarget = event.target,
 		which = event.which,
 		overlayId, overlay;
@@ -13228,6 +14065,7 @@ var componentName = "wb-steps",
 
 		// set default attributes
 		control.className = ( type === "prev" ? "btn btn-md btn-default" : "btn btn-md btn-primary" ) + " " + style;
+		control.setAttribute( "type", "button" );
 		control.innerHTML = text;
 
 		return control;
@@ -13456,7 +14294,7 @@ $document.on( "draw.dt", selector, function( event, settings ) {
 	$elm.find( "th" ).each( function( index ) {
 		var $th = $( this ),
 			$btn = $th.find( "button" );
-		if ( order && order[ 0 ][ 0 ] === index ) {
+		if ( order && order.length && order[ 0 ][ 0 ] === index ) {
 			var label = ( order[ 0 ][ 1 ] === "desc" ) ? i18nText.aria.sortAscending : i18nText.aria.sortDescending;
 			label = $btn.text() + label;
 			$btn.attr( "title", label );
@@ -13535,9 +14373,10 @@ $document.on( "init.dt", function( event ) {
 		$elm.find( "th" ).each( function() {
 			var $th = $( this ),
 				label = ( $th.attr( "aria-sort" ) === "ascending" ) ? i18nText.aria.sortDescending : i18nText.aria.sortAscending;
-
-			$th.html( "<button type='button' class='sorting-cnt' aria-controls='" + $th.attr( "aria-controls" ) +  "' title='" + $th.text().replace( /'/g, "&#39;" ) + label + "'>" + $th.html() + " <span class='sorting-icons' aria-hidden='true'></span></button>" );
-			$th.removeAttr( "aria-label tabindex aria-controls" );
+			if ( $th.attr( "data-orderable" ) !== "false" ) {
+				$th.html( "<button type='button' aria-controls='" + $th.attr( "aria-controls" ) +  "' title='" + $th.text().replace( /'/g, "&#39;" ) + label + "'>" + $th.html() + "<span class='sorting-cnt'><span class='sorting-icons' aria-hidden='true'></span></span></button>" );
+				$th.removeAttr( "aria-label tabindex aria-controls" );
+			}
 		} );
 		$elm.attr( "aria-label", i18nText.tblFilterInstruction );
 	}
@@ -13564,7 +14403,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 		};
 
 	// Lets reset the search
-	$datatable.search( "" ).columns().search( "" ).draw();
+	$datatable.search( "" ).columns().search( "" );
 
 	// Lets loop throug all options
 	var $prevCol = -1, $cachedVal = "";
@@ -13595,17 +14434,17 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 		if ( $elm.is( "select" ) ) {
 			$value = $elm.find( "option:selected" ).val();
 		} else if ( $elm.is( "input[type='number']" ) ) {
-			var $minNum, $maxNum;
+			var $minNum, $maxNum = null;
 
 			// Retain minimum number (always the first number input)
 			if ( $cachedVal === "" ) {
 				$cachedVal = parseFloat( $val );
 				$cachedVal = ( $cachedVal ) ? $cachedVal : "-0";
+			} else {
+				$maxNum = parseFloat( $val );
+				$maxNum = ( $maxNum ) ? $maxNum : "-0";
 			}
 			$minNum = $cachedVal;
-
-			// Maximum number is always the current selected number
-			$maxNum = parseFloat( $val );
 
 			//Number filtering logic needs to be reviewed in order to remove the "-0" value (issue #9235)
 			// Generates a list of numbers (within the min and max number)
@@ -13615,15 +14454,21 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 
 					if ( !isNaN( $num ) ) {
 						if ( $aoType === "and" ) {
-							if ( $cachedVal !== $maxNum && $cachedVal !== "-0" && $num >= $minNum && $num <= $maxNum ) {
+							if ( $cachedVal !== $maxNum && $cachedVal !== "-0" && $maxNum !== "0" && $num >= $minNum && $num <= $maxNum ) {
 								return true;
 							}
 						} else {
-							if ( $cachedVal === $maxNum && $num >= $minNum ) {
+							if ( $maxNum === null ) { // only one input number
+								return $minNum === "-0" || $minNum === $num;
+							} else if ( $maxNum === $cachedVal && $cachedVal === "-0" ) { // both are empty
 								return true;
-							} else if ( $cachedVal === "-0" && $num <= $maxNum ) {
+							} else if ( $maxNum !== "-0" && $minNum === $maxNum && $num === $maxNum ) { // min and max are the same
 								return true;
-							} else if ( $cachedVal !== "-0" && $num >= $minNum && $num <= $maxNum ) {
+							} else if ( $maxNum === "-0" && $num >= $minNum ) { // max number is missing
+								return true;
+							} else if ( $cachedVal === "-0" && $num <= $maxNum ) { // min number is missing
+								return true;
+							} else if ( $cachedVal !== "-0" && $num >= $minNum && $num <= $maxNum ) { // min and max are present
 								return true;
 							}
 						}
@@ -13716,10 +14561,10 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 				$regex = "(" + $value + ")";
 			}
 
-			$datatable.column( $column ).search( $regex, true ).draw();
+			$datatable.column( $column ).search( $regex, true );
 		}
 	} );
-
+	$datatable.draw();
 	return false;
 } );
 
@@ -13732,10 +14577,8 @@ $document.on( "click", ".wb-tables-filter [type='reset']", function( event ) {
 	$datatable.search( "" ).columns().search( "" ).draw();
 
 	$form.find( "select" ).prop( "selectedIndex", 0 );
-	$form.find( "input:checkbox" ).prop( "checked", false );
-	$form.find( "input:radio" ).prop( "checked", false );
-	$form.find( "input[type=date]" ).val( "" );
-
+	$form.find( "input:checkbox, input:radio" ).prop( "checked", false );
+	$form.find( ":input" ).not( ":button, :submit, :reset, :hidden, :checkbox, :radio" ).val( "" );
 	return false;
 } );
 
@@ -14918,7 +15761,7 @@ var componentName = "wb-toggle",
 					// Check if the element is toggled on based on the
 					// open attribute or "on" CSS class
 					isOpen = elm.nodeName.toLowerCase() === "details" ?
-						!!elm.getAttribute( "open" ) :
+						!!elm.hasAttribute( "open" ) :
 						( " " + tab.className + " " ).indexOf( " " + data.stateOn + " " );
 					if ( isOpen ) {
 						hasOpen = true;
@@ -15398,6 +16241,517 @@ wb.add( selector );
 } )( jQuery, window, wb );
 
 /**
+ * @title WET-BOEW Data Json [data-json-after], [data-json-append],
+ * [data-json-before], [data-json-prepend], [data-json-replace], [data-json-replacewith] and [data-wb-json]
+ * @overview Insert content extracted from JSON file.
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+/*global jsonpointer */
+( function( $, window, wb ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = "wb-data-json",
+	shortName = "wb-json",
+	selectors = [
+		"[data-json-after]",
+		"[data-json-append]",
+		"[data-json-before]",
+		"[data-json-prepend]",
+		"[data-json-replace]",
+		"[data-json-replacewith]",
+		"[data-" + shortName + "]"
+	],
+	allowJsonTypes = [ "after", "append", "before", "prepend", "val" ],
+	allowAttrNames = /(href|src|data-*|aria-*|role|pattern|min|max|step|low|high|lang|hreflang|action)/,
+	allowPropNames = /(checked|selected|disabled|required|readonly|multiple|hidden)/,
+	selectorsLength = selectors.length,
+	selector = selectors.join( "," ),
+	initEvent = "wb-init." + componentName,
+	updateEvent = "wb-update." + componentName,
+	contentUpdatedEvent = "wb-contentupdated",
+	dataQueue = componentName + "-queue",
+	$document = wb.doc,
+	s,
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 * @param {string} ajaxType The type of JSON operation, either after, append, before or replace
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm;
+
+		if ( elm ) {
+
+			var jsonCoreTypes = [
+					"before",
+					"replace",
+					"replacewith",
+					"after",
+					"append",
+					"prepend"
+				],
+				jsonType, jsondata,
+				i, i_len = jsonCoreTypes.length, i_cache,
+				lstCall = [],
+				url;
+
+			$elm = $( elm );
+
+			for ( i = 0; i !== i_len; i += 1 ) {
+				jsonType = jsonCoreTypes[ i ];
+				url = elm.getAttribute( "data-json-" + jsonType );
+				if ( url !== null ) {
+					lstCall.push( {
+						type: jsonType,
+						url: url
+					} );
+				}
+			}
+
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+
+			jsondata = wb.getData( $elm, shortName );
+
+			if ( jsondata && jsondata.url ) {
+				lstCall.push( jsondata );
+			} else if ( jsondata && $.isArray( jsondata ) ) {
+				i_len = jsondata.length;
+				for ( i = 0; i !== i_len; i += 1 ) {
+					lstCall.push( jsondata[ i ] );
+				}
+			}
+
+			// Save it to the dataJSON object.
+			$elm.data( dataQueue, lstCall );
+
+			i_len = lstCall.length;
+			for ( i = 0; i !== i_len; i += 1 ) {
+				i_cache = lstCall[ i ];
+				loadJSON( elm, i_cache.url, i, i_cache.nocache, i_cache.nocachekey, i_cache.data, i_cache.contenttype, i_cache.method );
+			}
+
+		}
+	},
+
+	loadJSON = function( elm, url, refId, nocache, nocachekey, data, contentType, method ) {
+		var $elm = $( elm ),
+			fetchObj = {
+				url: url,
+				refId: refId,
+				nocache: nocache,
+				nocachekey: nocachekey,
+				data: data,
+				contentType: contentType,
+				method: method
+			};
+
+		$elm.trigger( {
+			type: "json-fetch.wb",
+			fetch: fetchObj
+		} );
+	},
+
+
+	// Manage JSON value After the json data has been fetched. This function can deal with array.
+	jsonFetched = function( event ) {
+
+		var elm = event.target,
+			$elm = $( elm ),
+			lstCall = $elm.data( dataQueue ),
+			fetchObj = event.fetch,
+			itmSettings = lstCall[ fetchObj.refId ],
+			jsonType = itmSettings.type,
+			attrname = itmSettings.prop || itmSettings.attr,
+			showEmpty = itmSettings.showempty,
+			content = fetchObj.response,
+			typeOfContent = typeof content,
+			jQueryCaching;
+
+		if ( showEmpty || typeOfContent !== "undefined" ) {
+
+			if ( showEmpty && typeOfContent === "undefined" ) {
+				content = "";
+			}
+
+			//Prevents the force caching of nested resources
+			jQueryCaching = jQuery.ajaxSettings.cache;
+			jQuery.ajaxSettings.cache = true;
+
+			// "replace" and "replaceWith" doesn't map to a jQuery function
+			if ( !jsonType ) {
+				jsonType = "template";
+				applyTemplate( elm, itmSettings, content );
+
+				// Trigger wet
+				if ( itmSettings.trigger ) {
+					$elm
+						.find( wb.allSelectors )
+						.addClass( "wb-init" )
+						.filter( ":not(#" + elm.id + " .wb-init .wb-init)" )
+						.trigger( "timerpoke.wb" );
+				}
+			} else if ( jsonType === "replace" ) {
+				$elm.html( content );
+			} else if ( jsonType === "replacewith" ) {
+				$elm.replaceWith( content );
+			} else if ( jsonType === "addclass" ) {
+				$elm.addClass( content );
+			} else if ( jsonType === "removeclass" ) {
+				$elm.removeClass( content );
+			} else if ( jsonType === "prop" && attrname && allowPropNames.test( attrname ) ) {
+				$elm.prop( attrname, content );
+			} else if ( jsonType === "attr" && attrname && allowAttrNames.test( attrname ) ) {
+				$elm.attr( attrname, content );
+			} else if ( typeof $elm[ jsonType ] === "function" && allowJsonTypes.indexOf( jsonType ) !== -1 ) {
+				$elm[ jsonType ]( content );
+			} else {
+				throw componentName + " do not support type: " + jsonType;
+			}
+
+			//Resets the initial jQuery caching setting
+			jQuery.ajaxSettings.cache = jQueryCaching;
+
+			$elm.trigger( contentUpdatedEvent, { "json-type": jsonType, "content": content } );
+		}
+	},
+
+	// Apply the template as per the configuration
+	applyTemplate = function( elm, settings, content ) {
+
+		var mapping = settings.mapping || [ {} ],
+			mapping_len,
+			filterTrueness = settings.filter || [],
+			filterFaslseness = settings.filternot || [],
+			queryAll = settings.queryall,
+			i, i_len, i_cache,
+			j, j_cache, j_cache_attr,
+			basePntr,
+			clone, selElements,
+			cached_node,
+			cached_textContent,
+			cached_value,
+			selectorToClone = settings.tobeclone,
+			elmClass = elm.className,
+			elmAppendTo = elm,
+			dataTable,
+			dataTableAddRow,
+			template = settings.source ? document.querySelector( settings.source ) : elm.querySelector( "template" );
+
+		// If combined with wb-tables plugin
+		if ( elm.tagName === "TABLE" && elmClass.indexOf( "wb-tables" ) !== -1 ) {
+
+			//  Wait for its initialization before to applyTemplate
+			if ( elmClass.indexOf( "wb-tables-inited" ) === -1 ) {
+				$( elm ).one( "wb-ready.wb-tables,init.dt", function( ) {
+					applyTemplate( elm, settings, content );
+				} );
+				return;
+			}
+
+			// Edge case, when both plugin are ready at the same time, just wait for the next tick
+			if ( !$.fn.dataTable.isDataTable( elm ) && elmClass.indexOf( componentName + "-dtwait" ) === -1 ) {
+				elm.classList.add( componentName + "-dtwait" );
+				setTimeout( function( ) {
+					applyTemplate( elm, settings, content );
+				}, 50 );
+				return;
+			}
+
+			dataTable = $( elm ).dataTable( { "retrieve": true } ).api();
+			dataTableAddRow = dataTable.row.add;
+			selectorToClone = "tr"; // Only table row can be added
+		}
+
+		if ( !$.isArray( content ) ) {
+			if ( typeof content !== "object" ) {
+				content = [ content ];
+			} else {
+				content = $.map( content, function( val, index ) {
+					if ( typeof val === "object" && !$.isArray( val ) ) {
+						if ( !val[ "@id" ] ) {
+							val[ "@id" ] = index;
+						}
+					} else {
+						val = {
+							"@id": index,
+							"@value": val
+						};
+					}
+					return [ val ];
+				} );
+			}
+		}
+		i_len = content.length;
+
+		if ( !$.isArray( mapping ) ) {
+			mapping = [ mapping ];
+		}
+		mapping_len = mapping.length;
+
+		if ( !template ) {
+			return;
+		}
+
+		// Needed when executing sub-template that wasn't polyfill, like in IE11
+		if ( !template.content ) {
+			wb.tmplPolyfill( template );
+		}
+
+		if ( settings.appendto ) {
+			elmAppendTo = $( settings.appendto ).get( 0 );
+		}
+
+		for ( i = 0; i < i_len; i += 1 ) {
+			i_cache = content[ i ];
+
+			if ( filterPassJSON( i_cache, filterTrueness, filterFaslseness ) ) {
+
+				basePntr = "/" + i;
+
+				if ( !selectorToClone ) {
+					clone = template.content.cloneNode( true );
+				} else {
+					clone = template.content.querySelector( selectorToClone ).cloneNode( true );
+				}
+
+				if ( queryAll ) {
+					selElements = clone.querySelectorAll( queryAll );
+				}
+
+				for ( j = 0; j < mapping_len || j === 0; j += 1 ) {
+					j_cache = mapping[ j ];
+
+					// Get the node used to insert content
+					if ( selElements ) {
+						cached_node = selElements[ j ];
+					} else if ( j_cache.selector ) {
+						cached_node = clone.querySelector( j_cache.selector );
+					} else {
+						cached_node = clone;
+					}
+					j_cache_attr = j_cache.attr;
+					if ( j_cache_attr ) {
+						if ( !cached_node.hasAttribute( j_cache_attr ) ) {
+							cached_node.setAttribute( j_cache_attr, "" );
+						}
+						cached_node = cached_node.getAttributeNode( j_cache_attr );
+					}
+
+					// Get the value
+					if ( typeof i_cache === "string" ) {
+						cached_value = i_cache;
+					} else if ( typeof j_cache === "string" ) {
+						cached_value = jsonpointer.get( content, basePntr + j_cache );
+					} else {
+						cached_value = jsonpointer.get( content, basePntr + j_cache.value );
+					}
+
+					// Placeholder text replacement if any
+					if ( j_cache.placeholder ) {
+						cached_textContent = cached_node.textContent || "";
+						cached_value = cached_textContent.replace( j_cache.placeholder, cached_value );
+					}
+
+					// Set the value to the node
+					if ( j_cache.isHTML ) {
+						cached_node.innerHTML = cached_value;
+					} else if ( $.isArray( cached_value ) || cached_value && !( cached_value instanceof String ) && typeof cached_value === "object" ) {
+						applyTemplate( cached_node, j_cache, cached_value );
+					} else {
+						cached_node.textContent = cached_value;
+					}
+				}
+
+				if ( dataTableAddRow ) {
+
+					// If wb-tables, use its API to add rows
+					dataTableAddRow( $( clone ) );
+				} else {
+					elmAppendTo.appendChild( clone );
+				}
+			}
+		}
+
+		// Refresh the dataTable display
+		if ( dataTableAddRow ) {
+			dataTable.draw();
+		}
+	},
+
+	// Filtering a JSON
+	// Return true if trueness && falseness
+	// Return false if !( trueness && falseness )
+	// trueness and falseness is an array of { "path": "", "value": "" } object
+	filterPassJSON = function( obj, trueness, falseness ) {
+		var i, i_cache,
+			trueness_len = trueness.length,
+			falseness_len = falseness.length,
+			compareResult = false,
+			isEqual;
+
+		if ( trueness_len || falseness_len ) {
+
+			for ( i = 0; i < trueness_len; i += 1 ) {
+				i_cache = trueness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( i_cache.optional ) {
+					compareResult = compareResult || isEqual;
+				} else if ( !isEqual ) {
+					return false;
+				} else {
+					compareResult = true;
+				}
+			}
+			if ( trueness_len && !compareResult ) {
+				return false;
+			}
+
+			for ( i = 0; i < falseness_len; i += 1 ) {
+				i_cache = falseness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( isEqual && !i_cache.optional || isEqual && i_cache.optional ) {
+					return false;
+				}
+			}
+
+		}
+		return true;
+	},
+
+	//
+	_equalsJSON = function( a, b ) {
+		switch ( typeof a ) {
+		case "undefined":
+			return false;
+		case "boolean":
+		case "string":
+		case "number":
+			return a === b;
+		case "object":
+			if ( a === null ) {
+				return b === null;
+			}
+			var i, l;
+			if ( $.isArray( a ) ) {
+				if (  $.isArray( b ) || a.length !== b.length ) {
+					return false;
+				}
+				for ( i = 0, l = a.length; i < l; i++ ) {
+					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+						return false;
+					}
+				}
+				return true;
+			}
+			var bKeys = _objectKeys( b ),
+				bLength = bKeys.length;
+			if ( _objectKeys( a ).length !== bLength ) {
+				return false;
+			}
+			for ( i = 0; i < bLength; i++ ) {
+				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		default:
+			return false;
+		}
+	},
+	_objectKeys = function( obj ) {
+		var keys;
+		if ( $.isArray( obj ) ) {
+			keys = new Array( obj.length );
+			for ( var k = 0; k < keys.length; k++ ) {
+				keys[ k ] = "" + k;
+			}
+			return keys;
+		}
+		if ( Object.keys ) {
+			return Object.keys( obj );
+		}
+		keys = [];
+		for ( var i in obj ) {
+			if ( Object.prototype.hasOwnProperty.call( obj, i ) ) {
+				keys.push( i );
+			}
+		}
+		return keys;
+	},
+
+	// Manage JSON value After the json data has been fetched
+	jsonUpdate = function( event ) {
+		var elm = event.target,
+			$elm = $( elm ),
+			lstCall = $elm.data( dataQueue ),
+			refId = lstCall.length,
+			wbJsonConfig = event[ "wb-json" ];
+
+		if ( !( wbJsonConfig.url && ( wbJsonConfig.type || wbJsonConfig.source ) ) ) {
+			throw "Data JSON update not configured properly";
+		}
+
+		lstCall.push( wbJsonConfig );
+		$elm.data( dataQueue, lstCall );
+
+		loadJSON( elm, wbJsonConfig.url, refId );
+	};
+
+$document.on( "json-failed.wb", selector, function( ) {
+	throw "Bad JSON Fetched from url in " + componentName;
+} );
+
+// Load template polyfill
+Modernizr.load( {
+	test: ( "content" in document.createElement( "template" ) ),
+	nope: "site!deps/template" + wb.getMode() + ".js"
+} );
+
+$document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " json-fetched.wb", selector, function( event ) {
+
+	if ( event.currentTarget === event.target ) {
+		switch ( event.type ) {
+
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
+		case "wb-update":
+			jsonUpdate( event );
+			break;
+		default:
+			jsonFetched( event );
+			break;
+		}
+	}
+
+	return true;
+} );
+
+// Add the timerpoke to initialize the plugin
+for ( s = 0; s !== selectorsLength; s += 1 ) {
+	wb.add( selectors[ s ] );
+}
+
+} )( jQuery, window, wb );
+
+/**
  * @title WET-BOEW Disable Event
  * @overview Event creates the active offer for users that have disabled the event.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -15433,7 +16787,9 @@ var componentName = "wb-disable",
 			noticeHeader = i18n( "disable-notice-h" ),
 			noticeBody = i18n( "disable-notice" ),
 			noticehtml = "<section",
-			noticehtmlend = "</a>.</p></section>";
+			noticehtmlend = "</a>.</p></section>",
+			canonicalUrl,
+			canonicalLink;
 
 		if ( elm ) {
 
@@ -15457,9 +16813,28 @@ var componentName = "wb-disable",
 						/* swallow error */
 					}
 
+					// Add canonical link if not already present
+					if ( !document.querySelector( "link[rel=canonical]" ) ) {
+
+						// Remove wbdisable from URL
+						canonicalUrl = window.location.href.replace( /&?wbdisable=true/gi, "" ).replace( "?&", "?" ).replace( "?#", "#" );
+
+						if ( canonicalUrl.indexOf( "?" ) === ( canonicalUrl.length - 1 ) ) {
+							canonicalUrl = canonicalUrl.replace( "?", "" );
+						}
+
+						canonicalLink = document.createElement( "link" );
+						canonicalLink.rel = "canonical";
+						canonicalLink.href = canonicalUrl;
+
+						document.head.appendChild( canonicalLink );
+					}
+
 					// Add notice and link to re-enable WET plugins and polyfills
-					noticehtml = noticehtml + " class='container-fluid bg-warning text-center mrgn-tp-sm py-4'><h2 class='mrgn-tp-0'>" + noticeHeader + "</h2><p>" + noticeBody + "</p><p><a rel='alternate' property='significantLink' href='" + nQuery + "wbdisable=false'>" + i18n( "wb-enable" ) + noticehtmlend;
+					let significantLinkId = wb.getId();
+					noticehtml = noticehtml + " class='container-fluid bg-warning text-center mrgn-tp-sm py-4'><h2 class='mrgn-tp-0'>" + noticeHeader + "</h2><p>" + noticeBody + "</p><p><a id='" + significantLinkId + "' rel='alternate' href='" + nQuery + "wbdisable=false'>" + i18n( "wb-enable" ) + noticehtmlend;
 					$( elm ).after( noticehtml );
+					document.querySelector( "#" + significantLinkId ).setAttribute( "property", "significantLink" );
 					return true;
 				} else {
 					$html.addClass( "wb-enable" );
@@ -15513,7 +16888,7 @@ wb.add( selector );
 
 var $document = wb.doc,
 	$window = wb.win,
-	clickEvents = "click vclick",
+	clickEvents = "click",
 	setFocusEvent = "setfocus.wb",
 	linkSelector = "a[href]",
 	$linkTarget,
@@ -15598,6 +16973,922 @@ $document.on( clickEvents, linkSelector, function( event ) {
 } );
 
 } )( jQuery, wb );
+
+/**
+ * @title WET-BOEW JSON Manager
+ * @overview Manage JSON dataset, execute JSON patch operation.
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+/*global jsonpointer, jsonpatch */
+( function( $, window, wb ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = "wb-jsonmanager",
+	selector = "[data-" + componentName + "]",
+	initEvent = "wb-init." + componentName,
+	postponeEvent = "postpone." + componentName,
+	patchesEvent = "patches." + componentName,
+	jsonFailedClass = "jsonfail",
+	reloadFlag = "data-" + componentName + "-reload",
+	dsNameRegistered = [],
+	datasetCache = {},
+	datasetCacheSettings = {},
+	dsDelayed = {},
+	dsPostponePatches = {},
+	$document = wb.doc,
+	defaults = {
+		ops: [
+			{
+				name: "wb-count",
+				fn: function( obj, key, tree ) {
+					var countme = obj[ key ],
+						len = 0, i_len, i,
+						filter = this.filter || [ ],
+						filternot = this.filternot || [ ];
+
+					if ( !$.isArray( filter ) ) {
+						filter = [ filter ];
+					}
+					if ( !$.isArray( filternot ) ) {
+						filternot = [ filternot ];
+					}
+
+					if ( ( filter.length || filternot.length ) && $.isArray( countme ) ) {
+
+						// Iterate in obj[key] / item and check if is true for the given path is any.
+						i_len = countme.length;
+
+						for ( i = 0; i !== i_len; i = i + 1 ) {
+							if ( filterPassJSON( countme[ i ], filter, filternot ) ) {
+								len = len + 1;
+							}
+						}
+					} else if ( $.isArray( countme ) ) {
+						len = countme.length;
+					}
+					jsonpatch.apply( tree, [
+						{ op: "add", path: this.set, value: len }
+					] );
+				}
+			},
+			{
+				name: "wb-first",
+				fn: function( obj, key, tree ) {
+					var currObj = obj[ key ];
+					if ( !$.isArray( currObj ) || currObj.length === 0 ) {
+						return;
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "add", path: this.set, value: currObj[ 0 ] }
+					] );
+				}
+			},
+			{
+				name: "wb-last",
+				fn: function( obj, key, tree ) {
+					var currObj = obj[ key ];
+					if ( !$.isArray( currObj ) || currObj.length === 0 ) {
+						return;
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "add", path: this.set, value: currObj[ currObj.length - 1 ] }
+					] );
+				}
+			},
+			{
+				name: "wb-nbtolocal",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ],
+						loc = this.locale || window.wb.lang,
+						suffix = this.suffix || "",
+						prefix = this.prefix || "";
+
+					if ( typeof val === "string" ) {
+						val = parseFloat( val );
+						if ( isNaN( val ) ) {
+							return;
+						}
+					}
+
+					jsonpatch.apply( tree, [
+						{ op: "replace", path: this.path, value: prefix + val.toLocaleString( loc ) + suffix  }
+					] );
+				}
+			},
+			{
+				name: "wb-decodeUTF8Base64",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ];
+
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.decodeUTF8Base64( val ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.decodeUTF8Base64( val ) }
+						] );
+					}
+				}
+			},
+			{
+				name: "wb-escapeHTML",
+				fn: function( obj, key, tree ) {
+					var val = obj[ key ];
+
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.escapeHTML( val ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.escapeHTML( val ) }
+						] );
+					}
+				}
+			},
+			{
+				name: "wb-toDateISO",
+				fn: function( obj, key, tree ) {
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.date.toDateISO( obj[ key ] ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.date.toDateISO( obj[ key ] ) }
+						] );
+					}
+				}
+			},
+			{
+				name: "wb-toDateTimeISO",
+				fn: function( obj, key, tree ) {
+					if ( !this.set ) {
+						jsonpatch.apply( tree, [
+							{ op: "replace", path: this.path, value: wb.date.toDateISO( obj[ key ], true ) }
+						] );
+					} else {
+						jsonpatch.apply( tree, [
+							{ op: "add", path: this.set, value: wb.date.toDateISO( obj[ key ], true ) }
+						] );
+					}
+				}
+			}
+		],
+		opsArray: [
+			{
+				name: "wb-toDateISO",
+				fn: function( arr )  {
+					var setval = this.set,
+						pathval = this.path,
+						i, i_len = arr.length;
+					for ( i = 0; i !== i_len; i += 1 ) {
+						if ( setval ) {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateISO", set: "/" + i + setval, path: "/" + i + pathval }
+							] );
+						} else {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateISO", path: "/" + i + pathval }
+							] );
+						}
+					}
+				}
+			},
+			{
+				name: "wb-toDateTimeISO",
+				fn: function( arr ) {
+					var setval = this.set,
+						pathval = this.path,
+						i, i_len = arr.length;
+					for ( i = 0; i !== i_len; i += 1 ) {
+						if ( setval ) {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateTimeISO", set: "/" + i + setval, path: "/" + i + pathval }
+							] );
+						} else {
+							jsonpatch.apply( arr, [
+								{ op: "wb-toDateTimeISO", path: "/" + i + pathval }
+							] );
+						}
+					}
+				}
+			}
+		],
+		opsRoot: [],
+		settings: { },
+		docMapKeys: { "referer": document.referrer, "locationHref": location.href }
+	},
+
+	// Add debug information after the JSON manager element
+	debugPrintOut = function( $elm, name, json, patches ) {
+		$elm.after( "<p lang=\"en\"><strong>JSON Manager Debug</strong> (" +  name + ")</p><ul lang=\"en\"><li>JSON: <pre><code>" + JSON.stringify( json ) + "</code></pre></li><li>Patches: <pre><code>" + JSON.stringify( patches ) + "</code></pre>" );
+		console.log( json );
+	},
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm,
+			jsSettings = window[ componentName ] || { },
+			ops, opsArray, opsRoot,
+			i, i_len, i_cache,
+			url, dsName;
+
+		if ( elm ) {
+			$elm = $( elm );
+
+			// Load handlebars
+			Modernizr.load( {
+
+				// For loading multiple dependencies
+				load: [
+					"site!deps/json-patch" + wb.getMode() + ".js",
+					"site!deps/jsonpointer" + wb.getMode() + ".js"
+				],
+				testReady: function() {
+					return window.jsonpatch && window.jsonpointer;
+				},
+				complete: function() {
+					var elmData = wb.getData( $elm, componentName );
+
+					if ( !defaults.registered ) {
+						ops = defaults.ops.concat( jsSettings.ops || [ ] );
+						opsArray = defaults.opsArray.concat( jsSettings.opsArray || [ ] );
+						opsRoot = defaults.opsRoot.concat( jsSettings.opsRoot || [ ] );
+
+						if ( ops.length ) {
+							for ( i = 0, i_len = ops.length; i !== i_len; i++ ) {
+								i_cache = ops[ i ];
+								jsonpatch.registerOps( i_cache.name, i_cache.fn );
+							}
+						}
+						if ( opsArray.length ) {
+							for ( i = 0, i_len = opsArray.length; i !== i_len; i++ ) {
+								i_cache = opsArray[ i ];
+								jsonpatch.registerOpsArray( i_cache.name, i_cache.fn );
+							}
+						}
+						if ( opsRoot.length ) {
+							for ( i = 0, i_len = opsRoot.length; i !== i_len; i++ ) {
+								i_cache = opsRoot[ i ];
+								jsonpatch.registerOpsRoot( i_cache.name, i_cache.fn );
+							}
+						}
+						defaults.settings = $.extend( {}, defaults.settings, jsSettings.settings || {} );
+						defaults.registered = true;
+					}
+
+					dsName = elmData.name;
+					if ( !dsName || dsName in dsNameRegistered ) {
+						throw "Dataset name must be unique";
+					}
+					dsNameRegistered.push( dsName );
+
+					url = elmData.url;
+
+					if ( url ) {
+
+						// Fetch the JSON
+						$elm.trigger( {
+							type: "json-fetch.wb",
+							fetch: {
+								url: url,
+								nocache: elmData.nocache,
+								nocachekey: elmData.nocachekey,
+								data: elmData.data,
+								contentType: elmData.contenttype,
+								method: elmData.method
+							}
+						} );
+
+						// If the URL is a dataset, make it ready
+						if ( url.charCodeAt( 0 ) === 35 && url.charCodeAt( 1 ) === 91 ) {
+							wb.ready( $elm, componentName );
+						}
+					} else if ( !url && elmData.extractor ) {
+						$elm.trigger( {
+							type: "json-fetched.wb",
+							fetch: {
+								response: {}
+							}
+						} );
+						wb.ready( $elm, componentName );
+
+					} else {
+
+						$elm.trigger( {
+							type: "json-fetch.wb"
+						} );
+						wb.ready( $elm, componentName );
+					}
+
+				}
+			} );
+		}
+	},
+	extractData = function( elmObj ) {
+
+		var isGroup = false,
+			selectedTag,
+			targetTag,
+			lastIndex = [],
+			j_tag = "",
+			group = {},
+			arrMap = [],
+			node_children = [],
+			j_node = 0,
+			arrRepeatPath = [],
+			combineToObj = function( cur_obj ) {
+				if ( cur_obj.selector === j_tag ) {
+					if ( !lastIndex.includes( j_tag ) ) {
+						group[ cur_obj.path ] = cur_obj.attr && node_children[ j_node ].getAttributeNode( cur_obj.attr ) ?
+							node_children[ j_node ].getAttributeNode( cur_obj.attr ).textContent :
+							node_children[ j_node ].textContent;
+						lastIndex.push( j_tag );
+					}
+				}
+			},
+			manageObjDir = function( selector, selectedValue, json_return ) {
+				var arrPath = selector.path.split( "/" ).filter( Boolean );
+				if ( arrPath.length > 1 ) {
+					var pointer = "";
+					pointer = arrPath.pop();
+
+					if ( arrPath[ 0 ] && arrPath[ 0 ] !== "" ) {
+
+						if ( !json_return[ arrPath[ 0 ] ] && !arrRepeatPath.includes( arrPath[ 0 ] ) ) {
+							arrRepeatPath.push( arrPath[ 0 ] );
+							json_return[ arrPath[ 0 ] ] = {};
+						}
+						if ( selector.selectAll && !json_return[ arrPath[ 0 ] ] [ pointer ]  ) {
+							json_return[ arrPath[ 0 ] ] [ pointer ] = [];
+						}
+						if ( selector.selectAll ) {
+							json_return[ arrPath[ 0 ] ] [ pointer ].push( selectedValue );
+						} else {
+							json_return[ arrPath[ 0 ] ] [ pointer ] = selectedValue;
+						}
+
+					} else {
+
+						if ( selector.selectAll ) {
+							json_return[ arrPath[ 0 ] ].push( selectedValue );
+						} else {
+							json_return[ pointer ] = selectedValue;
+						}
+					}
+				} else {
+
+					if ( selector.selectAll ) {
+						if ( !json_return[ selectedTag.path ] ) {
+							json_return[ selectedTag.path ] = [];
+						}
+						json_return[ selectedTag.path ].push( selectedValue );
+					} else {
+						json_return[ selectedTag.path ] = selectedValue;
+					}
+				}
+			},
+			jsonSource = {};
+
+
+		for ( var tag = 0; tag <= elmObj.length - 1; tag++ ) {
+
+			selectedTag = elmObj[ tag ];
+
+			if ( !selectedTag.interface ) {
+
+				targetTag = document.querySelectorAll( selectedTag.selector || "" );
+				isGroup = selectedTag.extractor && selectedTag.extractor.length >= 1 ? true : false;
+
+				if ( selectedTag.selectAll ) {
+
+					for ( var i_node = 0; i_node <= targetTag.length - 1; i_node++ ) {
+
+						var selectedTagValue = selectedTag.attr && targetTag [ i_node ].getAttributeNode( selectedTag.attr ) ?
+							targetTag [ i_node ].getAttributeNode( selectedTag.attr ).textContent :
+							targetTag [ i_node ].textContent;
+
+						manageObjDir( selectedTag, selectedTagValue, jsonSource );
+					}
+				}
+
+				// extract from combined selectors and group the values e.g dt with dd
+				if ( isGroup ) {
+
+					jsonSource[ selectedTag.path ] = [];
+
+					node_children = targetTag[ 0 ].children;
+
+					var extractorLength = Object.keys( selectedTag.extractor ).length;
+
+					for ( j_node = 0; j_node <= node_children.length - 1; j_node++ ) {
+
+						j_tag = node_children[ j_node ].tagName.toLowerCase();
+
+						selectedTag.extractor.find( combineToObj );
+						if ( Object.keys( group ).length === extractorLength ) {
+							arrMap.push( group );
+							group = {};
+							lastIndex = [];
+						}
+					}
+					$.extend( jsonSource[ selectedTag.path ], arrMap );
+				}
+
+				if ( targetTag.length ) {
+					targetTag = selectedTag.attr && targetTag [ 0 ].getAttributeNode( selectedTag.attr ) ?
+						targetTag [ 0 ].getAttributeNode( selectedTag.attr ).textContent :
+						targetTag [ 0 ].textContent;
+				}
+
+			} else {
+
+				targetTag = defaults.docMapKeys[ selectedTag.interface ];
+
+				manageObjDir( selectedTag, targetTag, jsonSource );
+			}
+
+			if ( !selectedTag.selectAll  ) {
+				if ( isGroup === false ) {
+					manageObjDir( selectedTag, targetTag, jsonSource );
+				}
+			}
+		}
+
+		return jsonSource;
+	},
+
+	// Filtering a JSON
+	// Return true if trueness && falseness
+	// Return false if !( trueness && falseness )
+	// trueness and falseness is an array of { "path": "", "value": "" } object
+	filterPassJSON = function( obj, trueness, falseness ) {
+		var i, i_cache,
+			trueness_len = trueness.length,
+			falseness_len = falseness.length,
+			compareResult = false,
+			isEqual;
+
+		if ( trueness_len || falseness_len ) {
+
+			for ( i = 0; i < trueness_len; i += 1 ) {
+				i_cache = trueness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( i_cache.optional ) {
+					compareResult = compareResult || isEqual;
+				} else if ( !isEqual ) {
+					return false;
+				} else {
+					compareResult = true;
+				}
+			}
+			if ( trueness_len && !compareResult ) {
+				return false;
+			}
+
+			for ( i = 0; i < falseness_len; i += 1 ) {
+				i_cache = falseness[ i ];
+				isEqual = _equalsJSON( jsonpointer.get( obj, i_cache.path ), i_cache.value );
+
+				if ( isEqual && !i_cache.optional || isEqual && i_cache.optional ) {
+					return false;
+				}
+			}
+
+		}
+		return true;
+	},
+
+	// Utility function to compare two JSON value
+	_equalsJSON = function( a, b ) {
+		switch ( typeof a ) {
+		case "undefined":
+			return false;
+		case "boolean":
+		case "string":
+		case "number":
+			return a === b;
+		case "object":
+			if ( a === null ) {
+				return b === null;
+			}
+			var i, l;
+			if ( $.isArray( a ) ) {
+				if (  $.isArray( b ) || a.length !== b.length ) {
+					return false;
+				}
+				for ( i = 0, l = a.length; i < l; i++ ) {
+					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+						return false;
+					}
+				}
+				return true;
+			}
+			var bKeys = _objectKeys( b ),
+				bLength = bKeys.length;
+			if ( _objectKeys( a ).length !== bLength ) {
+				return false;
+			}
+			for ( i = 0; i < bLength; i++ ) {
+				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		default:
+			return false;
+		}
+	},
+	_objectKeys = function( obj ) {
+		var keys;
+		if ( $.isArray( obj ) ) {
+			keys = new Array( obj.length );
+			for ( var k = 0; k < keys.length; k++ ) {
+				keys[ k ] = "" + k;
+			}
+			return keys;
+		}
+		if ( Object.keys ) {
+			return Object.keys( obj );
+		}
+		keys = [];
+		for ( var i in obj ) {
+			if ( Object.prototype.hasOwnProperty.call( obj, i ) ) {
+				keys.push( i );
+			}
+		}
+		return keys;
+	},
+
+	// Create series of patches for filtering
+	getPatchesToFilter = function( JSONsource, filterPath, filterTrueness, filterFaslseness ) {
+		var filterObj,
+			i, i_len;
+
+		if ( !$.isArray( filterTrueness ) ) {
+			filterTrueness = [ filterTrueness ];
+		}
+		if ( !$.isArray( filterFaslseness ) ) {
+			filterFaslseness = [ filterFaslseness ];
+		}
+
+		filterObj = jsonpointer.get( JSONsource, filterPath );
+		if ( $.isArray( filterObj ) ) {
+			i_len = filterObj.length - 1;
+			for ( i = i_len; i !== -1; i -= 1 ) {
+				if ( !filterPassJSON( filterObj[ i ], filterTrueness, filterFaslseness ) ) {
+					jsonpatch.apply( JSONsource, [ { op: "remove", path: filterPath + "/" + i } ] );
+				}
+			}
+		}
+		return JSONsource;
+	};
+
+// IE dedicated patch to support ECMA-402 but limited to English and French number formatting
+if ( wb.ie ) {
+	Number.prototype.toLocaleString = function( locale ) {
+
+		var splitVal = this.toString().split( "." ),
+			integer = splitVal[ 0 ],
+			decimal = splitVal[ 1 ],
+			intLength = integer.length,
+			nbSection = intLength % 3 || 3,
+			strValue = integer.substr( 0, nbSection ),
+			isFrenchLoc = ( locale === "fr" ),
+			thousandSep = ( isFrenchLoc ? " " : "," ),
+			i;
+
+		for ( i = nbSection; i < intLength; i = i + 3 ) {
+			strValue = strValue + thousandSep + integer.substr( i, 3 );
+		}
+		if ( decimal.length ) {
+			if ( isFrenchLoc ) {
+				strValue = strValue + "," + decimal;
+			} else {
+				strValue = strValue + "." + decimal;
+			}
+		}
+		return strValue;
+	};
+}
+
+$document.on( "json-failed.wb", selector, function( event ) {
+	var elm = event.target,
+		$elm;
+
+	if ( elm === event.currentTarget ) {
+		$elm = $( elm );
+		$elm.addClass( jsonFailedClass );
+
+		// Identify that initialization has completed
+		wb.ready( $elm, componentName );
+	}
+} );
+
+$document.on( "json-fetched.wb", selector, function( event ) {
+	var elm = event.target,
+		$elm = $( elm ),
+		settings,
+		dsName,
+		JSONresponse = event.fetch.response,
+		isArrayResponse = $.isArray( JSONresponse ),
+		resultSet,
+		i, i_len, i_cache, backlog, selector,
+		patches, filterTrueness, filterFaslseness, filterPath, extractor;
+
+	if ( elm === event.currentTarget ) {
+		settings = wb.getData( $elm, componentName );
+
+		extractor = settings.extractor;
+		if ( extractor ) {
+			if ( !$.isArray( extractor ) ) {
+				extractor = [ extractor ];
+			}
+			JSONresponse = $.extend( JSONresponse, extractData( extractor ) );
+
+		}
+
+		dsName = "[" + settings.name + "]";
+		patches = settings.patches || [];
+		filterPath = settings.fpath;
+		filterTrueness = settings.filter || [];
+		filterFaslseness = settings.filternot || [];
+
+		if ( !$.isArray( patches ) ) {
+			patches = [ patches ];
+		}
+
+		if ( isArrayResponse ) {
+			JSONresponse = $.extend( true, [], JSONresponse );
+		} else {
+			JSONresponse = $.extend( true, {}, JSONresponse );
+		}
+
+		// Apply a filtering
+		if ( filterPath ) {
+			JSONresponse = getPatchesToFilter( JSONresponse, filterPath, filterTrueness, filterFaslseness );
+		}
+
+		// Apply the wraproot
+		if ( settings.wraproot  ) {
+			i_cache = { };
+			i_cache[ settings.wraproot ] = JSONresponse;
+			JSONresponse = i_cache;
+		}
+
+		// Apply the patches
+		if ( patches.length ) {
+			jsonpatch.apply( JSONresponse, patches );
+		}
+		if ( settings.debug ) {
+			debugPrintOut( $elm, "initEvent", JSONresponse, patches );
+		}
+
+		try {
+			datasetCache[ dsName ] = JSONresponse;
+		} catch ( error ) {
+			return;
+		}
+		datasetCacheSettings[ dsName ] = settings;
+
+		if ( elm.hasAttribute( reloadFlag ) ) {
+			elm.removeAttribute( reloadFlag );
+			i_cache = dsPostponePatches[ dsName ];
+			if ( i_cache ) {
+				$elm.trigger( i_cache );
+			}
+		}
+
+		if ( !settings.wait && dsDelayed[ dsName ] ) {
+			backlog = dsDelayed[ dsName ];
+			i_len = backlog.length;
+			for ( i = 0; i !== i_len; i += 1 ) {
+				i_cache = backlog[ i ];
+				selector = i_cache.selector;
+				if ( selector.length ) {
+					try {
+						resultSet = jsonpointer.get( JSONresponse, selector );
+					} catch  ( e ) {
+						throw dsName + " - JSON selector not found: " + selector;
+					}
+				} else {
+					resultSet = JSONresponse;
+				}
+				$( "#" + i_cache.callerId ).trigger( {
+					type: "json-fetched.wb",
+					fetch: {
+						response: resultSet,
+						status: "200",
+						refId: i_cache.refId,
+						xhr: null
+					}
+				}, this );
+			}
+		}
+
+		// Identify that initialization has completed
+		wb.ready( $elm, componentName );
+	}
+} );
+
+// Apply patches to a preloaded JSON data
+$document.on( patchesEvent, selector, function( event ) {
+	var elm = event.target,
+		$elm = $( elm ),
+		patches = event.patches,
+		filterPath = event.fpath,
+		filterTrueness = event.filter || [],
+		filterFaslseness = event.filternot || [],
+		isCumulative = !!event.cumulative,
+		settings,
+		dsName,
+		dsJSON, resultSet,
+		delayedLst,
+		i, i_len, i_cache, pntrSelector;
+
+	if ( elm === event.currentTarget && $.isArray( patches ) ) {
+		settings = wb.getData( $elm, componentName );
+
+		if ( !settings ) {
+			return true;
+		}
+		dsName = "[" + settings.name + "]";
+
+		// Check if the patches need to be hold until the next json-fetch event
+		if ( elm.hasAttribute( reloadFlag ) ) {
+			dsPostponePatches[ dsName ] = event;
+			return true;
+		}
+
+		if ( !dsDelayed[ dsName ] ) {
+			throw "Applying patched on undefined dataset name: " + dsName;
+		}
+
+		dsJSON = datasetCache[ dsName ];
+		if ( !isCumulative ) {
+			dsJSON = $.extend( true, ( $.isArray( dsJSON ) ? [] : {} ), dsJSON );
+		}
+
+		// Apply a filtering
+		if ( filterPath ) {
+			dsJSON = getPatchesToFilter( dsJSON, filterPath, filterTrueness, filterFaslseness );
+		}
+
+		jsonpatch.apply( dsJSON, patches );
+
+		if ( settings.debug ) {
+			debugPrintOut( $elm, "patchesEvent", dsJSON, patches );
+		}
+
+		delayedLst = dsDelayed[ dsName ];
+		i_len = delayedLst.length;
+		for ( i = 0; i !== i_len; i += 1 ) {
+			i_cache = delayedLst[ i ];
+			pntrSelector = i_cache.selector;
+			if ( pntrSelector.length ) {
+				try {
+					resultSet = jsonpointer.get( dsJSON, pntrSelector );
+				} catch  ( e ) {
+					throw dsName + " - JSON selector not found: " + pntrSelector;
+				}
+			} else {
+				resultSet = dsJSON;
+			}
+			$( "#" + i_cache.callerId ).trigger( {
+				type: "json-fetched.wb",
+				fetch: {
+					response: resultSet,
+					status: "200",
+					refId: i_cache.refId,
+					xhr: null
+				}
+			}, this );
+		}
+	}
+} );
+
+
+// Used by the JSON-fetch plugin for when trying fetching a resource that is mapped a dataset name
+$document.on( postponeEvent, function( event ) {
+	var jsonPostpone = event.postpone,
+		dsName = jsonPostpone.dsname,
+		callerId = jsonPostpone.callerId,
+		refId = jsonPostpone.refId,
+		selector = jsonPostpone.selector,
+		resultSet;
+
+	if ( !dsDelayed[ dsName ] ) {
+		dsDelayed[ dsName ] = [ ];
+	}
+
+	// Add to the delayed updates list
+	dsDelayed[ dsName ].push( {
+		"callerId": callerId,
+		"refId": refId,
+		"selector": selector
+	} );
+
+	// Send the data if the dataset is ready?
+	if ( datasetCache[ dsName ] && !datasetCacheSettings[ dsName ].wait ) {
+		resultSet = datasetCache[ dsName ];
+		if ( selector.length ) {
+			try {
+				resultSet = jsonpointer.get( resultSet, selector );
+			} catch  ( e ) {
+				throw dsName + " - JSON selector not found: " + selector;
+			}
+		}
+		$( "#" + callerId ).trigger( {
+			type: "json-fetched.wb",
+			fetch: {
+				response: resultSet,
+				status: "200",
+				refId: refId,
+				xhr: null
+			}
+		}, this );
+	}
+
+} );
+
+/*
+ * Integration with wb-fieldflow
+ *
+ */
+function pushData( $elm, prop, data, reset ) {
+	var dtCache = $elm.data( prop );
+	if ( !dtCache || reset ) {
+		dtCache = [];
+	}
+	dtCache.push( data );
+	return $elm.data( prop, dtCache );
+}
+
+// Fieldflow "op" action
+$document.on( "op.action.wb-fieldflow", ".wb-fieldflow", function( event, data ) {
+
+	if ( !data.op ) {
+		return;
+	}
+
+	// Postpone the event for form submission
+	data.preventSubmit = true;
+	pushData( $( data.provEvt ), "wb-fieldflow-submit", data );
+} );
+
+// Fieldflow "op" submit
+$document.on( "op.submit.wb-fieldflow", ".wb-fieldflow", function( event, data ) {
+
+	// Get the hbs Plugin
+	var op = data.op,
+		source = data.source,
+		ops;
+
+	if ( !op ) {
+		return true;
+	}
+
+	if ( !$.isArray( op ) ) {
+		ops = [];
+		ops.push( op );
+	} else {
+		ops = op;
+	}
+
+	$( source ).trigger( {
+		type: "patches.wb-jsonmanager",
+		patches: ops
+	} );
+} );
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb " + initEvent, selector, init );
+
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( jQuery, window, wb );
 
 /**
  * @title WET-BOEW wb-postback
