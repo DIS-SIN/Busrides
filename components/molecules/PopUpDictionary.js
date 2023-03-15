@@ -40,8 +40,6 @@ export default function PopUpDictionary(props) {
     },[textContent]);
 
     async function getDefinition() {
-        console.log(textContent.trim());
-
         // custom hardcoded definition for WTH series
         if (textContent.trim().toLowerCase() === 'wth') {
             setDefinition('Initialism of what the heck');
@@ -83,8 +81,6 @@ export default function PopUpDictionary(props) {
             setTranslation(trans.text);
         } else {
             const body = await response.json();
-
-            console.log(JSON.stringify(body))
         }
     }
 
