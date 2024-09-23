@@ -4,14 +4,15 @@ import Episode from '../../components/templates/Episode';
 import Page from '../../components/templates/Page';
 import dictionary from '../../locales/en';
 import ErrorPage from '../_error';
+import fetch from 'isomorphic-unfetch';
 
 export default function Post(props) {
-
     if (props.error){
         return <ErrorPage errorCode={404} />
     }
 
     if (props.post){
+
         return <Episode t={dictionary} post={props.post} settings={props.settings} recommendedPosts={props.recommendedPosts}/>
     }
 
@@ -25,6 +26,26 @@ Post.getInitialProps = async function({query, res, req}) {
     const props = new Object();
 
     props.post = await getPost(query.slug);
+
+    if (props.post){
+        const ghostURL = 'https://busrides.ghost.io/en/' + query.slug;
+        if (typeof window === "undefined") {
+            // Server-side-only code
+            try {
+                const response = await fetch(ghostURL, { method: 'GET', redirect: 'manual' });
+                if (response.status === 301 && response.headers.get('Location').startsWith('https')){
+                    if (res && response.headers.get('Location')) {
+                        res.writeHead(301, { Location: response.headers.get('Location') })
+                        res.end()
+                        return {};
+                    }
+                }
+            } catch (error) {
+                
+            }
+        }
+    };
+
     props.settings = await getSettings();
 
     if (!props.post){
