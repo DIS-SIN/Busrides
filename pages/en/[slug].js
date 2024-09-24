@@ -28,10 +28,11 @@ Post.getInitialProps = async function({query, res, req}) {
     props.post = await getPost(query.slug);
 
     if (props.post){
-        const ghostURL = 'https://busrides.ghost.io/en/' + query.slug;
-        if (typeof window === "undefined") {
+        try {
             // Server-side-only code
-            try {
+            if(res){
+                const ghostURL = 'https://busrides.ghost.io/en/' + query.slug;
+                
                 const response = await fetch(ghostURL, { method: 'GET', redirect: 'manual' });
                 if (response.status === 301 && response.headers.get('Location').startsWith('https')){
                     if (res && response.headers.get('Location')) {
@@ -40,10 +41,20 @@ Post.getInitialProps = async function({query, res, req}) {
                         return {};
                     }
                 }
-            } catch (error) {
+            } else {
+                // Client-side-only code
+                const response = await fetch(`/api/episode-redirect?lang=en&slug=${query.slug}`);
                 
+                if (response.ok) {
+                    const body = await response.json()
+                    if (body.redirectUrl) {
+                        window.location.replace(body.redirectUrl);
+                        return {};
+                    }
+                }
             }
-        }
+        }   
+        catch (error) {}
     };
 
     props.settings = await getSettings();
