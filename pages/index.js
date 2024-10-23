@@ -9,7 +9,17 @@ export default function Index(props) {
     );
 }
 
-Index.getInitialProps = async function({req}) {
+Index.getInitialProps = async function({req, res}) {
+    const homeRedirectEn = 'https://www.csps-efpc.gc.ca/catalogue/busrides-eng.aspx';
+    if (res){
+        res.writeHead(301, { Location: homeRedirectEn })
+        res.end()
+        return {};
+    } else {
+        window.location.replace(homeRedirectEn);
+        return {};
+    }
+
     const apiOptions = {
         page: 1,
         limit: 10,
